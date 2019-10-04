@@ -1,0 +1,134 @@
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .centered {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .title-mdpwork{
+        font-family: 'Bowlby One SC', cursive;
+        color:white;
+        font-size: 25px;
+        text-shadow: 2px 2px #353535;
+
+      }
+      .navbar-expand-md .navbar-nav{
+        text-align: center;
+    }
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .centered {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .title-mdpwork{
+        font-family: 'Bowlby One SC', cursive;
+        color:white;
+        font-size: 25px;
+        text-shadow: 2px 2px #353535;
+
+      }
+      .navbar-expand-md .navbar-nav{
+        text-align: center;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .title-mdpwork{
+        font-family: 'Bowlby One SC', cursive;
+        color:white;
+        font-size: 50px;
+        text-shadow: 2px 2px #353535;
+
+      }
+      .navbar-light .navbar-nav .nav-link{
+        float: right;
+    }
+
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .centered {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .title-mdpwork{
+        font-family: 'Bowlby One SC', cursive;
+        color:white;
+        font-size: 60px;
+        text-shadow: 2px 2px #353535;
+        margin-bottom: 50px;
+
+      }
+      .navbar-expand-md .navbar-nav{
+        float: right;
+    }
+    .steps{
+        margin-top: 110px;
+      }
+    .steps-img{
+        height: 80px;
+    }
+    .steps-text-description{
+        color: #ffffff;font-style: italic
+    }
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .centered {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .title-mdpwork{
+        font-family: 'Bowlby One SC', cursive;
+        color:white;
+        font-size: 60px;
+        text-shadow: 2px 2px #353535;
+        margin-bottom: 50px;
+
+      }
+      .title-description{
+        font-family: 'Kanit', sans-serif;
+        color:white;
+        text-align: center;
+        font-size: 18px;
+      }
+      .steps{
+        margin-top: 110px;
+      }
+      .steps-img{
+        height: 80px;
+      }
+      .navbar-expand-md .navbar-nav{
+        float: right;
+    }
+    .steps-text-description{
+        color: #ffffff;font-style: italic
+    }
+}
