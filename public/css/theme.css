@@ -1,20 +1,12 @@
 @import url(../css/jquery-ui.min.css);
 @import url(../css/font-awesome.min.css);
 @import url(../css/font-awesome-animation.min.css);
-@import url(../css/menu.css);
-@import url(../css/ace-responsive-menu.css);
 @import url(../css/bootstrap-select.min.css);
 @import url(../css/simplebar.min.css);
-@import url(../css/progressbar.css);
-@import url(../css/flaticon.css);
 @import url(../css/animate.css);
 @import url(../css/slider.css);
 @import url(../css/fancyBox.css);
 @import url(../css/owl.css);
-@import url(../css/map-css/maps.css);
-@import url(../css/map-css/searcher.css);
-@import url(../css/map-css/info-box.css);
-@import url(../css/timecounter.css);
 @import url(https://fonts.googleapis.com/css?family=Nunito:400,600,800&amp;subset=vietnamese);
 html{
     font-size:100%
@@ -553,10 +545,9 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
 }
 .home-content{
     position:relative;
-    margin-top:170px;
     margin-bottom:140px
 }
-.home-text h1,.home-text h2,.home-text h3{
+.home-text h1,.home-text h2{
     color:#fff;
     margin-top:0;
     font-weight:600
@@ -649,7 +640,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     width:140px
 }
 .home-job-search-box .search_option_button .btn:hover{
-    background-color:#82b440;
+    background-color:#94d7f1;
     color:#fff!important
 }
 .home-job-search-box .search_option_button .btnh3{
@@ -936,7 +927,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     color:#262626
 }
 .pjc_all_btn.home5 a.btn:hover{
-    border:1px solid #82b440;
+    border:1px solid #00b7ff;
     color:#fff
 }
 .icon_hvr_img_box.style2{
@@ -944,7 +935,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
 }
 .icon_hvr_img_box.style2:hover{
     cursor:pointer;
-    border-bottom:4px solid #82b440
+    border-bottom:4px solid #00b7ff
 }
 .icon_hvr_img_box.style2:hover:before{
     background-color:#fff
@@ -956,7 +947,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     color:#7f7f7f
 }
 .icon_hvr_img_box.style2:hover .overlay .icon{
-    color:#82b440
+    color:#00b7ff
 }
 .carrer-tips.home4,.feature-job.home4,.footer_one.home4,.our-partner.home4,.popular-job.home4{
     border-bottom:1px solid #ededed
@@ -1219,11 +1210,11 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     top:71px
 }
 .fj_post:hover{
-    border:1px solid #82b440;
-    border-left:4px solid #82b440
+    border:1px solid #00b7ff;
+    border-left:4px solid #00b7ff
 }
 .fj_post:hover a.btn{
-    background-color:#82b440;
+    background-color:#00b7ff;
     color:#fff
 }
 .fj_post a.btn:focus{
@@ -2599,7 +2590,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
 .ui_kit_select_search .bs-searchbox:before{
     color:#d0d1d3;
     content:"\f002";
-    font-family:FontAwesome;
+
     font-size:20px;
     line-height:45px;
     position:absolute;
@@ -6735,7 +6726,7 @@ a.text-thm:hover{
     background-color:#fff!important
 }
 .bgc-lightgray{
-    background-color:#d3d3d3
+    background-color:#f1f1f1
 }
 .bgc-snowshade{
     background-color:#f9f9f9
@@ -6869,7 +6860,7 @@ a.text-thm:hover{
     outline:0
 }
 .btn-thm{
-    background-color:#82b440;
+    background-color:#00b7ff;
     color:#fff;
     font-size:16px;
     padding:7px 30px;
@@ -6879,8 +6870,8 @@ a.text-thm:hover{
 }
 .btn-thm:active,.btn-thm:focus,.btn-thm:hover{
     background-color:transparent;
-    border-color:#82b440;
-    color:#82b440
+    border-color:#00b7ff;
+    color:#00b7ff
 }
 .btn-thm2{
     background-color:#00d664;
@@ -6998,8 +6989,8 @@ a.text-thm:hover{
 }
 .btn-transparent{
     background-color:transparent;
-    border-color:#82b440;
-    color:#82b440;
+    border-color:#00b7ff;
+    color:#00b7ff;
     font-size:16px;
     border-radius:4px;
     -webkit-transition:all .3s ease;
@@ -7007,7 +6998,7 @@ a.text-thm:hover{
     transition:all .3s ease
 }
 .btn-transparent:active,.btn-transparent:focus,.btn-transparent:hover{
-    background-color:#82b440;
+    background-color:#00b7ff;
     color:#fff
 }
 .btn-transparent2{
@@ -8059,7 +8050,7 @@ section{
 }
 .preloader{
     background-color:#fff;
-    background-image:url(../images/preloader.gif);
+    background-image:url(../img/preloader.gif);
     background-position:center center;
     background-repeat:no-repeat;
     height:100%;

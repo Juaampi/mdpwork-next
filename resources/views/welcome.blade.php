@@ -103,16 +103,17 @@
 	<!-- Home Design -->
 	<section class="home-one style2 bgc-lightgray">
 		<div class="container">
-			<div class="row home-content">
+			<div class="row home-content text-center">
 				<div class="col-lg-12">
 					<div class="find-cand-sec">
 						<div class="mockup-top"><img class="animute" src="images/home/home2_bg.png" alt="" /></div>
 					</div>
 				</div>
-				<div class="col-lg-8">
+				<div class="col-lg-12">
 					<div class="home-text">
-						<h2 class="fz40">Find The Job That Fits Your Life</h2>
-						<p>Each month, more than 7 million jobseekers turn to website in their search for work, making over 160,000 applications every day.</p>
+                        <h3 class="title-mdpwork">MDP WORK</h3>
+						<h2 class="fz40">Encontrá el profesional que necesitas!</h2>
+						<p>Cada mes, miles de personas resuelven sus problemas cotidianos utilizando el buscador de <strong>MDP WORK®</strong>. ¿Vos cómo vas a encontrar tu solución?</p>
 					</div>
 				</div>
 				<div class="col-lg-12">
@@ -120,22 +121,22 @@
 						<form class="form-inline">
 							<div class="search_option_one">
 							    <div class="form-group">
-							    	<label for="exampleInputName"><span class="flaticon-search"></span></label>
-							    	<input type="text" class="form-control h70" id="exampleInputName" placeholder="Job Title or Keywords">
+							    	<label for="exampleInputName"><img src="icons/search-icon.png"></label>
+							    	<input type="text" class="form-control h70" id="exampleInputName" placeholder="Escribe lo que buscas.. EJ:Carpintero, electricista">
 							    </div>
 							</div>
 							<div class="search_option_two">
 							    <div class="form-group">
-							    	<label for="exampleInputEmail"><span class="flaticon-location-pin"></span></label>
-							    	<input type="text" class="form-control h70" id="exampleInputEmail" placeholder="Location">
+							    	<label for="exampleInputEmail"><img src="icons/location.png"/></label>
+							    	<input type="text" class="form-control h70" id="exampleInputEmail" placeholder="Busca por zona">
 							    </div>
 							</div>
 							<div class="search_option_button">
-							    <button type="submit" class="btn btn-thm btn-secondary h70">Search</button>
+							    <button type="submit" class="btn btn-thm btn-secondary h70">Buscar</button>
 							</div>
 						</form>
 					</div>
-					<p><span class="color-black22">Trending Keywords:</span> DesignCer,  Developer,  Web,  IOS,  PHP,  Senior,  Engineer</p>
+					<p><span class="color-black22"><strong>Más buscados:</strong></span> Electricista,  Albañil,  Desarrollador Web,  Dentista,  Maquillaje,  Uñas,  Paseador de perros</p>
 				</div>
 			</div>
 		</div>
@@ -147,7 +148,7 @@
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<div class="ulockd-main-title">
-						<h3 class="mt0">Popular Job Categories</h3>
+						<h3 class="mt0">Categorías Populares</h3>
 					</div>
 				</div>
 			</div>
@@ -155,10 +156,10 @@
 				<div class="col-sm-6 col-lg-3">
 					<a href="#" class="icon_hvr_img_box style2 sbbg1">
 						<div class="overlay">
-							<div class="icon"><span class="flaticon-pen"></span></div>
+							<div class="icon"><img src="img/construccion.png" /></div>
 							<div class="details">
-								<h5>Design, Art & Multimedia</h5>
-								<p>22 Open Positions</p>
+								<h5>Hogar y Construcción</h5>
+								<p><strong>22</strong> Profesionales</p>
 							</div>
 						</div>
 					</a>
@@ -166,10 +167,10 @@
 				<div class="col-sm-6 col-lg-3">
 					<a href="#" class="icon_hvr_img_box style2 sbbg2">
 						<div class="overlay">
-							<div class="icon"><span class="flaticon-mortarboard"></span></div>
+							<div class="icon"><img src="img/mecanico.png" /></div>
 							<div class="details">
-								<h5>Education Training</h5>
-								<p>48 Open Positions</p>
+								<h5>Mantenimiento de Vehículos</h5>
+								<p><strong>60</strong> Profesionales</p>
 							</div>
 						</div>
 					</a>
@@ -177,10 +178,10 @@
 				<div class="col-sm-6 col-lg-3">
 					<a href="#" class="icon_hvr_img_box style2 sbbg3">
 						<div class="overlay">
-							<div class="icon"><span class="flaticon-bars"></span></div>
+							<div class="icon"><img src="img/nail.png" /></div>
 							<div class="details">
-								<h5>Accounting / Finance</h5>
-								<p>97 Open Positions</p>
+								<h5>Belleza y Cuidado Personal</h5>
+								<p><strong>24</strong> Profesionales</p>
 							</div>
 						</div>
 					</a>
@@ -188,10 +189,10 @@
 				<div class="col-sm-6 col-lg-3">
 					<a href="#" class="icon_hvr_img_box style2 sbbg4">
 						<div class="overlay">
-							<div class="icon"><span class="flaticon-interview"></span></div>
+							<div class="icon"><img src="img/fotografia.png" /></span></div>
 							<div class="details">
-								<h5>Human Resource</h5>
-								<p>17 Open Positions</p>
+								<h5>Fotografía, música y cine</h5>
+								<p><strong>17</strong> Profesionales</p>
 							</div>
 						</div>
 					</a>
@@ -199,10 +200,10 @@
 				<div class="col-sm-6 col-lg-3">
 					<a href="#" class="icon_hvr_img_box style2 sbbg5">
 						<div class="overlay">
-							<div class="icon"><span class="flaticon-antenna"></span></div>
+							<div class="icon"><img src="img/medicina.png" /></div>
 							<div class="details">
-								<h5>Telecommunications</h5>
-								<p>60 Open Positions</p>
+								<h5>Medicina y Salud</h5>
+								<p><strong>60</strong> Profesionales</p>
 							</div>
 						</div>
 					</a>
@@ -210,10 +211,10 @@
 				<div class="col-sm-6 col-lg-3">
 					<a href="#" class="icon_hvr_img_box style2 sbbg6">
 						<div class="overlay">
-							<div class="icon"><span class="flaticon-food"></span></div>
+							<div class="icon"><img src="img/fiesta.png" /></div>
 							<div class="details">
-								<h5>Restaurant / Food Service</h5>
-								<p>22 Open Positions</p>
+								<h5>Fiestas y Eventos</h5>
+								<p><strong>22</strong> Profesionales</p>
 							</div>
 						</div>
 					</a>
@@ -221,10 +222,10 @@
 				<div class="col-sm-6 col-lg-3">
 					<a href="#" class="icon_hvr_img_box style2 sbbg7">
 						<div class="overlay">
-							<div class="icon"><span class="flaticon-customer-support"></span></div>
+							<div class="icon"><img src="img/oficina.png" /></div>
 							<div class="details">
-								<h5>Construction / Facilities</h5>
-								<p>05 Open Positions</p>
+								<h5>Servicios de Oficina</h5>
+								<p><strong>5</strong> Profesionales</p>
 							</div>
 						</div>
 					</a>
@@ -232,59 +233,17 @@
 				<div class="col-sm-6 col-lg-3">
 					<a href="#" class="icon_hvr_img_box style2 sbbg8">
 						<div class="overlay">
-							<div class="icon"><span class="flaticon-care"></span></div>
+							<div class="icon"><img src="img/contable.png" /></div>
 							<div class="details">
-								<h5>Health</h5>
-								<p>10 Open Positions</p>
+								<h5>Asesoramiento Contable y Legal</h5>
+								<p><strong>10</strong> Profesionales</p>
 							</div>
 						</div>
 					</a>
 				</div>
 				<div class="col-lg-6 offset-lg-3">
 					<div class="pjc_all_btn text-center">
-						<a class="btn btn-thm" href="#">Browse All Categories <span class="flaticon-right-arrow pl10"></span></a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- How It's Work -->
-	<section class="popular-job">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12 text-center">
-					<div class="ulockd-main-title">
-						<h3 class="mt0">How It Works?</h3>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-6 col-lg-4 prpl5">
-					<div class="icon_box_hiw">
-						<div class="icon"><div class="list_tag float-right"><p>1</p></div><span class="flaticon-unlocked"></span></div>
-						<div class="details">
-							<h4>Create An Account</h4>
-							<p>Post a job to tell us about your project. We'll quickly match you with the right freelancers.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-lg-4 prpl5 mt20-xxsd">
-					<div class="icon_box_hiw">
-						<div class="icon middle"><div class="list_tag float-right"><p>2</p></div><span class="flaticon-job"></span></div>
-						<div class="details">
-							<h4>Search Jobs</h4>
-							<p>Browse profiles, reviews, and proposals then interview top candidates.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-lg-4 prpl5 mt20-xxsd">
-					<div class="icon_box_hiw">
-						<div class="icon"><div class="list_tag float-right"><p>3</p></div><span class="flaticon-trophy"></span></div>
-						<div class="details">
-							<h4>Save & Apply</h4>
-							<p>Use the Upwork platform to chat, share files, and collaborate from your desktop or on the go.</p>
-						</div>
+						<a class="btn btn-thm" href="#">Ver todas las categorías</a>
 					</div>
 				</div>
 			</div>
@@ -292,13 +251,13 @@
 	</section>
 
 	<!-- Features Job List Design -->
-	<section class="popular-job bgc-fa pb30">
+	<section class="popular-job bgc-lightgray pb30">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="ulockd-main-title">
-						<h3 class="mt0">Featured Jobs</h3>
-						<a class="text-thm float-right" href="#">Browse All Jobs <i class="flaticon-right-arrow pl15"></i></a>
+						<h3 class="mt0">Últimos profesionales agregados</h3>
+						<a class="text-thm float-right" href="#">Ver todos<i class="flaticon-right-arrow pl15"></i></a>
 					</div>
 				</div>
 			</div>
@@ -306,71 +265,64 @@
 				<div class="col-sm-12 col-lg-12">
 					<div class="fj_post">
 						<div class="details">
-							<h5 class="job_chedule text-thm mt0">Full Time</h5>
+							<h5 class="job_chedule text-thm mt0"><strong>Disponible</strong></h5>
 							<div class="thumb fn-smd">
-								<img class="img-fluid" src="images/partners/1.jpg" alt="1.jpg">
+								<img class="img-fluid" style="height: 120px" src="img/logo.png" alt="1.jpg">
 							</div>
-							<h4>JEB Product Sales Specialist, Russia & CIS</h4>
-							<p>Posted 23 August by <a class="text-thm" href="#">Wiggle CRC</a></p>
-							<ul class="featurej_post">
-								<li class="list-inline-item"><span class="flaticon-location-pin"></span> <a href="#">Bothell, WA, USA</a></li>
-								<li class="list-inline-item"><span class="flaticon-price pl20"></span> <a href="#">$13.00 - $18.00 per hour</a></li>
-							</ul>
-						</div>
-						<a class="btn btn-md btn-transparent float-right fn-smd" href="#">Browse Job</a>
+							<h4>Ricardo Alfredo Rodriguez</h4>
+                            <p class="font-style-italic"><img src="icons/location.png" /> Lomás del Golf, Mar del Plata</p>
+                            <p class="font-style-italic" ><a href="#"><strong>Electricista </strong> - <span style="font-style: italic">Cierra en <span style="color: #e44d4d"><strong>01:27hs</strong></span></span></a></p>
+
+                        </div>
+                        <a class="btn btn-md btn-transparent float-right fn-smd" href="#">Ver</a>
 					</div>
-				</div>
+                </div>
+                <div class="col-sm-12 col-lg-12">
+                        <div class="fj_post">
+                            <div class="details">
+                                <h5 class="job_chedule mt0"  style="color:#e44d4d;"><strong>No Disponible</strong></h5>
+                                <div class="thumb fn-smd">
+                                    <img class="img-fluid" style="height: 120px" src="img/logo.png" alt="1.jpg">
+                                </div>
+                                <h4>Juan pablo Garcia</h4>
+                                <p class="font-style-italic"><img src="icons/location.png" /> Centro, Mar del Plata</p>
+                                <p class="font-style-italic" ><a  style="color:#e44d4d;" href="#"><strong>Peluquero</strong></a></p>
+
+                            </div>
+                            <a class="btn btn-md btn-transparent float-right fn-smd" href="#">Browse Job</a>
+                        </div>
+                    </div>
 				<div class="col-sm-12 col-lg-12">
-					<div class="fj_post">
-						<div class="details">
-							<h5 class="job_chedule text-thm mt0">Part Time</h5>
-							<div class="thumb fn-smd">
-								<img class="img-fluid" src="images/partners/2.jpg" alt="2.jpg">
-							</div>
-							<h4>General Ledger Accountant</h4>
-							<p>Posted 23 August by <a class="text-thm" href="#">Robert Half Finance & Accounting</a></p>
-							<ul class="featurej_post">
-								<li class="list-inline-item"><span class="flaticon-location-pin"></span> <a href="#">RG40, Wokingham</a></li>
-								<li class="list-inline-item"><span class="flaticon-price pl20"></span> <a href="#">$13.00 - $18.00 per hour</a></li>
-							</ul>
-						</div>
-						<a class="btn btn-md btn-transparent float-right fn-smd" href="#">Browse Job</a>
-					</div>
-				</div>
-				<div class="col-sm-12 col-lg-12">
-					<div class="fj_post">
-						<div class="details">
-							<h5 class="job_chedule text-thm mt0">Full Time</h5>
-							<div class="thumb fn-smd">
-								<img class="img-fluid" src="images/partners/3.jpg" alt="3.jpg">
-							</div>
-							<h4>Junior Digital Graphic Designer</h4>
-							<p>Posted 23 August by <a class="text-thm" href="#">Parkside Recruitment - Uxbridge Finance</a></p>
-							<ul class="featurej_post">
-								<li class="list-inline-item"><span class="flaticon-location-pin"></span> <a href="#">New Denham, UB8 1JG</a></li>
-								<li class="list-inline-item"><span class="flaticon-price pl20"></span> <a href="#">$13.00 - $18.00 per hour</a></li>
-							</ul>
-						</div>
-						<a class="btn btn-md btn-transparent float-right fn-smd" href="#">Browse Job</a>
-					</div>
-				</div>
-				<div class="col-sm-12 col-lg-12">
-					<div class="fj_post">
-						<div class="details">
-							<h5 class="job_chedule text-thm mt0">Full Time</h5>
-							<div class="thumb fn-smd">
-								<img class="img-fluid" src="images/partners/4.jpg" alt="4.jpg">
-							</div>
-							<h4>UX/UI Designer</h4>
-							<p>Yesterday <a class="text-thm" href="#">NonStop Recruitment Ltd</a></p>
-							<ul class="featurej_post">
-								<li class="list-inline-item"><span class="flaticon-location-pin"></span> <a href="#">Bothell, WA, USA</a></li>
-								<li class="list-inline-item"><span class="flaticon-price pl20"></span> <a href="#">$13.00 - $18.00 per hour</a></li>
-							</ul>
-						</div>
-						<a class="btn btn-md btn-transparent float-right fn-smd" href="#">Browse Job</a>
-					</div>
-				</div>
+                        <div class="fj_post">
+                            <div class="details">
+                                <h5 class="job_chedule text-thm mt0"><strong>Disponible</strong></h5>
+                                <div class="thumb fn-smd">
+                                    <img class="img-fluid" style="height: 120px" src="img/logo.png" alt="1.jpg">
+                                </div>
+                                <h4>Ricardo Alfredo Rodriguez</h4>
+                                <p class="font-style-italic"><img src="icons/location.png" /> Lomás del Golf, Mar del Plata</p>
+                                <p class="font-style-italic" ><a  style="color:#e44d4d;" href="#"><strong>Electricista</strong></a></p>
+
+                            </div>
+                            <a class="btn btn-md btn-transparent float-right fn-smd" href="#">Browse Job</a>
+                        </div>
+                    </div>
+
+                        <div class="col-sm-12 col-lg-12">
+                                <div class="fj_post">
+                                    <div class="details">
+                                        <h5 class="job_chedule text-thm mt0"><strong>Disponible</strong></h5>
+                                        <div class="thumb fn-smd">
+                                            <img class="img-fluid" style="height: 120px" src="img/logo.png" alt="1.jpg">
+                                        </div>
+                                        <h4>Ricardo Alfredo Rodriguez</h4>
+                                        <p class="font-style-italic"><img src="icons/location.png" /> Lomás del Golf, Mar del Plata</p>
+                                        <p class="font-style-italic" ><a  style="color:#e44d4d;" href="#"><strong>Electricista</strong></a></p>
+
+                                    </div>
+                                    <a class="btn btn-md btn-transparent float-right fn-smd" href="#">Browse Job</a>
+                                </div>
+                        </div>
 			</div>
 		</div>
 	</section>

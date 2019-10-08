@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="css/responsive.css">
 
    <!-- end template integration css -->
+   <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap" rel="stylesheet">
 
 </head>
 <body style="background:#808080;">
@@ -78,10 +79,6 @@
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="js/jquery-migrate-3.0.0.min.js"></script>
 <script type="text/javascript" src="js/popper.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.mmenu.all.js"></script>
-<script type="text/javascript" src="js/ace-responsive-menu.js"></script>
-<script type="text/javascript" src="js/bootstrap-select.min.js"></script>
 <script type="text/javascript" src="js/snackbar.min.js"></script>
 <script type="text/javascript" src="js/simplebar.js"></script>
 <script type="text/javascript" src="js/parallax-new.js"></script>
