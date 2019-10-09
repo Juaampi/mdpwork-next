@@ -30,7 +30,7 @@
    <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap" rel="stylesheet">
 
 </head>
-<body style="background:#808080;">
+<body class="bgc-lightgray">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
