@@ -10,13 +10,13 @@
 							<img class="img-fluid rounded" style="height: 150px" src="img/logo.png" alt="cl1.jpg"><br><br>
 						</div>
 						<div class="details">
-							<small class="text-thm2">Disponible</small>
+							<small class="text-success"><strong>Disponible</strong></small>
 							<h3>Juan Pablo Garcia</h3>
-							<p>Hace 26 días en <a href="#" class="text-thm2">Hogar y Construcción</a></p>
+							<p>Hace 26 días en <a style="color: #00b7ff" href="#" >Hogar y Construcción</a></p>
 							<ul class="address_list">
-								<li class="list-inline-item"><a href="#"><img src="icons/location.png" /> Jardín Stella Maris, Mar del Plata</a></li>
-								<li class="list-inline-item"><a href="#"><span class="flaticon-price"></span></a></li>
-							</ul>
+                                <li class="list-inline-item"><a href="#"><img src="icons/location.png" /> Jardín Stella Maris, Mar del Plata</a></li>
+                            </ul>
+
 						</div>
 					</div>
 				</div>
@@ -25,18 +25,18 @@
                 </div>
                 <div class="col-md-4">
                     <div class="row">
-                        <p><strong>Datos Personales</strong></p>
+                        <p><strong>Contacto</strong></p>
                     </div>
                      <div class="row">
                         <ul>
                             <li>
-                                <p style="font-size: 14px;"><img style="height: 25px;" class="mr-2" src="icons/wpp.png" />Whatsapp <span style="font-size: 12px;"><strong><a href="#">Contactar</a></strong></span></p>
+                                <p style="font-size: 14px;"><img style="height: 25px;" class="mr-2" src="icons/wpp.png" />Whatsapp </p>
                             </li>
                             <li>
-                                <p style="font-size: 14px;"><img style="height: 25px;" class="mr-2" src="icons/ms.png" />Messenger <span style="font-size: 12px;"><strong><a href="#">Contactar</a></strong></span></p>
+                                <p style="font-size: 14px;"><img style="height: 25px;" class="mr-2" src="icons/ms.png" />Messenger </p>
                             </li>
                             <li>
-                                <p style="font-size: 14px;"><img style="height: 25px;" class="mr-2" src="icons/telefono.png" />Teléfono <span style="font-size: 12px;"><strong><a href="#">Contactar</a></strong></span></p>
+                                <p style="font-size: 14px;"><img style="height: 25px;" class="mr-2" src="icons/telefono.png" />Teléfono </p>
                             </li>
                         </ul>
                      </div>
@@ -51,86 +51,121 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="candidate_about_info style2">
-                                    <h4 class="fz20 mb30">Job Description</h4>
+                                    <h4 class="fz20 mb30">Descripción del trabajo</h4>
                                     <p class="mb30">Due to ongoing growth, this fun &amp; energetic International corporate based on the outskirts of Oxford, is seeking a UX/UI Designer to join an innovative team, focused on delivering exciting User Experiences and great functionality, across both Web &amp; Mobile platforms.</p>
-                                    <p class="mb40">The UX/UI Designer will be working with a world-class team of designers, engineers, and product mana gers to develop innovative user experiences that will shape the industry’s pioneering products.</p>
-                                    <p class="fwb">Responsibilities Include:</p>
-                                    <p>-- Partnering with product and engineering to translate business and user goals into elegant and practical designs that can deliver on key business and user metrics</p>
-                                    <p>-- Collaborating with internal stakeholders and team members to brainstorm new products, features and functionalities that enhance the mobile and web experiences</p>
-                                    <p>-- Giving and soliciting feedback with designers</p>
-                                    <p class="fwb">Background, Skills &amp; Experience</p>
-                                    <p>-- Circa 3+ years experience designing for web and mobile platforms</p>
-                                    <p>-- Through your online portfolio, you are able to share your UX/UI design capabilities by showcasing your design chops and demonstrates originality, innovation and strong problem solving skills</p>
-                                    <p>-- design chops and demonstrates originality, innovation and strong problem solving skills</p>
-                                    <p>-- Demonstrable experience with end-to-end product design, including consumer product/s</p>
-                                    <p>-- Talent for managing multiple projects simultaneously, from concept through to completion</p>
-                                    <p>-- Talent for managing multiple projects simultaneously, from concept through to completion show it</p>
-                                    <p>-- Excellent communicator who has conviction to champion  of view, but can also successfully collabo rate with others</p>
-                                    <p>-- A Degree in Design or related field is preferred</p>
-                                    <p class="mb60">-- You enjoy a fast paced and dynamic working environment</p>
-                                    <button class="btn btn-lg btn-thm mb15">Apply Now <span class="flaticon-right-arrow pl10"></span></button>
-                                    <button class="btn btn-lg btn-gray float-right"><span class="flaticon-mail pr10"></span> Get Job Alerts</button>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="job_shareing">
-                                    <div class="candidate_social_widget bgc-fa">
-                                        <ul>
-                                            <li>Share This Job:</li>
-                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-google"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                        </ul>
-                                    </div>
+                                    <p class="mt-3 mb-4 fwb"><img src="icons/tarjeta.png" />
+                                        <strong>Métodos de Pago</strong>
+                                        <span class="payment">Efectivo</span>
+                                        <span class="payment"><span class="payment-visa"></span></span>
+                                        <span class="payment"><span class="payment-mercado"></span></span>
+                                    </p>
+                                        <p class="fwb"><img src="icons/horario.png"> Horarios</p>
+                                <div class="table-responsive">
+
+                                        <!--Table-->
+                                        <table class="table">
+
+                                          <!--Table head-->
+                                          <thead>
+                                            <tr>
+                                              <th>*</th>
+                                              <th class="th-lg">Mañana</th>
+                                              <th class="th-lg">Tarde-Noche</th>
+                                              <th class="th-lg">Día Completo</th>
+                                            </tr>
+                                          </thead>
+                                          <!--Table head-->
+
+                                          <!--Table body-->
+                                          <tbody>
+                                            <tr>
+                                              <th scope="row">Lunes</th>
+                                              <td>11:00hs - 15:30hs</td>
+                                              <td>20:00hs - 23:00hs</td>
+                                              <td>-</td>
+                                            </tr>
+                                            <tr>
+                                              <th scope="row">Martes</th>
+                                              <td>11:00hs - 15:30hs</td>
+                                              <td>20:00hs - 23:00hs</td>
+                                              <td>-</td>
+                                            </tr>
+                                            <tr>
+                                              <th scope="row">Miercoles</th>
+                                              <td>11:00hs - 15:30hs</td>
+                                              <td>20:00hs - 23:00hs</td>
+                                              <td>-</td>
+                                            </tr>
+                                            <tr style="background: #ececec;">
+                                              <th scope="row">Jueves</th>
+                                              <td>-</td>
+                                              <td>-</td>
+                                              <td>08:00hs - 23:00hs</td>
+                                            </tr>
+                                            <tr>
+                                                    <th scope="row">Viernes</th>
+                                                    <td>11:00hs - 15:30hs</td>
+                                                    <td>20:00hs - 23:00hs</td>
+                                                    <td>-</td>
+                                                  </tr>
+                                                  <tr>
+                                                        <th scope="row">Sábado</th>
+                                                        <td>11:00hs - 15:30hs</td>
+                                                        <td>20:00hs - 23:00hs</td>
+                                                        <td>-</td>
+                                                      </tr>
+                                                      <tr style="background: #ff1b1b; color: white;">
+                                                            <th scope="row" >Domingo</th>
+                                                            <td>-</td>
+                                                            <td>-</td>
+                                                            <td>-</td>
+                                                          </tr>
+
+                                          </tbody>
+                                          <!--Table body-->
+
+                                        </table>
+                                        <!--Table-->
+
+                                      </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-xl-4">
-                        <h4 class="fz20 mb30">Position Information</h4>
+                        <h4 class="fz20 mb30">Información adicional</h4>
                         <div class="candidate_working_widget style2 bgc-fa">
-                            <div class="icon text-thm"><span class="flaticon-money"></span></div>
+                            <div class="icon text-thm"><img src="icons/dinero.png"> </span></div>
                             <div class="details">
-                                <p class="color-black22">Offerd Salary</p>
-                                <p>$45k - $180k</p>
+                                <p class="color-black22">Promedio Presupuesto</p>
+                                <p>$450 - $1500</p>
                             </div>
-                            <div class="icon text-thm"><span class="flaticon-gender"></span></div>
+                            <div class="icon text-thm"><img src="icons/genero.png" /></span></div>
                             <div class="details">
-                                <p class="color-black22">Gender</p>
-                                <p>Female</p>
+                                <p class="color-black22">Género</p>
+                                <p>Masculino</p>
                             </div>
-                            <div class="icon text-thm"><span class="flaticon-controls"></span></div>
+                            <div class="icon text-thm"><img src="icons/experiencia.png" /></div>
                             <div class="details">
-                                <p class="color-black22">Career Level</p>
-                                <p>Executive</p>
+                                <p class="color-black22">Experiencia</p>
+                                <p>Alta</p>
                             </div>
-                            <div class="icon text-thm"><span class="flaticon-line-chart"></span></div>
+                            <div class="icon text-thm"><img src="icons/titulo.png" /> </div>
                             <div class="details">
-                                <p class="color-black22">Industry</p>
-                                <p>Management</p>
-                            </div>
-                            <div class="icon text-thm"><span class="flaticon-mortarboard"></span></div>
-                            <div class="details">
-                                <p class="color-black22">Experience</p>
-                                <p>2 Years</p>
-                            </div>
-                            <div class="icon text-thm"><span class="flaticon-paper"></span></div>
-                            <div class="details">
-                                <p class="color-black22">Qualification</p>
-                                <p>Bachelor Degree</p>
+                                <p class="color-black22">Título / Profesión</p>
+                                <p>Técnico electricista</p>
                             </div>
                         </div>
-                        <div class="job_info_widget">
-                            <ul>
-                                <li><span class="flaticon-24-hours-support text-thm2"></span> <span>35</span> <span>Day</span></li>
-                                <li><span class="flaticon-zoom-in text-thm2"></span> <span>35697</span> <span>Displayed</span></li>
-                                <li><span class="flaticon-businessman-paper-of-the-application-for-a-job text-thm2"></span> <span>300-500</span> <span>Application</span></li>
-                            </ul>
-                        </div>
-
                     </div>
+
                 </div>
             </div>
+            <div class="container">
+                        <div class="col-lg-8">
+
+                        </div>
+                    </div>
+                </div>
         </section>
 @endsection

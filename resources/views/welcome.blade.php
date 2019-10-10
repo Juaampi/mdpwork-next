@@ -393,36 +393,7 @@
 
 
 	<!-- Our Footer Bottom Area -->
-	<section class="footer_bottom_area p0">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-4 pb10 pt10">
-					<div class="copyright-widget tac-smd mt10">
-						<p>© 2019 <strong>Mdp Work</strong>. All Rights Reserved.</p>
-					</div>
-				</div>
-				<div class="col-lg-8 pb10 pt10">
-					<div class="footer_menu text-right mt10">
-						<ul>
-							<li class="list-inline-item"><a href="page-terms-and-policies.html">Quienes Somos</a></li>
-							<li class="list-inline-item"><a href="page-terms-and-policies.html">Políticas de Privacidad</a></li>
-							<li class="list-inline-item"><a href="page-terms-and-policies.html">Términos y Condiciones</a></li>
-							<li class="list-inline-item"><a href="page-terms-and-policies.html">Seguridad y Privacidad</a></li>
-							<li class="list-inline-item">
-								<select class="selectpicker show-tick">
-									<option>English</option>
-									<option>Frenc</option>
-									<option>Italian</option>
-									<option>Spanish</option>
-									<option>Turkey</option>
-								</select>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+
 <a class="scrollToHome text-thm" href="#"><img src="icons/coete.png" /></a>
 </div>
 <!-- Wrapper End -->

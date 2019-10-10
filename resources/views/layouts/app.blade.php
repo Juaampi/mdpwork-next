@@ -72,6 +72,36 @@
         <main class="">
             @yield('content')
         </main>
+        <section class="footer_bottom_area p0">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 pb10 pt10">
+                            <div class="copyright-widget tac-smd mt10">
+                                <p>© 2019 <strong>Mdp Work</strong>. All Rights Reserved.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 pb10 pt10">
+                            <div class="footer_menu text-right mt10">
+                                <ul>
+                                    <li class="list-inline-item"><a href="page-terms-and-policies.html">Quienes Somos</a></li>
+                                    <li class="list-inline-item"><a href="page-terms-and-policies.html">Políticas de Privacidad</a></li>
+                                    <li class="list-inline-item"><a href="page-terms-and-policies.html">Términos y Condiciones</a></li>
+                                    <li class="list-inline-item"><a href="page-terms-and-policies.html">Seguridad y Privacidad</a></li>
+                                    <li class="list-inline-item">
+                                        <select class="selectpicker show-tick">
+                                            <option>English</option>
+                                            <option>Frenc</option>
+                                            <option>Italian</option>
+                                            <option>Spanish</option>
+                                            <option>Turkey</option>
+                                        </select>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
