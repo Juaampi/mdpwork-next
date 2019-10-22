@@ -3180,7 +3180,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     padding-left:10px
 }
 .our-dashbord{
-    margin-top:60px;
+    margin-top:20px;
     position:relative
 }
 .our-dashbord:before{
@@ -3192,7 +3192,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     height:100vh;
     min-height:100%;
     top:0;
-    width:29%
+    width:23%
 }
 .user_profile{
     background-color:#fff;

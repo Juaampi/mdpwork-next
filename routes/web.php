@@ -19,6 +19,14 @@ Route::get('/perfil', function () {
     return view('perfil');
 });
 
+Route::get('/lista', function () {
+    return view('list');
+});
+
+Route::get('/panel', function () {
+    return view('panel');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

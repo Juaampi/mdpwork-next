@@ -29,6 +29,7 @@
    <!-- end template integration css -->
    <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap" rel="stylesheet">
 
+
 </head>
 <body class="bgc-lightgray">
     <div id="app">

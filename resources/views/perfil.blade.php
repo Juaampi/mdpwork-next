@@ -29,8 +29,8 @@
                     </div>
                      <div class="row">
                         <ul>
-                            <li>
-                                <p style="font-size: 14px;"><img style="height: 25px;" class="mr-2" src="icons/wpp.png" />Whatsapp </p>
+                            <li class="text-center">
+                                <p><img style="height: 25px;" class="mr-2" src="icons/wpp.png" /></p><p style="font-size: 14px;">Whatsapp </p>
                             </li>
                             <li>
                                 <p style="font-size: 14px;"><img style="height: 25px;" class="mr-2" src="icons/ms.png" />Messenger </p>
@@ -51,8 +51,8 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="candidate_about_info style2">
-                                    <h4 class="fz20 mb30">Descripción del trabajo</h4>
-                                    <p class="mb30">Due to ongoing growth, this fun &amp; energetic International corporate based on the outskirts of Oxford, is seeking a UX/UI Designer to join an innovative team, focused on delivering exciting User Experiences and great functionality, across both Web &amp; Mobile platforms.</p>
+                                    <p class="fwb mb10"><img src="icons/descripcion.png"> Descripción del trabajo</p>
+                                    <p>Due to ongoing growth, this fun &amp; energetic International corporate based on the outskirts of Oxford, is seeking a UX/UI Designer to join an innovative team, focused on delivering exciting User Experiences and great functionality, across both Web &amp; Mobile platforms.</p>
                                     <p class="mt-3 mb-4 fwb"><img src="icons/tarjeta.png" />
                                         <strong>Métodos de Pago</strong>
                                         <span class="payment">Efectivo</span>
