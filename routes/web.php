@@ -29,4 +29,4 @@ Route::get('/panel', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/panel', 'HomeController@index')->name('panel');

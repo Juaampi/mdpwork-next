@@ -44,7 +44,7 @@
 							<div class="col-md-6 col-lg-6">
 								<div class="my_profile_input form-group">
 							    	<label for="formGroupExampleInput1">Nombre Completo</label>
-							    	<input type="text" class="form-control" id="formGroupExampleInput1" placeholder="Martha Griffin">
+                                <input type="text" class="form-control" id="formGroupExampleInput1" placeholder="{{Auth::user()->name}}">
 								</div>
 							</div>
 							<div class="col-md-6 col-lg-6">
@@ -56,84 +56,61 @@
 							<div class="col-md-6 col-lg-6">
 								<div class="my_profile_input form-group">
 							    	<label for="exampleInputPhone">Teléfono</label>
-							    	<input type="email" class="form-control" id="exampleInputPhone" aria-describedby="phoneNumber" placeholder="+90 587 658 96 32">
+							    	<input type="email" class="form-control" id="exampleInputPhone" aria-describedby="phoneNumber" placeholder="{{Auth::user()->phone}}">
 								</div>
                             </div>
                             <div class="col-md-6 col-lg-6">
                                     <div class="my_profile_input form-group">
                                         <label for="exampleInputPhone">WhatsApp</label>
-                                        <input type="email" class="form-control" id="exampleInputPhone" aria-describedby="phoneNumber" placeholder="+90 587 658 96 32">
+                                        <input type="email" class="form-control" id="exampleInputPhone" aria-describedby="phoneNumber" placeholder="{{Auth::user()->whatsapp}}">
                                     </div>
                                 </div>
 							<div class="col-md-6 col-lg-6">
 								<div class="my_profile_input form-group">
 							    	<label for="exampleFormControlInput1">Email</label>
-							    	<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+							    	<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="{{Auth::user()->email}}">
 								</div>
 							</div>
 							<div class="col-md-6 col-lg-6">
 								<div class="my_profile_input form-group">
 							    	<label for="exampleFormControlInput2">Sitio Web</label>
-							    	<input type="email" class="form-control" id="exampleFormControlInput2" placeholder="www.careerup.com">
+                                <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="{{Auth::user()->website}}">
 								</div>
 							</div>
 
 							<div class="col-md-6 col-lg-6">
 								<div class="my_profile_select_box form-group">
 							    	<label for="exampleFormControlInput5">Experience</label><br>
-							    	<div class="dropdown bootstrap-select"><select class="selectpicker" tabindex="-98">
-										<option>4-6 Years</option>
-										<option>4-5 Years</option>
-										<option>3-4 Years</option>
-										<option>2-3 Years</option>
-										<option>0-1 Years</option>
+                                   <select class="form-control" placeholder="">
+                                       <option>{{Auth::user()->experience}} Año/s</option>
+										<option>2-3 Año/s</option>
+										<option>4-5 Año/s</option>
+										<option>6-7 Año/s</option>
+										<option>8-10 Año/s</option>
+                                        <option>10-15 Año/s</option>
+                                        <option>15-20 Año/s</option>
 										<option>None</option>
-									</select><button type="button" class="btn dropdown-toggle btn-light" data-toggle="dropdown" role="button" title="4-6 Years"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">4-6 Years</div></div> </div></button><div class="dropdown-menu " role="combobox"><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1"><ul class="dropdown-menu inner show"></ul></div></div></div>
-								</div>
+                                    </select>
+                                </div>
 							</div>
-							<div class="col-md-6 col-lg-6">
-								<div class="my_profile_select_box form-group">
-							    	<label for="exampleFormControlInput6">Fecha de Nacimiento</label><br>
-							    	<div class="dropdown bootstrap-select"><select class="selectpicker" tabindex="-98">
-										<option>04.01.1991</option>
-										<option>04.01.1991</option>
-										<option>04.01.1991</option>
-										<option>04.01.1991</option>
-										<option>04.01.1991</option>
-										<option>04.01.1991</option>
-									</select><button type="button" class="btn dropdown-toggle btn-light" data-toggle="dropdown" role="button" title="04.01.1991"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">04.01.1991</div></div> </div></button><div class="dropdown-menu " role="combobox"><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1"><ul class="dropdown-menu inner show"></ul></div></div></div>
-								</div>
-							</div>
+                            <div class="col-md-6 col-lg-6">
+                                    <div class="my_profile_input form-group">
+                                        <label for="exampleFormControlInput2">Edad</label>
+                                    <input type="number" class="form-control" id="exampleFormControlInput2" placeholder="{{Auth::user()->age}} años">
+                                    </div>
+                                </div>
 							<div class="col-md-6 col-lg-6">
 								<div class="my_profile_select_box form-group">
 							    	<label for="exampleFormControlInput7">Nivel de Profesion</label><br>
-							    	<div class="dropdown bootstrap-select"><select class="selectpicker" tabindex="-98">
-										<option>Certificate</option>
-										<option>Masters In Fine Arts</option>
-										<option>Bachlors in Fine Arts</option>
-										<option>Diploma In Fine Arts</option>
-									</select><button type="button" class="btn dropdown-toggle btn-light" data-toggle="dropdown" role="button" title="Certificate"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">Certificate</div></div> </div></button><div class="dropdown-menu " role="combobox"><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1"><ul class="dropdown-menu inner show"></ul></div></div></div>
-								</div>
-							</div>
-
-							<div class="col-md-6 col-lg-6">
-								<div class="my_profile_select_box form-group">
-							    	<label for="exampleFormControlInput2">Métodos de Pago</label><br>
-							    	<div class="dropdown bootstrap-select show-tick"><select class="selectpicker" multiple="" data-actions-box="true" tabindex="-98">
-										<option>Banking</option>
-										<option>Digital&amp;Creative</option>
-										<option>Retail</option>
-										<option>Business</option>
-									</select><button type="button" class="btn dropdown-toggle bs-placeholder btn-light" data-toggle="dropdown" role="button" title="Nothing selected"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">Nothing selected</div></div> </div></button><div class="dropdown-menu " role="combobox"><div class="bs-actionsbox"><div class="btn-group btn-group-sm btn-block"><button type="button" class="actions-btn bs-select-all btn btn-light">Select All</button><button type="button" class="actions-btn bs-deselect-all btn btn-light">Deselect All</button></div></div><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1"><ul class="dropdown-menu inner show"></ul></div></div></div>
-								</div>
-							</div>
-							<div class="col-md-6 col-lg-6">
-								<div class="my_profile_select_box form-group">
-							    	<label for="exampleFormControlInput2">Allow In Search &amp; Listing</label><br>
-							    	<div class="dropdown bootstrap-select"><select class="selectpicker" tabindex="-98">
-										<option>Yes</option>
-										<option>No</option>
-									</select><button type="button" class="btn dropdown-toggle btn-light" data-toggle="dropdown" role="button" title="Yes"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">Yes</div></div> </div></button><div class="dropdown-menu " role="combobox"><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1"><ul class="dropdown-menu inner show"></ul></div></div></div>
+							    	<select class="form-control">
+                                        <option>{{Auth::user()->level}}</option>
+										<option>Bachillerato</option>
+										<option>Master</option>
+										<option>Doctorado</option>
+                                        <option>Tecnicatura</option>
+                                        <option>Ingeniería</option>
+                                        <option>Título en Curso</option>
+									</select>
 								</div>
 							</div>
 							<div class="col-lg-12">
@@ -144,7 +121,20 @@
 									    </textarea>
 									  </div>
 								</div>
-							</div>
+                            </div>
+                            <div class="col-lg-12">
+                                <h4>Métodos de Pago</h4>
+                                <form>
+                                    <div class="custom-control custom-switch">
+                                        <input type="checkbox" class="custom-control-input" id="switch1" checked>
+                                        <label class="custom-control-label" for="switch1">   <span class="payment">Efectivo</span></label>
+                                    </div>
+                                    <div class="custom-control custom-switch mt-1">
+                                            <input type="checkbox" class="custom-control-input" id="switch1" checked>
+                                            <label class="custom-control-label" for="switch1"> <span class="payment"><span class="payment-visa"></span></span></label>
+                                        </div>
+                                </form>
+                            </div>
 							<div class="col-lg-12">
 								<h4 class="fz18 mb20">Redes Sociales</h4>
 							</div>
