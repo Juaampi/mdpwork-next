@@ -18,10 +18,10 @@
 					</div>
 					<div class="dashbord_nav_list">
 						<ul>
-							<li class="active"><a href="page-candidates-profile.html"><span class="flaticon-profile"></span> Información</a></li>
-							<li><a href="page-candidates-change-password.html"><span class="flaticon-locked"></span> Cambiar Contraseña</a></li>
-							<li><a href="page-log-reg.html"><span class="flaticon-logout"></span> Cerrar Sesion</a></li>
-							<li><a href="#" class="text-danger font-weight-bold"><span class="flaticon-rubbish-bin"></span> Eliminar Perfil</a></li>
+							<li class="active"><a href="page-candidates-profile.html"><img src="icons/perfil.png" class="mr-1" /> Información</a></li>
+							<li><a href="page-candidates-change-password.html"><img src="icons/password.png" class="mr-1" /> Cambiar Contraseña</a></li>
+							<li><a href="page-log-reg.html"><img src="icons/logout.png" class="mr-1" /> Cerrar Sesion</a></li>
+							<li><a href="#" class="text-danger font-weight-bold"><img src="icons/delete.png" class="mr-1" /> Eliminar Perfil</a></li>
 						</ul>
 					</div>
 					<div class="skill_sidebar_widget">
@@ -103,101 +103,100 @@
 								<div class="my_profile_select_box form-group">
 							    	<label for="exampleFormControlInput7">Nivel de Profesion</label><br>
 							    	<select class="form-control">
-                                        <option>{{Auth::user()->level}}</option>
+										<option>{{Auth::user()->level}}</option>
 										<option>Bachillerato</option>
-										<option>Master</option>
+										<option>Tecnicatura</option>
+										<option>Carreras de Grado</option>
+										<option>Maestria</option>
 										<option>Doctorado</option>
-                                        <option>Tecnicatura</option>
-                                        <option>Ingeniería</option>
-                                        <option>Título en Curso</option>
+										<option>Título en Curso</option>
 									</select>
 								</div>
-							</div>
+                            </div>
+                            <div class="col-lg-12">
+                                    <h4 class="fz18 mb20 mt-4">Información Territorial</h4>
+                                </div>
+                                <div class="col-md-6 col-lg-6">
+                                    <div class="my_profile_select_box form-group">
+                                        <label for="exampleFormControlInput9">Ciudad</label><br>
+                                        <select class="form-control">
+                                            <option>Mar del Plata</option>
+                                            <option>Miramar</option>
+                                            <option>Batán</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-6">
+                                    <div class="my_profile_select_box form-group">
+                                            <label for="myInput">Barrio - Zona</label><br>
+                                            <input class="form-control" id="myInput" type="text" name="barrio" placeholder="Escriba el  Barrio">
+                                    </div>
+                                </div>
 							<div class="col-lg-12">
 								<div class="my_resume_textarea mt20">
 									 <div class="form-group">
 									    <label for="exampleFormControlTextarea1">Descripción</label>
-									    <textarea class="form-control" id="exampleFormControlTextarea1" rows="9">Spent several years working on sheep on Wall Street. Had moderate success investing in Yugo's on Wall Street. Managed a small team buying and selling Pogo sticks for farmers. Spent several years licensing licorice in West Palm Beach, FL. Developed several new methods for working it banjos in the aftermarket. Spent a weekend importing banjos in West Palm Beach, FL.In this position, the Software Engineer collaborates with Evention's Development team to continuously enhance our current software solutions as well as create new solutions to eliminate the back-office operations and management challenges present
+									    <textarea class="form-control" id="exampleFormControlTextarea1" rows="9">{{Auth::user()->description}}
 									    </textarea>
 									  </div>
 								</div>
                             </div>
                             <div class="col-lg-12">
-                                <h4>Métodos de Pago</h4>
-                                <form>
-                                    <div class="custom-control custom-switch">
-                                        <input type="checkbox" class="custom-control-input" id="switch1" checked>
-                                        <label class="custom-control-label" for="switch1">   <span class="payment">Efectivo</span></label>
-                                    </div>
-                                    <div class="custom-control custom-switch mt-1">
-                                            <input type="checkbox" class="custom-control-input" id="switch1" checked>
-                                            <label class="custom-control-label" for="switch1"> <span class="payment"><span class="payment-visa"></span></span></label>
-                                        </div>
-                                </form>
+								<h4>Métodos de Pago</h4>
+									<div class="row text-center">
+										<div class="col-md-2">
+                                    		<div class="custom-control custom-switch mt-1">
+                                        		<input type="checkbox" class="custom-control-input" id="switch1" @if(Auth::user()->isEfective) checked @endif>
+                                        		<label class="custom-control-label" for="switch1"><span style="height: 25px;" class="payment">Efectivo</span></label>
+											</div>
+										</div>
+										<div class="col-md-2">
+											<div class="custom-control custom-switch mt-1">
+												<input type="checkbox" class="custom-control-input" id="switch2" @if(Auth::user()->isVisa) checked @endif>
+												<label class="custom-control-label" for="switch2"> <span style="height: 25px;" class="payment"><span class="payment-visa"></span></span></label>
+											</div>
+										</div>
+										<div class="col-md-2">
+												<div class="custom-control custom-switch mt-1">
+													<input type="checkbox" class="custom-control-input" id="switch3" @if(Auth::user()->isMercadoPago) checked @endif>
+													<label class="custom-control-label" for="switch3"> <span style="height: 25px;" class="payment"><span class="payment-mercado"></span></span></label>
+												</div>
+											</div>
+									</div>
                             </div>
 							<div class="col-lg-12">
-								<h4 class="fz18 mb20">Redes Sociales</h4>
+								<h4 class="fz18 mb20 mt-4">Redes Sociales</h4>
 							</div>
 						    <div class="col-md-6 col-lg-6">
 							      	<div class="my_profile_input form-group">
 							    		<label for="formGroupExampleInput1">Facebook</label>
-							    		<input type="text" class="form-control" id="formGroupExampleInput1" placeholder="#">
+							    		<input type="text" class="form-control" id="formGroupExampleInput1" @if(Auth::user()->facebook) placeholder="{{Auth::user()->facebook}}" @else placeholder="Ej: http://facebook.com/mdpwork" @endif>
 									</div>
 						    </div>
 						    <div class="col-md-6 col-lg-6">
 							      	<div class="my_profile_input form-group">
 							    		<label for="formGroupExampleInput1">Twitter</label>
-							    		<input type="text" class="form-control" id="formGroupExampleInput1" placeholder="#">
+							    		<input type="text" class="form-control" id="formGroupExampleInput1" @if(Auth::user()->twitter) placeholder="{{Auth::user()->twitter}}" @else placeholder="Ej: http://twitter.com/mdpwork" @endif>
 									</div>
 						    </div>
 						    <div class="col-md-6 col-lg-6">
 						    		<div class="my_profile_input form-group">
 							    		<label for="formGroupExampleInput1">Linkedin</label>
-							    		<input type="text" class="form-control" id="formGroupExampleInput1" placeholder="#">
+							    		<input type="text" class="form-control" id="formGroupExampleInput1" @if(Auth::user()->linkedin) placeholder="{{Auth::user()->linkedin}}" @else placeholder="Ej: http://linkedin.com/mdpwork"@endif>
 									</div>
 						    </div>
 						    <div class="col-md-6 col-lg-6">
 						    		<div class="my_profile_input form-group">
 							    		<label for="formGroupExampleInput1">Instagram</label>
-							    		<input type="text" class="form-control" id="formGroupExampleInput1" placeholder="#">
+							    		<input type="text" class="form-control" id="formGroupExampleInput1" @if(Auth::user()->instagram) placeholder="{{Auth::user()->instagram}}" @else placeholder="Ej: http://instagram.com/mdpwork"@endif>
 									</div>
 						    </div>
-							<div class="col-lg-12">
-								<h4 class="fz18 mb20">Información Territorial</h4>
-							</div>
-						    <div class="col-md-6 col-lg-6">
-								<div class="my_profile_select_box form-group">
-							    	<label for="exampleFormControlInput9">Ciudad</label><br>
-							    	<div class="dropdown bootstrap-select"><select class="selectpicker" tabindex="-98">
-										<option>United Kingdom</option>
-										<option>United State</option>
-										<option>Ukraine</option>
-										<option>Uruguay</option>
-										<option>UK</option>
-										<option>Uzbekistan</option>
-										<option>Uganda</option>
-									</select><button type="button" class="btn dropdown-toggle btn-light" data-toggle="dropdown" role="button" title="United Kingdom"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">United Kingdom</div></div> </div></button><div class="dropdown-menu " role="combobox"><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1"><ul class="dropdown-menu inner show"></ul></div></div></div>
-								</div>
-							</div>
-						    <div class="col-md-6 col-lg-6">
-								<div class="my_profile_select_box form-group">
-							    	<label for="exampleFormControlInput9">Barrio - Zona</label><br>
-							    	<div class="dropdown bootstrap-select"><select class="selectpicker" tabindex="-98">
-										<option>London</option>
-										<option>Manchester</option>
-										<option>Birmingham</option>
-										<option>Liverpool England</option>
-										<option>Bristol</option>
-										<option>City of London</option>
-										<option>Leeds</option>
-									</select><button type="button" class="btn dropdown-toggle btn-light" data-toggle="dropdown" role="button" title="London"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">London</div></div> </div></button><div class="dropdown-menu " role="combobox"><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1"><ul class="dropdown-menu inner show"></ul></div></div></div>
-								</div>
-							</div>
-							<div class="col-lg-4">
-								<div class="my_profile_input">
-									<a class="btn btn-lg btn-thm" href="#">Save Changes</a>
-								</div>
-							</div>
+                            <div class="col-lg-4">
+                                    <div class="my_profile_input form-inline">
+                                        <a class="btn btn-lg" href="#">Guardar Cambios</a>
+                                        <a class="btn btn-lg btn-danger bg-danger" href="#">Cancelar</a>
+                                    </div>
+                            </div>
 						</div>
 					</div>
 				</div>
@@ -205,5 +204,111 @@
 		</div>
 	</section>
 
+<script>
+    var countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antártida Argentina","Barrio 180","Lomas del Golf","Bernardino Rivadavia","Belgrano","Belisario Roldán","Bosque Alegre","Bosque Peralta Ramos","Caisamar","Centenario","Cerrito","Cerrito Sur","Cerrito San Salvador","Colina Alegre","Constitución","Coronel Dorrego","Costa Azul","Don Bosco","Don Emilio","Dorrego","El Grosellar","El Martillo","El Progreso","Estrada","Etchepare","Faro","Juramento","Las Américas","Las Avenidas","Colinas de Peralta Ramos","Las Heras","La Florida","La Perla","La Zulema","Libertad","Los Acantilados","Los Pinares","Los Troncos","Malvinas Argentinas","Newbery","Nueva Pompeya","Montemar","Parque Hermoso","Parque La Florida","Parque Luro","Parque Palermo","Parque Peña","Peralta Ramos Oeste","Pinos de Anchorena","Chapadmalal","Playa Grande","Punta Mogotes","San Antonio","San Carlos","San Eduardo","San Geronimo","San Jacinto","San José","San Patricio","San Salvador","Santa Mónica","Sarmiento","Stella Maris","Jardín Stella Maris","Jardín","Alfar","Nuevo Golf","Zacagnini"];
+</script>
+
+<script>
+function autocomplete(inp, arr) {
+  /*the autocomplete function takes two arguments,
+  the text field element and an array of possible autocompleted values:*/
+  var currentFocus;
+  /*execute a function when someone writes in the text field:*/
+  inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+      /*close any already open lists of autocompleted values*/
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      /*create a DIV element that will contain the items (values):*/
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+      /*append the DIV element as a child of the autocomplete container:*/
+      this.parentNode.appendChild(a);
+      /*for each item in the array...*/
+      for (i = 0; i < arr.length; i++) {
+        /*check if the item starts with the same letters as the text field value:*/
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          /*create a DIV element for each matching element:*/
+          b = document.createElement("DIV");
+          /*make the matching letters bold:*/
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          /*insert a input field that will hold the current array item's value:*/
+          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          /*execute a function when someone clicks on the item value (DIV element):*/
+              b.addEventListener("click", function(e) {
+              /*insert the value for the autocomplete text field:*/
+              inp.value = this.getElementsByTagName("input")[0].value;
+              /*close the list of autocompleted values,
+              (or any other open lists of autocompleted values:*/
+              closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+  /*execute a function presses a key on the keyboard:*/
+  inp.addEventListener("keydown", function(e) {
+      var x = document.getElementById(this.id + "autocomplete-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        /*If the arrow DOWN key is pressed,
+        increase the currentFocus variable:*/
+        currentFocus++;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 38) { //up
+        /*If the arrow UP key is pressed,
+        decrease the currentFocus variable:*/
+        currentFocus--;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 13) {
+        /*If the ENTER key is pressed, prevent the form from being submitted,*/
+        e.preventDefault();
+        if (currentFocus > -1) {
+          /*and simulate a click on the "active" item:*/
+          if (x) x[currentFocus].click();
+        }
+      }
+  });
+  function addActive(x) {
+    /*a function to classify an item as "active":*/
+    if (!x) return false;
+    /*start by removing the "active" class on all items:*/
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    /*add class "autocomplete-active":*/
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    /*a function to remove the "active" class from all autocomplete items:*/
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    /*close all autocomplete lists in the document,
+    except the one passed as an argument:*/
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+      x[i].parentNode.removeChild(x[i]);
+    }
+  }
+}
+/*execute a function when someone clicks in the document:*/
+document.addEventListener("click", function (e) {
+    closeAllLists(e.target);
+});
+}
+</script>
+
+<script>
+        autocomplete(document.getElementById("myInput"), countries);
+        </script>
 
 @endsection

@@ -4243,7 +4243,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     border:1px solid #ddd
 }
 .my_profile_input a.btn{
-    background-color:#00d664;
+    background-color:#00b7ff;
     border-radius:4px;
     color:#fff;
     font-size:16px;
@@ -4253,8 +4253,8 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     width:170px
 }
 .my_profile_input a.btn:active,.my_profile_input a.btn:focus,.my_profile_input a.btn:hover{
-    background-color:#82b440;
-    border-color:#82b440;
+    background-color:#7dafe9;
+    border-color:#5199eb;
     box-shadow:none;
     color:#fff
 }

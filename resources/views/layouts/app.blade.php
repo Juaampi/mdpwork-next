@@ -147,6 +147,8 @@
 <script type="text/javascript" src="js/progressbar.js"></script>
 <script type="text/javascript" src="js/slider.js"></script>
 <script type="text/javascript" src="js/timepicker.js"></script>
+ <script type="text/javascript" src="js/autocomplete.js"></script>
+ <script type="text/javascript" src="js/barrios.js"></script>
 <!-- Custom script for all pages -->
 <script type="text/javascript" src="js/script.js"></script>
 </body>
