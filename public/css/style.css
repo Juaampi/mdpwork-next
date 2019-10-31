@@ -335,6 +335,14 @@
         margin: 12px 11px;
         margin-top: 5px;
     }
+    .payment-mastercard{
+    background-image: url(../img/credit-card/mastercard.svg);
+    background-size: 44px 26px;
+    display: block;
+    height: 26px;
+    width: 44px;
+    margin: 7px 14px;
+    }
     .hr{
 
         border:         none;

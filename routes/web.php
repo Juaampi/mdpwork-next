@@ -27,6 +27,8 @@ Route::get('/panel', function () {
     return view('panel');
 });
 
+Route::get('/subcategories', 'CategoryController@subcategories')->name('Category.subcategories');
+
 Auth::routes();
 
 Route::get('/panel', 'HomeController@index')->name('panel');

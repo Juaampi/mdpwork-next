@@ -44,72 +44,85 @@
 							<div class="col-md-6 col-lg-6">
 								<div class="my_profile_input form-group">
 							    	<label for="formGroupExampleInput1">Nombre Completo</label>
-                                <input type="text" class="form-control" id="formGroupExampleInput1" placeholder="{{Auth::user()->name}}">
+                                <input type="text" name="name" class="form-control" id="formGroupExampleInput1" placeholder="{{Auth::user()->name}}">
 								</div>
-							</div>
+                            </div>
+                            <div class="col-md-6 col-lg-6">
+                                <div class="my_profile_input form-group">
+                                    <label for="exampleInputPhone">Teléfono</label>
+                                    <input type="email" name="phone" class="form-control" id="exampleInputPhone" aria-describedby="phoneNumber" placeholder="{{Auth::user()->phone}}">
+                                </div>
+                            </div>
 							<div class="col-md-6 col-lg-6">
 								<div class="my_profile_input form-group">
-							    	<label for="formGroupExampleInput2">Profesion</label>
-							    	<input type="text" class="form-control" id="formGroupExampleInput2" placeholder="UX/UI Desginer">
-								</div>
-							</div>
-							<div class="col-md-6 col-lg-6">
-								<div class="my_profile_input form-group">
-							    	<label for="exampleInputPhone">Teléfono</label>
-							    	<input type="email" class="form-control" id="exampleInputPhone" aria-describedby="phoneNumber" placeholder="{{Auth::user()->phone}}">
+                                    <label for="formGroupExampleInput2">Categoría</label>
+
+                                    <select id="category" name="category_id" class="form-control">
+                                        @foreach($categories as $category)
+                                            <option @if(Auth::user()->category == $category->id) selected class="alert alert-danger" @endif value="{{$category->id}}">{{$category->name}}</option>
+                                        @endforeach
+                                    </select>
+
 								</div>
                             </div>
                             <div class="col-md-6 col-lg-6">
                                     <div class="my_profile_input form-group">
+                                        <label for="formGroupExampleInput2">Profesion</label>
+                                        <select id="subcategory" class="form-control">
+                                        </select>
+                                    </div>
+                                </div>
+                            <div class="col-md-6 col-lg-6">
+                                    <div class="my_profile_input form-group">
                                         <label for="exampleInputPhone">WhatsApp</label>
-                                        <input type="email" class="form-control" id="exampleInputPhone" aria-describedby="phoneNumber" placeholder="{{Auth::user()->whatsapp}}">
+                                        <input type="email" name="whatsapp"  class="form-control" id="exampleInputPhone" aria-describedby="phoneNumber" placeholder="{{Auth::user()->whatsapp}}">
                                     </div>
                                 </div>
 							<div class="col-md-6 col-lg-6">
 								<div class="my_profile_input form-group">
 							    	<label for="exampleFormControlInput1">Email</label>
-							    	<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="{{Auth::user()->email}}">
+							    	<input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="{{Auth::user()->email}}">
 								</div>
 							</div>
 							<div class="col-md-6 col-lg-6">
 								<div class="my_profile_input form-group">
 							    	<label for="exampleFormControlInput2">Sitio Web</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="{{Auth::user()->website}}">
+                                <input type="email" name="website" class="form-control" id="exampleFormControlInput2" placeholder="{{Auth::user()->website}}">
 								</div>
 							</div>
 
 							<div class="col-md-6 col-lg-6">
 								<div class="my_profile_select_box form-group">
-							    	<label for="exampleFormControlInput5">Experience</label><br>
-                                   <select class="form-control" placeholder="">
+                                    <label for="exampleFormControlInput5">Experience</label>
+
+                                   <select name="experience" class="form-control" >
                                        <option>{{Auth::user()->experience}} Año/s</option>
-										<option>2-3 Año/s</option>
-										<option>4-5 Año/s</option>
-										<option>6-7 Año/s</option>
-										<option>8-10 Año/s</option>
-                                        <option>10-15 Año/s</option>
-                                        <option>15-20 Año/s</option>
-										<option>None</option>
+										<option value="2">2-3 Año/s</option>
+										<option value="4" >4-5 Año/s</option>
+										<option value="6" >6-7 Año/s</option>
+										<option value="10" >8-10 Año/s</option>
+										<option value="1">None</option>
                                     </select>
+                                 </form>
                                 </div>
 							</div>
                             <div class="col-md-6 col-lg-6">
                                     <div class="my_profile_input form-group">
                                         <label for="exampleFormControlInput2">Edad</label>
-                                    <input type="number" class="form-control" id="exampleFormControlInput2" placeholder="{{Auth::user()->age}} años">
+                                    <input type="number" name="age" class="form-control" id="exampleFormControlInput2" placeholder="{{Auth::user()->age}} años">
                                     </div>
                                 </div>
 							<div class="col-md-6 col-lg-6">
 								<div class="my_profile_select_box form-group">
 							    	<label for="exampleFormControlInput7">Nivel de Profesion</label><br>
-							    	<select class="form-control">
+							    	<select name="level" class="form-control">
 										<option>{{Auth::user()->level}}</option>
-										<option>Bachillerato</option>
-										<option>Tecnicatura</option>
-										<option>Carreras de Grado</option>
-										<option>Maestria</option>
-										<option>Doctorado</option>
-										<option>Título en Curso</option>
+										<option value="Bachillerato">Bachillerato</option>
+										<option value="Tecnicatura">Tecnicatura</option>
+										<option value="Carrera de Grado">Carreras de Grado</option>
+										<option value="Maestria">Maestria</option>
+										<option value="Doctorado">Doctorado</option>
+										<option value="Titulo en Curso">Título en Curso</option>
 									</select>
 								</div>
                             </div>
@@ -119,24 +132,24 @@
                                 <div class="col-md-6 col-lg-6">
                                     <div class="my_profile_select_box form-group">
                                         <label for="exampleFormControlInput9">Ciudad</label><br>
-                                        <select class="form-control">
-                                            <option>Mar del Plata</option>
-                                            <option>Miramar</option>
-                                            <option>Batán</option>
+                                        <select name="city" class="form-control">
+                                            <option value="Mar del Plata">Mar del Plata</option>
+                                            <option value="Miramar">Miramar</option>
+                                            <option value="Batán">Batán</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-lg-6">
                                     <div class="my_profile_select_box form-group">
-                                            <label for="myInput">Barrio - Zona</label><br>
-                                            <input class="form-control" id="myInput" type="text" name="barrio" placeholder="Escriba el  Barrio">
+                                        <label for="myInput">Barrio - Zona</label><br>
+                                        <input class="form-control" name="zone" id="myInput" type="text" name="barrio" placeholder="Escriba el  Barrio">
                                     </div>
                                 </div>
 							<div class="col-lg-12">
 								<div class="my_resume_textarea mt20">
 									 <div class="form-group">
 									    <label for="exampleFormControlTextarea1">Descripción</label>
-									    <textarea class="form-control" id="exampleFormControlTextarea1" rows="9">{{Auth::user()->description}}
+									    <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="9">{{Auth::user()->description}}
 									    </textarea>
 									  </div>
 								</div>
@@ -146,49 +159,56 @@
 									<div class="row text-center">
 										<div class="col-md-2">
                                     		<div class="custom-control custom-switch mt-1">
-                                        		<input type="checkbox" class="custom-control-input" id="switch1" @if(Auth::user()->isEfective) checked @endif>
+                                        		<input type="checkbox" name="isEfective" class="custom-control-input" id="switch1" @if(Auth::user()->isEfective) checked @endif>
                                         		<label class="custom-control-label" for="switch1"><span style="height: 25px;" class="payment">Efectivo</span></label>
 											</div>
 										</div>
 										<div class="col-md-2">
 											<div class="custom-control custom-switch mt-1">
-												<input type="checkbox" class="custom-control-input" id="switch2" @if(Auth::user()->isVisa) checked @endif>
-												<label class="custom-control-label" for="switch2"> <span style="height: 25px;" class="payment"><span class="payment-visa"></span></span></label>
+												<input type="checkbox" name="isVisa" class="custom-control-input" id="switch2" @if(Auth::user()->isVisa) checked @endif>
+												<label class="custom-control-label" for="switch2"> <span style="height: 25px;" class="payment"><img src="img/credit-card/visa.png" /></span></label>
 											</div>
 										</div>
 										<div class="col-md-2">
 												<div class="custom-control custom-switch mt-1">
-													<input type="checkbox" class="custom-control-input" id="switch3" @if(Auth::user()->isMercadoPago) checked @endif>
-													<label class="custom-control-label" for="switch3"> <span style="height: 25px;" class="payment"><span class="payment-mercado"></span></span></label>
+													<input type="checkbox" name="isMercadoPago" class="custom-control-input" id="switch3" @if(Auth::user()->isMercadoPago) checked @endif>
+													<label class="custom-control-label" for="switch3"> <span style="height: 25px;" class="payment"><img src="img/credit-card/mercado.png"/></span></label>
 												</div>
 											</div>
+										<div class="col-md-2">
+											<div class="custom-control custom-switch mt-1">
+												<input type="checkbox" name="isMasterCard" class="custom-control-input" id="switch4" @if(Auth::user()->isMasterCard) checked @endif>
+												<label class="custom-control-label" for="switch4"> <span style="height: 25px;" class="payment"><img src="img/credit-card/mastercard.png"></span></label>
+											</div>
+										</div>
 									</div>
-                            </div>
+							</div>
+
 							<div class="col-lg-12">
 								<h4 class="fz18 mb20 mt-4">Redes Sociales</h4>
 							</div>
 						    <div class="col-md-6 col-lg-6">
 							      	<div class="my_profile_input form-group">
 							    		<label for="formGroupExampleInput1">Facebook</label>
-							    		<input type="text" class="form-control" id="formGroupExampleInput1" @if(Auth::user()->facebook) placeholder="{{Auth::user()->facebook}}" @else placeholder="Ej: http://facebook.com/mdpwork" @endif>
+							    		<input type="text" name="facebook" class="form-control" id="formGroupExampleInput1" @if(Auth::user()->facebook) placeholder="{{Auth::user()->facebook}}" @else placeholder="Ej: http://facebook.com/mdpwork" @endif>
 									</div>
 						    </div>
 						    <div class="col-md-6 col-lg-6">
 							      	<div class="my_profile_input form-group">
 							    		<label for="formGroupExampleInput1">Twitter</label>
-							    		<input type="text" class="form-control" id="formGroupExampleInput1" @if(Auth::user()->twitter) placeholder="{{Auth::user()->twitter}}" @else placeholder="Ej: http://twitter.com/mdpwork" @endif>
+							    		<input type="text" name="twitter" class="form-control" id="formGroupExampleInput1" @if(Auth::user()->twitter) placeholder="{{Auth::user()->twitter}}" @else placeholder="Ej: http://twitter.com/mdpwork" @endif>
 									</div>
 						    </div>
 						    <div class="col-md-6 col-lg-6">
 						    		<div class="my_profile_input form-group">
 							    		<label for="formGroupExampleInput1">Linkedin</label>
-							    		<input type="text" class="form-control" id="formGroupExampleInput1" @if(Auth::user()->linkedin) placeholder="{{Auth::user()->linkedin}}" @else placeholder="Ej: http://linkedin.com/mdpwork"@endif>
+							    		<input type="text" name="linkedin" class="form-control" id="formGroupExampleInput1" @if(Auth::user()->linkedin) placeholder="{{Auth::user()->linkedin}}" @else placeholder="Ej: http://linkedin.com/mdpwork"@endif>
 									</div>
 						    </div>
 						    <div class="col-md-6 col-lg-6">
 						    		<div class="my_profile_input form-group">
 							    		<label for="formGroupExampleInput1">Instagram</label>
-							    		<input type="text" class="form-control" id="formGroupExampleInput1" @if(Auth::user()->instagram) placeholder="{{Auth::user()->instagram}}" @else placeholder="Ej: http://instagram.com/mdpwork"@endif>
+							    		<input type="text" name="instagram" class="form-control" id="formGroupExampleInput1" @if(Auth::user()->instagram) placeholder="{{Auth::user()->instagram}}" @else placeholder="Ej: http://instagram.com/mdpwork"@endif>
 									</div>
 						    </div>
                             <div class="col-lg-4">
@@ -309,6 +329,24 @@ document.addEventListener("click", function (e) {
 
 <script>
         autocomplete(document.getElementById("myInput"), countries);
+        </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+
+            $(document).ready(function(){
+                $('#category').on('change', function(){
+                    var category_id = $(this).val();
+                    if($.trim(category_id) != ''){
+                        $.get('subcategories', {category_id: category_id}, function(subcategories){
+                            $('#subcategory').empty();
+                            $('#subcategory').append("<option value= ''>Seleccione Oficio</option>");
+                            $.each(subcategories, function(index, subcategory){
+                                $('#subcategory').append("<option value= '"+ index +"'>"+ subcategory.name +"</option>");
+                            })
+                        });
+                    }
+                });
+            });
         </script>
 
 @endsection
