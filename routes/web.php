@@ -28,7 +28,12 @@ Route::get('/panel', function () {
 });
 
 Route::get('/subcategories', 'CategoryController@subcategories')->name('Category.subcategories');
+Route::get('/save', 'UserController@edit')->name('User.edit');
+Route::get('/contraseña','HomeController@showChangePasswordForm');
+
 
 Auth::routes();
 
 Route::get('/panel', 'HomeController@index')->name('panel');
+
+Route::get('/actualizarContraseña','HomeController@changePassword')->name('User.updatePassword');

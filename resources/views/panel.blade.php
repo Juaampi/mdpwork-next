@@ -18,10 +18,19 @@
 					</div>
 					<div class="dashbord_nav_list">
 						<ul>
-							<li class="active"><a href="page-candidates-profile.html"><img src="icons/perfil.png" class="mr-1" /> Información</a></li>
-							<li><a href="page-candidates-change-password.html"><img src="icons/password.png" class="mr-1" /> Cambiar Contraseña</a></li>
-							<li><a href="page-log-reg.html"><img src="icons/logout.png" class="mr-1" /> Cerrar Sesion</a></li>
-							<li><a href="#" class="text-danger font-weight-bold"><img src="icons/delete.png" class="mr-1" /> Eliminar Perfil</a></li>
+							<li class="active">
+                                <a href="page-candidates-profile.html"><img src="icons/perfil.png" class="mr-1" /> Información</a>
+                            </li>
+                            <li>
+                                <a href="/contraseña"><img src="icons/password.png" class="mr-1" /> Cambiar Contraseña</a></li>
+                            <li>
+                                <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
+                                <img src="icons/logout.png" class="mr-1" /> Cerrar Sesion</a>
+                            </li>
+							<li>
+                                <a href="#" class="text-danger font-weight-bold"><img src="icons/delete.png" class="mr-1" /> Eliminar Perfil</a>
+                            </li>
 						</ul>
 					</div>
 					<div class="skill_sidebar_widget">
@@ -34,13 +43,16 @@
 				</div>
 				<div class="col-sm-12 col-lg-8 col-xl-9">
 					<div class="my_profile_form_area">
-						<div class="row">
-							<div class="col-lg-12">
-								<h4 class="fz20 mb20">Mi Perfil</h4>
-							</div>
+                            <form action="{{route('User.edit')}}" method="GET">
+                            <input type="hidden" name="id" value="{{Auth::user()->id}}">
+						    <div class="row">
+							    <div class="col-lg-12">
+                                    <h4 class="fz20 mb20">Mi Perfil</h4>
+                                    @if(session()->has('response'))<div class="alert alert-success text-center">Los datos se actualizaron correctamente</div>@endif
+							    </div>
 							<div class="col-lg-12">
 								<div class="my_profile_thumb_edit"></div>
-							</div>
+                            </div>
 							<div class="col-md-6 col-lg-6">
 								<div class="my_profile_input form-group">
 							    	<label for="formGroupExampleInput1">Nombre Completo</label>
@@ -56,7 +68,6 @@
 							<div class="col-md-6 col-lg-6">
 								<div class="my_profile_input form-group">
                                     <label for="formGroupExampleInput2">Categoría</label>
-
                                     <select id="category" name="category_id" class="form-control">
                                         @foreach($categories as $category)
                                             <option @if(Auth::user()->category == $category->id) selected class="alert alert-danger" @endif value="{{$category->id}}">{{$category->name}}</option>
@@ -67,15 +78,22 @@
                             </div>
                             <div class="col-md-6 col-lg-6">
                                     <div class="my_profile_input form-group">
-                                        <label for="formGroupExampleInput2">Profesion</label>
-                                        <select id="subcategory" class="form-control">
+                                        <label for="formGroupExampleInput2">Profesion <img id="unselected" style="display:none;" src="icons/alert.png"><img id="selected" style="display:none;" src="icons/check.png"></label>
+                                        <select id="subcategory" name="subcategory_id" class="form-control">
+                                            @if(Auth::user()->job)
+                                                @foreach($subcategories as $subcategory)
+                                                    @if($subcategory->id == Auth::user()->job)
+                                                        <option value="{{$subcategory->id}}">{{$subcategory->name}}</option>
+                                                    @endif
+                                                @endforeach
+                                            @endif
                                         </select>
                                     </div>
                                 </div>
                             <div class="col-md-6 col-lg-6">
                                     <div class="my_profile_input form-group">
                                         <label for="exampleInputPhone">WhatsApp</label>
-                                        <input type="email" name="whatsapp"  class="form-control" id="exampleInputPhone" aria-describedby="phoneNumber" placeholder="{{Auth::user()->whatsapp}}">
+                                        <input type="email" name="whatsapp"  class="form-control" id="exampleInputPhone" aria-describedby="phoneNumber" @if(Auth::user()->whatsapp)placeholder="{{Auth::user()->whatsapp}}"@else placeholder="Ejemplo: +5492235646567"@endif>
                                     </div>
                                 </div>
 							<div class="col-md-6 col-lg-6">
@@ -92,9 +110,8 @@
 							</div>
 
 							<div class="col-md-6 col-lg-6">
-								<div class="my_profile_select_box form-group">
+								<div class="my_profile_input form-group">
                                     <label for="exampleFormControlInput5">Experience</label>
-
                                    <select name="experience" class="form-control" >
                                        <option>{{Auth::user()->experience}} Año/s</option>
 										<option value="2">2-3 Año/s</option>
@@ -103,7 +120,6 @@
 										<option value="10" >8-10 Año/s</option>
 										<option value="1">None</option>
                                     </select>
-                                 </form>
                                 </div>
 							</div>
                             <div class="col-md-6 col-lg-6">
@@ -113,7 +129,7 @@
                                     </div>
                                 </div>
 							<div class="col-md-6 col-lg-6">
-								<div class="my_profile_select_box form-group">
+								<div class="my_profile_input form-group">
 							    	<label for="exampleFormControlInput7">Nivel de Profesion</label><br>
 							    	<select name="level" class="form-control">
 										<option>{{Auth::user()->level}}</option>
@@ -130,7 +146,7 @@
                                     <h4 class="fz18 mb20 mt-4">Información Territorial</h4>
                                 </div>
                                 <div class="col-md-6 col-lg-6">
-                                    <div class="my_profile_select_box form-group">
+                                    <div class="my_profile_input form-group">
                                         <label for="exampleFormControlInput9">Ciudad</label><br>
                                         <select name="city" class="form-control">
                                             <option value="Mar del Plata">Mar del Plata</option>
@@ -140,7 +156,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-lg-6">
-                                    <div class="my_profile_select_box form-group">
+                                    <div class="my_profile_input form-group">
                                         <label for="myInput">Barrio - Zona</label><br>
                                         <input class="form-control" name="zone" id="myInput" type="text" name="barrio" placeholder="Escriba el  Barrio">
                                     </div>
@@ -212,11 +228,12 @@
 									</div>
 						    </div>
                             <div class="col-lg-4">
-                                    <div class="my_profile_input form-inline">
-                                        <a class="btn btn-lg" href="#">Guardar Cambios</a>
+                                    <div class="form-inline mt-2">
+                                        <input type="submit" class="btn btn-lg btn-info mr-2" value="Guardar Cambios" />
                                         <a class="btn btn-lg btn-danger bg-danger" href="#">Cancelar</a>
                                     </div>
                             </div>
+                        </form>
 						</div>
 					</div>
 				</div>
@@ -339,14 +356,29 @@ document.addEventListener("click", function (e) {
                     if($.trim(category_id) != ''){
                         $.get('subcategories', {category_id: category_id}, function(subcategories){
                             $('#subcategory').empty();
-                            $('#subcategory').append("<option value= ''>Seleccione Oficio</option>");
+                            $('#subcategory').append("<option value=''>Seleccione Oficio</option>");
                             $.each(subcategories, function(index, subcategory){
-                                $('#subcategory').append("<option value= '"+ index +"'>"+ subcategory.name +"</option>");
+                                $('#subcategory').append("<option value= '"+ subcategory.id +"'>"+ subcategory.name +"</option>");
+                                $('#selected').hide('slow');
+                                $('#unselected').show('slow');
+                                $('#subcategory').css({"border":"1px solid #e46359"});
                             })
                         });
                     }
                 });
+                $('#subcategory').on('change',function(){
+                    if($('#subcategory').val()==''){
+                        $('#selected').hide('slow');
+                        $('#unselected').show('slow');
+                        $('#subcategory').css({"border":"1px solid #e46359"}).show('slow');
+                    }else{
+                        $('#unselected').hide('slow');
+                        $('#subcategory').css({"border":"1px solid #ddd"});
+                        $('#selected').show('slow');
+                    }
+                });
             });
+
         </script>
 
 @endsection
