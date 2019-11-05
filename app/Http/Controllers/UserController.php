@@ -7,6 +7,21 @@ use App\User;
 
 class UserController extends Controller
 {
+    public function updateImg(Request $request){
+        $user = User::find($request['user_id']);
+        if($request->hasFile('img-perfil')){
+            $file = $request->file('img-perfil');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/img-perfil/', $name);
+            $user->img = $name;
+            $user->save();
+            return redirect()->back()->with('response','success');
+        }else{
+            return redirect()->back()->with('response', 'error');
+        }
+
+    }
+
 
     public function edit(Request $request){
 

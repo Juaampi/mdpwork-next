@@ -30,6 +30,7 @@ Route::get('/panel', function () {
 Route::get('/subcategories', 'CategoryController@subcategories')->name('Category.subcategories');
 Route::get('/save', 'UserController@edit')->name('User.edit');
 Route::get('/contraseña','HomeController@showChangePasswordForm');
+Route::post('/updateImg', 'UserController@updateImg')->name('User.updateImg');
 
 
 Auth::routes();

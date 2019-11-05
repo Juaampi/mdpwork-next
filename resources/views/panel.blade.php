@@ -3,18 +3,64 @@
 @section('content')
 <div class="preloader"></div>
 
+<style>
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+    z-index: -1;
+}
+.inputfile + label {
+    display: inline-block;
+    font-size: 14px;
+}
+.inputfile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+.inputfile + label {
+	cursor: pointer; /* "hand" cursor */
+}
+#cancelUpdateImg {
+	cursor: pointer; /* "hand" cursor */
+}
+#showUpdateImg {
+	cursor: pointer; /* "hand" cursor */
+}
+
+</style>
+
+
 <section class="our-dashbord dashbord" style="background: #ffffff">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 col-lg-4 col-xl-3 dn-smd">
 					<div class="user_profile">
-						<div class="media">
-						  	<img src="img/logo.png" class="align-self-start mr-3 rounded-circle" alt="8.jpg">
-						  	<div class="media-body">
-						    	<h5 class="mt-0" style="font-size: 13px;">Hi, Juan Pablo Garcia</h5>
-						    	<p style="font-size: 10px">Lomas del Golf, Mar del Plata</p>
-							</div>
+						<div class="media" id="contenedor-img">
+						<div id="img-contenedor">
+                        <img id="img-perfil" src="img-perfil/{{ Auth::user()->img }}" class="align-self-start mr-3 rounded-circle" alt="8.jpg">
 						</div>
+						  	<div class="media-body">
+						    	<h5 class="mt-0" style="font-size: 13px;">{{ Auth::user()->name }}</h5>
+                                <p style="font-size: 11px;color: #949494;"><img style="width: 16px;" src="icons/location.png">{{ Auth::user()->zone}} </p>
+                                @foreach($subcategories as $subcategory)
+                                    @if($subcategory->id == Auth::user()->job)
+                                       <p style="font-style: italic;font-size: 13px;"><img src="icons/profesion.png" style="width:16px;"> {{ $subcategory->name }}</p>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                        <div id="showUpdateImg" style="font-size: 11px;" class="text-secondary">Editar imagen</div>
+                        <form id="formUpdateImg" style="display:none;margin-top:5px;" method="POST" action="{{ route('User.updateImg') }}" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" value="{{ Auth::user()->id }}" name="user_id">
+                            <input data-multiple-caption="{count} files selected" multiple id="file" type="file" name="img-perfil" class="inputfile">
+                            <label id="labelImg" style="font-size:11px;" class="text-secondary" for="file">Elegir archivo</label>
+                            <button style="font-size:12px;" type="submit" class="btn b">Guardar</button>
+                            <label style="font-size:12px;" id="cancelUpdateImg" class="text-danger font-weight-bold">Cancelar</label>
+                      </form>
 					</div>
 					<div class="dashbord_nav_list">
 						<ul>
@@ -48,7 +94,12 @@
 						    <div class="row">
 							    <div class="col-lg-12">
                                     <h4 class="fz20 mb20">Mi Perfil</h4>
-                                    @if(session()->has('response'))<div class="alert alert-success text-center">Los datos se actualizaron correctamente</div>@endif
+                                    @if(session()->has('response'))
+                                    <div class="alert alert-success text-center">Los datos se actualizaron correctamente</div>
+                                    @endif
+                                    @if(session()->has('noresponse'))
+                                    <div class="alert alert-danger text-center">Ocurrió un error al guardar, intente nuevamente.</div>
+                                    @endif
 							    </div>
 							<div class="col-lg-12">
 								<div class="my_profile_thumb_edit"></div>
@@ -246,6 +297,20 @@
 </script>
 
 <script>
+        function filePreview(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#img-contenedor + img').remove();
+                $('#img-contenedor').append('<img id="img-perfil" src="'+e.target.result+'" class="align-self-start mr-3 rounded-circle" />');
+            }
+            reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+
+
+<script>
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
   the text field element and an array of possible autocompleted values:*/
@@ -351,6 +416,24 @@ document.addEventListener("click", function (e) {
         <script>
 
             $(document).ready(function(){
+                $("#file").change(function () {
+                    $('#img-perfil').hide();
+                    filePreview(this);
+                    $('#labelImg').hide('slow');
+            });
+                //comienzo del formulario de editar imagen
+                $("#showUpdateImg").click(function () {
+                    $('#formUpdateImg').show('slow');
+                    $('#showUpdateImg').hide('slow');
+                    $('#labelImg').show('slow');
+                });
+                $("#cancelUpdateImg").click(function () {
+                    $('#formUpdateImg').hide('slow');
+                    $('#showUpdateImg').show('slow');
+                    $('#labelImg').hide('slow');
+                });
+                //fin formulario de editar imagen
+                //inicio del filtro de categorias
                 $('#category').on('change', function(){
                     var category_id = $(this).val();
                     if($.trim(category_id) != ''){
