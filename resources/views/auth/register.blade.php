@@ -1,22 +1,75 @@
 @extends('layouts.app')
 
 @section('content')
+
+<div class="preloader"></div>
+<style>
+#btnprofesional {
+	cursor: pointer; /* "hand" cursor */
+}
+#btnusuario {
+	cursor: pointer; /* "hand" cursor */
+}
+</style>
+<div class="container mt-5" id="registroOpciones">
+    <div class="center-block">
+        <div class="row">
+            <div class="col-md-4 offset-md-2">
+                <div class="card mb-5">
+                    <div class="card-header">
+                        Registro de <strong>Usuario</strong>
+                    </div>
+                    <img class="card-img-top" style="height: 240px;" src="/img/usuario.png" alt="Imagen de registro de usuario MDPWORK">
+                    <div class="card-body">
+                        Si querés registrarte como un <strong>usuario</strong>, puntuar y dejar tu opinión sobre un profesional, éste es el registro que buscas.
+                    </div>
+                    <div class="card-footer text-center">
+                        <div id="btnusuario" class="btn btn-info" style="background:#00b7ff;color:white;">Quiero ser un usuario !</div>
+                    </div>
+                </div>
+        </div>
+        <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        Registro de <strong>Profesional</strong>
+                    </div>
+                    <img class="card-img-top" style="height: 240px;" src="/img/profesional.png" alt="Imagen de registro de profesional MDPWORK">
+                    <div class="card-body">
+                            Si querés registrarte como un <strong>profesional</strong> y ofrecer tus servicios a los usuarios, éste es el registro que buscas.
+                     </div>
+                    <div class="card-footer text-center">
+                            <div id="btnprofesional" class="btn btn-info" style="background:#00b7ff;color:white;">Quiero ser un profesional !</div>
+                     </div>
+                </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-10">
+    <div  id="registroProfesional"  style="display: none;" class="row justify-content-center">
+        <div class="col-md-12">
             <div class="card mt-4">
-                <div class="card-header">Formulario de registro para <strong>Mdp Work</strong>. Por favor complete todos los datos del formulario.</div>
+                <div class="card-header text-center" style="background:#00b7ff; color:white;"><p>Formulario de registro para <strong>Mdp Work</strong>.</p>
+                    <p>Por favor para el correcto funcionamiento de su perfil, complete todos los datos con información real de contacto. </p><p>Recuerde que el equipo de <strong>Mdp Work</strong> revisa diariamente los perfiles y verifica la infirmación solicitada. Una vez completado el perfil aparecerá automaticamente en el sitio. Gracias por participar en <strong>Mdp Work</strong>.</p>
+
+                </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-
+                        <input type="hidden" value="profesional" name="rol">
                         <div class="col-sm-12 col-lg-12 col-xl-12">
                                 <div class="my_profile_form_area">
                                         <div class="row">
 
                                         <div class="col-lg-12">
                                             <div class="my_profile_thumb_edit"></div>
+                                        </div>
+                                        <div class="col-md-12">
+                                                <p class="text-secondary"><img src="icons/login.png"/> Ingresa tus datos personales para inicio de sesion.</p>
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                             <div class="my_profile_input form-group">
@@ -31,7 +84,7 @@
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                                 <div class="my_profile_input form-group">
-                                                    <label for="exampleFormControlInput1">Email</label>
+                                                    <label for="exampleFormControlInput1">Email <span class="text-secondary font-style-italic">(Para iniciar sesion)</span></label>
                                                     <input type="email" name="email" class="form-control" id="exampleFormControlInput1" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Ej: mdpwork@gmail.com">
                                                     @error('email')
                                                     <span class="invalid-feedback" role="alert">
@@ -58,6 +111,12 @@
                                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                             </div>
                                         </div>
+                                        <div class="col-md-12 text-center">
+                                            <hr >
+                                        </div>
+                                        <div class="col-md-12">
+                                            <p class="text-secondary"><img src="icons/information.png"/> Ingresa tus datos personales para contacto e información para el usuario.</p>
+                                        </div>
                                         <div class="col-md-6 col-lg-6">
                                             <div class="my_profile_input form-group">
                                                 <label for="formGroupExampleInput2">Categoría <span class="text-secondary">(Encuentre su sección)</span></label>
@@ -81,20 +140,20 @@
                                         <div class="col-md-6 col-lg-6">
                                                 <div class="my_profile_input form-group">
                                                     <label for="exampleInputPhone">WhatsApp</label>
-                                                    <input type="email" name="whatsapp"  class="form-control" id="exampleInputPhone" aria-describedby="phoneNumber" placeholder="EJ: +549223534445">
+                                                    <input type="number" name="whatsapp"  class="form-control" id="exampleInputPhone" aria-describedby="phoneNumber" placeholder="EJ: +549223534445">
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-lg-6">
                                                     <div class="my_profile_input form-group">
                                                         <label for="exampleInputPhone">Teléfono</label>
-                                                        <input type="email" name="phone" class="form-control" id="exampleInputPhone" aria-describedby="phoneNumber" placeholder="EJ: +5492234675858">
+                                                        <input type="number" name="phone" class="form-control" id="exampleInputPhone" aria-describedby="phoneNumber" placeholder="EJ: +5492234675858">
                                                     </div>
                                                 </div>
 
-                                        <div class="col-md-6 col-lg-6">
+                                        <div class="col-md-6 <col-lg-6">
                                             <div class="my_profile_input form-group">
                                                 <label for="exampleFormControlInput2">Sitio Web</label>
-                                            <input type="email" name="website" class="form-control" id="exampleFormControlInput2" placeholder="EJ: http://mdpwork.com.ar">
+                                            <input type="text" name="website" class="form-control" id="exampleFormControlInput2" placeholder="EJ: http://mdpwork.com.ar">
                                             </div>
                                         </div>
 
@@ -161,7 +220,7 @@
                                         </div>
                                         <div class="col-lg-12">
                                             <h4>Métodos de Pago <span class="text-secondary">que le ofreces al cliente</span></h4>
-                                                <div class="row text-center">
+                                                <div class="row">
                                                     <div class="col-md-2">
                                                         <div class="custom-control custom-switch mt-1">
                                                             <input type="checkbox" name="isEfective" class="custom-control-input" id="switch1">
@@ -216,19 +275,104 @@
                                                     <input type="text" name="instagram" class="form-control" id="formGroupExampleInput1" placeholder="Ej: http://instagram.com/mdpwork" >
                                                 </div>
                                         </div>
-                                        <div class="form-group row mb-0">
-                                                <div class="col-md-6 offset-md-4">
-                                                    <button type="submit" class="btn btn-primary">
-                                                        {{ __('Register') }}
+                                        </div>
+                                        <div class="form-group row mb-0 mt-2">
+                                                <div class="col-md-12 offset-md-4">
+                                                    <button type="submit" class="btn btn-info">
+                                                        Confirmar registro
                                                     </button>
+                                                    <div id="btncancelregistroprofesional" type="submit" class="btn btn-danger">
+                                                            Cancelar
+                                                    </div>
                                                 </div>
                                             </div>
                                         </form>
                                     </div>
-                                </div>
+
                 </div>
             </div>
         </div>
+</div>
+</div>
+ <div  class="container" >
+                <div id="registroUsuario" style="display:none;" class="row justify-content-center mb-5">
+                    <div class="col-md-12">
+                        <div class="card mt-4">
+                            <div class="card-header text-center" style="background:#00b7ff; color:white;"><p>Formulario de registro para <strong>Mdp Work</strong>.</p>
+                                <p>Por favor evite el mal uso de su cuenta de usuario. </p><p>Recuerde que el equipo de <strong>Mdp Work</strong> revisa diariamente los perfiles y verifica la infirmación solicitada. Una vez registrado va a poder comentar y puntuar los profesionales de <strong>Mdp Work</strong>.</p>
+
+                            </div>
+
+                            <div class="card-body">
+                                <form method="POST" action="{{ route('register') }}">
+                                    @csrf
+                                    <input type="hidden" value="usuario" name="rol"/>
+                                    <div class="col-sm-12 col-lg-12 col-xl-12">
+                                            <div class="my_profile_form_area">
+                                                    <div class="row">
+
+                                                    <div class="col-lg-12">
+                                                        <div class="my_profile_thumb_edit"></div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                            <p class="text-secondary"><img src="icons/login.png"/> Ingresa tus datos personales para inicio de sesion. Una vez registrado va a poder puntuar y comentar a los profesionales.</p>
+                                                    </div>
+                                                    <div class="col-md-6 col-lg-6">
+                                                        <div class="my_profile_input form-group">
+                                                            <label for="formGroupExampleInput1">Nombre Completo</label>
+                                                        <input type="text" name="name" class="form-control" id="formGroupExampleInput1"  @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Ej: Juan Perez">
+                                                        @error('name')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                        @enderror
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-lg-6">
+                                                            <div class="my_profile_input form-group">
+                                                                <label for="exampleFormControlInput1">Email <span class="text-secondary font-style-italic">(Para iniciar sesion)</span></label>
+                                                                <input type="email" name="email" class="form-control" id="exampleFormControlInput1" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Ej: mdpwork@gmail.com">
+                                                                @error('email')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                            </div>
+                                                        </div>
+
+                                                    <div class="col-md-6 col-lg-6">
+                                                            <div class="my_profile_input form-group">
+                                                                <label for="exampleInputPhone">Contraseña</label>
+                                                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                                                @error('password')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                            </div>
+                                                        </div>
+                                                    <div class="col-md-6 col-lg-6">
+                                                        <div class="my_profile_input form-group">
+                                                            <label for="exampleFormControlInput1">Confirmar Contraseña</label>
+                                                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group row mb-0 mt-2">
+                                                            <div class="col-md-12 offset-md-4">
+                                                                <button type="submit" class="btn btn-info">
+                                                                    Confirmar registro
+                                                                </button>
+                                                                <div id="btncancelregistrousuario" type="submit" class="btn btn-danger">
+                                                                        Cancelar
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                            </div>
+                                </form>
+                            </div>
+                        </div></div></div></div>
+
 
 
 <script>
@@ -340,6 +484,27 @@
                 <script>
 
                     $(document).ready(function(){
+
+                        $("#btnprofesional").click(function () {
+                            $('#registroOpciones').hide('slow');
+                            $('#registroProfesional').show('slow');
+                        });
+
+                        $("#btnusuario").click(function () {
+                            $('#registroOpciones').hide('slow');
+                            $('#registroUsuario').show('slow');
+                        });
+
+                        $("#btncancelregistroprofesional").click(function () {
+                            $('#registroOpciones').show('slow');
+                            $('#registroProfesional').hide('slow');
+                        });
+                        $("#btncancelregistrousuario").click(function () {
+                            $('#registroOpciones').show('slow');
+                            $('#registroUsuario').hide('slow');
+                        });
+
+
                         $('#category').on('change', function(){
                             var category_id = $(this).val();
                             if($.trim(category_id) != ''){

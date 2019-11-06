@@ -53,19 +53,17 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link btn btn-outline-primary" href="{{ route('login') }}">Anunciate </a>
+                                <a class="nav-link btn btn-outline-primary" href="{{ route('register') }}">Anunciate </a>
                             </li>
+                        @endguest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">¿Quienés Somos?</a>
                             </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">Registrarme</a>
-                                </li>
-                            @endif
+                         @guest
                             <li class="nav-item">
                                 <a class="nav-link font-weight-bold" href="{{ route('login') }}">Ingresar</a>
                             </li>
+
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}"><img src="img/fb.png" /></a>
                             </li>
@@ -79,11 +77,14 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/panel">Panel</a>
+                                    <hr>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                      Cerrar sesion
                                     </a>
+
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf

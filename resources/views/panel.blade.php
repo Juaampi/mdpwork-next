@@ -32,7 +32,6 @@
 
 </style>
 
-
 <section class="our-dashbord dashbord" style="background: #ffffff">
 		<div class="container">
 			<div class="row">
@@ -44,12 +43,16 @@
 						</div>
 						  	<div class="media-body">
 						    	<h5 class="mt-0" style="font-size: 13px;">{{ Auth::user()->name }}</h5>
+                                @if(Auth::user()->rol == 'profesional')
                                 <p style="font-size: 11px;color: #949494;"><img style="width: 16px;" src="icons/location.png">{{ Auth::user()->zone}} </p>
                                 @foreach($subcategories as $subcategory)
                                     @if($subcategory->id == Auth::user()->job)
                                        <p style="font-style: italic;font-size: 13px;"><img src="icons/profesion.png" style="width:16px;"> {{ $subcategory->name }}</p>
                                     @endif
                                 @endforeach
+                                @else
+                                    <p style="font-style: italic;font-size: 13px;"> Usuario MDP </p>
+                                @endif
                             </div>
                         </div>
                         <div id="showUpdateImg" style="font-size: 11px;" class="text-secondary">Editar imagen</div>
@@ -78,14 +81,16 @@
                                 <a href="#" class="text-danger font-weight-bold"><img src="icons/delete.png" class="mr-1" /> Eliminar Perfil</a>
                             </li>
 						</ul>
-					</div>
+                    </div>
+                    @if(Auth::user()->rol == 'profesional')
 					<div class="skill_sidebar_widget">
 						<h4>Perfil Completado un <span class="float-right font-weight-bold">85%</span></h4>
 						<p>Mandá tu perfil a verficicación para aumentar un 15%</p>
 				        <ul class="skills">
 				            <div class="sonny_progressbar animate" data-width="85"><p class="title"></p><div class="bar-container " style="background-color:#E0E0E0;height:30px;"><span class="backgroundBar"></span><span class="targetBar loader" style="width:85%;background-color:#CCC;"></span><span class="bar" style="background-color:#79b530;"></span></div></div>
 				        </ul>
-					</div>
+                    </div>
+                    @endif
 				</div>
 				<div class="col-sm-12 col-lg-8 col-xl-9">
 					<div class="my_profile_form_area">
@@ -110,6 +115,7 @@
                                 <input type="text" name="name" class="form-control" id="formGroupExampleInput1" placeholder="{{Auth::user()->name}}">
 								</div>
                             </div>
+                            @if(Auth::user()->rol == 'profesional')
                             <div class="col-md-6 col-lg-6">
                                 <div class="my_profile_input form-group">
                                     <label for="exampleInputPhone">Teléfono</label>
@@ -147,12 +153,14 @@
                                         <input type="email" name="whatsapp"  class="form-control" id="exampleInputPhone" aria-describedby="phoneNumber" @if(Auth::user()->whatsapp)placeholder="{{Auth::user()->whatsapp}}"@else placeholder="Ejemplo: +5492235646567"@endif>
                                     </div>
                                 </div>
+                            @endif
 							<div class="col-md-6 col-lg-6">
 								<div class="my_profile_input form-group">
 							    	<label for="exampleFormControlInput1">Email</label>
 							    	<input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="{{Auth::user()->email}}">
 								</div>
-							</div>
+                            </div>
+                            @if(Auth::user()->rol == 'profesional')
 							<div class="col-md-6 col-lg-6">
 								<div class="my_profile_input form-group">
 							    	<label for="exampleFormControlInput2">Sitio Web</label>
@@ -209,7 +217,7 @@
                                 <div class="col-md-6 col-lg-6">
                                     <div class="my_profile_input form-group">
                                         <label for="myInput">Barrio - Zona</label><br>
-                                        <input class="form-control" name="zone" id="myInput" type="text" name="barrio" placeholder="Escriba el  Barrio">
+                                    <input class="form-control" name="zone" id="myInput" type="text" name="barrio" placeholder="{{Auth::user()->zone}}">
                                     </div>
                                 </div>
 							<div class="col-lg-12">
@@ -250,7 +258,16 @@
 										</div>
 									</div>
 							</div>
-
+                            <div class="col-lg-12">
+                                <h4 class="fz18 mb20 mt-4">Horarios de atención</h4>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="custom-control custom-switch mt-1">
+                                        <input type="checkbox" name="isMasterCard" class="custom-control-input" id="switch6" @if(Auth::user()->isMasterCard) checked @endif>
+                                        <label class="custom-control-label" for="switch6">Lunes a Viernes </label>
+                                </div>
+                                <input style="display:none;" type="time" class="form-control">
+                            </div>
 							<div class="col-lg-12">
 								<h4 class="fz18 mb20 mt-4">Redes Sociales</h4>
 							</div>
@@ -277,20 +294,22 @@
 							    		<label for="formGroupExampleInput1">Instagram</label>
 							    		<input type="text" name="instagram" class="form-control" id="formGroupExampleInput1" @if(Auth::user()->instagram) placeholder="{{Auth::user()->instagram}}" @else placeholder="Ej: http://instagram.com/mdpwork"@endif>
 									</div>
-						    </div>
+                            </div>
+                            @endif
                             <div class="col-lg-4">
                                     <div class="form-inline mt-2">
                                         <input type="submit" class="btn btn-lg btn-info mr-2" value="Guardar Cambios" />
                                         <a class="btn btn-lg btn-danger bg-danger" href="#">Cancelar</a>
                                     </div>
                             </div>
+
                         </form>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</section>
+    </section>
 
 <script>
     var countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antártida Argentina","Barrio 180","Lomas del Golf","Bernardino Rivadavia","Belgrano","Belisario Roldán","Bosque Alegre","Bosque Peralta Ramos","Caisamar","Centenario","Cerrito","Cerrito Sur","Cerrito San Salvador","Colina Alegre","Constitución","Coronel Dorrego","Costa Azul","Don Bosco","Don Emilio","Dorrego","El Grosellar","El Martillo","El Progreso","Estrada","Etchepare","Faro","Juramento","Las Américas","Las Avenidas","Colinas de Peralta Ramos","Las Heras","La Florida","La Perla","La Zulema","Libertad","Los Acantilados","Los Pinares","Los Troncos","Malvinas Argentinas","Newbery","Nueva Pompeya","Montemar","Parque Hermoso","Parque La Florida","Parque Luro","Parque Palermo","Parque Peña","Peralta Ramos Oeste","Pinos de Anchorena","Chapadmalal","Playa Grande","Punta Mogotes","San Antonio","San Carlos","San Eduardo","San Geronimo","San Jacinto","San José","San Patricio","San Salvador","Santa Mónica","Sarmiento","Stella Maris","Jardín Stella Maris","Jardín","Alfar","Nuevo Golf","Zacagnini"];
@@ -408,7 +427,6 @@ document.addEventListener("click", function (e) {
 });
 }
 </script>
-
 <script>
         autocomplete(document.getElementById("myInput"), countries);
         </script>

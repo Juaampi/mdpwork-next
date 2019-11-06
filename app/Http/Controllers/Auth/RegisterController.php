@@ -63,10 +63,43 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+        if($data['rol'] == 'usuario'){
+            return User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+                'img' => 'logo.png',
+                'rol' => $data['rol']
+            ]);
+        }else{
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'category' => $data['category_id'],
+            'job' => $data['subcategory_id'],
+            'whatsapp' => $data['whatsapp'],
+            'phone' => $data['phone'],
+            'website' => $data['website'],
+            'experience' => $data['experience'],
+            'age' => $data['age'],
+            'level' => $data['level'],
+            'city' => $data['city'],
+            'zone' => $data['zone'],
+            'description' => $data['description'],
+            'isEfective' => true,
+            'isVisa' => false,
+            'isMercadoPago' => false,
+            'isMasterCard' => false,
+            'facebook' => $data['facebook'],
+            'twitter' => $data['twitter'],
+            'linkedin' => $data['linkedin'],
+            'instagram' => $data['instagram'],
+            'img' => 'logo.png',
+            'rol' => $data['rol']
         ]);
+        }
     }
 }
