@@ -98,7 +98,21 @@ class RegisterController extends Controller
             'linkedin' => $data['linkedin'],
             'instagram' => $data['instagram'],
             'img' => 'logo.png',
-            'rol' => $data['rol']
+            'rol' => $data['rol'],
+            'inhourlunes' => $data['inhourlunes'],
+            'outhourlunes' => $data['outhourlunes'],
+            'inhourmartes' => $data['inhourmartes'],
+            'outhourmartes' => $data['outhourmartes'],
+            'inhourmiercoles' => $data['inhourmiercoles'],
+            'outhourmiercoles' => $data['outhourmiercoles'],
+            'inhourjueves' => $data['inhourjueves'],
+            'outhourjueves' => $data['outhourjueves'],
+            'inhourviernes' => $data['inhourviernes'],
+            'outhourviernes' => $data['outhourviernes'],
+            'inhoursabado' => $data['inhoursabado'],
+            'outhoursabado' => $data['outhoursabado'],
+            'inhourdomingo' => $data['inhourdomingo'],
+            'outhourdomingo' => $data['outhourdomingo']
         ]);
         }
     }

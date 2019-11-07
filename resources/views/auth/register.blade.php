@@ -38,7 +38,7 @@
                             Si querés registrarte como un <strong>profesional</strong> y ofrecer tus servicios a los usuarios, éste es el registro que buscas.
                      </div>
                     <div class="card-footer text-center">
-                            <div id="btnprofesional" class="btn btn-info" style="background:#00b7ff;color:white;">Quiero ser un profesional !</div>
+                            <div id="btnprofesional" class="btn btn-info" style="background:#00b7ff;color:white;">Quiero ofrecer un servicio !</div>
                      </div>
                 </div>
         </div>
@@ -218,6 +218,198 @@
                                                   </div>
                                             </div>
                                         </div>
+
+                                        <div class="col-lg-12">
+                                                <h4 class="fz18 mb20 mt-4">Horarios de atención<span class="text-secondary">al cliente</span></h4>
+                                        </div>
+
+                                         <!-- TODO LO QUE TENGA QUE VER CON EL LUNES -->
+
+                            <div id="lunes" class="col-lg-12">
+                                    <div class="form-check">
+                                        <input name="islunes" type="checkbox" class="form-check-input" id="lunescheckbox">
+                                        <label class="form-check-label" for="lunescheckbox">Lunes</label>
+                                    </div>
+                                    <div id="horariolunes" style="display: none;">
+                                        <div id="horalunes" class="form-group form-inline">
+                                        <input name="inhourlunes" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input style="width: auto;" name="outhourlunes" type="time" class="form-control ml-3 text-center">
+                                        </div>
+                                        <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
+                                        <div id="horalunes2" class="form-group form-inline">
+                                            <input name="inhourafterlunes" id="inhourafterlunes" style="width: auto;" disabled type="time" class="form-control mr-3 text-center"> - <input style="width: auto;" name="outhourafterlunes" id="outhourafterlunes" disabled type="time" class="form-control ml-3 text-center">
+                                        </div>
+                                        <div class="form-group form-inline">
+                                        <span id="btnagregarhorariolunes" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
+                                        <span id="btncancelarhorariolunes" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
+                                        </div>
+                                        <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
+                                    </div>
+                                    <hr>
+                                </div>
+
+                                <!-- FIN DEL QUERIDO LUNES -->
+
+                                   <!-- TODO LO QUE TENGA QUE VER CON EL martes -->
+
+                                   <div id="martes" class="col-lg-12">
+                                        <div class="form-check">
+                                            <input name="ismartes" type="checkbox" class="form-check-input" id="martescheckbox">
+                                            <label class="form-check-label" for="martescheckbox">martes</label>
+                                        </div>
+                                        <div id="horariomartes" style="display: none;">
+                                            <div id="horamartes" class="form-group form-inline">
+                                            <input name="inhourmartes" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input name="outhourmartes" type="time" class="form-control ml-3 text-center" style="width: auto;">
+                                            </div>
+                                            <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
+                                            <div id="horamartes2" class="form-group form-inline">
+                                                <input name="inhouraftermartes" id="inhouraftermartes" disabled type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input style="width: auto;" name="outhouraftermartes" id="outhouraftermartes" disabled type="time" class="form-control ml-3 text-center">
+                                            </div>
+                                            <div class="form-group form-inline">
+                                            <span id="btnagregarhorariolunes" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
+                                            <span id="btncancelarhorariolunes" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
+                                            </div>
+                                            <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
+                                        </div>
+                                        <hr>
+                                    </div>
+
+                                    <!-- FIN DEL QUERIDO LUNES -->
+
+                                       <!-- TODO LO QUE TENGA QUE VER CON EL miercoles -->
+
+                                <div id="miercoles" class="col-lg-12">
+                                        <div class="form-check">
+                                            <input name="ismiercoles" type="checkbox" class="form-check-input" id="miercolescheckbox">
+                                            <label class="form-check-label" for="miercolescheckbox">miercoles</label>
+                                        </div>
+                                        <div id="horariomiercoles" style="display: none;">
+                                            <div id="horamiercoles" class="form-group form-inline">
+                                            <input name="inhourmiercoles" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input name="outhourmiercoles" style="width: auto;" type="time" class="form-control ml-3 text-center">
+                                            </div>
+                                            <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
+                                            <div id="horamiercoles2" class="form-group form-inline">
+                                                <input name="inhouraftermiercoles" id="inhouraftermiercoles" disabled type="time" style="width: auto;" class="form-control mr-3 text-center"> - <input name="outhouraftermiercoles" id="outhouraftermiercoles" disabled type="time" class="form-control ml-3 text-center">
+                                            </div>
+                                            <div class="form-group form-inline">
+                                            <span id="btnagregarhorariomiercoles" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
+                                            <span id="btncancelarhorariomiercoles" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
+                                            </div>
+                                            <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
+                                        </div>
+                                        <hr>
+                                    </div>
+
+                                    <!-- FIN DEL QUERIDO miercoles -->
+
+                                       <!-- TODO LO QUE TENGA QUE VER CON EL jueves -->
+
+                                <div id="jueves" class="col-lg-12">
+                                        <div class="form-check">
+                                            <input name="isjueves" type="checkbox" class="form-check-input" id="juevescheckbox">
+                                            <label class="form-check-label" for="juevescheckbox">jueves</label>
+                                        </div>
+                                        <div id="horariojueves" style="display: none;">
+                                            <div id="horajueves" class="form-group form-inline">
+                                            <input name="inhourjueves" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input name="outhourjueves" type="time" class="form-control ml-3 text-center" style="width: auto;">
+                                            </div>
+                                            <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
+                                            <div id="horajueves2" class="form-group form-inline">
+                                                <input name="inhourafterjueves" id="inhourafterjueves" disabled type="time" class="form-control mr-3 text-center"> - <input  style="width: auto;" name="outhourafterjueves" id="outhourafterjueves" disabled type="time" class="form-control ml-3 text-center">
+                                            </div>
+                                            <div class="form-group form-inline">
+                                            <span id="btnagregarhorariojueves" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
+                                            <span id="btncancelarhorariojueves" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
+                                            </div>
+                                            <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
+                                        </div>
+                                        <hr>
+                                    </div>
+
+                                    <!-- FIN DEL QUERIDO jueves -->
+
+                                       <!-- TODO LO QUE TENGA QUE VER CON EL viernes -->
+
+                                <div id="viernes" class="col-lg-12">
+                                        <div class="form-check">
+                                            <input name="isviernes" type="checkbox" class="form-check-input" id="viernescheckbox">
+                                            <label class="form-check-label" for="viernescheckbox">viernes</label>
+                                        </div>
+                                        <div id="horarioviernes" style="display: none;">
+                                            <div id="horaviernes" class="form-group form-inline">
+                                            <input name="inhourviernes" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input name="outhourviernes" type="time" class="form-control ml-3 text-center" style="width: auto;">
+                                            </div>
+                                            <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
+                                            <div id="horaviernes2" class="form-group form-inline">
+                                                <input name="inhourafterviernes" id="inhourafterviernes" disabled type="time" class="form-control mr-3 text-center"> - <input name="outhourafterviernes" style="width: auto;" id="outhourafterviernes" disabled type="time" class="form-control ml-3 text-center">
+                                            </div>
+                                            <div class="form-group form-inline">
+                                            <span id="btnagregarhorarioviernes" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
+                                            <span id="btncancelarhorarioviernes" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
+                                            </div>
+                                            <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
+                                        </div>
+                                        <hr>
+                                    </div>
+
+                                    <!-- FIN DEL QUERIDO viernes -->
+
+                                       <!-- TODO LO QUE TENGA QUE VER CON EL sabado -->
+
+                                <div id="sabado" class="col-lg-12">
+                                        <div class="form-check">
+                                            <input name="issabado" type="checkbox" class="form-check-input" id="sabadocheckbox">
+                                            <label class="form-check-label" for="sabadocheckbox">sabado</label>
+                                        </div>
+                                        <div id="horariosabado"style="display: none;">
+                                            <div id="horasabado" class="form-group form-inline">
+                                            <input name="inhoursabado" style="width: auto;" type="time" class="form-control mr-3 text-center"> - <input name="outhoursabado" type="time" class="form-control ml-3 text-center" style="width: auto;">
+                                            </div>
+                                            <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
+                                            <div id="horasabado2" class="form-group form-inline">
+                                                <input name="inhouraftersabado" id="inhouraftersabado" disabled type="time" class="form-control mr-3 text-center"> - <input name="outhouraftersabado" style="width: auto;" id="outhouraftersabado" disabled type="time" class="form-control ml-3 text-center">
+                                            </div>
+                                            <div class="form-group form-inline">
+                                            <span id="btnagregarhorariosabado" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
+                                            <span id="btncancelarhorariosabado" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
+                                            </div>
+                                            <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
+                                        </div>
+                                        <hr>
+                                    </div>
+
+                                    <!-- FIN DEL QUERIDO sabado -->
+
+                                        <!-- TODO LO QUE TENGA QUE VER CON EL domingo -->
+
+                                <div id="domingo" class="col-lg-12">
+                                        <div class="form-check">
+                                            <input name="isdomingo" type="checkbox" class="form-check-input" id="domingocheckbox">
+                                            <label class="form-check-label" for="domingocheckbox">domingo</label>
+                                        </div>
+                                        <div id="horariodomingo" style="display: none;">
+                                            <div id="horadomingo" class="form-group form-inline">
+                                            <input name="inhourdomingo" type="time" class="form-control mr-3 text-center" style="width: auto;" > - <input name="outhourdomingo" type="time" class="form-control ml-3 text-center" style="width: auto;" >
+                                            </div>
+                                            <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
+                                            <div id="horadomingo2" class="form-group form-inline">
+                                                <input name="inhourafterdomingo" id="inhourafterdomingo" style="width: auto;" disabled type="time" class="form-control mr-3 text-center"> - <input name="outhourafterdomingo" style="width: auto;" id="outhourafterdomingo" disabled type="time" class="form-control ml-3 text-center">
+                                            </div>
+                                            <div class="form-group form-inline">
+                                            <span id="btnagregarhorariodomingo" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
+                                            <span id="btncancelarhorariodomingo" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
+                                            </div>
+                                            <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
+                                        </div>
+                                        <hr>
+                                    </div>
+
+                                    <!-- FIN DEL QUERIDO domingo -->
+
+
+
+
+
+
                                         <div class="col-lg-12">
                                             <h4>Métodos de Pago <span class="text-secondary">que le ofreces al cliente</span></h4>
                                                 <div class="row">
@@ -531,7 +723,252 @@
                                 $('#selected').show('slow');
                             }
                         });
-                    });
+
+
+
+                            //TODO ESTO TIENE QUE VER CON EL LUNES NADA MAS LA PUTA MADRE QUE ME PARIO ES UNA BANDA DE CODIGO ESTA MAL HECHO
+
+                   if($('#inhourafterlunes').val() != ""){
+                    $('#btnagregarhorariolunes').hide();
+                    $('#btncancelarhorariolunes').show();
+                }
+                //Lunes checkbox
+                $('#lunescheckbox').change(function(){
+                    if($('#lunescheckbox').is(':checked')){
+                        $('#horariolunes').show('slow');
+                    }else{
+                        $('#horariolunes').hide('slow');
+                    }
+                });
+
+                //Lunes Agregar Horario
+                $('#btnagregarhorariolunes').click(function(){
+                    $('#inhourafterlunes').prop('disabled', false);
+                    $('#outhourafterlunes').prop('disabled', false);
+                    $('#btnagregarhorariolunes').hide('slow');
+                    $('#btncancelarhorariolunes').show('slow');
+                });
+
+                $('#btncancelarhorariolunes').click(function(){
+                    $('#inhourafterlunes').prop('disabled', true);
+                    $('#outhourafterlunes').prop('disabled', true);
+                    $('#inhourafterlunes').val("");
+                    $('#outhourafterlunes').val("");
+                    $('#btncancelarhorariolunes').hide('slow');
+                    $('#btnagregarhorariolunes').show('slow');
+                });
+
+                //FIN DEL LUNES
+
+
+                   //TODO ESTO TIENE QUE VER CON EL martes NADA MAS LA PUTA MADRE QUE ME PARIO ES UNA BANDA DE CODIGO ESTA MAL HECHO
+
+                   if($('#inhouraftermartes').val() != ""){
+                    $('#btnagregarhorariomartes').hide();
+                    $('#btncancelarhorariomartes').show();
+                }
+                //martes checkbox
+                $('#martescheckbox').change(function(){
+                    if($('#martescheckbox').is(':checked')){
+                        $('#horariomartes').show('slow');
+                    }else{
+                        $('#horariomartes').hide('slow');
+                    }
+                });
+
+                //martes Agregar Horario
+                $('#btnagregarhorariomartes').click(function(){
+                    $('#inhouraftermartes').prop('disabled', false);
+                    $('#outhouraftermartes').prop('disabled', false);
+                    $('#btnagregarhorariomartes').hide('slow');
+                    $('#btncancelarhorariomartes').show('slow');
+                });
+
+                $('#btncancelarhorariomartes').click(function(){
+                    $('#inhouraftermartes').prop('disabled', true);
+                    $('#outhouraftermartes').prop('disabled', true);
+                    $('#inhouraftermartes').val("");
+                    $('#outhouraftermartes').val("");
+                    $('#btncancelarhorariomartes').hide('slow');
+                    $('#btnagregarhorariomartes').show('slow');
+                });
+
+                //FIN DEL MARTES
+
+
+
+                   //TODO ESTO TIENE QUE VER CON EL miercoles NADA MAS LA PUTA MADRE QUE ME PARIO ES UNA BANDA DE CODIGO ESTA MAL HECHO
+
+                   if($('#inhouraftermiercoles').val() != ""){
+                    $('#btnagregarhorariomiercoles').hide();
+                    $('#btncancelarhorariomiercoles').show();
+                }
+                //miercoles checkbox
+                $('#miercolescheckbox').change(function(){
+                    if($('#miercolescheckbox').is(':checked')){
+                        $('#horariomiercoles').show('slow');
+                    }else{
+                        $('#horariomiercoles').hide('slow');
+                    }
+                });
+
+                //miercoles Agregar Horario
+                $('#btnagregarhorariomiercoles').click(function(){
+                    $('#inhouraftermiercoles').prop('disabled', false);
+                    $('#outhouraftermiercoles').prop('disabled', false);
+                    $('#btnagregarhorariomiercoles').hide('slow');
+                    $('#btncancelarhorariomiercoles').show('slow');
+                });
+
+                $('#btncancelarhorariomiercoles').click(function(){
+                    $('#inhouraftermiercoles').prop('disabled', true);
+                    $('#outhouraftermiercoles').prop('disabled', true);
+                    $('#inhouraftermiercoles').val("");
+                    $('#outhouraftermiercoles').val("");
+                    $('#btncancelarhorariomiercoles').hide('slow');
+                    $('#btnagregarhorariomiercoles').show('slow');
+                });
+
+                //FIN DEL miercoles
+
+                 //TODO ESTO TIENE QUE VER CON EL jueves NADA MAS LA PUTA MADRE QUE ME PARIO ES UNA BANDA DE CODIGO ESTA MAL HECHO
+
+                 if($('#inhourafterjueves').val() != ""){
+                    $('#btnagregarhorariojueves').hide();
+                    $('#btncancelarhorariojueves').show();
+                }
+                //jueves checkbox
+                $('#juevescheckbox').change(function(){
+                    if($('#juevescheckbox').is(':checked')){
+                        $('#horariojueves').show('slow');
+                    }else{
+                        $('#horariojueves').hide('slow');
+                    }
+                });
+
+                //jueves Agregar Horario
+                $('#btnagregarhorariojueves').click(function(){
+                    $('#inhourafterjueves').prop('disabled', false);
+                    $('#outhourafterjueves').prop('disabled', false);
+                    $('#btnagregarhorariojueves').hide('slow');
+                    $('#btncancelarhorariojueves').show('slow');
+                });
+
+                $('#btncancelarhorariojueves').click(function(){
+                    $('#inhourafterjueves').prop('disabled', true);
+                    $('#outhourafterjueves').prop('disabled', true);
+                    $('#inhourafterjueves').val("");
+                    $('#outhourafterjueves').val("");
+                    $('#btncancelarhorariojueves').hide('slow');
+                    $('#btnagregarhorariojueves').show('slow');
+                });
+
+                //FIN DEL jueves
+
+
+                   //TODO ESTO TIENE QUE VER CON EL viernes NADA MAS LA PUTA MADRE QUE ME PARIO ES UNA BANDA DE CODIGO ESTA MAL HECHO
+
+                   if($('#inhourafterviernes').val() != ""){
+                    $('#btnagregarhorarioviernes').hide();
+                    $('#btncancelarhorarioviernes').show();
+                }
+                //viernes checkbox
+                $('#viernescheckbox').change(function(){
+                    if($('#viernescheckbox').is(':checked')){
+                        $('#horarioviernes').show('slow');
+                    }else{
+                        $('#horarioviernes').hide('slow');
+                    }
+                });
+
+                //viernes Agregar Horario
+                $('#btnagregarhorarioviernes').click(function(){
+                    $('#inhourafterviernes').prop('disabled', false);
+                    $('#outhourafterviernes').prop('disabled', false);
+                    $('#btnagregarhorarioviernes').hide('slow');
+                    $('#btncancelarhorarioviernes').show('slow');
+                });
+
+                $('#btncancelarhorarioviernes').click(function(){
+                    $('#inhourafterviernes').prop('disabled', true);
+                    $('#outhourafterviernes').prop('disabled', true);
+                    $('#inhourafterviernes').val("");
+                    $('#outhourafterviernes').val("");
+                    $('#btncancelarhorarioviernes').hide('slow');
+                    $('#btnagregarhorarioviernes').show('slow');
+                });
+
+                //FIN DEL viernes
+
+                   //TODO ESTO TIENE QUE VER CON EL sabado NADA MAS LA PUTA MADRE QUE ME PARIO ES UNA BANDA DE CODIGO ESTA MAL HECHO
+
+                   if($('#inhouraftersabado').val() != ""){
+                    $('#btnagregarhorariosabado').hide();
+                    $('#btncancelarhorariosabado').show();
+                }
+                //sabado checkbox
+                $('#sabadocheckbox').change(function(){
+                    if($('#sabadocheckbox').is(':checked')){
+                        $('#horariosabado').show('slow');
+                    }else{
+                        $('#horariosabado').hide('slow');
+                    }
+                });
+
+                //sabado Agregar Horario
+                $('#btnagregarhorariosabado').click(function(){
+                    $('#inhouraftersabado').prop('disabled', false);
+                    $('#outhouraftersabado').prop('disabled', false);
+                    $('#btnagregarhorariosabado').hide('slow');
+                    $('#btncancelarhorariosabado').show('slow');
+                });
+
+                $('#btncancelarhorariosabado').click(function(){
+                    $('#inhouraftersabado').prop('disabled', true);
+                    $('#outhouraftersabado').prop('disabled', true);
+                    $('#inhouraftersabado').val("");
+                    $('#outhouraftersabado').val("");
+                    $('#btncancelarhorariosabado').hide('slow');
+                    $('#btnagregarhorariosabado').show('slow');
+                });
+
+                //FIN DEL sabado
+
+                   //TODO ESTO TIENE QUE VER CON EL domingo NADA MAS LA PUTA MADRE QUE ME PARIO ES UNA BANDA DE CODIGO ESTA MAL HECHO
+
+                   if($('#inhourafterdomingo').val() != ""){
+                    $('#btnagregarhorariodomingo').hide();
+                    $('#btncancelarhorariodomingo').show();
+                }
+                //domingo checkbox
+                $('#domingocheckbox').change(function(){
+                    if($('#domingocheckbox').is(':checked')){
+                        $('#horariodomingo').show('slow');
+                    }else{
+                        $('#horariodomingo').hide('slow');
+                    }
+                });
+
+                //domingo Agregar Horario
+                $('#btnagregarhorariodomingo').click(function(){
+                    $('#inhourafterdomingo').prop('disabled', false);
+                    $('#outhourafterdomingo').prop('disabled', false);
+                    $('#btnagregarhorariodomingo').hide('slow');
+                    $('#btncancelarhorariodomingo').show('slow');
+                });
+
+                $('#btncancelarhorariodomingo').click(function(){
+                    $('#inhourafterdomingo').prop('disabled', true);
+                    $('#outhourafterdomingo').prop('disabled', true);
+                    $('#inhourafterdomingo').val("");
+                    $('#outhourafterdomingo').val("");
+                    $('#btncancelarhorariodomingo').hide('slow');
+                    $('#btnagregarhorariodomingo').show('slow');
+                });
+
+                //FIN DEL domingo
+
+           });
 
                 </script>
 

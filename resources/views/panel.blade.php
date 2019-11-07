@@ -29,6 +29,9 @@
 #showUpdateImg {
 	cursor: pointer; /* "hand" cursor */
 }
+#btnagregarlunes{
+    cursor: pointer;
+}
 
 </style>
 
@@ -99,6 +102,9 @@
 						    <div class="row">
 							    <div class="col-lg-12">
                                     <h4 class="fz20 mb20">Mi Perfil</h4>
+                                    @if(session()->has('lunes'))
+                                    <div class="alert alert-danger text-center">Ingresaste de forma incorreta el horario del <strong>LUNES</strong>. Si el día esta activado, debes completar mínimo el horario de corrido.</div>
+                                    @endif
                                     @if(session()->has('response'))
                                     <div class="alert alert-success text-center">Los datos se actualizaron correctamente</div>
                                     @endif
@@ -261,13 +267,192 @@
                             <div class="col-lg-12">
                                 <h4 class="fz18 mb20 mt-4">Horarios de atención</h4>
                             </div>
-                            <div class="col-lg-12">
-                                <div class="custom-control custom-switch mt-1">
-                                        <input type="checkbox" name="isMasterCard" class="custom-control-input" id="switch6" @if(Auth::user()->isMasterCard) checked @endif>
-                                        <label class="custom-control-label" for="switch6">Lunes a Viernes </label>
+
+                            <!-- TODO LO QUE TENGA QUE VER CON EL LUNES -->
+
+                            <div id="lunes" class="col-lg-12">
+                                <div class="form-check">
+                                    <input name="islunes" type="checkbox" class="form-check-input" id="lunescheckbox" @if(Auth::user()->inhourlunes) checked @endif>
+                                    <label class="form-check-label" for="lunescheckbox">Lunes</label>
                                 </div>
-                                <input style="display:none;" type="time" class="form-control">
+                                <div id="horariolunes" @if(!Auth::user()->inhourlunes) style="display: none;" @endif>
+                                    <div id="horalunes" class="form-group form-inline">
+                                    <input name="inhourlunes" type="time" class="form-control mr-3 text-center" value="{{Auth::user()->inhourlunes}}" style="width: auto;"> - <input style="width: auto;" name="outhourlunes" type="time" class="form-control ml-3 text-center" value="{{Auth::user()->outhourlunes}}">
+                                    </div>
+                                    <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
+                                    <div id="horalunes2" class="form-group form-inline">
+                                        <input name="inhourafterlunes" id="inhourafterlunes" style="width: auto;" @if(Auth::user()->inhourafterlunes) value="{{Auth::user()->inhourafterlunes}}" @else disabled @endif type="time" class="form-control mr-3 text-center"> - <input style="width: auto;" name="outhourafterlunes" id="outhourafterlunes" @if(Auth::user()->outhourafterlunes) value="{{Auth::user()->outhourafterlunes}}" @else disabled @endif type="time" class="form-control ml-3 text-center">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                    <span id="btnagregarhorariolunes" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
+                                    <span id="btncancelarhorariolunes" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
+                                    </div>
+                                    <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
+                                </div>
+                                <hr>
                             </div>
+
+                            <!-- FIN DEL QUERIDO LUNES -->
+
+                               <!-- TODO LO QUE TENGA QUE VER CON EL martes -->
+
+                               <div id="martes" class="col-lg-12">
+                                    <div class="form-check">
+                                        <input name="ismartes" type="checkbox" class="form-check-input" id="martescheckbox" @if(Auth::user()->inhourmartes) checked @endif>
+                                        <label class="form-check-label" for="martescheckbox">martes</label>
+                                    </div>
+                                    <div id="horariomartes" @if(!Auth::user()->inhourmartes) style="display: none;" @endif>
+                                        <div id="horamartes" class="form-group form-inline">
+                                        <input name="inhourmartes" type="time" class="form-control mr-3 text-center" style="width: auto;" value="{{Auth::user()->inhourmartes}}"> - <input name="outhourmartes" type="time" class="form-control ml-3 text-center" style="width: auto;" value="{{Auth::user()->outhourmartes}}">
+                                        </div>
+                                        <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
+                                        <div id="horamartes2" class="form-group form-inline">
+                                            <input name="inhouraftermartes" id="inhouraftermartes" @if(Auth::user()->inhouraftermartes) value="{{Auth::user()->inhouraftermartes}}" @else disabled @endif type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input style="width: auto;" name="outhouraftermartes" id="outhouraftermartes" @if(Auth::user()->outhouraftermartes) value="{{Auth::user()->outhouraftermartes}}" @else disabled @endif type="time" class="form-control ml-3 text-center">
+                                        </div>
+                                        <div class="form-group form-inline">
+                                        <span id="btnagregarhorariolunes" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
+                                        <span id="btncancelarhorariolunes" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
+                                        </div>
+                                        <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
+                                    </div>
+                                    <hr>
+                                </div>
+
+                                <!-- FIN DEL QUERIDO LUNES -->
+
+                                   <!-- TODO LO QUE TENGA QUE VER CON EL miercoles -->
+
+                            <div id="miercoles" class="col-lg-12">
+                                    <div class="form-check">
+                                        <input name="ismiercoles" type="checkbox" class="form-check-input" id="miercolescheckbox" @if(Auth::user()->inhourmiercoles) checked @endif>
+                                        <label class="form-check-label" for="miercolescheckbox">miercoles</label>
+                                    </div>
+                                    <div id="horariomiercoles" @if(!Auth::user()->inhourmiercoles) style="display: none;" @endif>
+                                        <div id="horamiercoles" class="form-group form-inline">
+                                        <input name="inhourmiercoles" type="time" class="form-control mr-3 text-center" style="width: auto;" value="{{Auth::user()->inhourmiercoles}}"> - <input name="outhourmiercoles" style="width: auto;" type="time" class="form-control ml-3 text-center" value="{{Auth::user()->outhourmiercoles}}">
+                                        </div>
+                                        <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
+                                        <div id="horamiercoles2" class="form-group form-inline">
+                                            <input name="inhouraftermiercoles" id="inhouraftermiercoles" @if(Auth::user()->inhouraftermiercoles) style="width: auto;" value="{{Auth::user()->inhouraftermiercoles}}" @else disabled @endif type="time" style="width: auto;" class="form-control mr-3 text-center"> - <input name="outhouraftermiercoles" id="outhouraftermiercoles" @if(Auth::user()->outhouraftermiercoles) value="{{Auth::user()->outhouraftermiercoles}}" @else disabled @endif type="time" class="form-control ml-3 text-center">
+                                        </div>
+                                        <div class="form-group form-inline">
+                                        <span id="btnagregarhorariomiercoles" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
+                                        <span id="btncancelarhorariomiercoles" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
+                                        </div>
+                                        <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
+                                    </div>
+                                    <hr>
+                                </div>
+
+                                <!-- FIN DEL QUERIDO miercoles -->
+
+                                   <!-- TODO LO QUE TENGA QUE VER CON EL jueves -->
+
+                            <div id="jueves" class="col-lg-12">
+                                    <div class="form-check">
+                                        <input name="isjueves" type="checkbox" class="form-check-input" id="juevescheckbox" @if(Auth::user()->inhourjueves) checked @endif>
+                                        <label class="form-check-label" for="juevescheckbox">jueves</label>
+                                    </div>
+                                    <div id="horariojueves" @if(!Auth::user()->inhourjueves) style="display: none;" @endif>
+                                        <div id="horajueves" class="form-group form-inline">
+                                        <input name="inhourjueves" type="time" class="form-control mr-3 text-center" style="width: auto;" value="{{Auth::user()->inhourjueves}}"> - <input name="outhourjueves" type="time" class="form-control ml-3 text-center" style="width: auto;" value="{{Auth::user()->outhourjueves}}">
+                                        </div>
+                                        <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
+                                        <div id="horajueves2" class="form-group form-inline">
+                                            <input name="inhourafterjueves" id="inhourafterjueves" @if(Auth::user()->inhourafterjueves) style="width: auto;" value="{{Auth::user()->inhourafterjueves}}" @else disabled @endif type="time" class="form-control mr-3 text-center"> - <input  style="width: auto;" name="outhourafterjueves" id="outhourafterjueves" @if(Auth::user()->outhourafterjueves) value="{{Auth::user()->outhourafterjueves}}" @else disabled @endif type="time" class="form-control ml-3 text-center">
+                                        </div>
+                                        <div class="form-group form-inline">
+                                        <span id="btnagregarhorariojueves" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
+                                        <span id="btncancelarhorariojueves" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
+                                        </div>
+                                        <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
+                                    </div>
+                                    <hr>
+                                </div>
+
+                                <!-- FIN DEL QUERIDO jueves -->
+
+                                   <!-- TODO LO QUE TENGA QUE VER CON EL viernes -->
+
+                            <div id="viernes" class="col-lg-12">
+                                    <div class="form-check">
+                                        <input name="isviernes" type="checkbox" class="form-check-input" id="viernescheckbox" @if(Auth::user()->inhourviernes) checked @endif>
+                                        <label class="form-check-label" for="viernescheckbox">viernes</label>
+                                    </div>
+                                    <div id="horarioviernes" @if(!Auth::user()->inhourviernes) style="display: none;" @endif>
+                                        <div id="horaviernes" class="form-group form-inline">
+                                        <input name="inhourviernes" type="time" class="form-control mr-3 text-center" style="width: auto;" value="{{Auth::user()->inhourviernes}}"> - <input name="outhourviernes" type="time" class="form-control ml-3 text-center" style="width: auto;" value="{{Auth::user()->outhourviernes}}">
+                                        </div>
+                                        <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
+                                        <div id="horaviernes2" class="form-group form-inline">
+                                            <input name="inhourafterviernes" id="inhourafterviernes" @if(Auth::user()->inhourafterviernes) style="width: auto;" value="{{Auth::user()->inhourafterviernes}}" @else disabled @endif type="time" class="form-control mr-3 text-center"> - <input name="outhourafterviernes" style="width: auto;" id="outhourafterviernes" @if(Auth::user()->outhourafterviernes) value="{{Auth::user()->outhourafterviernes}}" @else disabled @endif type="time" class="form-control ml-3 text-center">
+                                        </div>
+                                        <div class="form-group form-inline">
+                                        <span id="btnagregarhorarioviernes" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
+                                        <span id="btncancelarhorarioviernes" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
+                                        </div>
+                                        <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
+                                    </div>
+                                    <hr>
+                                </div>
+
+                                <!-- FIN DEL QUERIDO viernes -->
+
+                                   <!-- TODO LO QUE TENGA QUE VER CON EL sabado -->
+
+                            <div id="sabado" class="col-lg-12">
+                                    <div class="form-check">
+                                        <input name="issabado" type="checkbox" class="form-check-input" id="sabadocheckbox" @if(Auth::user()->inhoursabado) checked @endif>
+                                        <label class="form-check-label" for="sabadocheckbox">sabado</label>
+                                    </div>
+                                    <div id="horariosabado" @if(!Auth::user()->inhoursabado) style="display: none;" @endif>
+                                        <div id="horasabado" class="form-group form-inline">
+                                        <input name="inhoursabado" style="width: auto;" type="time" class="form-control mr-3 text-center" value="{{Auth::user()->inhoursabado}}"> - <input name="outhoursabado" type="time" class="form-control ml-3 text-center" style="width: auto;" value="{{Auth::user()->outhoursabado}}">
+                                        </div>
+                                        <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
+                                        <div id="horasabado2" class="form-group form-inline">
+                                            <input name="inhouraftersabado" id="inhouraftersabado" @if(Auth::user()->inhouraftersabado) style="width: auto;" value="{{Auth::user()->inhouraftersabado}}" @else disabled @endif type="time" class="form-control mr-3 text-center"> - <input name="outhouraftersabado" style="width: auto;" id="outhouraftersabado" @if(Auth::user()->outhouraftersabado) value="{{Auth::user()->outhouraftersabado}}" @else disabled @endif type="time" class="form-control ml-3 text-center">
+                                        </div>
+                                        <div class="form-group form-inline">
+                                        <span id="btnagregarhorariosabado" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
+                                        <span id="btncancelarhorariosabado" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
+                                        </div>
+                                        <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
+                                    </div>
+                                    <hr>
+                                </div>
+
+                                <!-- FIN DEL QUERIDO sabado -->
+
+                                    <!-- TODO LO QUE TENGA QUE VER CON EL domingo -->
+
+                            <div id="domingo" class="col-lg-12">
+                                    <div class="form-check">
+                                        <input name="isdomingo" type="checkbox" class="form-check-input" id="domingocheckbox" @if(Auth::user()->inhourdomingo) checked @endif>
+                                        <label class="form-check-label" for="domingocheckbox">domingo</label>
+                                    </div>
+                                    <div id="horariodomingo" @if(!Auth::user()->inhourdomingo) style="display: none;" @endif>
+                                        <div id="horadomingo" class="form-group form-inline">
+                                        <input name="inhourdomingo" type="time" class="form-control mr-3 text-center" style="width: auto;" value="{{Auth::user()->inhourdomingo}}"> - <input name="outhourdomingo" type="time" class="form-control ml-3 text-center" style="width: auto;" value="{{Auth::user()->outhourdomingo}}">
+                                        </div>
+                                        <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
+                                        <div id="horadomingo2" class="form-group form-inline">
+                                            <input name="inhourafterdomingo" id="inhourafterdomingo" @if(Auth::user()->inhourafterdomingo) style="width: auto;" value="{{Auth::user()->inhourafterdomingo}}" @else disabled @endif type="time" class="form-control mr-3 text-center"> - <input name="outhourafterdomingo" style="width: auto;" id="outhourafterdomingo" @if(Auth::user()->outhourafterdomingo) value="{{Auth::user()->outhourafterdomingo}}" @else disabled @endif type="time" class="form-control ml-3 text-center">
+                                        </div>
+                                        <div class="form-group form-inline">
+                                        <span id="btnagregarhorariodomingo" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
+                                        <span id="btncancelarhorariodomingo" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
+                                        </div>
+                                        <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
+                                    </div>
+                                    <hr>
+                                </div>
+
+                                <!-- FIN DEL QUERIDO domingo -->
+
+
+
+
 							<div class="col-lg-12">
 								<h4 class="fz18 mb20 mt-4">Redes Sociales</h4>
 							</div>
@@ -428,12 +613,14 @@ document.addEventListener("click", function (e) {
 }
 </script>
 <script>
+
         autocomplete(document.getElementById("myInput"), countries);
         </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script>
 
             $(document).ready(function(){
+
                 $("#file").change(function () {
                     $('#img-perfil').hide();
                     filePreview(this);
@@ -478,6 +665,251 @@ document.addEventListener("click", function (e) {
                         $('#selected').show('slow');
                     }
                 });
+
+
+
+                   //TODO ESTO TIENE QUE VER CON EL LUNES NADA MAS LA PUTA MADRE QUE ME PARIO ES UNA BANDA DE CODIGO ESTA MAL HECHO
+
+                   if($('#inhourafterlunes').val() != ""){
+                    $('#btnagregarhorariolunes').hide();
+                    $('#btncancelarhorariolunes').show();
+                }
+                //Lunes checkbox
+                $('#lunescheckbox').change(function(){
+                    if($('#lunescheckbox').is(':checked')){
+                        $('#horariolunes').show('slow');
+                    }else{
+                        $('#horariolunes').hide('slow');
+                    }
+                });
+
+                //Lunes Agregar Horario
+                $('#btnagregarhorariolunes').click(function(){
+                    $('#inhourafterlunes').prop('disabled', false);
+                    $('#outhourafterlunes').prop('disabled', false);
+                    $('#btnagregarhorariolunes').hide('slow');
+                    $('#btncancelarhorariolunes').show('slow');
+                });
+
+                $('#btncancelarhorariolunes').click(function(){
+                    $('#inhourafterlunes').prop('disabled', true);
+                    $('#outhourafterlunes').prop('disabled', true);
+                    $('#inhourafterlunes').val("");
+                    $('#outhourafterlunes').val("");
+                    $('#btncancelarhorariolunes').hide('slow');
+                    $('#btnagregarhorariolunes').show('slow');
+                });
+
+                //FIN DEL LUNES
+
+
+                   //TODO ESTO TIENE QUE VER CON EL martes NADA MAS LA PUTA MADRE QUE ME PARIO ES UNA BANDA DE CODIGO ESTA MAL HECHO
+
+                   if($('#inhouraftermartes').val() != ""){
+                    $('#btnagregarhorariomartes').hide();
+                    $('#btncancelarhorariomartes').show();
+                }
+                //martes checkbox
+                $('#martescheckbox').change(function(){
+                    if($('#martescheckbox').is(':checked')){
+                        $('#horariomartes').show('slow');
+                    }else{
+                        $('#horariomartes').hide('slow');
+                    }
+                });
+
+                //martes Agregar Horario
+                $('#btnagregarhorariomartes').click(function(){
+                    $('#inhouraftermartes').prop('disabled', false);
+                    $('#outhouraftermartes').prop('disabled', false);
+                    $('#btnagregarhorariomartes').hide('slow');
+                    $('#btncancelarhorariomartes').show('slow');
+                });
+
+                $('#btncancelarhorariomartes').click(function(){
+                    $('#inhouraftermartes').prop('disabled', true);
+                    $('#outhouraftermartes').prop('disabled', true);
+                    $('#inhouraftermartes').val("");
+                    $('#outhouraftermartes').val("");
+                    $('#btncancelarhorariomartes').hide('slow');
+                    $('#btnagregarhorariomartes').show('slow');
+                });
+
+                //FIN DEL MARTES
+
+
+
+                   //TODO ESTO TIENE QUE VER CON EL miercoles NADA MAS LA PUTA MADRE QUE ME PARIO ES UNA BANDA DE CODIGO ESTA MAL HECHO
+
+                   if($('#inhouraftermiercoles').val() != ""){
+                    $('#btnagregarhorariomiercoles').hide();
+                    $('#btncancelarhorariomiercoles').show();
+                }
+                //miercoles checkbox
+                $('#miercolescheckbox').change(function(){
+                    if($('#miercolescheckbox').is(':checked')){
+                        $('#horariomiercoles').show('slow');
+                    }else{
+                        $('#horariomiercoles').hide('slow');
+                    }
+                });
+
+                //miercoles Agregar Horario
+                $('#btnagregarhorariomiercoles').click(function(){
+                    $('#inhouraftermiercoles').prop('disabled', false);
+                    $('#outhouraftermiercoles').prop('disabled', false);
+                    $('#btnagregarhorariomiercoles').hide('slow');
+                    $('#btncancelarhorariomiercoles').show('slow');
+                });
+
+                $('#btncancelarhorariomiercoles').click(function(){
+                    $('#inhouraftermiercoles').prop('disabled', true);
+                    $('#outhouraftermiercoles').prop('disabled', true);
+                    $('#inhouraftermiercoles').val("");
+                    $('#outhouraftermiercoles').val("");
+                    $('#btncancelarhorariomiercoles').hide('slow');
+                    $('#btnagregarhorariomiercoles').show('slow');
+                });
+
+                //FIN DEL miercoles
+
+                 //TODO ESTO TIENE QUE VER CON EL jueves NADA MAS LA PUTA MADRE QUE ME PARIO ES UNA BANDA DE CODIGO ESTA MAL HECHO
+
+                 if($('#inhourafterjueves').val() != ""){
+                    $('#btnagregarhorariojueves').hide();
+                    $('#btncancelarhorariojueves').show();
+                }
+                //jueves checkbox
+                $('#juevescheckbox').change(function(){
+                    if($('#juevescheckbox').is(':checked')){
+                        $('#horariojueves').show('slow');
+                    }else{
+                        $('#horariojueves').hide('slow');
+                    }
+                });
+
+                //jueves Agregar Horario
+                $('#btnagregarhorariojueves').click(function(){
+                    $('#inhourafterjueves').prop('disabled', false);
+                    $('#outhourafterjueves').prop('disabled', false);
+                    $('#btnagregarhorariojueves').hide('slow');
+                    $('#btncancelarhorariojueves').show('slow');
+                });
+
+                $('#btncancelarhorariojueves').click(function(){
+                    $('#inhourafterjueves').prop('disabled', true);
+                    $('#outhourafterjueves').prop('disabled', true);
+                    $('#inhourafterjueves').val("");
+                    $('#outhourafterjueves').val("");
+                    $('#btncancelarhorariojueves').hide('slow');
+                    $('#btnagregarhorariojueves').show('slow');
+                });
+
+                //FIN DEL jueves
+
+
+                   //TODO ESTO TIENE QUE VER CON EL viernes NADA MAS LA PUTA MADRE QUE ME PARIO ES UNA BANDA DE CODIGO ESTA MAL HECHO
+
+                   if($('#inhourafterviernes').val() != ""){
+                    $('#btnagregarhorarioviernes').hide();
+                    $('#btncancelarhorarioviernes').show();
+                }
+                //viernes checkbox
+                $('#viernescheckbox').change(function(){
+                    if($('#viernescheckbox').is(':checked')){
+                        $('#horarioviernes').show('slow');
+                    }else{
+                        $('#horarioviernes').hide('slow');
+                    }
+                });
+
+                //viernes Agregar Horario
+                $('#btnagregarhorarioviernes').click(function(){
+                    $('#inhourafterviernes').prop('disabled', false);
+                    $('#outhourafterviernes').prop('disabled', false);
+                    $('#btnagregarhorarioviernes').hide('slow');
+                    $('#btncancelarhorarioviernes').show('slow');
+                });
+
+                $('#btncancelarhorarioviernes').click(function(){
+                    $('#inhourafterviernes').prop('disabled', true);
+                    $('#outhourafterviernes').prop('disabled', true);
+                    $('#inhourafterviernes').val("");
+                    $('#outhourafterviernes').val("");
+                    $('#btncancelarhorarioviernes').hide('slow');
+                    $('#btnagregarhorarioviernes').show('slow');
+                });
+
+                //FIN DEL viernes
+
+                   //TODO ESTO TIENE QUE VER CON EL sabado NADA MAS LA PUTA MADRE QUE ME PARIO ES UNA BANDA DE CODIGO ESTA MAL HECHO
+
+                   if($('#inhouraftersabado').val() != ""){
+                    $('#btnagregarhorariosabado').hide();
+                    $('#btncancelarhorariosabado').show();
+                }
+                //sabado checkbox
+                $('#sabadocheckbox').change(function(){
+                    if($('#sabadocheckbox').is(':checked')){
+                        $('#horariosabado').show('slow');
+                    }else{
+                        $('#horariosabado').hide('slow');
+                    }
+                });
+
+                //sabado Agregar Horario
+                $('#btnagregarhorariosabado').click(function(){
+                    $('#inhouraftersabado').prop('disabled', false);
+                    $('#outhouraftersabado').prop('disabled', false);
+                    $('#btnagregarhorariosabado').hide('slow');
+                    $('#btncancelarhorariosabado').show('slow');
+                });
+
+                $('#btncancelarhorariosabado').click(function(){
+                    $('#inhouraftersabado').prop('disabled', true);
+                    $('#outhouraftersabado').prop('disabled', true);
+                    $('#inhouraftersabado').val("");
+                    $('#outhouraftersabado').val("");
+                    $('#btncancelarhorariosabado').hide('slow');
+                    $('#btnagregarhorariosabado').show('slow');
+                });
+
+                //FIN DEL sabado
+
+                   //TODO ESTO TIENE QUE VER CON EL domingo NADA MAS LA PUTA MADRE QUE ME PARIO ES UNA BANDA DE CODIGO ESTA MAL HECHO
+
+                   if($('#inhourafterdomingo').val() != ""){
+                    $('#btnagregarhorariodomingo').hide();
+                    $('#btncancelarhorariodomingo').show();
+                }
+                //domingo checkbox
+                $('#domingocheckbox').change(function(){
+                    if($('#domingocheckbox').is(':checked')){
+                        $('#horariodomingo').show('slow');
+                    }else{
+                        $('#horariodomingo').hide('slow');
+                    }
+                });
+
+                //domingo Agregar Horario
+                $('#btnagregarhorariodomingo').click(function(){
+                    $('#inhourafterdomingo').prop('disabled', false);
+                    $('#outhourafterdomingo').prop('disabled', false);
+                    $('#btnagregarhorariodomingo').hide('slow');
+                    $('#btncancelarhorariodomingo').show('slow');
+                });
+
+                $('#btncancelarhorariodomingo').click(function(){
+                    $('#inhourafterdomingo').prop('disabled', true);
+                    $('#outhourafterdomingo').prop('disabled', true);
+                    $('#inhourafterdomingo').val("");
+                    $('#outhourafterdomingo').val("");
+                    $('#btncancelarhorariodomingo').hide('slow');
+                    $('#btnagregarhorariodomingo').show('slow');
+                });
+
+                //FIN DEL domingo
+
             });
 
         </script>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Subcategory;
+use App\Category;
 
 class UserController extends Controller
 {
@@ -122,6 +124,164 @@ class UserController extends Controller
             $user->Instagram = $request['Instagram'];
             $user->save();
         }
-        return redirect()->back()->with('response','success');
+
+
+        if($request['islunes']){
+            if(!empty($request['inhourlunes']) && !empty($request['outhourlunes'])){
+                $user->inhourlunes = $request['inhourlunes'];
+                $user->outhourlunes = $request['outhourlunes'];
+                if(!empty($request['inhourafterlunes']) && !empty($request['outhourafterlunes'])){
+                    $user->inhourafterlunes = $request['inhourafterlunes'];
+                    $user->outhourafterlunes = $request['outhourafterlunes'];
+                }
+                $user->save();
+            }else{
+                return redirect()->back()->with('lunes', 'error');
+            }
+        }else{
+            $user->inhourlunes = null;
+            $user->outhourlunes = null;
+            $user->inhourafterlunes = null;
+            $user->outhourafterlunes = null;
+            $user->save();
+        }
+        if($request['ismartes']){
+            if(!empty($request['inhourmartes']) && !empty($request['outhourmartes'])){
+                $user->inhourmartes = $request['inhourmartes'];
+                $user->outhourmartes = $request['outhourmartes'];
+                if(!empty($request['inhouraftermartes']) && !empty($request['outhouraftermartes'])){
+                    $user->inhouraftermartes = $request['inhouraftermartes'];
+                    $user->outhouraftermartes = $request['outhouraftermartes'];
+                }
+                $user->save();
+            }else{
+                return redirect()->back()->with('martes', 'error');
+            }
+        }else{
+            $user->inhourmartes = null;
+            $user->outhourmartes = null;
+            $user->inhouraftermartes = null;
+            $user->outhouraftermartes = null;
+            $user->save();
+        }
+
+
+        if($request['ismiercoles']){
+            if(!empty($request['inhourmiercoles']) && !empty($request['outhourmiercoles'])){
+                $user->inhourmiercoles = $request['inhourmiercoles'];
+                $user->outhourmiercoles = $request['outhourmiercoles'];
+                if(!empty($request['inhouraftermiercoles']) && !empty($request['outhouraftermiercoles'])){
+                    $user->inhouraftermiercoles = $request['inhouraftermiercoles'];
+                    $user->outhouraftermiercoles = $request['outhouraftermiercoles'];
+                }
+                $user->save();
+            }else{
+                return redirect()->back()->with('miercoles', 'error');
+            }
+        }else{
+            $user->inhourmiercoles = null;
+            $user->outhourmiercoles = null;
+            $user->inhouraftermiercoles = null;
+            $user->outhouraftermiercoles = null;
+            $user->save();
+        }
+
+
+
+        if($request['isjueves']){
+            if(!empty($request['inhourjueves']) && !empty($request['outhourjueves'])){
+                $user->inhourjueves = $request['inhourjueves'];
+                $user->outhourjueves = $request['outhourjueves'];
+                if(!empty($request['inhourafterjueves']) && !empty($request['outhourafterjueves'])){
+                    $user->inhourafterjueves = $request['inhourafterjueves'];
+                    $user->outhourafterjueves = $request['outhourafterjueves'];
+                }
+                $user->save();
+            }else{
+                return redirect()->back()->with('jueves', 'error');
+            }
+        }else{
+            $user->inhourjueves = null;
+            $user->outhourjueves = null;
+            $user->inhourafterjueves = null;
+            $user->outhourafterjueves = null;
+            $user->save();
+        }
+
+
+
+
+        if($request['isviernes']){
+            if(!empty($request['inhourviernes']) && !empty($request['outhourviernes'])){
+                $user->inhourviernes = $request['inhourviernes'];
+                $user->outhourviernes = $request['outhourviernes'];
+                if(!empty($request['inhourafterviernes']) && !empty($request['outhourafterviernes'])){
+                    $user->inhourafterviernes = $request['inhourafterviernes'];
+                    $user->outhourafterviernes = $request['outhourafterviernes'];
+                }
+                $user->save();
+            }else{
+                return redirect()->back()->with('viernes', 'error');
+            }
+        }else{
+            $user->inhourviernes = null;
+            $user->outhourviernes = null;
+            $user->inhourafterviernes = null;
+            $user->outhourafterviernes = null;
+            $user->save();
+        }
+
+
+
+        if($request['issabado']){
+            if(!empty($request['inhoursabado']) && !empty($request['outhoursabado'])){
+                $user->inhoursabado = $request['inhoursabado'];
+                $user->outhoursabado = $request['outhoursabado'];
+                if(!empty($request['inhouraftersabado']) && !empty($request['outhouraftersabado'])){
+                    $user->inhouraftersabado = $request['inhouraftersabado'];
+                    $user->outhouraftersabado = $request['outhouraftersabado'];
+                }
+                $user->save();
+            }else{
+                return redirect()->back()->with('sabado', 'error');
+            }
+        }else{
+            $user->inhoursabado = null;
+            $user->outhoursabado = null;
+            $user->inhouraftersabado = null;
+            $user->outhouraftersabado = null;
+            $user->save();
+        }
+
+
+
+        if($request['isdomingo']){
+            if(!empty($request['inhourdomingo']) && !empty($request['outhourdomingo'])){
+                $user->inhourdomingo = $request['inhourdomingo'];
+                $user->outhourdomingo = $request['outhourdomingo'];
+                if(!empty($request['inhourafterdomingo']) && !empty($request['outhourafterdomingo'])){
+                    $user->inhourafterdomingo = $request['inhourafterdomingo'];
+                    $user->outhourafterdomingo = $request['outhourafterdomingo'];
+                }
+                $user->save();
+            }else{
+                return redirect()->back()->with('domingo', 'error');
+            }
+        }else{
+            $user->inhourdomingo = null;
+            $user->outhourdomingo = null;
+            $user->inhourafterdomingo = null;
+            $user->outhourafterdomingo = null;
+            $user->save();
+        }
+       return redirect()->back()->with('response','success');
+    }
+
+
+    public function welcome(){
+        $subcategories = Subcategory::all();
+        $categories = Category::all();
+        $subcategoriesjson = json_encode($subcategories);
+        return view('welcome', ['subcategories' => $subcategoriesjson, 'categories' => $categories]);
     }
 }

@@ -16,9 +16,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'phone', 'website', 'experience', 'description', 'facebook', 'instagram', 'twitter', 'linkedin', 'level', 'city', 'zone', 'job', 'inhour', 'outhour', 'inhourafter', 'outhourafter', 'isEfective', 'isVisa', 'isMercadoPago', 'isMasterCard', 'whatsapp', 'age', 'category', 'img','rol'
+        'name', 'email', 'password', 'phone', 'website', 'experience', 'description', 'facebook', 'instagram', 'twitter', 'linkedin', 'level', 'city', 'zone', 'job', 'isEfective', 'isVisa', 'isMercadoPago', 'isMasterCard', 'whatsapp', 'age', 'category', 'img','rol', 'inhourlunes','outhourlunes', 'inhourafterlunes', 'outhourafterlunes',
+        'inhourmartes','outhourmartes', 'inhouraftermartes', 'outhouraftermartes', 'inhourmiercoles','outhourmiercoles', 'inhouraftermiercoles', 'outhouraftermiercoles', 'inhourjueves','outhourjueves', 'inhourafterjueves', 'outhourafterjueves', 'inhourviernes','outhourviernes', 'inhourafterviernes', 'outhourafterviernes', 'inhoursabado','outhoursabado', 'inhouraftersabado', 'outhouraftersabado', 'inhourdomingo','outhourdomingo', 'inhourafterdomingo', 'outhourafterdomingo'
     ];
-
     /**
      * The attributes that should be hidden for arrays.
      *
