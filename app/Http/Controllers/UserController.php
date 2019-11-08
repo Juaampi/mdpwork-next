@@ -280,8 +280,15 @@ class UserController extends Controller
 
     public function welcome(){
         $subcategories = Subcategory::all();
+        $array = [];
+        $i = 0;
+       foreach($subcategories as $subcategory){
+           $array[$i] = $subcategory->name;
+           $i++;
+       }
         $categories = Category::all();
-        $subcategoriesjson = json_encode($subcategories);
-        return view('welcome', ['subcategories' => $subcategoriesjson, 'categories' => $categories]);
+        $ultimos = User::orderBy('created_at', 'desc')->take(10)->get();
+
+        return view('welcome', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $ultimos, 'subcategories' => $subcategories]);
     }
 }

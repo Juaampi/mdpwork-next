@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@php
+use Carbon\Carbon;
+@endphp
 @section('content')
 <div class="wrapper">
 	<div class="preloader"></div>
@@ -128,7 +130,7 @@
 							<div class="search_option_two">
 							    <div class="form-group">
 							    	<label for="exampleInputEmail"><img src="icons/location.png"/></label>
-							    	<input type="text" class="form-control h70" id="exampleInputEmail" placeholder="Busca por zona">
+							    	<input type="text" name="zoneinput" class="form-control h70" id="zoneinput" placeholder="Busca por zona">
 							    </div>
 							</div>
 							<div class="search_option_button">
@@ -262,132 +264,93 @@
 				</div>
 			</div>
 			<div class="row">
+                @foreach($lastest as $last)
 				<div class="col-sm-12 col-lg-12">
 					<div class="fj_post">
 						<div class="details">
-							<h5 class="job_chedule text-thm mt0"><strong>Disponible</strong></h5>
+                            @php
+                                $carbon = Carbon::now();
+                            @endphp
+
+                            <!-- ACA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
+
+                            @if($carbon->format('D')=='Fri')
+                                @if($last->inhourafterlunes && $last->outhourafterlunes)
+                                    @if($carbon->format('H:i:s') >= $last->inhourlunes && $carbon->format('H:i:s') <= $last->outhourlunes)
+                                        <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+                                    @endif
+                                    @if($carbon->format('H:i:s') >= $last->inhourafterlunes && $carbon->format('H:i:s') <= $last->outhourafterlunes)
+                                        <h5 class="job_chedule mt0 badge badge-success text-white"><strong>Disponible</strong></h5>
+                                    @endif
+                                @else
+                                    @if($carbon->format('H:i:s') >= $last->inhourlunes && $carbon->format('H:i:s') <= $last->outhourlunes)
+                                        <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+                                    @else
+                                        <h5 class="job_chedule badge badge-danger text-white mt0"><strong>No disponibles</strong></h5>
+                                    @endif
+                                @endif
+                            @endif
+
+                            <!-- ACA FINALIZA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
+
 							<div class="thumb fn-smd">
-								<img class="img-fluid" style="height: 120px" src="img/logo.png" alt="1.jpg">
+                            <img class="img-fluid" style="height: 120px" src="img-perfil/{{$last->img}}" alt="1.jpg">
                             </div>
                             <div class="row">
                                 <div class="col-md-4">
-							        <h4>Ricardo Alfredo Rodriguez</h4>
-                                    <p class="font-style-italic"><img src="icons/location.png" /> Lomás del Golf, Mar del Plata</p>
-                                    <p class="font-style-italic" ><a href="#"><strong>Electricista </strong> - <span style="font-style: italic">Cierra en <span style="color: #e44d4d"><strong>01:27hs</strong></span></span></a></p>
+							        <h4>{{$last->name}}</h4>
+                                    <p class="font-style-italic"><img src="icons/location.png" /> {{$last->zone}}, Mar del Plata</p>
+                                    <p class="font-style-italic" ><a href="#">
+                                    @foreach($subcategories as $subcategory)
+                                        @if($subcategory->id == $last->job)
+                                            <strong>{{$subcategory->name}}</strong>
+                                        @endif
+                                    @endforeach
+
+                                    </a></p>
+
                                 </div>
-                                <div class="col-md-7">
+                                <div class="col-md-6">
                                         <p>
                                             <img src="icons/horario.png" />
                                             <strong>Miercoles</strong></span>
                                             <span style="font-size: 14px">08:00 hs - 12:00 hs</span>
                                         </p>
-                                        <p class="mt-1"><img src="icons/tarjeta.png" />
-                                            <strong>Métodos</strong>
-                                            <span class="payment">Efectivo</span>
-                                            <span class="payment"><span class="payment-visa"></span></span>
-                                            <span class="payment"><span class="payment-mercado"></span></span>
+                                        <p class="mt-1"><img src="icons/points.png" />
+                                            <strong>Puntuación: <span class="badge badge-warning">10</span></strong>
+
+                                        </p>
+                                        <p>
+                                            <img src="icons/coments.png" /> <strong>Comentarios: <span class="badge badge-secondary">35</span> <a style="font-size: 12px;" href="#" class="text-primary">Ver comentarios</a></strong>
                                         </p>
                                 </div>
+
+                        </div>
+                        <div class="row">
+                            <ul style="float: left; margin: 20px 0 0 0;">
+                                <li style="float: left; margin: 0 10px 0 0;">
+                                    Métodos de pago aceptados:
+                                </li>
+                                <li style="float: left; margin: 0 10px 0 0;">
+                                    <img src="img/credit-card/money.png" style="height: 25px; float: left;" />
+                                </li>
+                                <li style="float: left; margin: 0 10px 0 0;">
+                                    <img src="img/credit-card/visa.png" style="height: 25px; float: left;" />
+                                </li>
+                                <li style="float: left; margin: 0 10px 0 0;">
+                                     <img src="img/credit-card/mastercard.png" style="height: 25px; float: left;" />
+                                </li>
+                                <li style="float: left; margin: 0 10px 0 0;">
+                                        <img src="img/credit-card/mercado.png" style="height: 25px; float: left;" />
+                                   </li>
+                            </ul>
                         </div>
                         </div>
                         <a class="btn btn-md btn-transparent float-right fn-smd" href="#">Ver</a>
 					</div>
                 </div>
-                <div class="col-sm-12 col-lg-12">
-                        <div class="fj_post">
-                            <div class="details">
-                                <h5 class="job_chedule text-thm mt0"><strong>Disponible</strong></h5>
-                                <div class="thumb fn-smd">
-                                    <img class="img-fluid" style="height: 120px" src="img/logo.png" alt="1.jpg">
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <h4>Ricardo Alfredo Rodriguez</h4>
-                                        <p class="font-style-italic"><img src="icons/location.png" /> Lomás del Golf, Mar del Plata</p>
-                                        <p class="font-style-italic" ><a href="#"><strong>Electricista </strong> - <span style="font-style: italic">Cierra en <span style="color: #e44d4d"><strong>01:27hs</strong></span></span></a></p>
-                                    </div>
-                                    <div class="col-md-7">
-                                            <p>
-                                                <img src="icons/horario.png" />
-                                                <strong>Miercoles</strong></span>
-                                                <span style="font-size: 14px">08:00 hs - 12:00 hs</span>
-                                            </p>
-                                            <p class="mt-1"><img src="icons/tarjeta.png" />
-                                                <strong>Métodos</strong>
-                                                <span class="payment">Efectivo</span>
-                                                <span class="payment"><span class="payment-visa"></span></span>
-                                                <span class="payment"><span class="payment-mercado"></span></span>
-                                            </p>
-                                    </div>
-                            </div>
-                            </div>
-                            <a class="btn btn-md btn-transparent float-right fn-smd" href="#">Ver</a>
-                        </div>
-                </div>
-                <div class="col-sm-12 col-lg-12">
-                            <div class="fj_post">
-                                <div class="details">
-                                    <h5 class="job_chedule text-thm mt0"><strong>Disponible</strong></h5>
-                                    <div class="thumb fn-smd">
-                                        <img class="img-fluid" style="height: 120px" src="img/logo.png" alt="1.jpg">
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <h4>Ricardo Alfredo Rodriguez</h4>
-                                            <p class="font-style-italic"><img src="icons/location.png" /> Lomás del Golf, Mar del Plata</p>
-                                            <p class="font-style-italic" ><a href="#"><strong>Electricista </strong> - <span style="font-style: italic">Cierra en <span style="color: #e44d4d"><strong>01:27hs</strong></span></span></a></p>
-                                        </div>
-                                        <div class="col-md-7">
-                                                <p>
-                                                    <img src="icons/horario.png" />
-                                                    <strong>Miercoles</strong></span>
-                                                    <span style="font-size: 14px">08:00 hs - 12:00 hs</span>
-                                                </p>
-                                                <p class="mt-1"><img src="icons/tarjeta.png" />
-                                                    <strong>Métodos</strong>
-                                                    <span class="payment">Efectivo</span>
-                                                    <span class="payment"><span class="payment-visa"></span></span>
-                                                    <span class="payment"><span class="payment-mercado"></span></span>
-                                                </p>
-                                        </div>
-                                </div>
-                                </div>
-                                <a class="btn btn-md btn-transparent float-right fn-smd" href="#">Ver</a>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-lg-12">
-                                <div class="fj_post">
-                                    <div class="details">
-                                        <h5 class="job_chedule text-thm mt0"><strong>Disponible</strong></h5>
-                                        <div class="thumb fn-smd">
-                                            <img class="img-fluid" style="height: 120px" src="img/logo.png" alt="1.jpg">
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <h4>Ricardo Alfredo Rodriguez</h4>
-                                                <p class="font-style-italic"><img src="icons/location.png" /> Lomás del Golf, Mar del Plata</p>
-                                                <p class="font-style-italic" ><a href="#"><strong>Electricista </strong> - <span style="font-style: italic">Cierra en <span style="color: #e44d4d"><strong>01:27hs</strong></span></span></a></p>
-                                            </div>
-                                            <div class="col-md-7">
-                                                    <p>
-                                                        <img src="icons/horario.png" />
-                                                        <strong>Miercoles</strong></span>
-                                                        <span style="font-size: 14px">08:00 hs - 12:00 hs</span>
-                                                    </p>
-                                                    <p class="mt-1"><img src="icons/tarjeta.png" />
-                                                        <strong>Métodos</strong>
-                                                        <span class="payment">Efectivo</span>
-                                                        <span class="payment"><span class="payment-visa"></span></span>
-                                                        <span class="payment"><span class="payment-mercado"></span></span>
-                                                    </p>
-                                            </div>
-                                    </div>
-                                    </div>
-                                    <a class="btn btn-md btn-transparent float-right fn-smd" href="#">Ver</a>
-                                </div>
-                            </div>
-
-			</div>
+                @endforeach
+            </div>
 		</div>
 	</section>
 
@@ -400,7 +363,7 @@
 
 
 <script>
-        var countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antártida Argentina","Barrio 180","Lomas del Golf","Bernardino Rivadavia","Belgrano","Belisario Roldán","Bosque Alegre","Bosque Peralta Ramos","Caisamar","Centenario","Cerrito","Cerrito Sur","Cerrito San Salvador","Colina Alegre","Constitución","Coronel Dorrego","Costa Azul","Don Bosco","Don Emilio","Dorrego","El Grosellar","El Martillo","El Progreso","Estrada","Etchepare","Faro","Juramento","Las Américas","Las Avenidas","Colinas de Peralta Ramos","Las Heras","La Florida","La Perla","La Zulema","Libertad","Los Acantilados","Los Pinares","Los Troncos","Malvinas Argentinas","Newbery","Nueva Pompeya","Montemar","Parque Hermoso","Parque La Florida","Parque Luro","Parque Palermo","Parque Peña","Peralta Ramos Oeste","Pinos de Anchorena","Chapadmalal","Playa Grande","Punta Mogotes","San Antonio","San Carlos","San Eduardo","San Geronimo","San Jacinto","San José","San Patricio","San Salvador","Santa Mónica","Sarmiento","Stella Maris","Jardín Stella Maris","Jardín","Alfar","Nuevo Golf","Zacagnini"];
+        var countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antártida Argentina","Barrio 180","Lomas del Golf","Bernardino Rivadavia","Belgrano","Belisario Roldán","Bosque Alegre","Bosque Peralta Ramos","Caisamar","Centenario","Cerrito","Cerrito Sur","Cerrito San Salvador","Colina Alegre","Constitución","Coronel Dorrego","Costa Azul","Don Bosco","Don Emilio","Dorrego","El Grosellar","El Martillo","El Progreso","Estrada","Etchepare","Faro","Juramento","Las Américas","Las Avenidas","Colinas de Peralta Ramos","Las Heras","La Florida","La Perla","La Zulema","Libertad","Los Acantilados","Los Pinares","Los Troncos","Malvinas Argentinas","Newbery","Nueva Pompeya","Montemar","Parque Hermoso","Parque La Florida","Parque Luro","Parque Palermo","Parque Peña","Peralta Ramos Oeste","Pinos de Anchorena","Chapadmalal","Playa Grande","Punta Mogotes","San Antonio","San Carlos","San Eduardo","San Geronimo","San Jacinto","San José","San Patricio","San Salvador","Santa Mónica","Sarmiento","Stella Maris","Jardín Stella Maris","Jardín","Alfar","Nuevo Golf","Zacagnini", "Otra zona", "Todo Mar del Plata"];
     </script>
 
 <script>
@@ -504,9 +467,9 @@
 
 
         <script type="text/javascript">
-                var subcategories = @json_decode($subcategories);
-                autocomplete(document.getElementById("searchinput"), subcategories);
-
+                var subcategoriesArray = @json($subcategoriesArray);
+                autocomplete(document.getElementById("searchinput"), subcategoriesArray);
+                autocomplete(document.getElementById("zoneinput"), countries);
         </script>
 
 

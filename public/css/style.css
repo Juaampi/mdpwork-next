@@ -30,7 +30,7 @@
     position: relative;
     }
     .payment-visa{
-        background-image: url(../img/credit-card/visa.svg);
+        background-image: url(../img/credit-card/visa.png);
         background-size: 50px 16px;
         display: block;
         height: 16px;
@@ -83,7 +83,7 @@
     position: relative;
     }
     .payment-visa{
-        background-image: url(../img/credit-card/visa.svg);
+        background-image: url(../img/credit-card/visa.png);
         background-size: 50px 16px;
         display: block;
         height: 16px;
@@ -136,7 +136,7 @@
     position: relative;
     }
     .payment-visa{
-        background-image: url(../img/credit-card/visa.svg);
+        background-image: url(../img/credit-card/visa.png);
         background-size: 50px 16px;
         display: block;
         height: 16px;
@@ -200,7 +200,7 @@
     position: relative;
     }
     .payment-visa{
-        background-image: url(../img/credit-card/visa.svg);
+        background-image: url(../img/credit-card/visa.png);
         background-size: 50px 16px;
         display: block;
         height: 16px;
@@ -312,7 +312,7 @@
     position: relative;
     }
     .payment-visa{
-    background-image: url(../img/credit-card/visa.svg);
+    background-image: url(../img/credit-card/visa.png);
     background-size: 50px 16px;
     display: block;
     height: 16px;
@@ -331,7 +331,7 @@
         margin-top: 5px;
     }
     .payment-mastercard{
-    background-image: url(../img/credit-card/mastercard.svg);
+    background-image: url(../img/credit-card/mastercard.png);
     background-size: 44px 26px;
     display: block;
     height: 26px;
