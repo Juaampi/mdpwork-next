@@ -74,6 +74,35 @@ class RegisterController extends Controller
             ]);
         }else{
 
+        if(empty($data['inhourafterlunes']) || empty($data['outhourafterlunes'])){
+            $data['inhourafterlunes'] = null;
+            $data['outhourafterlunes'] = null;
+        }
+        if(empty($data['inhouraftermartes']) || empty($data['outhouraftermartes'])){
+            $data['inhouraftermartes'] = null;
+            $data['outhouraftermartes'] = null;
+        }
+        if(empty($data['inhouraftermiercoles']) || empty($data['outhouraftermiercoles'])){
+            $data['inhouraftermiercoles'] = null;
+            $data['outhouraftermiercoles'] = null;
+        }
+        if(empty($data['inhourafterjueves']) || empty($data['outhourafterjueves'])){
+            $data['inhourafterjueves'] = null;
+            $data['outhourafterjueves'] = null;
+        }
+        if(empty($data['inhourafterviernes']) || empty($data['outhourafterviernes'])){
+            $data['inhourafterviernes'] = null;
+            $data['outhourafterviernes'] = null;
+        }
+        if(empty($data['inhouraftersabado']) || empty($data['outhouraftersabado'])){
+            $data['inhouraftersabado'] = null;
+            $data['outhouraftersabado'] = null;
+        }
+        if(empty($data['inhourafterdomingo']) || empty($data['outhourafterdomingo'])){
+            $data['inhourafterdomingo'] = null;
+            $data['outhourafterdomingo'] = null;
+        }
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -101,18 +130,32 @@ class RegisterController extends Controller
             'rol' => $data['rol'],
             'inhourlunes' => $data['inhourlunes'],
             'outhourlunes' => $data['outhourlunes'],
+            'inhourafterlunes' => $data['inhourafterlunes'],
+            'outhourafterlunes' => $data['outhourafterlunes'],
             'inhourmartes' => $data['inhourmartes'],
             'outhourmartes' => $data['outhourmartes'],
+            'inhouraftermartes' => $data['inhouraftermartes'],
+            'outhouraftermartes' => $data['outhouraftermartes'],
             'inhourmiercoles' => $data['inhourmiercoles'],
             'outhourmiercoles' => $data['outhourmiercoles'],
+            'inhouraftermiercoles' => $data['inhouraftermiercoles'],
+            'outhouraftermiercoles' => $data['outhouraftermiercoles'],
             'inhourjueves' => $data['inhourjueves'],
             'outhourjueves' => $data['outhourjueves'],
+            'inhourafterjueves' => $data['inhourafterjueves'],
+            'outhourafterjueves' => $data['outhourafterjueves'],
             'inhourviernes' => $data['inhourviernes'],
             'outhourviernes' => $data['outhourviernes'],
+            'inhourafterviernes' => $data['inhourafterviernes'],
+            'outhourafterviernes' => $data['outhourafterviernes'],
             'inhoursabado' => $data['inhoursabado'],
             'outhoursabado' => $data['outhoursabado'],
+            'inhouraftersabado' => $data['inhouraftersabado'],
+            'outhouraftersabado' => $data['outhouraftersabado'],
             'inhourdomingo' => $data['inhourdomingo'],
-            'outhourdomingo' => $data['outhourdomingo']
+            'outhourdomingo' => $data['outhourdomingo'],
+            'inhourafterdomingo' => $data['inhourafterdomingo'],
+            'outhourafterdomingo' => $data['outhourafterdomingo']
         ]);
         }
     }

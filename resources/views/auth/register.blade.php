@@ -220,7 +220,7 @@
                                         </div>
 
                                         <div class="col-lg-12">
-                                                <h4 class="fz18 mb20 mt-4">Horarios de atención<span class="text-secondary">al cliente</span></h4>
+                                                <h4 class="fz18 mb20 mt-4">Horarios de atención <span class="text-secondary">al cliente</span></h4>
                                         </div>
 
                                          <!-- TODO LO QUE TENGA QUE VER CON EL LUNES -->
@@ -265,8 +265,8 @@
                                                 <input name="inhouraftermartes" id="inhouraftermartes" disabled type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input style="width: auto;" name="outhouraftermartes" id="outhouraftermartes" disabled type="time" class="form-control ml-3 text-center">
                                             </div>
                                             <div class="form-group form-inline">
-                                            <span id="btnagregarhorariolunes" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
-                                            <span id="btncancelarhorariolunes" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
+                                            <span id="btnagregarhorariomartes" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
+                                            <span id="btncancelarhorariomartes" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
                                             </div>
                                             <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
                                         </div>
@@ -726,12 +726,9 @@
 
 
 
-                            //TODO ESTO TIENE QUE VER CON EL LUNES NADA MAS LA PUTA MADRE QUE ME PARIO ES UNA BANDA DE CODIGO ESTA MAL HECHO
+            //TODO ESTO TIENE QUE VER CON EL LUNES NADA MAS LA PUTA MADRE QUE ME PARIO ES UNA BANDA DE CODIGO ESTA MAL HECHO
 
-                   if($('#inhourafterlunes').val() != ""){
-                    $('#btnagregarhorariolunes').hide();
-                    $('#btncancelarhorariolunes').show();
-                }
+
                 //Lunes checkbox
                 $('#lunescheckbox').change(function(){
                     if($('#lunescheckbox').is(':checked')){
@@ -763,10 +760,7 @@
 
                    //TODO ESTO TIENE QUE VER CON EL martes NADA MAS LA PUTA MADRE QUE ME PARIO ES UNA BANDA DE CODIGO ESTA MAL HECHO
 
-                   if($('#inhouraftermartes').val() != ""){
-                    $('#btnagregarhorariomartes').hide();
-                    $('#btncancelarhorariomartes').show();
-                }
+
                 //martes checkbox
                 $('#martescheckbox').change(function(){
                     if($('#martescheckbox').is(':checked')){
@@ -799,10 +793,7 @@
 
                    //TODO ESTO TIENE QUE VER CON EL miercoles NADA MAS LA PUTA MADRE QUE ME PARIO ES UNA BANDA DE CODIGO ESTA MAL HECHO
 
-                   if($('#inhouraftermiercoles').val() != ""){
-                    $('#btnagregarhorariomiercoles').hide();
-                    $('#btncancelarhorariomiercoles').show();
-                }
+
                 //miercoles checkbox
                 $('#miercolescheckbox').change(function(){
                     if($('#miercolescheckbox').is(':checked')){
@@ -833,10 +824,7 @@
 
                  //TODO ESTO TIENE QUE VER CON EL jueves NADA MAS LA PUTA MADRE QUE ME PARIO ES UNA BANDA DE CODIGO ESTA MAL HECHO
 
-                 if($('#inhourafterjueves').val() != ""){
-                    $('#btnagregarhorariojueves').hide();
-                    $('#btncancelarhorariojueves').show();
-                }
+
                 //jueves checkbox
                 $('#juevescheckbox').change(function(){
                     if($('#juevescheckbox').is(':checked')){
@@ -868,10 +856,7 @@
 
                    //TODO ESTO TIENE QUE VER CON EL viernes NADA MAS LA PUTA MADRE QUE ME PARIO ES UNA BANDA DE CODIGO ESTA MAL HECHO
 
-                   if($('#inhourafterviernes').val() != ""){
-                    $('#btnagregarhorarioviernes').hide();
-                    $('#btncancelarhorarioviernes').show();
-                }
+
                 //viernes checkbox
                 $('#viernescheckbox').change(function(){
                     if($('#viernescheckbox').is(':checked')){
@@ -902,10 +887,6 @@
 
                    //TODO ESTO TIENE QUE VER CON EL sabado NADA MAS LA PUTA MADRE QUE ME PARIO ES UNA BANDA DE CODIGO ESTA MAL HECHO
 
-                   if($('#inhouraftersabado').val() != ""){
-                    $('#btnagregarhorariosabado').hide();
-                    $('#btncancelarhorariosabado').show();
-                }
                 //sabado checkbox
                 $('#sabadocheckbox').change(function(){
                     if($('#sabadocheckbox').is(':checked')){
@@ -936,10 +917,7 @@
 
                    //TODO ESTO TIENE QUE VER CON EL domingo NADA MAS LA PUTA MADRE QUE ME PARIO ES UNA BANDA DE CODIGO ESTA MAL HECHO
 
-                   if($('#inhourafterdomingo').val() != ""){
-                    $('#btnagregarhorariodomingo').hide();
-                    $('#btncancelarhorariodomingo').show();
-                }
+
                 //domingo checkbox
                 $('#domingocheckbox').change(function(){
                     if($('#domingocheckbox').is(':checked')){

@@ -133,6 +133,9 @@ class UserController extends Controller
                 if(!empty($request['inhourafterlunes']) && !empty($request['outhourafterlunes'])){
                     $user->inhourafterlunes = $request['inhourafterlunes'];
                     $user->outhourafterlunes = $request['outhourafterlunes'];
+                }else{
+                    $user->inhourafterlunes = null;
+                    $user->outhourafterlunes = null;
                 }
                 $user->save();
             }else{
@@ -152,6 +155,9 @@ class UserController extends Controller
                 if(!empty($request['inhouraftermartes']) && !empty($request['outhouraftermartes'])){
                     $user->inhouraftermartes = $request['inhouraftermartes'];
                     $user->outhouraftermartes = $request['outhouraftermartes'];
+                }else{
+                    $user->inhouraftermartes = null;
+                    $user->outhouraftermartes = null;
                 }
                 $user->save();
             }else{
@@ -173,6 +179,9 @@ class UserController extends Controller
                 if(!empty($request['inhouraftermiercoles']) && !empty($request['outhouraftermiercoles'])){
                     $user->inhouraftermiercoles = $request['inhouraftermiercoles'];
                     $user->outhouraftermiercoles = $request['outhouraftermiercoles'];
+                }else{
+                    $user->inhouraftermiercoles = null;
+                    $user->outhouraftermiercoles = null;
                 }
                 $user->save();
             }else{
@@ -195,6 +204,9 @@ class UserController extends Controller
                 if(!empty($request['inhourafterjueves']) && !empty($request['outhourafterjueves'])){
                     $user->inhourafterjueves = $request['inhourafterjueves'];
                     $user->outhourafterjueves = $request['outhourafterjueves'];
+                }else{
+                    $user->inhourafterjueves = null;
+                    $user->outhourafterjueves = null;
                 }
                 $user->save();
             }else{
@@ -209,8 +221,6 @@ class UserController extends Controller
         }
 
 
-
-
         if($request['isviernes']){
             if(!empty($request['inhourviernes']) && !empty($request['outhourviernes'])){
                 $user->inhourviernes = $request['inhourviernes'];
@@ -218,6 +228,9 @@ class UserController extends Controller
                 if(!empty($request['inhourafterviernes']) && !empty($request['outhourafterviernes'])){
                     $user->inhourafterviernes = $request['inhourafterviernes'];
                     $user->outhourafterviernes = $request['outhourafterviernes'];
+                }else{
+                    $user->inhourafterviernes = null;
+                    $user->outhourafterviernes = null;
                 }
                 $user->save();
             }else{
@@ -232,7 +245,6 @@ class UserController extends Controller
         }
 
 
-
         if($request['issabado']){
             if(!empty($request['inhoursabado']) && !empty($request['outhoursabado'])){
                 $user->inhoursabado = $request['inhoursabado'];
@@ -240,6 +252,9 @@ class UserController extends Controller
                 if(!empty($request['inhouraftersabado']) && !empty($request['outhouraftersabado'])){
                     $user->inhouraftersabado = $request['inhouraftersabado'];
                     $user->outhouraftersabado = $request['outhouraftersabado'];
+                }else{
+                    $user->inhouraftersabado = null;
+                    $user->outhouraftersabado = null;
                 }
                 $user->save();
             }else{
@@ -262,6 +277,9 @@ class UserController extends Controller
                 if(!empty($request['inhourafterdomingo']) && !empty($request['outhourafterdomingo'])){
                     $user->inhourafterdomingo = $request['inhourafterdomingo'];
                     $user->outhourafterdomingo = $request['outhourafterdomingo'];
+                }else{
+                    $user->inhourafterdomingo = null;
+                    $user->outhourafterdomingo = null;
                 }
                 $user->save();
             }else{

@@ -670,7 +670,7 @@ document.addEventListener("click", function (e) {
 
                    //TODO ESTO TIENE QUE VER CON EL LUNES NADA MAS LA PUTA MADRE QUE ME PARIO ES UNA BANDA DE CODIGO ESTA MAL HECHO
 
-                   if($('#inhourafterlunes').val() != ""){
+                if($('#inhourafterlunes').val() != ""){
                     $('#btnagregarhorariolunes').hide();
                     $('#btncancelarhorariolunes').show();
                 }
