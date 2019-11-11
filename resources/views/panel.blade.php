@@ -144,11 +144,7 @@
                                         <label for="formGroupExampleInput2">Profesion <img id="unselected" style="display:none;" src="icons/alert.png"><img id="selected" style="display:none;" src="icons/check.png"></label>
                                         <select id="subcategory" name="subcategory_id" class="form-control">
                                             @if(Auth::user()->job)
-                                                @foreach($subcategories as $subcategory)
-                                                    @if($subcategory->id == Auth::user()->job)
-                                                        <option value="{{$subcategory->id}}">{{$subcategory->name}}</option>
-                                                    @endif
-                                                @endforeach
+                                                <option value="{{ Auth::user()->job }}">{{ Auth::user()->job }}</option>
                                             @endif
                                         </select>
                                     </div>
@@ -646,7 +642,7 @@ document.addEventListener("click", function (e) {
                             $('#subcategory').empty();
                             $('#subcategory').append("<option value=''>Seleccione Oficio</option>");
                             $.each(subcategories, function(index, subcategory){
-                                $('#subcategory').append("<option value= '"+ subcategory.id +"'>"+ subcategory.name +"</option>");
+                                $('#subcategory').append("<option value= '"+ subcategory.name +"'>"+ subcategory.name +"</option>");
                                 $('#selected').hide('slow');
                                 $('#unselected').show('slow');
                                 $('#subcategory').css({"border":"1px solid #e46359"});

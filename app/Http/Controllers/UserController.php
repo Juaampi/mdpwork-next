@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Subcategory;
 use App\Category;
-
+use Illuminate\Support\Collection as Collection;
 class UserController extends Controller
 {
 
@@ -20,19 +20,21 @@ class UserController extends Controller
            $array[$i] = $subcategory->name;
            $i++;
        }
-        $categories = Category::all();
         return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $users, 'subcategories' => $subcategories]);
     }
 
     public function search(Request $request){
+        $categories = Category::all();
+        $subcategories = Subcategory::all();
+        $array = [];
+        $i = 0;
+         foreach($subcategories as $subcategory){
+           $array[$i] = $subcategory->name;
+           $i++;
+       }
         $busqueda = $request['search'];
-        $subcategories = Subcategory::where('name', 'like', '%' . $busqueda . '%')->get();
-        foreach($subcategories as $subcategory){
-            $array = [];
-            $user = User::where('job','=', $subcategory->id);
-            array_push($array, $user);
-        }
-        return $array;
+        $user = User::where('job', 'like', '%' . $busqueda . '%')->get();
+        return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories]);
     }
 
     public function updateImg(Request $request){

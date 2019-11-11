@@ -449,11 +449,7 @@ use Carbon\Carbon;
 							        <h4>{{$last->name}}</h4>
                                     <p class="font-style-italic"><img src="icons/location.png" /> {{$last->zone}}, Mar del Plata</p>
                                     <p class="font-style-italic" ><a href="#">
-                                    @foreach($subcategories as $subcategory)
-                                        @if($subcategory->id == $last->job)
-                                            <strong>{{$subcategory->name}}</strong>
-                                        @endif
-                                    @endforeach
+                                    <strong>{{ $last->job }}</strong>
                                     </a></p>
                                 </div>
                                 <div class="col-md-6">

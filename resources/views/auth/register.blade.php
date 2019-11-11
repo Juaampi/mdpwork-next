@@ -704,7 +704,7 @@
                                     $('#subcategory').empty();
                                     $('#subcategory').append("<option value=''>Seleccione Oficio</option>");
                                     $.each(subcategories, function(index, subcategory){
-                                        $('#subcategory').append("<option value= '"+ subcategory.id +"'>"+ subcategory.name +"</option>");
+                                        $('#subcategory').append("<option value= '"+ subcategory.name +"'>"+ subcategory.name +"</option>");
                                         $('#selected').hide('slow');
                                         $('#unselected').show('slow');
                                         $('#subcategory').css({"border":"1px solid #e46359"});

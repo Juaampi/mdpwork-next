@@ -430,13 +430,9 @@ use Carbon\Carbon;
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <h4>{{$last->name}}</h4>
-                                                <p class="font-style-italic"><img src="icons/location.png" /> {{$last->zone}}, Mar del Plata</p>
+                                                <p style="width: 204px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><img src="icons/location.png" /> {{$last->zone}}, Mar del Plata</p>
                                                 <p class="font-style-italic" ><a href="#">
-                                                @foreach($subcategories as $subcategory)
-                                                    @if($subcategory->id == $last->job)
-                                                        <strong>{{$subcategory->name}}</strong>
-                                                    @endif
-                                                @endforeach
+                                                        <strong>{{ $last->job }}</strong>
                                                 </a></p>
                                             </div>
                                             <div class="col-md-6">
@@ -589,27 +585,27 @@ use Carbon\Carbon;
                                                         <img src="icons/coments.png" /> <strong>Comentarios: <span class="badge badge-secondary">35</span> <a style="font-size: 12px;" href="#" class="text-primary">Ver comentarios</a></strong>
                                                     </p>
                                             </div>
+                                            <ul style="float: left; margin: 20px 0 0 0;">
+                                                <li style="float: left; margin: 0 10px 0 0;">
+                                                    Métodos de pago aceptados:
+                                                </li>
+                                                <li style="float: left; margin: 0 10px 0 0;">
+                                                    <img src="img/credit-card/money.png" style="height: 25px; float: left;" />
+                                                </li>
+                                                <li style="float: left; margin: 0 10px 0 0;">
+                                                    <img src="img/credit-card/visa.png" style="height: 25px; float: left;" />
+                                                </li>
+                                                <li style="float: left; margin: 0 10px 0 0;">
+                                                     <img src="img/credit-card/mastercard.png" style="height: 25px; float: left;" />
+                                                </li>
+                                                <li style="float: left; margin: 0 10px 0 0;">
+                                                        <img src="img/credit-card/mercado.png" style="height: 25px; float: left;" />
+                                                   </li>
+                                            </ul>
 
                                     </div>
-                                    <div class="row">
-                                        <ul style="float: left; margin: 20px 0 0 0;">
-                                            <li style="float: left; margin: 0 10px 0 0;">
-                                                Métodos de pago aceptados:
-                                            </li>
-                                            <li style="float: left; margin: 0 10px 0 0;">
-                                                <img src="img/credit-card/money.png" style="height: 25px; float: left;" />
-                                            </li>
-                                            <li style="float: left; margin: 0 10px 0 0;">
-                                                <img src="img/credit-card/visa.png" style="height: 25px; float: left;" />
-                                            </li>
-                                            <li style="float: left; margin: 0 10px 0 0;">
-                                                 <img src="img/credit-card/mastercard.png" style="height: 25px; float: left;" />
-                                            </li>
-                                            <li style="float: left; margin: 0 10px 0 0;">
-                                                    <img src="img/credit-card/mercado.png" style="height: 25px; float: left;" />
-                                               </li>
-                                        </ul>
-                                    </div>
+
+
                                     </div>
                                     <a class="btn btn-md btn-transparent float-right fn-smd" href="#">Ver</a>
                                 </div>
