@@ -274,8 +274,8 @@ use Carbon\Carbon;
 
                             <!-- ACA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
 
-                            @if($carbon->format('D')=='Fri')
-                                @if($last->inhourafterlunes && $last->outhourafterlunes)
+							@if($carbon->isoFormat('dddd')=='Monday')
+								@if($last->inhourafterlunes && $last->outhourafterlunes)
                                     @if($carbon->format('H:i:s') >= $last->inhourlunes && $carbon->format('H:i:s') <= $last->outhourlunes)
                                         <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
                                     @endif
@@ -286,16 +286,164 @@ use Carbon\Carbon;
                                     @if($carbon->format('H:i:s') >= $last->inhourlunes && $carbon->format('H:i:s') <= $last->outhourlunes)
                                         <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
                                     @else
-                                        <h5 class="job_chedule badge badge-danger text-white mt0"><strong>No disponibles</strong></h5>
+                                        <h5 class="job_chedule badge badge-danger text-white mt0"><strong>No disponible</strong></h5>
                                     @endif
                                 @endif
                             @endif
 
-                            <!-- ACA FINALIZA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
+							<!-- ACA FINALIZA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
+
+							  <!-- ACA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
+
+							  @if($carbon->isoFormat('dddd')=='Tuesday')
+							  @if($last->inhouraftermartes && $last->outhouraftermartes)
+								  @if($carbon->format('H:i:s') >= $last->inhourmartes && $carbon->format('H:i:s') <= $last->outhourmartes)
+									  <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+								  @endif
+								  @if($carbon->format('H:i:s') >= $last->inhouraftermartes && $carbon->format('H:i:s') <= $last->outhouraftermartes)
+									  <h5 class="job_chedule mt0 badge badge-success text-white"><strong>Disponible</strong></h5>
+								  @endif
+							  @else
+								  @if($carbon->format('H:i:s') >= $last->inhourmartes && $carbon->format('H:i:s') <= $last->outhourmartes)
+									  <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+								  @else
+									  <h5 class="job_chedule badge badge-danger text-white mt0"><strong>No disponible</strong></h5>
+								  @endif
+							  @endif
+						  @endif
+
+						  <!-- ACA FINALIZA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
+
+						    <!-- ACA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
+
+                            @if($carbon->isoFormat('dddd')=='Wednesday')
+                                @if($last->inhouraftermiercoles && $last->outhouraftermiercoles)
+                                    @if($carbon->format('H:i:s') >= $last->inhourmiercoles && $carbon->format('H:i:s') <= $last->outhourmiercoles)
+                                        <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+                                    @endif
+                                    @if($carbon->format('H:i:s') >= $last->inhouraftermiercoles && $carbon->format('H:i:s') <= $last->outhouraftermiercoles)
+                                        <h5 class="job_chedule mt0 badge badge-success text-white"><strong>Disponible</strong></h5>
+                                    @endif
+                                @else
+                                    @if($carbon->format('H:i:s') >= $last->inhourlunes && $carbon->format('H:i:s') <= $last->outhourlunes)
+                                        <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+                                    @else
+                                        <h5 class="job_chedule badge badge-danger text-white mt0"><strong>No disponible</strong></h5>
+                                    @endif
+                                @endif
+                            @endif
+
+							<!-- ACA FINALIZA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
+
+							  <!-- ACA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
+
+							  @if($carbon->isoFormat('dddd')=='Thursday')
+							  @if($last->inhourafterjueves && $last->outhourafterjueves)
+								  @if($carbon->format('H:i:s') >= $last->inhourjueves && $carbon->format('H:i:s') <= $last->outhourjueves)
+									  <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+								  @endif
+								  @if($carbon->format('H:i:s') >= $last->inhourafterjueves && $carbon->format('H:i:s') <= $last->outhourafterjueves)
+									  <h5 class="job_chedule mt0 badge badge-success text-white"><strong>Disponible</strong></h5>
+								  @endif
+							  @else
+								  @if($carbon->format('H:i:s') >= $last->inhourjueves && $carbon->format('H:i:s') <= $last->outhourjueves)
+									  <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+								  @else
+									  <h5 class="job_chedule badge badge-danger text-white mt0"><strong>No disponible</strong></h5>
+								  @endif
+							  @endif
+						  @endif
+
+						  <!-- ACA FINALIZA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
+
+						    <!-- ACA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
+
+                            @if($carbon->isoFormat('dddd')=='Friday')
+                                @if($last->inhourafterviernes && $last->outhourafterviernes)
+                                    @if($carbon->format('H:i:s') >= $last->inhourviernes && $carbon->format('H:i:s') <= $last->outhourviernes)
+                                        <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+                                    @endif
+                                    @if($carbon->format('H:i:s') >= $last->inhourafterviernes && $carbon->format('H:i:s') <= $last->outhourafterviernes)
+                                        <h5 class="job_chedule mt0 badge badge-success text-white"><strong>Disponible</strong></h5>
+                                    @endif
+                                @else
+                                    @if($carbon->format('H:i:s') >= $last->inhourviernes && $carbon->format('H:i:s') <= $last->outhourviernes)
+                                        <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+                                    @else
+                                        <h5 class="job_chedule badge badge-danger text-white mt0"><strong>No disponible</strong></h5>
+                                    @endif
+                                @endif
+                            @endif
+
+							<!-- ACA FINALIZA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
+
+							  <!-- ACA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
+
+							  @if($carbon->isoFormat('dddd')=='Saturday')
+							  @if($last->inhouraftersabado && $last->outhouraftersabado)
+								  @if($carbon->format('H:i:s') >= $last->inhoursabado && $carbon->format('H:i:s') <= $last->outhoursabado)
+									  <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+								  @endif
+								  @if($carbon->format('H:i:s') >= $last->inhouraftersabado && $carbon->format('H:i:s') <= $last->outhouraftersabado)
+									  <h5 class="job_chedule mt0 badge badge-success text-white"><strong>Disponible</strong></h5>
+								  @endif
+							  @else
+								  @if($carbon->format('H:i:s') >= $last->inhoursabado && $carbon->format('H:i:s') <= $last->outhoursabado)
+									  <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+								  @else
+									  <h5 class="job_chedule badge badge-danger text-white mt0"><strong>No disponible</strong></h5>
+								  @endif
+							  @endif
+						  @endif
+
+						  <!-- ACA FINALIZA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
+
+						    <!-- ACA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
+
+							@if($carbon->isoFormat('dddd')=='Sunday')
+							@if($last->inhourafterdomingo && $last->outhourafterdomingo)
+								@if($carbon->format('H:i:s') >= $last->inhourdomingo && $carbon->format('H:i:s') <= $last->outhourdomingo)
+									<h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+								@endif
+								@if($carbon->format('H:i:s') >= $last->inhourafterdomingo && $carbon->format('H:i:s') <= $last->outhourafterdomingo)
+									<h5 class="job_chedule mt0 badge badge-success text-white"><strong>Disponible</strong></h5>
+								@endif
+							@else
+								@if($carbon->format('H:i:s') >= $last->inhourdomingo && $carbon->format('H:i:s') <= $last->outhourdomingo)
+									<h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+								@else
+									<h5 class="job_chedule badge badge-danger text-white mt0"><strong>No disponible</strong></h5>
+								@endif
+							@endif
+						@endif
+
+						<!-- ACA FINALIZA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
 
 							<div class="thumb fn-smd">
-                            <img class="img-fluid" style="height: 120px" src="img-perfil/{{$last->img}}" alt="1.jpg">
-                            </div>
+							<img class="img-fluid" style="height: 120px" src="img-perfil/{{$last->img}}" alt="1.jpg">
+
+								<ul style="margin-bottom: 0px;">
+									<li style="display: inline">
+										<img height="18px;" src="icons/llena.png">
+									</li>
+									<li style="display: inline">
+										<img height="18px;" src="icons/llena.png">
+									</li>
+									<li style="display: inline">
+										<img height="18px;" src="icons/llena.png">
+									</li>
+									<li style="display: inline">
+										<img height="18px;" src="icons/llena.png">
+									</li>
+									<li style="display: inline">
+										<img height="18px;" src="icons/vacia.png">
+									</li>
+								</ul>
+
+									<span class="badge badge-warning"><strong>4.5</strong></span>
+
+							</div>
+
                             <div class="row">
                                 <div class="col-md-4">
 							        <h4>{{$last->name}}</h4>
@@ -306,18 +454,152 @@ use Carbon\Carbon;
                                             <strong>{{$subcategory->name}}</strong>
                                         @endif
                                     @endforeach
-
                                     </a></p>
-
                                 </div>
                                 <div class="col-md-6">
                                         <p>
-                                            <img src="icons/horario.png" />
-                                            <strong>Miercoles</strong></span>
-                                            <span style="font-size: 14px">08:00 hs - 12:00 hs</span>
-                                        </p>
-                                        <p class="mt-1"><img src="icons/points.png" />
-                                            <strong>Puntuación: <span class="badge badge-warning">10</span></strong>
+											<img src="icons/horario.png" />
+											<!-- LUNES HORARIOS: -->
+											@if($carbon->isoFormat('dddd') == 'Monday')
+												<strong>Lunes: </strong>
+												@if($last->inhourafterlunes && $last->outhourafterlunes)
+													@if($carbon->format('H:i:s') < $last->outhourlunes)
+														<span style="font-size: 14px">{{$last->inhourlunes}} hs - {{$last->outhourlunes}} hs</span>
+													@endif
+													@if($carbon->format('H:i:s') > $last->outhourlunes && $carbon->format('H:i:s') < $last->outhourafterlunes)
+														<span style="font-size: 14px">{{$last->inhourafterlunes}} hs - {{$last->outhourafterlunes}} hs</span>
+													@endif
+												@else
+													@if($carbon->format('H:i:s') < $last->outhourlunes)
+														<span style="font-size: 14px">{{$last->inhourlunes}} hs - {{$last->outhourlunes}} hs</span>
+													@else
+														<span style="font-size: 14px" class="text-danger font-weight-bold">{{$last->inhourlunes}} hs - {{$last->outhourlunes}} hs</span>
+													@endif
+												@endif
+											@endif
+										<!-- CIERRE martes HORARIOS -->
+
+											<!-- martes HORARIOS: -->
+											@if($carbon->isoFormat('dddd') == 'Tuesday')
+												<strong>Martes: </strong>
+												@if($last->inhouraftermartes && $last->outhouraftermartes)
+													@if($carbon->format('H:i:s') < $last->outhourmartes)
+														<span style="font-size: 14px">{{$last->inhourmartes}} hs - {{$last->outhourmartes}} hs</span>
+													@endif
+													@if($carbon->format('H:i:s') > $last->outhourmartes && $carbon->format('H:i:s') < $last->outhouraftermartes)
+														<span style="font-size: 14px">{{$last->inhouraftermartes}} hs - {{$last->outhouraftermartes}} hs</span>
+													@endif
+												@else
+													@if($carbon->format('H:i:s') < $last->outhourmartes)
+														<span style="font-size: 14px">{{$last->inhourmartes}} hs - {{$last->outhourmartes}} hs</span>
+													@else
+														<span style="font-size: 14px" class="text-danger font-weight-bold">{{$last->inhourmartes}} hs - {{$last->outhourmartes}} hs</span>
+													@endif
+												@endif
+											@endif
+										<!-- CIERRE martes HORARIOS -->
+
+											<!-- LUNES HORARIOS: -->
+											@if($carbon->isoFormat('dddd') == 'Wednesday')
+												<strong>Miércoles: </strong>
+												@if($last->inhouraftermiercoles && $last->outhouraftermiercoles)
+													@if($carbon->format('H:i:s') < $last->outhourmiercoles)
+														<span style="font-size: 14px">{{$last->inhourmiercoles}} hs - {{$last->outhourmiercoles}} hs</span>
+													@endif
+													@if($carbon->format('H:i:s') > $last->outhourmiercoles && $carbon->format('H:i:s') < $last->outhouraftermiercoles)
+														<span style="font-size: 14px">{{$last->inhouraftermiercoles}} hs - {{$last->outhouraftermiercoles}} hs</span>
+													@endif
+												@else
+													@if($carbon->format('H:i:s') < $last->outhourmiercoles)
+														<span style="font-size: 14px">{{$last->inhourmiercoles}} hs - {{$last->outhourmiercoles}} hs</span>
+													@else
+														<span style="font-size: 14px" class="text-danger font-weight-bold">{{$last->inhourmiercoles}} hs - {{$last->outhourmiercoles}} hs</span>
+													@endif
+												@endif
+											@endif
+										<!-- CIERRE miercoles HORARIOS -->
+
+											<!-- LUNES HORARIOS: -->
+											@if($carbon->isoFormat('dddd') == 'Thursday')
+												<strong>Jueves: </strong>
+												@if($last->inhourafterjueves && $last->outhourafterjueves)
+													@if($carbon->format('H:i:s') < $last->outhourjueves)
+														<span style="font-size: 14px">{{$last->inhourjueves}} hs - {{$last->outhourjueves}} hs</span>
+													@endif
+													@if($carbon->format('H:i:s') > $last->outhourjueves && $carbon->format('H:i:s') < $last->outhourafterjueves)
+														<span style="font-size: 14px">{{$last->inhourafterjueves}} hs - {{$last->outhourafterjueves}} hs</span>
+													@endif
+												@else
+													@if($carbon->format('H:i:s') < $last->outhourjueves)
+														<span style="font-size: 14px">{{$last->inhourjueves}} hs - {{$last->outhourjueves}} hs</span>
+													@else
+														<span style="font-size: 14px" class="text-danger font-weight-bold">{{$last->inhourjueves}} hs - {{$last->outhourjueves}} hs</span>
+													@endif
+												@endif
+											@endif
+										<!-- CIERRE jueves HORARIOS -->
+
+											<!-- Viernes HORARIOS: -->
+											@if($carbon->isoFormat('dddd') == 'Friday')
+												<strong>Viernes: </strong>
+												@if($last->inhourafterviernes && $last->outhourafterviernes)
+													@if($carbon->format('H:i:s') < $last->outhourviernes)
+														<span style="font-size: 14px">{{$last->inhourviernes}} hs - {{$last->outhourviernes}} hs</span>
+													@endif
+													@if($carbon->format('H:i:s') > $last->outhourviernes && $carbon->format('H:i:s') < $last->outhourafterviernes)
+														<span style="font-size: 14px">{{$last->inhourafterviernes}} hs - {{$last->outhourafterviernes}} hs</span>
+													@endif
+												@else
+													@if($carbon->format('H:i:s') < $last->outhourviernes)
+														<span style="font-size: 14px">{{$last->inhourviernes}} hs - {{$last->outhourviernes}} hs</span>
+													@else
+														<span style="font-size: 14px" class="text-danger font-weight-bold">{{$last->inhourviernes}} hs - {{$last->outhourviernes}} hs</span>
+													@endif
+												@endif
+											@endif
+										<!-- CIERRE viernes HORARIOS -->
+
+											<!-- Sabado HORARIOS: -->
+											@if($carbon->isoFormat('dddd') == 'Saturday')
+												<strong>Sábado: </strong>
+												@if($last->inhouraftersabado && $last->outhouraftersabado)
+													@if($carbon->format('H:i:s') < $last->outhoursabado)
+														<span style="font-size: 14px">{{$last->inhoursabado}} hs - {{$last->outhoursabado}} hs</span>
+													@endif
+													@if($carbon->format('H:i:s') > $last->outhoursabado && $carbon->format('H:i:s') < $last->outhouraftersabado)
+														<span style="font-size: 14px">{{$last->inhouraftersabado}} hs - {{$last->outhouraftersabado}} hs</span>
+													@endif
+												@else
+													@if($carbon->format('H:i:s') < $last->outhoursabado)
+														<span style="font-size: 14px">{{$last->inhoursabado}} hs - {{$last->outhoursabado}} hs</span>
+													@else
+														<span style="font-size: 14px" class="text-danger font-weight-bold">{{$last->inhoursabado}} hs - {{$last->outhoursabado}} hs</span>
+													@endif
+												@endif
+											@endif
+										<!-- CIERRE sabado HORARIOS -->
+
+											<!-- LUNES HORARIOS: -->
+											@if($carbon->isoFormat('dddd') == 'Sunday')
+												<strong>Domingo: </strong>
+												@if($last->inhourafterdomingo && $last->outhourafterdomingo)
+													@if($carbon->format('H:i:s') < $last->outhourdomingo)
+														<span style="font-size: 14px">{{$last->inhourdomingo}} hs - {{$last->outhourdomingo}} hs</span>
+													@endif
+													@if($carbon->format('H:i:s') > $last->outhourdomingo && $carbon->format('H:i:s') < $last->outhourafterdomingo)
+														<span style="font-size: 14px">{{$last->inhourafterdomingo}} hs - {{$last->outhourafterdomingo}} hs</span>
+													@endif
+												@else
+													@if($carbon->format('H:i:s') < $last->outhourdomingo)
+														<span style="font-size: 14px">{{$last->inhourdomingo}} hs - {{$last->outhourdomingo}} hs</span>
+													@else
+														<span style="font-size: 14px" class="text-danger font-weight-bold">{{$last->inhourdomingo}} hs - {{$last->outhourdomingo}} hs</span>
+													@endif
+												@endif
+											@endif
+										<!-- CIERRE domingo HORARIOS -->
+
+
 
                                         </p>
                                         <p>
