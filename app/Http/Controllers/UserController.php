@@ -9,6 +9,32 @@ use App\Category;
 
 class UserController extends Controller
 {
+
+    public function showlist(){
+        $users = User::where('rol', '=', 'profesional')->get();
+        $categories = Category::all();
+        $subcategories = Subcategory::all();
+        $array = [];
+        $i = 0;
+       foreach($subcategories as $subcategory){
+           $array[$i] = $subcategory->name;
+           $i++;
+       }
+        $categories = Category::all();
+        return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $users, 'subcategories' => $subcategories]);
+    }
+
+    public function search(Request $request){
+        $busqueda = $request['search'];
+        $subcategories = Subcategory::where('name', 'like', '%' . $busqueda . '%')->get();
+        foreach($subcategories as $subcategory){
+            $array = [];
+            $user = User::where('job','=', $subcategory->id);
+            array_push($array, $user);
+        }
+        return $array;
+    }
+
     public function updateImg(Request $request){
         $user = User::find($request['user_id']);
         if($request->hasFile('img-perfil')){
@@ -298,8 +324,15 @@ class UserController extends Controller
 
     public function welcome(){
         $subcategories = Subcategory::all();
+        $array = [];
+        $i = 0;
+       foreach($subcategories as $subcategory){
+           $array[$i] = $subcategory->name;
+           $i++;
+       }
         $categories = Category::all();
-        $subcategoriesjson = json_encode($subcategories);
-        return view('welcome', ['subcategories' => $subcategoriesjson, 'categories' => $categories]);
+        $ultimos = User::orderBy('created_at', 'desc')->take(10)->get();
+
+        return view('welcome', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $ultimos, 'subcategories' => $subcategories]);
     }
 }

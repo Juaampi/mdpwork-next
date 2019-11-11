@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@php
+use Carbon\Carbon;
+@endphp
 @section('content')
 <div class="preloader"></div>
 <section class="bgc-fa">
@@ -11,17 +13,17 @@
                 </div>
                 <p class="text-center mb2"><strong>MDP WORK</strong> - Utilizá el buscador y los filtros para encontrar lo que necesitas</p>
                 <div class="home-job-search-box mt20 mb20">
-                    <form class="form-inline">
+                <form class="form-inline" method="GET" action="{{route('User.search')}}">
                          <div class="search_option_one">
                             <div class="form-group">
                                 <label for="exampleInputName"><img src="icons/search-icon.png"></label>
-							    	<input type="text" class="form-control h70" id="exampleInputName" placeholder="Escribe lo que buscas.. EJ:Carpintero, electricista">
+							    	<input name="search" type="text" class="form-control h70" id="searchinput" placeholder="Escribe lo que buscas.. EJ:Carpintero, electricista">
                             </div>
                         </div>
                         <div class="search_option_two">
                             <div class="form-group">
                                 <label for="exampleInputEmail"><img src="icons/location.png"/></label>
-							    <input type="text" class="form-control h70" id="exampleInputEmail" placeholder="Busca por zona">
+							    <input type="text" class="form-control h70" id="zoneinput" placeholder="Busca por zona">
                             </div>
                         </div>
                         <div class="search_option_button">
@@ -244,68 +246,376 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-lg-12">
-                            <div class="fj_post">
-                                <div class="details">
-                                    <h5 class="job_chedule text-thm mt0"><strong>Disponible</strong></h5>
-                                    <div class="thumb fn-smd">
-                                        <img class="img-fluid" style="height: 120px" src="img/logo.png" alt="1.jpg">
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <h4>Ricardo Alfredo Rodriguez</h4>
-                                            <p class="font-style-italic"><img src="icons/location.png" /> Lomás del Golf, Mar del Plata</p>
-                                            <p class="font-style-italic" ><a href="#"><strong>Electricista </strong> - <span style="font-style: italic">Cierra en <span style="color: #e44d4d"><strong>01:27hs</strong></span></span></a></p>
-                                        </div>
-                                        <div class="col-md-7">
-                                                <p>
-                                                    <img src="icons/horario.png" />
-                                                    <strong>Miercoles</strong></span>
-                                                    <span style="font-size: 14px">08:00 hs - 12:00 hs</span>
-                                                </p>
-                                                <p class="mt-1"><img src="icons/tarjeta.png" />
-                                                    <strong>Métodos</strong>
-                                                    <span class="payment">Efectivo</span>
-                                                    <span class="payment"><span class="payment-visa"></span></span>
-                                                    <span class="payment"><span class="payment-mercado"></span></span>
-                                                </p>
-                                        </div>
-                                </div>
-                                </div>
-                                <a class="btn btn-md btn-transparent float-right fn-smd" href="#">Ver</a>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-lg-12">
+                    <div class="row">
+                            @foreach($lastest as $last)
+                            <div class="col-sm-12 col-lg-12">
                                 <div class="fj_post">
                                     <div class="details">
-                                        <h5 class="job_chedule text-thm mt0"><strong>Disponible</strong></h5>
+                                        @php
+                                            $carbon = Carbon::now();
+                                        @endphp
+
+                                        <!-- ACA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
+
+                                        @if($carbon->isoFormat('dddd')=='Monday')
+                                            @if($last->inhourafterlunes && $last->outhourafterlunes)
+                                                @if($carbon->format('H:i:s') >= $last->inhourlunes && $carbon->format('H:i:s') <= $last->outhourlunes)
+                                                    <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+                                                @endif
+                                                @if($carbon->format('H:i:s') >= $last->inhourafterlunes && $carbon->format('H:i:s') <= $last->outhourafterlunes)
+                                                    <h5 class="job_chedule mt0 badge badge-success text-white"><strong>Disponible</strong></h5>
+                                                @endif
+                                            @else
+                                                @if($carbon->format('H:i:s') >= $last->inhourlunes && $carbon->format('H:i:s') <= $last->outhourlunes)
+                                                    <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+                                                @else
+                                                    <h5 class="job_chedule badge badge-danger text-white mt0"><strong>No disponible</strong></h5>
+                                                @endif
+                                            @endif
+                                        @endif
+
+                                        <!-- ACA FINALIZA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
+
+                                          <!-- ACA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
+
+                                          @if($carbon->isoFormat('dddd')=='Tuesday')
+                                          @if($last->inhouraftermartes && $last->outhouraftermartes)
+                                              @if($carbon->format('H:i:s') >= $last->inhourmartes && $carbon->format('H:i:s') <= $last->outhourmartes)
+                                                  <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+                                              @endif
+                                              @if($carbon->format('H:i:s') >= $last->inhouraftermartes && $carbon->format('H:i:s') <= $last->outhouraftermartes)
+                                                  <h5 class="job_chedule mt0 badge badge-success text-white"><strong>Disponible</strong></h5>
+                                              @endif
+                                          @else
+                                              @if($carbon->format('H:i:s') >= $last->inhourmartes && $carbon->format('H:i:s') <= $last->outhourmartes)
+                                                  <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+                                              @else
+                                                  <h5 class="job_chedule badge badge-danger text-white mt0"><strong>No disponible</strong></h5>
+                                              @endif
+                                          @endif
+                                      @endif
+
+                                      <!-- ACA FINALIZA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
+
+                                        <!-- ACA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
+
+                                        @if($carbon->isoFormat('dddd')=='Wednesday')
+                                            @if($last->inhouraftermiercoles && $last->outhouraftermiercoles)
+                                                @if($carbon->format('H:i:s') >= $last->inhourmiercoles && $carbon->format('H:i:s') <= $last->outhourmiercoles)
+                                                    <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+                                                @endif
+                                                @if($carbon->format('H:i:s') >= $last->inhouraftermiercoles && $carbon->format('H:i:s') <= $last->outhouraftermiercoles)
+                                                    <h5 class="job_chedule mt0 badge badge-success text-white"><strong>Disponible</strong></h5>
+                                                @endif
+                                            @else
+                                                @if($carbon->format('H:i:s') >= $last->inhourlunes && $carbon->format('H:i:s') <= $last->outhourlunes)
+                                                    <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+                                                @else
+                                                    <h5 class="job_chedule badge badge-danger text-white mt0"><strong>No disponible</strong></h5>
+                                                @endif
+                                            @endif
+                                        @endif
+
+                                        <!-- ACA FINALIZA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
+
+                                          <!-- ACA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
+
+                                          @if($carbon->isoFormat('dddd')=='Thursday')
+                                          @if($last->inhourafterjueves && $last->outhourafterjueves)
+                                              @if($carbon->format('H:i:s') >= $last->inhourjueves && $carbon->format('H:i:s') <= $last->outhourjueves)
+                                                  <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+                                              @endif
+                                              @if($carbon->format('H:i:s') >= $last->inhourafterjueves && $carbon->format('H:i:s') <= $last->outhourafterjueves)
+                                                  <h5 class="job_chedule mt0 badge badge-success text-white"><strong>Disponible</strong></h5>
+                                              @endif
+                                          @else
+                                              @if($carbon->format('H:i:s') >= $last->inhourjueves && $carbon->format('H:i:s') <= $last->outhourjueves)
+                                                  <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+                                              @else
+                                                  <h5 class="job_chedule badge badge-danger text-white mt0"><strong>No disponible</strong></h5>
+                                              @endif
+                                          @endif
+                                      @endif
+
+                                      <!-- ACA FINALIZA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
+
+                                        <!-- ACA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
+
+                                        @if($carbon->isoFormat('dddd')=='Friday')
+                                            @if($last->inhourafterviernes && $last->outhourafterviernes)
+                                                @if($carbon->format('H:i:s') >= $last->inhourviernes && $carbon->format('H:i:s') <= $last->outhourviernes)
+                                                    <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+                                                @endif
+                                                @if($carbon->format('H:i:s') >= $last->inhourafterviernes && $carbon->format('H:i:s') <= $last->outhourafterviernes)
+                                                    <h5 class="job_chedule mt0 badge badge-success text-white"><strong>Disponible</strong></h5>
+                                                @endif
+                                            @else
+                                                @if($carbon->format('H:i:s') >= $last->inhourviernes && $carbon->format('H:i:s') <= $last->outhourviernes)
+                                                    <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+                                                @else
+                                                    <h5 class="job_chedule badge badge-danger text-white mt0"><strong>No disponible</strong></h5>
+                                                @endif
+                                            @endif
+                                        @endif
+
+                                        <!-- ACA FINALIZA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
+
+                                          <!-- ACA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
+
+                                          @if($carbon->isoFormat('dddd')=='Saturday')
+                                          @if($last->inhouraftersabado && $last->outhouraftersabado)
+                                              @if($carbon->format('H:i:s') >= $last->inhoursabado && $carbon->format('H:i:s') <= $last->outhoursabado)
+                                                  <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+                                              @endif
+                                              @if($carbon->format('H:i:s') >= $last->inhouraftersabado && $carbon->format('H:i:s') <= $last->outhouraftersabado)
+                                                  <h5 class="job_chedule mt0 badge badge-success text-white"><strong>Disponible</strong></h5>
+                                              @endif
+                                          @else
+                                              @if($carbon->format('H:i:s') >= $last->inhoursabado && $carbon->format('H:i:s') <= $last->outhoursabado)
+                                                  <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+                                              @else
+                                                  <h5 class="job_chedule badge badge-danger text-white mt0"><strong>No disponible</strong></h5>
+                                              @endif
+                                          @endif
+                                      @endif
+
+                                      <!-- ACA FINALIZA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
+
+                                        <!-- ACA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
+
+                                        @if($carbon->isoFormat('dddd')=='Sunday')
+                                        @if($last->inhourafterdomingo && $last->outhourafterdomingo)
+                                            @if($carbon->format('H:i:s') >= $last->inhourdomingo && $carbon->format('H:i:s') <= $last->outhourdomingo)
+                                                <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+                                            @endif
+                                            @if($carbon->format('H:i:s') >= $last->inhourafterdomingo && $carbon->format('H:i:s') <= $last->outhourafterdomingo)
+                                                <h5 class="job_chedule mt0 badge badge-success text-white"><strong>Disponible</strong></h5>
+                                            @endif
+                                        @else
+                                            @if($carbon->format('H:i:s') >= $last->inhourdomingo && $carbon->format('H:i:s') <= $last->outhourdomingo)
+                                                <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+                                            @else
+                                                <h5 class="job_chedule badge badge-danger text-white mt0"><strong>No disponible</strong></h5>
+                                            @endif
+                                        @endif
+                                    @endif
+
+                                    <!-- ACA FINALIZA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
+
                                         <div class="thumb fn-smd">
-                                            <img class="img-fluid" style="height: 120px" src="img/logo.png" alt="1.jpg">
+                                        <img class="img-fluid" style="height: 120px" src="img-perfil/{{$last->img}}" alt="1.jpg">
+
+                                            <ul style="margin-bottom: 0px;">
+                                                <li style="display: inline">
+                                                    <img height="18px;" src="icons/llena.png">
+                                                </li>
+                                                <li style="display: inline">
+                                                    <img height="18px;" src="icons/llena.png">
+                                                </li>
+                                                <li style="display: inline">
+                                                    <img height="18px;" src="icons/llena.png">
+                                                </li>
+                                                <li style="display: inline">
+                                                    <img height="18px;" src="icons/llena.png">
+                                                </li>
+                                                <li style="display: inline">
+                                                    <img height="18px;" src="icons/vacia.png">
+                                                </li>
+                                            </ul>
+
+                                                <span class="badge badge-warning"><strong>4.5</strong></span>
+
                                         </div>
+
                                         <div class="row">
                                             <div class="col-md-4">
-                                                <h4>Ricardo Alfredo Rodriguez</h4>
-                                                <p class="font-style-italic"><img src="icons/location.png" /> Lomás del Golf, Mar del Plata</p>
-                                                <p class="font-style-italic" ><a href="#"><strong>Electricista </strong> - <span style="font-style: italic">Cierra en <span style="color: #e44d4d"><strong>01:27hs</strong></span></span></a></p>
+                                                <h4>{{$last->name}}</h4>
+                                                <p class="font-style-italic"><img src="icons/location.png" /> {{$last->zone}}, Mar del Plata</p>
+                                                <p class="font-style-italic" ><a href="#">
+                                                @foreach($subcategories as $subcategory)
+                                                    @if($subcategory->id == $last->job)
+                                                        <strong>{{$subcategory->name}}</strong>
+                                                    @endif
+                                                @endforeach
+                                                </a></p>
                                             </div>
-                                            <div class="col-md-7">
+                                            <div class="col-md-6">
                                                     <p>
                                                         <img src="icons/horario.png" />
-                                                        <strong>Miercoles</strong></span>
-                                                        <span style="font-size: 14px">08:00 hs - 12:00 hs</span>
+                                                        <!-- LUNES HORARIOS: -->
+                                                        @if($carbon->isoFormat('dddd') == 'Monday')
+                                                            <strong>Lunes: </strong>
+                                                            @if($last->inhourafterlunes && $last->outhourafterlunes)
+                                                                @if($carbon->format('H:i:s') < $last->outhourlunes)
+                                                                    <span style="font-size: 14px">{{$last->inhourlunes}} hs - {{$last->outhourlunes}} hs</span>
+                                                                @endif
+                                                                @if($carbon->format('H:i:s') > $last->outhourlunes && $carbon->format('H:i:s') < $last->outhourafterlunes)
+                                                                    <span style="font-size: 14px">{{$last->inhourafterlunes}} hs - {{$last->outhourafterlunes}} hs</span>
+                                                                @endif
+                                                            @else
+                                                                @if($carbon->format('H:i:s') < $last->outhourlunes)
+                                                                    <span style="font-size: 14px">{{$last->inhourlunes}} hs - {{$last->outhourlunes}} hs</span>
+                                                                @else
+                                                                    <span style="font-size: 14px" class="text-danger font-weight-bold">{{$last->inhourlunes}} hs - {{$last->outhourlunes}} hs</span>
+                                                                @endif
+                                                            @endif
+                                                        @endif
+                                                    <!-- CIERRE martes HORARIOS -->
+
+                                                        <!-- martes HORARIOS: -->
+                                                        @if($carbon->isoFormat('dddd') == 'Tuesday')
+                                                            <strong>Martes: </strong>
+                                                            @if($last->inhouraftermartes && $last->outhouraftermartes)
+                                                                @if($carbon->format('H:i:s') < $last->outhourmartes)
+                                                                    <span style="font-size: 14px">{{$last->inhourmartes}} hs - {{$last->outhourmartes}} hs</span>
+                                                                @endif
+                                                                @if($carbon->format('H:i:s') > $last->outhourmartes && $carbon->format('H:i:s') < $last->outhouraftermartes)
+                                                                    <span style="font-size: 14px">{{$last->inhouraftermartes}} hs - {{$last->outhouraftermartes}} hs</span>
+                                                                @endif
+                                                            @else
+                                                                @if($carbon->format('H:i:s') < $last->outhourmartes)
+                                                                    <span style="font-size: 14px">{{$last->inhourmartes}} hs - {{$last->outhourmartes}} hs</span>
+                                                                @else
+                                                                    <span style="font-size: 14px" class="text-danger font-weight-bold">{{$last->inhourmartes}} hs - {{$last->outhourmartes}} hs</span>
+                                                                @endif
+                                                            @endif
+                                                        @endif
+                                                    <!-- CIERRE martes HORARIOS -->
+
+                                                        <!-- LUNES HORARIOS: -->
+                                                        @if($carbon->isoFormat('dddd') == 'Wednesday')
+                                                            <strong>Miércoles: </strong>
+                                                            @if($last->inhouraftermiercoles && $last->outhouraftermiercoles)
+                                                                @if($carbon->format('H:i:s') < $last->outhourmiercoles)
+                                                                    <span style="font-size: 14px">{{$last->inhourmiercoles}} hs - {{$last->outhourmiercoles}} hs</span>
+                                                                @endif
+                                                                @if($carbon->format('H:i:s') > $last->outhourmiercoles && $carbon->format('H:i:s') < $last->outhouraftermiercoles)
+                                                                    <span style="font-size: 14px">{{$last->inhouraftermiercoles}} hs - {{$last->outhouraftermiercoles}} hs</span>
+                                                                @endif
+                                                            @else
+                                                                @if($carbon->format('H:i:s') < $last->outhourmiercoles)
+                                                                    <span style="font-size: 14px">{{$last->inhourmiercoles}} hs - {{$last->outhourmiercoles}} hs</span>
+                                                                @else
+                                                                    <span style="font-size: 14px" class="text-danger font-weight-bold">{{$last->inhourmiercoles}} hs - {{$last->outhourmiercoles}} hs</span>
+                                                                @endif
+                                                            @endif
+                                                        @endif
+                                                    <!-- CIERRE miercoles HORARIOS -->
+
+                                                        <!-- LUNES HORARIOS: -->
+                                                        @if($carbon->isoFormat('dddd') == 'Thursday')
+                                                            <strong>Jueves: </strong>
+                                                            @if($last->inhourafterjueves && $last->outhourafterjueves)
+                                                                @if($carbon->format('H:i:s') < $last->outhourjueves)
+                                                                    <span style="font-size: 14px">{{$last->inhourjueves}} hs - {{$last->outhourjueves}} hs</span>
+                                                                @endif
+                                                                @if($carbon->format('H:i:s') > $last->outhourjueves && $carbon->format('H:i:s') < $last->outhourafterjueves)
+                                                                    <span style="font-size: 14px">{{$last->inhourafterjueves}} hs - {{$last->outhourafterjueves}} hs</span>
+                                                                @endif
+                                                            @else
+                                                                @if($carbon->format('H:i:s') < $last->outhourjueves)
+                                                                    <span style="font-size: 14px">{{$last->inhourjueves}} hs - {{$last->outhourjueves}} hs</span>
+                                                                @else
+                                                                    <span style="font-size: 14px" class="text-danger font-weight-bold">{{$last->inhourjueves}} hs - {{$last->outhourjueves}} hs</span>
+                                                                @endif
+                                                            @endif
+                                                        @endif
+                                                    <!-- CIERRE jueves HORARIOS -->
+
+                                                        <!-- Viernes HORARIOS: -->
+                                                        @if($carbon->isoFormat('dddd') == 'Friday')
+                                                            <strong>Viernes: </strong>
+                                                            @if($last->inhourafterviernes && $last->outhourafterviernes)
+                                                                @if($carbon->format('H:i:s') < $last->outhourviernes)
+                                                                    <span style="font-size: 14px">{{$last->inhourviernes}} hs - {{$last->outhourviernes}} hs</span>
+                                                                @endif
+                                                                @if($carbon->format('H:i:s') > $last->outhourviernes && $carbon->format('H:i:s') < $last->outhourafterviernes)
+                                                                    <span style="font-size: 14px">{{$last->inhourafterviernes}} hs - {{$last->outhourafterviernes}} hs</span>
+                                                                @endif
+                                                            @else
+                                                                @if($carbon->format('H:i:s') < $last->outhourviernes)
+                                                                    <span style="font-size: 14px">{{$last->inhourviernes}} hs - {{$last->outhourviernes}} hs</span>
+                                                                @else
+                                                                    <span style="font-size: 14px" class="text-danger font-weight-bold">{{$last->inhourviernes}} hs - {{$last->outhourviernes}} hs</span>
+                                                                @endif
+                                                            @endif
+                                                        @endif
+                                                    <!-- CIERRE viernes HORARIOS -->
+
+                                                        <!-- Sabado HORARIOS: -->
+                                                        @if($carbon->isoFormat('dddd') == 'Saturday')
+                                                            <strong>Sábado: </strong>
+                                                            @if($last->inhouraftersabado && $last->outhouraftersabado)
+                                                                @if($carbon->format('H:i:s') < $last->outhoursabado)
+                                                                    <span style="font-size: 14px">{{$last->inhoursabado}} hs - {{$last->outhoursabado}} hs</span>
+                                                                @endif
+                                                                @if($carbon->format('H:i:s') > $last->outhoursabado && $carbon->format('H:i:s') < $last->outhouraftersabado)
+                                                                    <span style="font-size: 14px">{{$last->inhouraftersabado}} hs - {{$last->outhouraftersabado}} hs</span>
+                                                                @endif
+                                                            @else
+                                                                @if($carbon->format('H:i:s') < $last->outhoursabado)
+                                                                    <span style="font-size: 14px">{{$last->inhoursabado}} hs - {{$last->outhoursabado}} hs</span>
+                                                                @else
+                                                                    <span style="font-size: 14px" class="text-danger font-weight-bold">{{$last->inhoursabado}} hs - {{$last->outhoursabado}} hs</span>
+                                                                @endif
+                                                            @endif
+                                                        @endif
+                                                    <!-- CIERRE sabado HORARIOS -->
+
+                                                        <!-- LUNES HORARIOS: -->
+                                                        @if($carbon->isoFormat('dddd') == 'Sunday')
+                                                            <strong>Domingo: </strong>
+                                                            @if($last->inhourafterdomingo && $last->outhourafterdomingo)
+                                                                @if($carbon->format('H:i:s') < $last->outhourdomingo)
+                                                                    <span style="font-size: 14px">{{$last->inhourdomingo}} hs - {{$last->outhourdomingo}} hs</span>
+                                                                @endif
+                                                                @if($carbon->format('H:i:s') > $last->outhourdomingo && $carbon->format('H:i:s') < $last->outhourafterdomingo)
+                                                                    <span style="font-size: 14px">{{$last->inhourafterdomingo}} hs - {{$last->outhourafterdomingo}} hs</span>
+                                                                @endif
+                                                            @else
+                                                                @if($carbon->format('H:i:s') < $last->outhourdomingo)
+                                                                    <span style="font-size: 14px">{{$last->inhourdomingo}} hs - {{$last->outhourdomingo}} hs</span>
+                                                                @else
+                                                                    <span style="font-size: 14px" class="text-danger font-weight-bold">{{$last->inhourdomingo}} hs - {{$last->outhourdomingo}} hs</span>
+                                                                @endif
+                                                            @endif
+                                                        @endif
+                                                    <!-- CIERRE domingo HORARIOS -->
+
+
+
                                                     </p>
-                                                    <p class="mt-1"><img src="icons/tarjeta.png" />
-                                                        <strong>Métodos</strong>
-                                                        <span class="payment">Efectivo</span>
-                                                        <span class="payment"><span class="payment-visa"></span></span>
-                                                        <span class="payment"><span class="payment-mercado"></span></span>
+                                                    <p>
+                                                        <img src="icons/coments.png" /> <strong>Comentarios: <span class="badge badge-secondary">35</span> <a style="font-size: 12px;" href="#" class="text-primary">Ver comentarios</a></strong>
                                                     </p>
                                             </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <ul style="float: left; margin: 20px 0 0 0;">
+                                            <li style="float: left; margin: 0 10px 0 0;">
+                                                Métodos de pago aceptados:
+                                            </li>
+                                            <li style="float: left; margin: 0 10px 0 0;">
+                                                <img src="img/credit-card/money.png" style="height: 25px; float: left;" />
+                                            </li>
+                                            <li style="float: left; margin: 0 10px 0 0;">
+                                                <img src="img/credit-card/visa.png" style="height: 25px; float: left;" />
+                                            </li>
+                                            <li style="float: left; margin: 0 10px 0 0;">
+                                                 <img src="img/credit-card/mastercard.png" style="height: 25px; float: left;" />
+                                            </li>
+                                            <li style="float: left; margin: 0 10px 0 0;">
+                                                    <img src="img/credit-card/mercado.png" style="height: 25px; float: left;" />
+                                               </li>
+                                        </ul>
                                     </div>
                                     </div>
                                     <a class="btn btn-md btn-transparent float-right fn-smd" href="#">Ver</a>
                                 </div>
                             </div>
+                            @endforeach
+                        </div>
                     <div class="col-lg-12">
                         <div class="mbp_pagination">
                             <ul class="page_navigation">
@@ -332,5 +642,118 @@
         </div>
     </div>
 </section>
+
+<script>
+        var countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antártida Argentina","Barrio 180","Lomas del Golf","Bernardino Rivadavia","Belgrano","Belisario Roldán","Bosque Alegre","Bosque Peralta Ramos","Caisamar","Centenario","Cerrito","Cerrito Sur","Cerrito San Salvador","Colina Alegre","Constitución","Coronel Dorrego","Costa Azul","Don Bosco","Don Emilio","Dorrego","El Grosellar","El Martillo","El Progreso","Estrada","Etchepare","Faro","Juramento","Las Américas","Las Avenidas","Colinas de Peralta Ramos","Las Heras","La Florida","La Perla","La Zulema","Libertad","Los Acantilados","Los Pinares","Los Troncos","Malvinas Argentinas","Newbery","Nueva Pompeya","Montemar","Parque Hermoso","Parque La Florida","Parque Luro","Parque Palermo","Parque Peña","Peralta Ramos Oeste","Pinos de Anchorena","Chapadmalal","Playa Grande","Punta Mogotes","San Antonio","San Carlos","San Eduardo","San Geronimo","San Jacinto","San José","San Patricio","San Salvador","Santa Mónica","Sarmiento","Stella Maris","Jardín Stella Maris","Jardín","Alfar","Nuevo Golf","Zacagnini", "Otra zona", "Todo Mar del Plata"];
+</script>
+
+<script>
+        function autocomplete(inp, arr) {
+          /*the autocomplete function takes two arguments,
+          the text field element and an array of possible autocompleted values:*/
+          var currentFocus;
+          /*execute a function when someone writes in the text field:*/
+          inp.addEventListener("input", function(e) {
+              var a, b, i, val = this.value;
+              /*close any already open lists of autocompleted values*/
+              closeAllLists();
+              if (!val) { return false;}
+              currentFocus = -1;
+              /*create a DIV element that will contain the items (values):*/
+              a = document.createElement("DIV");
+              a.setAttribute("id", this.id + "autocomplete-list");
+              a.setAttribute("class", "autocomplete-items");
+              /*append the DIV element as a child of the autocomplete container:*/
+              this.parentNode.appendChild(a);
+              /*for each item in the array...*/
+              for (i = 0; i < arr.length; i++) {
+                /*check if the item starts with the same letters as the text field value:*/
+                if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                  /*create a DIV element for each matching element:*/
+                  b = document.createElement("DIV");
+                  /*make the matching letters bold:*/
+                  b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+                  b.innerHTML += arr[i].substr(val.length);
+                  /*insert a input field that will hold the current array item's value:*/
+                  b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+                  /*execute a function when someone clicks on the item value (DIV element):*/
+                      b.addEventListener("click", function(e) {
+                      /*insert the value for the autocomplete text field:*/
+                      inp.value = this.getElementsByTagName("input")[0].value;
+                      /*close the list of autocompleted values,
+                      (or any other open lists of autocompleted values:*/
+                      closeAllLists();
+                  });
+                  a.appendChild(b);
+                }
+              }
+          });
+          /*execute a function presses a key on the keyboard:*/
+          inp.addEventListener("keydown", function(e) {
+              var x = document.getElementById(this.id + "autocomplete-list");
+              if (x) x = x.getElementsByTagName("div");
+              if (e.keyCode == 40) {
+                /*If the arrow DOWN key is pressed,
+                increase the currentFocus variable:*/
+                currentFocus++;
+                /*and and make the current item more visible:*/
+                addActive(x);
+              } else if (e.keyCode == 38) { //up
+                /*If the arrow UP key is pressed,
+                decrease the currentFocus variable:*/
+                currentFocus--;
+                /*and and make the current item more visible:*/
+                addActive(x);
+              } else if (e.keyCode == 13) {
+                /*If the ENTER key is pressed, prevent the form from being submitted,*/
+                e.preventDefault();
+                if (currentFocus > -1) {
+                  /*and simulate a click on the "active" item:*/
+                  if (x) x[currentFocus].click();
+                }
+              }
+          });
+          function addActive(x) {
+            /*a function to classify an item as "active":*/
+            if (!x) return false;
+            /*start by removing the "active" class on all items:*/
+            removeActive(x);
+            if (currentFocus >= x.length) currentFocus = 0;
+            if (currentFocus < 0) currentFocus = (x.length - 1);
+            /*add class "autocomplete-active":*/
+            x[currentFocus].classList.add("autocomplete-active");
+          }
+          function removeActive(x) {
+            /*a function to remove the "active" class from all autocomplete items:*/
+            for (var i = 0; i < x.length; i++) {
+              x[i].classList.remove("autocomplete-active");
+            }
+          }
+          function closeAllLists(elmnt) {
+            /*close all autocomplete lists in the document,
+            except the one passed as an argument:*/
+            var x = document.getElementsByClassName("autocomplete-items");
+            for (var i = 0; i < x.length; i++) {
+              if (elmnt != x[i] && elmnt != inp) {
+              x[i].parentNode.removeChild(x[i]);
+            }
+          }
+        }
+        /*execute a function when someone clicks in the document:*/
+        document.addEventListener("click", function (e) {
+            closeAllLists(e.target);
+        });
+        }
+        </script>
+
+
+        <script type="text/javascript">
+                var subcategoriesArray = @json($subcategoriesArray);
+                autocomplete(document.getElementById("searchinput"), subcategoriesArray);
+                autocomplete(document.getElementById("zoneinput"), countries);
+        </script>
+
+
+
 
 @endsection
