@@ -27,7 +27,7 @@
 	cursor: pointer; /* "hand" cursor */
 }
 #showUpdateImg {
-	cursor: pointer; /* "hand" cursor */
+    cursor: pointer; /* "hand" cursor */
 }
 #btnagregarlunes{
     cursor: pointer;
@@ -39,20 +39,16 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 col-lg-4 col-xl-3 dn-smd">
-					<div class="user_profile">
+					<div id="user_profile" class="user_profile">
 						<div class="media" id="contenedor-img">
 						<div id="img-contenedor">
-                        <img id="img-perfil" src="img-perfil/{{ Auth::user()->img }}" class="align-self-start mr-3 rounded-circle" alt="8.jpg">
+                        <img id="img-perfil-panel" src="img-perfil/{{ Auth::user()->img }}" class="align-self-start mr-3 rounded-circle" alt="8.jpg">
 						</div>
 						  	<div class="media-body">
 						    	<h5 class="mt-0" style="font-size: 13px;">{{ Auth::user()->name }}</h5>
                                 @if(Auth::user()->rol == 'profesional')
                                 <p style="font-size: 11px;color: #949494;"><img style="width: 16px;" src="icons/location.png">{{ Auth::user()->zone}} </p>
-                                @foreach($subcategories as $subcategory)
-                                    @if($subcategory->id == Auth::user()->job)
-                                       <p style="font-style: italic;font-size: 13px;"><img src="icons/profesion.png" style="width:16px;"> {{ $subcategory->name }}</p>
-                                    @endif
-                                @endforeach
+                                       <p style="font-style: italic;font-size: 13px;"><img src="icons/profesion.png" style="width:16px;"> {{ Auth::user()->job }}</p>
                                 @else
                                     <p style="font-style: italic;font-size: 13px;"> Usuario MDP </p>
                                 @endif
@@ -86,7 +82,7 @@
 						</ul>
                     </div>
                     @if(Auth::user()->rol == 'profesional')
-					<div class="skill_sidebar_widget">
+					<div class="skill_sidebar_widget" id="bar-mobile">
 						<h4>Perfil Completado un <span class="float-right font-weight-bold">85%</span></h4>
 						<p>Mandá tu perfil a verficicación para aumentar un 15%</p>
 				        <ul class="skills">
@@ -101,7 +97,7 @@
                             <input type="hidden" name="id" value="{{Auth::user()->id}}">
 						    <div class="row">
 							    <div class="col-lg-12">
-                                    <h4 class="fz20 mb20">Mi Perfil</h4>
+                                    <h4 class="fz20 mb20">Mis datos</h4>
                                     @if(session()->has('lunes'))
                                     <div class="alert alert-danger text-center">Ingresaste de forma incorreta el horario del <strong>LUNES</strong>. Si el día esta activado, debes completar mínimo el horario de corrido.</div>
                                     @endif
@@ -166,7 +162,7 @@
 							<div class="col-md-6 col-lg-6">
 								<div class="my_profile_input form-group">
 							    	<label for="exampleFormControlInput2">Sitio Web</label>
-                                <input type="email" name="website" class="form-control" id="exampleFormControlInput2" placeholder="{{Auth::user()->website}}">
+                                <input type="text" name="website" class="form-control" id="exampleFormControlInput2" placeholder="{{Auth::user()->website}}">
 								</div>
 							</div>
 
@@ -174,7 +170,7 @@
 								<div class="my_profile_input form-group">
                                     <label for="exampleFormControlInput5">Experience</label>
                                    <select name="experience" class="form-control" >
-                                       <option>{{Auth::user()->experience}} Año/s</option>
+                                        <option value="{{Auth::user()->experience}}">{{Auth::user()->experience}} Año/s</option>
 										<option value="2">2-3 Año/s</option>
 										<option value="4" >4-5 Año/s</option>
 										<option value="6" >6-7 Año/s</option>
@@ -219,7 +215,7 @@
                                 <div class="col-md-6 col-lg-6">
                                     <div class="my_profile_input form-group">
                                         <label for="myInput">Barrio - Zona</label><br>
-                                    <input class="form-control" name="zone" id="myInput" type="text" name="barrio" placeholder="{{Auth::user()->zone}}">
+                                    <input autocomplete="off" spellcheck="false"class="form-control" name="zone" id="myInput" type="text" name="barrio" placeholder="{{Auth::user()->zone}}">
                                     </div>
                                 </div>
 							<div class="col-lg-12">
@@ -306,8 +302,8 @@
                                             <input name="inhouraftermartes" id="inhouraftermartes" @if(Auth::user()->inhouraftermartes) value="{{Auth::user()->inhouraftermartes}}" @else disabled @endif type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input style="width: auto;" name="outhouraftermartes" id="outhouraftermartes" @if(Auth::user()->outhouraftermartes) value="{{Auth::user()->outhouraftermartes}}" @else disabled @endif type="time" class="form-control ml-3 text-center">
                                         </div>
                                         <div class="form-group form-inline">
-                                        <span id="btnagregarhorariolunes" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
-                                        <span id="btncancelarhorariolunes" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
+                                        <span id="btnagregarhorariomartes" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
+                                        <span id="btncancelarhorariomartes" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
                                         </div>
                                         <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
                                     </div>

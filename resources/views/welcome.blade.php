@@ -120,17 +120,17 @@ use Carbon\Carbon;
 				</div>
 				<div class="col-lg-12">
 					<div class="home-job-search-box mt20 mb20">
-						<form class="form-inline">
+						<form action="{{route('User.search')}}" method="GET" class="form-inline">
 							<div class="search_option_one">
 							    <div class="form-group">
 							    	<label for="exampleInputName"><img src="icons/search-icon.png"></label>
-							    	<input type="text" class="form-control h70" id="searchinput" placeholder="Escribe lo que buscas.. EJ:Carpintero, electricista">
+							    	<input type="text" autocomplete="off" spellcheck="false" class="form-control h70" name="search" id="searchinput" placeholder="Escribe lo que buscas.. EJ:Carpintero, electricista">
 							    </div>
 							</div>
 							<div class="search_option_two">
 							    <div class="form-group">
 							    	<label for="exampleInputEmail"><img src="icons/location.png"/></label>
-							    	<input type="text" name="zoneinput" class="form-control h70" id="zoneinput" placeholder="Busca por zona">
+							    	<input type="text" autocomplete="off" spellcheck="false" name="zone" class="form-control h70" id="zoneinput" placeholder="Busca por zona">
 							    </div>
 							</div>
 							<div class="search_option_button">
@@ -466,10 +466,14 @@ use Carbon\Carbon;
 														<span style="font-size: 14px">{{$last->inhourafterlunes}} hs - {{$last->outhourafterlunes}} hs</span>
 													@endif
 												@else
-													@if($carbon->format('H:i:s') < $last->outhourlunes)
-														<span style="font-size: 14px">{{$last->inhourlunes}} hs - {{$last->outhourlunes}} hs</span>
+													@if($last->inhourlunes && $last->outhourlunes)
+														@if($carbon->format('H:i:s') < $last->outhourlunes)
+															<span style="font-size: 14px">{{$last->inhourlunes}} hs - {{$last->outhourlunes}} hs</span>
+														@else
+															<span style="font-size: 14px" class="text-danger font-weight-bold">{{$last->inhourlunes}} hs - {{$last->outhourlunes}} hs</span>
+														@endif
 													@else
-														<span style="font-size: 14px" class="text-danger font-weight-bold">{{$last->inhourlunes}} hs - {{$last->outhourlunes}} hs</span>
+														<span style="font-size: 14px; font-style: italic;" class="text-danger font-weight-bold">No disponible por hoy</span>
 													@endif
 												@endif
 											@endif
@@ -486,11 +490,16 @@ use Carbon\Carbon;
 														<span style="font-size: 14px">{{$last->inhouraftermartes}} hs - {{$last->outhouraftermartes}} hs</span>
 													@endif
 												@else
-													@if($carbon->format('H:i:s') < $last->outhourmartes)
-														<span style="font-size: 14px">{{$last->inhourmartes}} hs - {{$last->outhourmartes}} hs</span>
+													@if($last->inhourmartes && $last->outhourmartes)
+														@if($carbon->format('H:i:s') < $last->outhourmartes)
+															<span style="font-size: 14px">{{$last->inhourmartes}} hs - {{$last->outhourmartes}} hs</span>
+														@else
+															<span style="font-size: 14px" class="text-danger font-weight-bold">{{$last->inhourmartes}} hs - {{$last->outhourmartes}} hs</span>
+														@endif
 													@else
-														<span style="font-size: 14px" class="text-danger font-weight-bold">{{$last->inhourmartes}} hs - {{$last->outhourmartes}} hs</span>
+															<span style="font-size: 14px; font-style: italic;" class="text-danger font-weight-bold">No disponible por hoy</span>
 													@endif
+
 												@endif
 											@endif
 										<!-- CIERRE martes HORARIOS -->
@@ -506,10 +515,14 @@ use Carbon\Carbon;
 														<span style="font-size: 14px">{{$last->inhouraftermiercoles}} hs - {{$last->outhouraftermiercoles}} hs</span>
 													@endif
 												@else
-													@if($carbon->format('H:i:s') < $last->outhourmiercoles)
-														<span style="font-size: 14px">{{$last->inhourmiercoles}} hs - {{$last->outhourmiercoles}} hs</span>
+													@if($last->inhourmiercoles && $last->outhourmiercoles)
+														@if($carbon->format('H:i:s') < $last->outhourmiercoles)
+															<span style="font-size: 14px">{{$last->inhourmiercoles}} hs - {{$last->outhourmiercoles}} hs</span>
+														@else
+															<span style="font-size: 14px" class="text-danger font-weight-bold">{{$last->inhourmiercoles}} hs - {{$last->outhourmiercoles}} hs</span>
+														@endif
 													@else
-														<span style="font-size: 14px" class="text-danger font-weight-bold">{{$last->inhourmiercoles}} hs - {{$last->outhourmiercoles}} hs</span>
+														<span style="font-size: 14px; font-style: italic;" class="text-danger font-weight-bold">No disponible por hoy</span>
 													@endif
 												@endif
 											@endif
@@ -526,10 +539,14 @@ use Carbon\Carbon;
 														<span style="font-size: 14px">{{$last->inhourafterjueves}} hs - {{$last->outhourafterjueves}} hs</span>
 													@endif
 												@else
-													@if($carbon->format('H:i:s') < $last->outhourjueves)
-														<span style="font-size: 14px">{{$last->inhourjueves}} hs - {{$last->outhourjueves}} hs</span>
+													@if($last->inhourjueves && $last->outhourjueves)
+														@if($carbon->format('H:i:s') < $last->outhourjueves)
+															<span style="font-size: 14px">{{$last->inhourjueves}} hs - {{$last->outhourjueves}} hs</span>
+														@else
+															<span style="font-size: 14px" class="text-danger font-weight-bold">{{$last->inhourjueves}} hs - {{$last->outhourjueves}} hs</span>
+														@endif
 													@else
-														<span style="font-size: 14px" class="text-danger font-weight-bold">{{$last->inhourjueves}} hs - {{$last->outhourjueves}} hs</span>
+														<span style="font-size: 14px; font-style: italic;" class="text-danger font-weight-bold">No disponible por hoy</span>
 													@endif
 												@endif
 											@endif
@@ -546,10 +563,14 @@ use Carbon\Carbon;
 														<span style="font-size: 14px">{{$last->inhourafterviernes}} hs - {{$last->outhourafterviernes}} hs</span>
 													@endif
 												@else
-													@if($carbon->format('H:i:s') < $last->outhourviernes)
-														<span style="font-size: 14px">{{$last->inhourviernes}} hs - {{$last->outhourviernes}} hs</span>
+													@if($last->inhourviernes && $last->outhourviernes)
+														@if($carbon->format('H:i:s') < $last->outhourviernes)
+															<span style="font-size: 14px">{{$last->inhourviernes}} hs - {{$last->outhourviernes}} hs</span>
+														@else
+															<span style="font-size: 14px" class="text-danger font-weight-bold">{{$last->inhourviernes}} hs - {{$last->outhourviernes}} hs</span>
+														@endif
 													@else
-														<span style="font-size: 14px" class="text-danger font-weight-bold">{{$last->inhourviernes}} hs - {{$last->outhourviernes}} hs</span>
+														<span style="font-size: 14px; font-style: italic;" class="text-danger font-weight-bold">No disponible por hoy</span>
 													@endif
 												@endif
 											@endif
@@ -566,10 +587,14 @@ use Carbon\Carbon;
 														<span style="font-size: 14px">{{$last->inhouraftersabado}} hs - {{$last->outhouraftersabado}} hs</span>
 													@endif
 												@else
-													@if($carbon->format('H:i:s') < $last->outhoursabado)
-														<span style="font-size: 14px">{{$last->inhoursabado}} hs - {{$last->outhoursabado}} hs</span>
+													@if($last->inhoursabado && $last->outhoursabado)
+														@if($carbon->format('H:i:s') < $last->outhoursabado)
+															<span style="font-size: 14px">{{$last->inhoursabado}} hs - {{$last->outhoursabado}} hs</span>
+														@else
+															<span style="font-size: 14px" class="text-danger font-weight-bold">{{$last->inhoursabado}} hs - {{$last->outhoursabado}} hs</span>
+														@endif
 													@else
-														<span style="font-size: 14px" class="text-danger font-weight-bold">{{$last->inhoursabado}} hs - {{$last->outhoursabado}} hs</span>
+														<span style="font-size: 14px; font-style: italic;" class="text-danger font-weight-bold">No disponible por hoy</span>
 													@endif
 												@endif
 											@endif
@@ -586,10 +611,14 @@ use Carbon\Carbon;
 														<span style="font-size: 14px">{{$last->inhourafterdomingo}} hs - {{$last->outhourafterdomingo}} hs</span>
 													@endif
 												@else
-													@if($carbon->format('H:i:s') < $last->outhourdomingo)
-														<span style="font-size: 14px">{{$last->inhourdomingo}} hs - {{$last->outhourdomingo}} hs</span>
+													@if($last->inhourdomingo && $last->outhourdomingo)
+														@if($carbon->format('H:i:s') < $last->outhourdomingo)
+															<span style="font-size: 14px">{{$last->inhourdomingo}} hs - {{$last->outhourdomingo}} hs</span>
+														@else
+															<span style="font-size: 14px" class="text-danger font-weight-bold">{{$last->inhourdomingo}} hs - {{$last->outhourdomingo}} hs</span>
+														@endif
 													@else
-														<span style="font-size: 14px" class="text-danger font-weight-bold">{{$last->inhourdomingo}} hs - {{$last->outhourdomingo}} hs</span>
+														<span style="font-size: 14px; font-style: italic;" class="text-danger font-weight-bold">No disponible por hoy</span>
 													@endif
 												@endif
 											@endif
@@ -605,26 +634,34 @@ use Carbon\Carbon;
 
                         </div>
                         <div class="row">
-                            <ul style="float: left; margin: 20px 0 0 0;">
-                                <li style="float: left; margin: 0 10px 0 0;">
+                            <ul id="ulmetodos">
+                                <li id="txtmetodos" style="float: left; margin: 0 10px 0 0;">
                                     Métodos de pago aceptados:
                                 </li>
-                                <li style="float: left; margin: 0 10px 0 0;">
+                                <li  class="limetodos" @if($last->isEfective) style="border: solid 1px #e6e6e6;padding: 6px;border-radius: 4px; background: #f9f9f9;" @endif>
                                     <img src="img/credit-card/money.png" style="height: 25px; float: left;" />
                                 </li>
-                                <li style="float: left; margin: 0 10px 0 0;">
+                                <li class="limetodos" @if($last->isVisa) style="border: solid 1px #e6e6e6;padding: 6px;border-radius: 4px; background: #f9f9f9;" @endif>
                                     <img src="img/credit-card/visa.png" style="height: 25px; float: left;" />
                                 </li>
-                                <li style="float: left; margin: 0 10px 0 0;">
+                                <li class="limetodos" @if($last->isMasterCard) style="border: solid 1px #e6e6e6;padding: 6px;border-radius: 4px; background: #f9f9f9;" @endif>
                                      <img src="img/credit-card/mastercard.png" style="height: 25px; float: left;" />
                                 </li>
-                                <li style="float: left; margin: 0 10px 0 0;">
+                                <li class="limetodos" @if($last->isMercadoPago) style="border: solid 1px #e6e6e6;padding: 6px;border-radius: 4px; background: #f9f9f9;" @endif>
                                         <img src="img/credit-card/mercado.png" style="height: 25px; float: left;" />
                                    </li>
                             </ul>
                         </div>
                         </div>
-                        <a class="btn btn-md btn-transparent float-right fn-smd" href="#">Ver</a>
+                        <form action="{{route('User.perfil')}}" method="GET">
+                                        <input type="hidden" value="{{$last->id}}" name="user_id">
+                                        <input type="submit" class="btn btn-md btn-transparent float-right fn-smd" value="Ver/Contactar" style="border-radius: 4px;
+                                        line-height: 40px;
+                                        padding: 7px 33px;
+                                        position: absolute;
+                                        right: 45px;
+                                        top: 71px;"/>
+                        </form>
 					</div>
                 </div>
                 @endforeach

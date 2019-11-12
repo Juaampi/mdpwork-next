@@ -12,13 +12,8 @@
 */
 
 Route::get('/', 'UserController@welcome');
-
-Route::get('/perfil', function () {
-    return view('perfil');
-});
-
 Route::get('/lista', 'UserController@showlist') ->name('User.showlist');
-
+Route::get('/perfil', 'UserController@showperfil')->name('User.perfil');
 Route::get('/panel', function () {
     return view('panel');
 });
@@ -27,7 +22,7 @@ Route::get('/subcategories', 'CategoryController@subcategories')->name('Category
 Route::get('/save', 'UserController@edit')->name('User.edit');
 Route::get('/contraseña','HomeController@showChangePasswordForm');
 Route::post('/updateImg', 'UserController@updateImg')->name('User.updateImg');
-Route::get('/search','UserController@search')->name('User.search');
+Route::get('/busqueda','UserController@search')->name('User.search');
 
 Auth::routes();
 

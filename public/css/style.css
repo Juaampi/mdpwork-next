@@ -48,6 +48,41 @@
             margin: 12px 11px;
             margin-top: 5px;
         }
+        #txtmetodos{
+           display:none;
+        }
+        #ulmetodos{
+           float: left; margin: 20px 0 30px 20px;
+        }
+        .limetodos{
+            float: left; margin: 0 10px 0 0;
+        }
+        #lineavertical{
+            display: none;
+        }
+        #contenedor-contacto{
+            margin-left: 50px;
+        }
+        #row-text-description{
+            text-align: center;
+        }
+        #img-perfil{
+            margin-left: 85px;
+        }
+        #bar-mobile{
+            display: none;
+        }
+        #img-perfil-panel{
+            margin-left: 30px;
+        }
+        #showUpdateImg{
+            margin-top: 20px;
+            margin-left: 31px;
+        }
+        #formUpdateImg{
+            margin-top: 15px;
+            margin-left: 30px;
+        }
 
 }
 
@@ -100,6 +135,18 @@
             width: 50px;
             margin: 12px 11px;
             margin-top: 5px;
+        }
+        #txtmetodos{
+            float: left; margin: 0 10px 0 0;
+        }
+        #ulmetodos{
+            float: left; margin: 20px 0 10px 0px;
+         }
+         .limetodos{
+            float: left; margin: 0 10px 0 0;
+        }
+        #img-perfil{
+            margin-left: 90px;
         }
 }
 
@@ -155,6 +202,18 @@
             margin-top: 5px;
         }
 
+        #txtmetodos{
+            float: left; margin: 0 10px 0 0;
+        }
+        #ulmetodos{
+            float: left; margin: 20px 0 10px 0px;
+         }
+         .limetodos{
+            float: left; margin: 0 10px 0 0;
+        }
+        #img-perfil{
+            margin-left: 90px;
+        }
 
 }
 
@@ -260,12 +319,27 @@
       background-color: DodgerBlue !important;
       color: #ffffff;
     }
+    #txtmetodos{
+        float: left; margin: 0 10px 0 0;
+    }
     /* END AUTOCOMPLETE STYLES */
+    #ulmetodos{
+        float: left; margin: 20px 0 10px 0px;
+     }
+     .limetodos{
+        float: left; margin: 0 10px 0 0;
+    }
+    #img-perfil{
+        margin-left: 90px;
+    }
 
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
+    #txtmetodos{
+        float: left; margin: 0 10px 0 0;
+    }
     .centered {
         position: absolute;
         top: 40%;
@@ -402,4 +476,13 @@ input {
   color: #ffffff;
 }
 /* END AUTOCOMPLETE STYLES */
+#ulmetodos{
+    float: left; margin: 20px 0 10px 0px;
+ }
+ .limetodos{
+    float: left; margin: 0 10px 0 0;
+}
+#img-perfil{
+    margin-left: 90px;
+}
 }

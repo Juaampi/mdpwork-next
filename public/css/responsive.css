@@ -470,9 +470,7 @@
 	.fn-smd {
 		float: none!important
 	}
-	.dn-smd {
-		display: none!important
-	}
+
 	.dv-smd {
 		display: inherit!important
 	}
@@ -663,9 +661,6 @@
 	header.header-nav.menu_style_home_six .menu-toggle #menu-btn {
 		background-color: #13b493!important;
 		border-color: #79b530!important
-	}
-	.dn-smd {
-		display: none!important
 	}
 	.ui_kit_tooltip .btn {
 		margin-bottom: 10px

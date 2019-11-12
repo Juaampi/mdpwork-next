@@ -8,10 +8,11 @@ use App\Subcategory;
 use App\Category;
 use Illuminate\Support\Collection as Collection;
 class UserController extends Controller
+
 {
 
     public function showlist(){
-        $users = User::where('rol', '=', 'profesional')->get();
+        $users = User::where('rol', '=', 'profesional')->paginate(10);
         $categories = Category::all();
         $subcategories = Subcategory::all();
         $array = [];
@@ -32,9 +33,42 @@ class UserController extends Controller
            $array[$i] = $subcategory->name;
            $i++;
        }
+
+
+       if(!empty($request['search']) && !empty($request['zone'])){
         $busqueda = $request['search'];
-        $user = User::where('job', 'like', '%' . $busqueda . '%')->get();
-        return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories]);
+        $zona = $request['zone'];
+        $user = User::where('job', 'like', '%' . $busqueda . '%')->orWhere('zone', 'like', '%'. $zona . '%')->paginate(10);
+            if(!$user){
+                return redirect()->back()->with('response', 'error');
+            }else{
+                return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories]);
+            }
+       }else if(!empty($request['search']) && empty($request['zone'])){
+           $busqueda = $request['search'];
+           $user = User::where('job', 'like', '%' . $busqueda . '%')->paginate(10);
+           if(!$user){
+                return redirect()->back()->with('response', 'error');
+            }else{
+                return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories]);
+            }
+       }else if(!empty($request['zone']) && empty($request['search'])){
+            $zona = $request['zone'];
+            $user = User::where('zone', 'like', '%' . $zona . '%')->paginate(10);
+            if(!$user){
+                return redirect()->back()->with('response', 'error');
+            }else{
+                return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories]);
+            }
+       }
+       if(empty($request['search']) && empty($request['zone'])){
+            return redirect()->back()->with('response', 'error');
+       }
+    }
+
+    public function showperfil(Request $request){
+        $user = User::find($request['user_id']);
+        return view('perfil', ['user' => $user]);
     }
 
     public function updateImg(Request $request){
@@ -85,7 +119,7 @@ class UserController extends Controller
             $user->save();
         }
         if(!empty($request['experience'])){
-            $user->website = $request['experience'];
+            $user->experience = $request['experience'];
             $user->save();
         }
         if(!empty($request['age'])){
