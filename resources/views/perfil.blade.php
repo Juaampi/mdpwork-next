@@ -297,11 +297,88 @@ use Carbon\Carbon;
                     </div>
 
                 </div>
+                <hr>
             </div>
+
             <div class="container">
                         <div class="col-lg-8">
+                            @if(Auth::user())
+                            @if(Auth::user()->rol == 'usuario')
+                            <div id="comentario">
+                                <form action="{{route('Coment.add')}}" methos="GET">
+                                <h4 class="text-secondary">Comentá y puntuá a <strong>{{$user->name}}</strong></h4>
+                                @if(session()->has('response'))
+                                <div class="alert alert-success text-center">El profesional fue puntuado correctamente.</div>
+                                @endif
+                                @if(session()->has('noresponse'))
+                                <div class="alert alert-danger text-center">Ocurrió un error, por favor completa el puntaje y el comentario e intenta nuevamente.</div>
+                                @endif
+                                <input type="hidden" name="user_id" value="{{$user->id}}">
+                                <input type="hidden" name="guest_id" value="{{Auth::user()->id}}">
+                                <select name="point" class="form-control mb-2">
+                                    <option value="">Selecciona puntaje..</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                                <textarea name="coment" class="form-control mb-2" placeholder="Comentanos por qué el puntaje y si tuviste alguna experiencia con el profesional..."></textarea>
+                                @php $bandera = 0; @endphp
+                                @foreach($coments as $coment)
+                                    @if($coment->guest_id == Auth::user()->id)
+                                        @php $bandera = 1; @endphp
+                                    @endif
+                                @endforeach
+                                    @if($bandera == 1)
+                                    <input disabled value="No puedes puntuar 2 veces!" type="submit"  class="btn btn-info">
+                                    @else
+                                    <input value="Enviar puntuación" type="submit"  class="btn btn-info">
+                                    @endif
 
+                            <hr>
+                                </form>
+                            </div>
+                            @endif
+                            @endif
+                            @if(!empty($coments))
+                            <h4 class="text-secondary"> Comentarios y puntuaciones: </h4>
+                            @foreach($coments as $coment)
+                            <div class="candidate_personal_info style2">
+                                    <div class="thumb text-center">
+                                    @foreach ( $users as $guest )
+                                        @if($guest->id == $coment->guest_id)
+                                            <img class="img-fluid rounded" style="height: 80px; border-radius: " src="img-perfil/{{$guest->img}}" alt="{{$guest->name}}.jpg"><br><br>
+                                        @endif
+                                    @endforeach
+                                    </div>
+                                    <div class="details">
+                                    <span class="text-info"><strong>Puntuación:
+                                        @if($coment->point <= 2)
+                                            <span class="badge badge-danger">{{$coment->point}}</span>
+                                        @endif
+                                        @if($coment->point > 2 && $coment->point <= 4)
+                                            <span class="badge badge-info">{{$coment->point}}</span>
+                                        @endif
+                                        @if($coment->point == 5)
+                                            <span class="badge badge-warning">{{$coment->point}}</span>
+                                        @endif
+                                    </strong></span>
+                                    @foreach($users as $guest)
+                                        @if($guest->id == $coment->guest_id)
+                                        <h5><strong>{{$guest->name}}</strong> - <small class="text-secondary">{{$coment->created_at}}</small></h5>
+                                        @endif
+                                    @endforeach
+                                        <ul class="address_list">
+                                        <li class="list-item"><img src="icons/coment.png" /> {{$coment->coment}}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <hr>
+                                @endforeach
+                            @endif
                         </div>
+
                     </div>
                 </div>
         </section>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Subcategory;
 use App\Category;
+use App\Coment;
 use Illuminate\Support\Collection as Collection;
 class UserController extends Controller
 
@@ -17,11 +18,12 @@ class UserController extends Controller
         $subcategories = Subcategory::all();
         $array = [];
         $i = 0;
+        $coments = Coment::all();
        foreach($subcategories as $subcategory){
            $array[$i] = $subcategory->name;
            $i++;
        }
-        return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $users, 'subcategories' => $subcategories]);
+        return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $users, 'subcategories' => $subcategories, 'coments' => $coments]);
     }
 
     public function search(Request $request){
@@ -33,8 +35,7 @@ class UserController extends Controller
            $array[$i] = $subcategory->name;
            $i++;
        }
-
-
+       $coments = Coment::all();
        if(!empty($request['search']) && !empty($request['zone'])){
         $busqueda = $request['search'];
         $zona = $request['zone'];
@@ -42,7 +43,7 @@ class UserController extends Controller
             if(!$user){
                 return redirect()->back()->with('response', 'error');
             }else{
-                return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories]);
+                return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
             }
        }else if(!empty($request['search']) && empty($request['zone'])){
            $busqueda = $request['search'];
@@ -50,7 +51,7 @@ class UserController extends Controller
            if(!$user){
                 return redirect()->back()->with('response', 'error');
             }else{
-                return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories]);
+                return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
             }
        }else if(!empty($request['zone']) && empty($request['search'])){
             $zona = $request['zone'];
@@ -58,7 +59,7 @@ class UserController extends Controller
             if(!$user){
                 return redirect()->back()->with('response', 'error');
             }else{
-                return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories]);
+                return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
             }
        }
        if(empty($request['search']) && empty($request['zone'])){
@@ -68,7 +69,9 @@ class UserController extends Controller
 
     public function showperfil(Request $request){
         $user = User::find($request['user_id']);
-        return view('perfil', ['user' => $user]);
+        $coments = User::find($request['user_id'])->coments;
+        $users = User::all();
+        return view('perfil', ['user' => $user, 'coments' => $coments, 'users' => $users]);
     }
 
     public function updateImg(Request $request){
@@ -368,7 +371,8 @@ class UserController extends Controller
        }
         $categories = Category::all();
         $ultimos = User::orderBy('created_at', 'desc')->take(10)->get();
+        $coments = Coment::all();
 
-        return view('welcome', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $ultimos, 'subcategories' => $subcategories]);
+        return view('welcome', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $ultimos, 'subcategories' => $subcategories, 'coments' => $coments]);
     }
 }

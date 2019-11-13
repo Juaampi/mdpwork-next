@@ -148,7 +148,7 @@
                             <div class="col-md-6 col-lg-6">
                                     <div class="my_profile_input form-group">
                                         <label for="exampleInputPhone">WhatsApp</label>
-                                        <input type="email" name="whatsapp"  class="form-control" id="exampleInputPhone" aria-describedby="phoneNumber" @if(Auth::user()->whatsapp)placeholder="{{Auth::user()->whatsapp}}"@else placeholder="Ejemplo: +5492235646567"@endif>
+                                        <input type="email" name="whatsapp"  class="form-control" id="exampleInputPhone" aria-describedby="phoneNumber" @if(Auth::user()->whatsapp)placeholder="{{Auth::user()->whatsapp}}"@else placeholder="Ejemplo: 2235646567"@endif>
                                     </div>
                                 </div>
                             @endif
@@ -498,7 +498,7 @@
             var reader = new FileReader();
             reader.onload = function (e) {
                 $('#img-contenedor + img').remove();
-                $('#img-contenedor').append('<img id="img-perfil" src="'+e.target.result+'" class="align-self-start mr-3 rounded-circle" />');
+                $('#img-contenedor').append('<img id="img-perfil-panel" src="'+e.target.result+'" class="align-self-start mr-3 rounded-circle" />');
             }
             reader.readAsDataURL(input.files[0]);
             }
@@ -614,7 +614,7 @@ document.addEventListener("click", function (e) {
             $(document).ready(function(){
 
                 $("#file").change(function () {
-                    $('#img-perfil').hide();
+                    $('#img-perfil-panel').hide();
                     filePreview(this);
                     $('#labelImg').hide('slow');
             });

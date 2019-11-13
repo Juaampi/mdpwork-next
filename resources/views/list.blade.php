@@ -42,7 +42,7 @@ use Carbon\Carbon;
 <section class="our-faq">
     <div class="container" style="max-width: 94%;">
         <div class="row">
-            <div class="col-lg-3 col-xl-3 dn-smd card-header">
+            <div class="col-lg-3 col-xl-3 dn-smd card-header" id="filter-mobile-none">
 <form action="{{route('User.search')}}" method="GET">
                 <div class="cl_skill_checkbox mb30">
                         <div class="my_profile_input form-group">
@@ -103,6 +103,7 @@ use Carbon\Carbon;
                     </div>
                     <div class="row">
                             @foreach($lastest as $last)
+                            @if($last->rol = 'profesional')
                             <div class="col-sm-12 col-lg-12">
                                 <div class="fj_post">
                                     <div class="details">
@@ -163,7 +164,7 @@ use Carbon\Carbon;
                                                     <h5 class="job_chedule mt0 badge badge-success text-white"><strong>Disponible</strong></h5>
                                                 @endif
                                             @else
-                                                @if($carbon->format('H:i:s') >= $last->inhourlunes && $carbon->format('H:i:s') <= $last->outhourlunes)
+                                                @if($carbon->format('H:i:s') >= $last->inhourmiercoles && $carbon->format('H:i:s') <= $last->outhourmiercoles)
                                                     <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
                                                 @else
                                                     <h5 class="job_chedule badge badge-danger text-white mt0"><strong>No disponible</strong></h5>
@@ -259,7 +260,26 @@ use Carbon\Carbon;
 
                                         <div class="thumb fn-smd">
                                         <img class="img-fluid" style="height: 120px" src="img-perfil/{{$last->img}}" alt="1.jpg">
-
+                                        @php
+                                        $cantComent = 0;
+                                        $cantPoints = 0;
+                                        $points = 0;
+                                    @endphp
+                                    @foreach($coments as $coment)
+                                        @if($coment->user_id == $last->id)
+                                            @php
+                                                $cantComent ++;
+                                                $cantPoints += $coment->point;
+                                            @endphp
+                                        @endif
+                                    @endforeach
+                                    @php
+                                    if($cantPoints != 0){
+                                     $points = $cantPoints / $cantComent;
+                                    }else{
+                                     $points = 4;
+                                    }
+                                    @endphp
                                             <ul style="margin-bottom: 0px;">
                                                 <li style="display: inline">
                                                     <img height="18px;" src="icons/llena.png">
@@ -273,12 +293,18 @@ use Carbon\Carbon;
                                                 <li style="display: inline">
                                                     <img height="18px;" src="icons/llena.png">
                                                 </li>
+                                                @if($points >= 4.5)
+                                                <li style="display: inline">
+                                                    <img height="18px;" src="icons/llena.png">
+                                                </li>
+                                                @else
                                                 <li style="display: inline">
                                                     <img height="18px;" src="icons/vacia.png">
                                                 </li>
+                                                @endif
                                             </ul>
 
-                                                <span class="badge badge-warning"><strong>4.5</strong></span>
+                                                <span class="badge badge-warning"><strong>{{$points}}</strong></span>
 
                                         </div>
 
@@ -465,8 +491,18 @@ use Carbon\Carbon;
 
                                                     </p>
                                                     <p>
-                                                        <img src="icons/coments.png" /> <strong>Comentarios: <span class="badge badge-secondary">35</span> <a style="font-size: 12px;" href="#" class="text-primary">Ver comentarios</a></strong>
-                                                    </p>
+                                                            @php
+                                                            $cantidadComentarios = 0;
+                                                            @endphp
+                                                                @foreach($coments as $coment)
+                                                                @if($coment->user_id == $last->id)
+                                                                    @php
+                                                                        $cantidadComentarios ++;
+                                                                    @endphp
+                                                                @endif
+                                                            @endforeach
+                                                        <img src="icons/coments.png" /> <strong>Comentarios: <span class="badge badge-secondary">{{$cantidadComentarios}}</span> </strong>
+                                                        </p>
                                             </div>
                                             <ul id="ulmetodos">
                                                 <li id="txtmetodos" style="float: left; margin: 0 10px 0 0;">
@@ -492,15 +528,11 @@ use Carbon\Carbon;
                                     </div>
                                     <form action="{{route('User.perfil')}}" method="GET">
                                         <input type="hidden" value="{{$last->id}}" name="user_id">
-                                        <input type="submit" class="btn btn-md btn-transparent float-right fn-smd" value="Ver/Contactar" style="border-radius: 4px;
-                                        line-height: 40px;
-                                        padding: 7px 33px;
-                                        position: absolute;
-                                        right: 45px;
-                                        top: 71px;"/>
+                                        <input type="submit"  id="btn-ver" class="btn btn-md btn-transparent float-right fn-smd" value="Ver/Contactar" />
                                     </form>
                                 </div>
                             </div>
+                            @endif
                             @endforeach
                         </div>
                     <div class="col-lg-12">

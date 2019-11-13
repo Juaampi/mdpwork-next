@@ -140,7 +140,7 @@
                                         <div class="col-md-6 col-lg-6">
                                                 <div class="my_profile_input form-group">
                                                     <label for="exampleInputPhone">WhatsApp</label>
-                                                    <input type="number" name="whatsapp"  class="form-control" id="exampleInputPhone" aria-describedby="phoneNumber" placeholder="EJ: +549223534445">
+                                                    <input type="number" name="whatsapp"  class="form-control" id="exampleInputPhone" aria-describedby="phoneNumber" placeholder="EJ: 223534445">
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-lg-6">

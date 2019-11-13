@@ -83,6 +83,9 @@
             margin-top: 15px;
             margin-left: 30px;
         }
+        #filter-mobile-none{
+            display:none;
+        }
 
 }
 
@@ -147,6 +150,14 @@
         }
         #img-perfil{
             margin-left: 90px;
+        }
+        #btn-ver{
+            border-radius: 4px;
+                                                line-height: 40px;
+                                                padding: 7px 33px;
+                                                position: absolute;
+                                                right: 45px;
+                                                top: 71px;"
         }
 }
 
@@ -213,6 +224,14 @@
         }
         #img-perfil{
             margin-left: 90px;
+        }
+        #btn-ver{
+            border-radius: 4px;
+                                                line-height: 40px;
+                                                padding: 7px 33px;
+                                                position: absolute;
+                                                right: 45px;
+                                                top: 71px;"
         }
 
 }
@@ -331,6 +350,14 @@
     }
     #img-perfil{
         margin-left: 90px;
+    }
+    #btn-ver{
+        border-radius: 4px;
+                                            line-height: 40px;
+                                            padding: 7px 33px;
+                                            position: absolute;
+                                            right: 45px;
+                                            top: 71px;"
     }
 
 }
@@ -484,5 +511,13 @@ input {
 }
 #img-perfil{
     margin-left: 90px;
+}
+#btn-ver{
+    border-radius: 4px;
+                                        line-height: 40px;
+                                        padding: 7px 33px;
+                                        position: absolute;
+                                        right: 45px;
+                                        top: 71px;"
 }
 }

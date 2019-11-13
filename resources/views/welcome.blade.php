@@ -5,102 +5,6 @@ use Carbon\Carbon;
 @section('content')
 <div class="wrapper">
 	<div class="preloader"></div>
-	<!-- Modal -->
-	<div class="sign_up_modal modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
-	  	<div class="modal-dialog modal-dialog-centered" role="document">
-	    	<div class="modal-content">
-		      	<div class="modal-header">
-		        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		      	</div>
-	    		<ul class="sign_up_tab nav nav-tabs" id="myTab" role="tablist">
-				  	<li class="nav-item">
-				    	<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Login</a>
-				  	</li>
-				  	<li class="nav-item">
-				    	<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Register</a>
-				  	</li>
-				</ul>
-				<div class="tab-content" id="myTabContent">
-				  	<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-						<div class="login_form">
-							<form action="#">
-								<div class="heading">
-									<h3 class="text-center">Quick Login</h3>
-									<p class="text-center">Don't have an account? <a class="text-thm" href="#">Sign Up!</a></p>
-								</div>
-								 <div class="form-group">
-							    	<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-								</div>
-								<div class="form-group">
-							    	<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-								</div>
-								<div class="form-group form-check">
-									<input type="checkbox" class="form-check-input" id="exampleCheck1">
-									<label class="form-check-label" for="exampleCheck1">Remember me</label>
-									<a class="tdu text-thm float-right" href="#">Forgot Password?</a>
-								</div>
-								<button type="submit" class="btn btn-log btn-block btn-thm">Login</button>
-								<hr>
-								<div class="row mt40">
-									<div class="col-lg">
-										<button type="submit" class="btn btn-block color-white bgc-fb"><i class="fa fa-facebook float-left mt5"></i> Facebook</button>
-									</div>
-									<div class="col-lg">
-										<button type="submit" class="btn btn-block color-white bgc-gogle"><i class="fa fa-google float-left mt5"></i> Google</button>
-									</div>
-								</div>
-							</form>
-						</div>
-				  	</div>
-				  	<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-						<div class="sign_up_form">
-							<div class="heading">
-								<h3 class="text-center">Create New Account</h3>
-								<p class="text-center">Don't have an account? <a class="text-thm" href="#">Sign Up!</a></p>
-							</div>
-							<form action="#">
-								<div class="form-group">
-							    	<input type="text" class="form-control" id="exampleInputName1" placeholder="User Name">
-								</div>
-								 <div class="form-group">
-							    	<input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email">
-								</div>
-								<div class="form-group">
-							    	<input type="number" class="form-control" id="exampleInputPhone1" placeholder="Phone Number">
-								</div>
-								<div class="form-group">
-									<select id="inputState1" class="form-control">
-								        <option selected>Select Sector</option>
-								        <option>Web Developer</option>
-								        <option>Ui/Ux Designer</option>
-								        <option>Photoeditor</option>
-								        <option>Graphics Designer</option>
-								    </select>
-								</div>
-								<div class="form-group">
-							    	<input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
-								</div>
-								<div class="form-group form-check">
-									<input type="checkbox" class="form-check-input" id="exampleCheck2">
-									<label class="form-check-label" for="exampleCheck2">By Registering You Confirm That You Accept <a class="text-thm" href="page-terms-and-policies.html">Terms & Conditions</a> And <a class="text-thm" href="page-terms-and-policies.html">Privacy Policy</a></label>
-								</div>
-								<button type="submit" class="btn btn-log btn-block btn-dark">Register</button>
-								<hr>
-								<div class="row mt40">
-									<div class="col-lg">
-										<button type="submit" class="btn btn-block color-white bgc-fb"><i class="fa fa-facebook float-left mt5"></i> Facebook</button>
-									</div>
-									<div class="col-lg">
-										<button type="submit" class="btn btn-block color-white bgc-gogle"><i class="fa fa-google float-left mt5"></i> Google</button>
-									</div>
-								</div>
-							</form>
-						</div>
-				  	</div>
-				</div>
-	    	</div>
-	  	</div>
-	</div>
 
 	<!-- Home Design -->
 	<section class="home-one style2 bgc-lightgray">
@@ -113,7 +17,7 @@ use Carbon\Carbon;
 				</div>
 				<div class="col-lg-12">
 					<div class="home-text">
-                        <h3 class="title-mdpwork">MDP WORK</h3>
+                        <h3 class="title-mdpwork">Mdp Work Inc.</h3>
 						<h2 class="fz40">Encontrá el profesional que necesitas!</h2>
 						<p>Cada mes, miles de personas resuelven sus problemas cotidianos utilizando el buscador de <strong>MDP WORK®</strong>. ¿Vos cómo vas a encontrar tu solución?</p>
 					</div>
@@ -245,7 +149,7 @@ use Carbon\Carbon;
 				</div>
 				<div class="col-lg-6 offset-lg-3">
 					<div class="pjc_all_btn text-center">
-						<a class="btn btn-thm" href="#">Ver todas las categorías</a>
+						<a class="btn btn-thm" href="/lista">Ver todos los profesionales</a>
 					</div>
 				</div>
 			</div>
@@ -265,6 +169,7 @@ use Carbon\Carbon;
 			</div>
 			<div class="row">
                 @foreach($lastest as $last)
+                    @if($last->rol == 'profesional')
 				<div class="col-sm-12 col-lg-12">
 					<div class="fj_post">
 						<div class="details">
@@ -325,7 +230,7 @@ use Carbon\Carbon;
                                         <h5 class="job_chedule mt0 badge badge-success text-white"><strong>Disponible</strong></h5>
                                     @endif
                                 @else
-                                    @if($carbon->format('H:i:s') >= $last->inhourlunes && $carbon->format('H:i:s') <= $last->outhourlunes)
+                                    @if($carbon->format('H:i:s') >= $last->inhourmiercoles && $carbon->format('H:i:s') <= $last->outhourmiercoles)
                                         <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
                                     @else
                                         <h5 class="job_chedule badge badge-danger text-white mt0"><strong>No disponible</strong></h5>
@@ -421,7 +326,26 @@ use Carbon\Carbon;
 
 							<div class="thumb fn-smd">
 							<img class="img-fluid" style="height: 120px" src="img-perfil/{{$last->img}}" alt="1.jpg">
-
+                            @php
+                            $cantComent = 0;
+                            $cantPoints = 0;
+                            $points = 0;
+                        @endphp
+                        @foreach($coments as $coment)
+                            @if($coment->user_id == $last->id)
+                                @php
+                                    $cantComent ++;
+                                    $cantPoints += $coment->point;
+                                @endphp
+                            @endif
+                        @endforeach
+                        @php
+                        if($cantPoints != 0){
+                         $points = $cantPoints / $cantComent;
+                        }else{
+                         $points = 4;
+                        }
+                        @endphp
 								<ul style="margin-bottom: 0px;">
 									<li style="display: inline">
 										<img height="18px;" src="icons/llena.png">
@@ -434,13 +358,19 @@ use Carbon\Carbon;
 									</li>
 									<li style="display: inline">
 										<img height="18px;" src="icons/llena.png">
-									</li>
+                                    </li>
+                                    @if($points >= 4.5)
 									<li style="display: inline">
-										<img height="18px;" src="icons/vacia.png">
-									</li>
-								</ul>
+										<img height="18px;" src="icons/llena.png">
+                                    </li>
+                                    @else
+                                    <li style="display: inline">
+                                        <img height="18px;" src="icons/vacia.png">
+                                    </li>
+                                    @endif
+                                </ul>
 
-									<span class="badge badge-warning"><strong>4.5</strong></span>
+									<span class="badge badge-warning"><strong>{{$points}}</strong></span>
 
 							</div>
 
@@ -628,7 +558,17 @@ use Carbon\Carbon;
 
                                         </p>
                                         <p>
-                                            <img src="icons/coments.png" /> <strong>Comentarios: <span class="badge badge-secondary">35</span> <a style="font-size: 12px;" href="#" class="text-primary">Ver comentarios</a></strong>
+                                            @php
+                                            $cantidadComentarios = 0;
+                                            @endphp
+                                                @foreach($coments as $coment)
+                                                @if($coment->user_id == $last->id)
+                                                    @php
+                                                        $cantidadComentarios ++;
+                                                    @endphp
+                                                @endif
+                                            @endforeach
+                                        <img src="icons/coments.png" /> <strong>Comentarios: <span class="badge badge-secondary">{{$cantidadComentarios}}</span> </strong>
                                         </p>
                                 </div>
 
@@ -655,17 +595,14 @@ use Carbon\Carbon;
                         </div>
                         <form action="{{route('User.perfil')}}" method="GET">
                                         <input type="hidden" value="{{$last->id}}" name="user_id">
-                                        <input type="submit" class="btn btn-md btn-transparent float-right fn-smd" value="Ver/Contactar" style="border-radius: 4px;
-                                        line-height: 40px;
-                                        padding: 7px 33px;
-                                        position: absolute;
-                                        right: 45px;
-                                        top: 71px;"/>
+                                        <input type="submit" id="btn-ver" class="btn btn-md btn-transparent float-right fn-smd" value="Ver/Contactar" />
                         </form>
 					</div>
                 </div>
+                @endif
                 @endforeach
             </div>
+            <a class="btn btn-thm" href="/lista">Ver todos los profesionales</a>
 		</div>
 	</section>
 
