@@ -7,7 +7,7 @@ use Carbon\Carbon;
 	<div class="preloader"></div>
 
 	<!-- Home Design -->
-	<section class="home-one style2 bgc-lightgray">
+	<section class="home-one style2" style="background-image: url('img/fondo.jpg'); background-size: cover;">
 		<div class="container">
 			<div class="row home-content text-center">
 				<div class="col-lg-12">
@@ -42,7 +42,7 @@ use Carbon\Carbon;
 							</div>
 						</form>
 					</div>
-					<p><span class="color-black22"><strong>Más buscados:</strong></span> Electricista,  Albañil,  Desarrollador Web,  Dentista,  Maquillaje,  Uñas,  Paseador de perros</p>
+					<p style="color: white"><span class="color-white"><strong>Más buscados:</strong></span> Electricista,  Albañil,  Desarrollador Web,  Dentista,  Maquillaje,  Uñas,  Paseador de perros</p>
 				</div>
 			</div>
 		</div>

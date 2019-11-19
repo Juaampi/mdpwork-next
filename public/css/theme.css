@@ -538,7 +538,8 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     color:#221f1f
 }
 .home-one.style2 .home-text p{
-    color:#7f7f7f
+    color:#ffffff;
+    background: #00000052;
 }
 .home-one.style2 .home-job-search-box .search_option_one .form-group,.home-one.style2 .home-job-search-box .search_option_one .form-group .form-control,.home-one.style2 .home-job-search-box .search_option_two .form-group,.home-one.style2 .home-job-search-box .search_option_two .form-group .form-control{
     background-color:#fafafa
