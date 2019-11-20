@@ -467,6 +467,15 @@
                                                     <input type="text" name="instagram" class="form-control" id="formGroupExampleInput1" placeholder="Ej: http://instagram.com/mdpwork" >
                                                 </div>
                                         </div>
+                                        <div class="col-md-6 col-lg-6 mt-2">
+                                                <div class="my_profile_input form-group text-center">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input" id="customCheck1" required oninvalid="this.setCustomValidity('Debes aceptar los términos y condiciones de MDPWORK INC.')"
+                                                        oninput="this.setCustomValidity('')">
+                                                        <label class="custom-control-label" for="customCheck1">Acepto los <strong><a href="/legales/terms">Términos y Condiciones de MDPWORK INC.</a></strong></label>
+                                                    </div>
+                                                </div>
+                                        </div>
                                         </div>
                                         <div class="form-group row mb-0 mt-2">
                                                 <div class="col-md-12 offset-md-4">
@@ -548,6 +557,15 @@
                                                             <label for="exampleFormControlInput1">Confirmar Contraseña</label>
                                                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                                         </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-lg-6 mt-2">
+                                                            <div class="my_profile_input form-group text-center">
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="customCheck2" required oninvalid="this.setCustomValidity('Debes aceptar los términos y condiciones de MDPWORK INC.')"
+                                                                    oninput="this.setCustomValidity('')">
+                                                                    <label class="custom-control-label" for="customCheck2">Acepto los <strong><a href="/legales/terms">Términos y Condiciones de MDPWORK INC.</a></strong></label>
+                                                                </div>
+                                                            </div>
                                                     </div>
                                                     </div>
                                                     <div class="form-group row mb-0 mt-2">

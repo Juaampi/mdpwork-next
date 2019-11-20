@@ -3,6 +3,7 @@
 use Carbon\Carbon;
 @endphp
 @section('content')
+<div class="preloader"></div>
 <section class="bgc-lightgray pt80 mt-5 mbt45">
 		<div class="container">
 			<div class="row" id="row-text-description">
@@ -32,17 +33,29 @@ use Carbon\Carbon;
                         <ul>
                             @if($user->whatsapp)
                             <li style="display: inline" class="text-center">
-                            <a href="https://wa.me/{{$user->whatsapp}}" target="_blank"> <img height="40px" class="mr-2" src="icons/whatsapp.png" /></a>
+                                <a href="https://wa.me/{{$user->whatsapp}}" target="_blank"> <img height="40px" class="mr-2" src="icons/whatsapp.png" /></a>
+                            </li>
+                            @else
+                            <li style="display: inline" class="text-center">
+                                 <img height="40px" class="mr-2" src="icons/whatsappno.png" />
                             </li>
                             @endif
                             @if($user->facebook)
                             <li style="display: inline">
                             <a href="{{$user->facebook}}" target="_blank"><img height="40px" class="mr-2" src="icons/messenger.png" />
                             </li>
+                            @else
+                            <li style="display: inline" class="text-center">
+                                <img height="40px" class="mr-2" src="icons/messengerno.png" />
+                            </li>
                             @endif
                             @if($user->phone)
                             <li style="display: inline">
                             <a href="tel:{{$user->phone}}"><img class="mr-2" height="40px" src="icons/phone.png" /></a>
+                            </li>
+                            @else
+                            <li style="display: inline" class="text-center">
+                                <img height="40px" class="mr-2" src="icons/phoneno.png" />
                             </li>
                             @endif
                         </ul>
@@ -57,21 +70,37 @@ use Carbon\Carbon;
                             <li style="display: inline" class="text-center">
                             <a href="{{$user->facebook}}" target="_blank"><img height="40px" class="mr-2" src="img/facebook.png" /></a>
                             </li>
+                            @else
+                            <li style="display: inline" class="text-center">
+                                <img height="40px" class="mr-2" src="img/facebookno.png" />
+                            </li>
                             @endif
                             @if($user->instagram)
                             <li style="display: inline">
                                 <a href="{{$user->instagram}}" target="_blank"><img height="40px" class="mr-2" src="img/instagram.png" /></a>
+                            </li>
+                            @else
+                            <li style="display: inline" class="text-center">
+                                <img height="40px" class="mr-2" src="img/instagramno.png" />
                             </li>
                             @endif
                             @if($user->twitter)
                             <li style="display: inline">
                                 <a href="{{$user->twitter}}" target="_blank"><img class="mr-2" height="40px" src="img/twitter.png" /></a>
                             </li>
+                            @else
+                            <li style="display: inline" class="text-center">
+                                    <img height="40px" class="mr-2" src="img/twitterno.png" />
+                                </li>
                             @endif
                             @if($user->linkedin)
                             <li style="display: inline">
                                 <a href="{{$user->linkedin}}" target="_blank"><img height="40px" class="mr-2" src="img/linkedin.png" /></a>
                             </li>
+                            @else
+                            <li style="display: inline" class="text-center">
+                                    <img height="40px" class="mr-2" src="img/linkedinno.png" />
+                                </li>
                             @endif
                         </ul>
                      </div>

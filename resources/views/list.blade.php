@@ -11,7 +11,7 @@ use Carbon\Carbon;
                 <div class="bg_png">
                     <img class="img-fluid" src="icons/coete.png" alt="cl1.png">
                 </div>
-                <p class="text-center mb2"><strong>MDP WORK</strong> - Utilizá el buscador y los filtros para encontrar lo que necesitas</p>
+                <p class="text-center mb2"><strong>MDP WORK INC.</strong> - Utilizá el buscador y los filtros para encontrar lo que necesitas</p>
                 @if(session()->has('response'))
                 <div class="alert alert-danger text-center">Lamentablemente no pudimos encontrar lo que busca, pruebe utilizando los filtros especiales de <strong>MDPWORK</strong></div>
                @endif
@@ -312,9 +312,7 @@ use Carbon\Carbon;
                                             <div class="col-md-4">
                                                 <h4>{{$last->name}}</h4>
                                                 <p style="width: 204px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><img src="icons/location.png" /> {{$last->zone}}, Mar del Plata</p>
-                                                <p class="font-style-italic" ><a href="#">
-                                                        <strong>{{ $last->job }}</strong>
-                                                </a></p>
+                                            <p class="font-style-italic" ><a href="/busqueda?search={{$last->job}}"><strong>{{ $last->job }}</strong></a></p>
                                             </div>
                                             <div class="col-md-6">
                                                     <p>
@@ -508,16 +506,16 @@ use Carbon\Carbon;
                                                 <li id="txtmetodos" style="float: left; margin: 0 10px 0 0;">
                                                     Métodos de pago aceptados:
                                                 </li>
-                                                <li  class="limetodos" @if($last->isEfective) style="border: solid 1px #e6e6e6;padding: 6px;border-radius: 4px; background: #f9f9f9;" @endif>
+                                                <li  class="limetodos" @if($last->isEfective) style="border: solid 1px #00b8ff;padding: 6px;border-radius: 4px; background: #f7f7f7;" @endif>
                                                     <img src="img/credit-card/money.png" style="height: 25px; float: left;" />
                                                 </li>
-                                                <li class="limetodos" @if($last->isVisa) style="border: solid 1px #e6e6e6;padding: 6px;border-radius: 4px; background: #f9f9f9;" @endif>
+                                                <li class="limetodos" @if($last->isVisa) style="border: solid 1px #00b8ff;padding: 6px;border-radius: 4px; background: #f7f7f7;" @endif>
                                                     <img src="img/credit-card/visa.png" style="height: 25px; float: left;" />
                                                 </li>
-                                                <li class="limetodos" @if($last->isMasterCard) style="border: solid 1px #e6e6e6;padding: 6px;border-radius: 4px; background: #f9f9f9;" @endif>
+                                                <li class="limetodos" @if($last->isMasterCard) style="border: solid 1px #00b8ff;padding: 6px;border-radius: 4px; background: #f7f7f7;" @endif>
                                                      <img src="img/credit-card/mastercard.png" style="height: 25px; float: left;" />
                                                 </li>
-                                                <li class="limetodos" @if($last->isMercadoPago) style="border: solid 1px #e6e6e6;padding: 6px;border-radius: 4px; background: #f9f9f9;" @endif>
+                                                <li class="limetodos" @if($last->isMercadoPago) style="border: solid 1px #00b8ff;padding: 6px;border-radius: 4px; background: #f7f7f7;" @endif>
                                                         <img src="img/credit-card/mercado.png" style="height: 25px; float: left;" />
                                                    </li>
                                             </ul>

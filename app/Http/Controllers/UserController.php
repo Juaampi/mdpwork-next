@@ -11,6 +11,12 @@ use Illuminate\Support\Collection as Collection;
 class UserController extends Controller
 
 {
+    public function terms(){
+        return view("legales.terms");
+    }
+    public function privacy(){
+        return view("legales.privacy");
+    }
 
     public function showlist(){
         $users = User::where('rol', '=', 'profesional')->paginate(10);

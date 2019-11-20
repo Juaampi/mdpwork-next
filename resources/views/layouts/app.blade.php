@@ -33,6 +33,14 @@
 </head>
 <body class="bgc-lightgray">
     <div id="app">
+        <style>
+            #btn-quienes{
+    cursor: pointer;
+}
+#btn-quienes-top{
+    cursor: pointer;
+}
+            </style>
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -53,11 +61,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link btn btn-outline-primary" href="{{ route('register') }}">Anunciate </a>
+                                <a class="nav-link btn btn-outline-primary" href="{{ route('register') }}">Registrate! </a>
                             </li>
                         @endguest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">¿Quienés Somos?</a>
+                                <a class="nav-link" id="btn-quienes-top" data-toggle="modal" data-target="#exampleModal">¿Quienés Somos?</a>
                             </li>
                          @guest
                             <li class="nav-item">
@@ -105,30 +113,42 @@
                     <div class="row">
                         <div class="col-lg-4 pb10 pt10">
                             <div class="copyright-widget tac-smd mt10">
-                                <p>© 2019 <strong>Mdp Work</strong>. All Rights Reserved.</p>
+                                <p>© 2019 <strong>Mdp Work Inc</strong>. All Rights Reserved.</p>
                             </div>
                         </div>
                         <div class="col-lg-8 pb10 pt10">
                             <div class="footer_menu text-right mt10">
                                 <ul>
-                                    <li class="list-inline-item"><a href="page-terms-and-policies.html">Quienes Somos</a></li>
-                                    <li class="list-inline-item"><a href="page-terms-and-policies.html">Políticas de Privacidad</a></li>
-                                    <li class="list-inline-item"><a href="page-terms-and-policies.html">Términos y Condiciones</a></li>
-                                    <li class="list-inline-item"><a href="page-terms-and-policies.html">Seguridad y Privacidad</a></li>
-                                    <li class="list-inline-item">
-                                        <select class="selectpicker show-tick">
-                                            <option>English</option>
-                                            <option>Frenc</option>
-                                            <option>Italian</option>
-                                            <option>Spanish</option>
-                                            <option>Turkey</option>
-                                        </select>
-                                    </li>
+                                    <li class="list-inline-item"><a id="btn-quienes" data-toggle="modal" data-target="#exampleModal" >Quienes Somos</a></li>
+                                    <li class="list-inline-item"><a href="/legales/privacy">Políticas de Privacidad</a></li>
+                                    <li class="list-inline-item"><a href="/legales/terms">Términos y Condiciones</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">MDPWORK INC. ¿Quienés Somos?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+            <h4 class="text-secondary">MDPWORK INC.</h4>
+
+            <p><strong>MDPWORK INC.</strong> es una guía para la búsqueda de profesionales dedicados a brindar soluciones para el hogar  y servicio técnico. Pensado para todo el partido de General Pueyrredón y alrededores y con fuerte presencia local inicia sus actividades en la Ciudad <strong>Mar del Plata, Provincia de Buenos Aires, Argentina</strong>. En mdpwork.com los usuarios tienen acceso a datos de contacto; información,  fotos  y comentarios de los trabajos  realizados por profesionales independientes y por empresas: para así poder elegir a quien consideren más adecuado. La seguridad es un punto clave, todas las empresas tienen sus datos, credenciales, documentos y fotos verificadas, brindándole al cliente mayor confianza a la hora de contratar servicios para su hogar.</p>
+
+            <p>Si estás buscando un plomero o un electricista para solucionar un problema: o si te quedaste encerrado afuera de tu casa y necesitás un cerrajero urgente, si querés que un pintor te ayude a pintar las paredes de tu casa: este es el lugar para encontrarlo!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Ahora se, quienes son!</button>
+      </div>
+    </div>
+  </div>
+</div>
             </section>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -152,5 +172,27 @@
  <script type="text/javascript" src="js/barrios.js"></script>
 <!-- Custom script for all pages -->
 <script type="text/javascript" src="js/script.js"></script>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>

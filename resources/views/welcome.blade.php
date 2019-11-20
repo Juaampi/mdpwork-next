@@ -42,7 +42,8 @@ use Carbon\Carbon;
 							</div>
 						</form>
 					</div>
-					<p style="color: white"><span class="color-white"><strong>Más buscados:</strong></span> Electricista,  Albañil,  Desarrollador Web,  Dentista,  Maquillaje,  Uñas,  Paseador de perros</p>
+                    <p style="color: white"><span class="color-white"><strong>Más buscados:</strong></span> Electricista,  Albañil,  Desarrollador Web,  Dentista,  Maquillaje,  Uñas,  Paseador de perros</p>
+                    <a class="btn btn-outline-light" style="margin-top: 15px;font-size: 25px;" href="/lista">Ver la lista completa</a>
 				</div>
 			</div>
 		</div>
@@ -60,18 +61,18 @@ use Carbon\Carbon;
 			</div>
 			<div class="row">
 				<div class="col-sm-6 col-lg-3">
-					<a href="#" class="icon_hvr_img_box style2 sbbg1">
+					<a href="/busqueda?search=albañil" class="icon_hvr_img_box style2 sbbg1">
 						<div class="overlay">
 							<div class="icon"><img src="img/construccion.png" /></div>
 							<div class="details">
-								<h5>Hogar y Construcción</h5>
+								<h5>Albañiles</h5>
 								<p><strong>22</strong> Profesionales</p>
 							</div>
 						</div>
 					</a>
 				</div>
 				<div class="col-sm-6 col-lg-3">
-					<a href="#" class="icon_hvr_img_box style2 sbbg2">
+					<a href="/busqueda?search=mecánico" class="icon_hvr_img_box style2 sbbg2">
 						<div class="overlay">
 							<div class="icon"><img src="img/mecanico.png" /></div>
 							<div class="details">
@@ -82,66 +83,66 @@ use Carbon\Carbon;
 					</a>
 				</div>
 				<div class="col-sm-6 col-lg-3">
-					<a href="#" class="icon_hvr_img_box style2 sbbg3">
+					<a href="/busqueda?search=maquillaje%20y%20peinados" class="icon_hvr_img_box style2 sbbg3">
 						<div class="overlay">
 							<div class="icon"><img src="img/nail.png" /></div>
 							<div class="details">
-								<h5>Belleza y Cuidado Personal</h5>
+								<h5>Maquillaje y Peinados</h5>
 								<p><strong>24</strong> Profesionales</p>
 							</div>
 						</div>
 					</a>
 				</div>
 				<div class="col-sm-6 col-lg-3">
-					<a href="#" class="icon_hvr_img_box style2 sbbg4">
+					<a href="/busqueda?search=fotografía" class="icon_hvr_img_box style2 sbbg4">
 						<div class="overlay">
 							<div class="icon"><img src="img/fotografia.png" /></span></div>
 							<div class="details">
-								<h5>Fotografía, música y cine</h5>
+								<h5>Fotografía</h5>
 								<p><strong>17</strong> Profesionales</p>
 							</div>
 						</div>
 					</a>
 				</div>
 				<div class="col-sm-6 col-lg-3">
-					<a href="#" class="icon_hvr_img_box style2 sbbg5">
+					<a href="/busqueda?search=psicolog" class="icon_hvr_img_box style2 sbbg5">
 						<div class="overlay">
 							<div class="icon"><img src="img/medicina.png" /></div>
 							<div class="details">
-								<h5>Medicina y Salud</h5>
+								<h5>Psicología</h5>
 								<p><strong>60</strong> Profesionales</p>
 							</div>
 						</div>
 					</a>
 				</div>
 				<div class="col-sm-6 col-lg-3">
-					<a href="#" class="icon_hvr_img_box style2 sbbg6">
+					<a href="/busqueda?search=animación" class="icon_hvr_img_box style2 sbbg6">
 						<div class="overlay">
 							<div class="icon"><img src="img/fiesta.png" /></div>
 							<div class="details">
-								<h5>Fiestas y Eventos</h5>
+								<h5>Animación infantil</h5>
 								<p><strong>22</strong> Profesionales</p>
 							</div>
 						</div>
 					</a>
 				</div>
 				<div class="col-sm-6 col-lg-3">
-					<a href="#" class="icon_hvr_img_box style2 sbbg7">
+					<a href="/busqueda?search=limpieza%20profesional" class="icon_hvr_img_box style2 sbbg7">
 						<div class="overlay">
 							<div class="icon"><img src="img/oficina.png" /></div>
 							<div class="details">
-								<h5>Servicios de Oficina</h5>
+								<h5>Limpieza Profesional</h5>
 								<p><strong>5</strong> Profesionales</p>
 							</div>
 						</div>
 					</a>
 				</div>
 				<div class="col-sm-6 col-lg-3">
-					<a href="#" class="icon_hvr_img_box style2 sbbg8">
+					<a href="/busqueda?search=abogado20%de20%derecho%20laboral" class="icon_hvr_img_box style2 sbbg8">
 						<div class="overlay">
 							<div class="icon"><img src="img/contable.png" /></div>
 							<div class="details">
-								<h5>Asesoramiento Contable y Legal</h5>
+								<h5>Abogado Derecho Laboral</h5>
 								<p><strong>10</strong> Profesionales</p>
 							</div>
 						</div>
@@ -378,9 +379,7 @@ use Carbon\Carbon;
                                 <div class="col-md-4">
 							        <h4>{{$last->name}}</h4>
                                     <p class="font-style-italic"><img src="icons/location.png" /> {{$last->zone}}, Mar del Plata</p>
-                                    <p class="font-style-italic" ><a href="#">
-                                    <strong>{{ $last->job }}</strong>
-                                    </a></p>
+                                    <p class="font-style-italic" ><a href="/busqueda?search={{$last->job}}"><strong>{{ $last->job }}</strong></a>                         </a></p>
                                 </div>
                                 <div class="col-md-6">
                                         <p>
@@ -578,16 +577,16 @@ use Carbon\Carbon;
                                 <li id="txtmetodos" style="float: left; margin: 0 10px 0 0;">
                                     Métodos de pago aceptados:
                                 </li>
-                                <li  class="limetodos" @if($last->isEfective) style="border: solid 1px #e6e6e6;padding: 6px;border-radius: 4px; background: #f9f9f9;" @endif>
+                                <li  class="limetodos" @if($last->isEfective) style="border: solid 1px #00b8ff;padding: 6px;border-radius: 4px; background: #f7f7f7;" @endif>
                                     <img src="img/credit-card/money.png" style="height: 25px; float: left;" />
                                 </li>
-                                <li class="limetodos" @if($last->isVisa) style="border: solid 1px #e6e6e6;padding: 6px;border-radius: 4px; background: #f9f9f9;" @endif>
+                                <li class="limetodos" @if($last->isVisa) style="border: solid 1px #00b8ff;padding: 6px;border-radius: 4px; background: #f7f7f7;" @endif>
                                     <img src="img/credit-card/visa.png" style="height: 25px; float: left;" />
                                 </li>
-                                <li class="limetodos" @if($last->isMasterCard) style="border: solid 1px #e6e6e6;padding: 6px;border-radius: 4px; background: #f9f9f9;" @endif>
+                                <li class="limetodos" @if($last->isMasterCard) style="border: solid 1px #00b8ff;padding: 6px;border-radius: 4px; background: #f7f7f7;" @endif>
                                      <img src="img/credit-card/mastercard.png" style="height: 25px; float: left;" />
                                 </li>
-                                <li class="limetodos" @if($last->isMercadoPago) style="border: solid 1px #e6e6e6;padding: 6px;border-radius: 4px; background: #f9f9f9;" @endif>
+                                <li class="limetodos" @if($last->isMercadoPago) style="border: solid 1px #00b8ff;padding: 6px;border-radius: 4px; background: #f7f7f7;" @endif>
                                         <img src="img/credit-card/mercado.png" style="height: 25px; float: left;" />
                                    </li>
                             </ul>

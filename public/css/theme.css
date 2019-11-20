@@ -49,7 +49,7 @@ a{
     transition:all .3s ease-in 0s
 }
 a:focus,a:hover{
-    color:#82b440;
+    color:#5082f0;
     text-decoration:none;
     outline:0
 }
@@ -139,7 +139,7 @@ address,blockquote,dd,dl,dt,ol,p,ul{
     display:none
 }
 .sign_up_modal .modal-header{
-    background-color:#82b440;
+    background-color:#5082f0;
     border-radius:50%;
     border:none;
     height:50px;
@@ -321,7 +321,7 @@ header.header-nav.menu_style_home_three .sign_up_btn .btn{
     transition:all .3s ease 0s
 }
 .sign_up_btn .btn:hover,header.header-nav.menu_style_home_three .sign_up_btn .btn:hover{
-    background-color:#82b440;
+    background-color:#5082f0;
     color:#fff
 }
 header.header-nav.menu_style_home_four{
@@ -376,9 +376,9 @@ header.header-nav.menu_style_home_four .sign_up_btn .btn span{
     transition:all .3s ease 0s
 }
 .sign_up_btn .btn:hover,header.header-nav.menu_style_home_four .sign_up_btn .btn:hover{
-    background-color:#82b440;
+    background-color:#5082f0;
     color:#fff;
-    border:1px solid #82b440
+    border:1px solid #5082f0
 }
 header.header-nav.menu_style_home_five{
     background-color:transparent;
@@ -430,8 +430,8 @@ header.header-nav.menu_style_home_five .sign_up_btn .btn{
     transition:all .3s ease 0s
 }
 .sign_up_btn .btn:hover,header.header-nav.menu_style_home_five .sign_up_btn .btn:hover{
-    background-color:#82b440;
-    border:1px solid #82b440;
+    background-color:#5082f0;
+    border:1px solid #5082f0;
     color:#fff
 }
 header.header-nav.menu_style_home_six{
@@ -886,7 +886,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.09);
 }
 .icon_hvr_img_box .icon{
-    color:#82b440;
+    color:#5082f0;
     font-size:48px;
     margin-bottom:15px;
     position:relative;
@@ -1063,7 +1063,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     width:100px
 }
 .icon_box_hiw .icon .list_tag{
-    background-color:#82b440;
+    background-color:#5082f0;
     border-radius:20px;
     border:5px solid #fff;
     color:#fff;
@@ -1444,10 +1444,10 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     border:1px solid #26bca1
 }
 .ef_post:hover{
-    border:1px solid #82b440;
+    border:1px solid #5082f0;
 }
 .ef_post:hover .ef_bookmark{
-    color:#82b440
+    color:#5082f0
 }
 .ef_post .ef_header{
     padding:0 30px
@@ -1570,7 +1570,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
 }
 .ef_slider.owl-carousel.owl-theme .owl-dots .owl-dot{
     background-color:transparent;
-    border:1px solid #82b440;
+    border:1px solid #5082f0;
     border-radius:20px;
     height:15px;
     margin-left:10px;
@@ -1584,7 +1584,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     width:7px
 }
 .ef_slider.owl-carousel.owl-theme .owl-dots .owl-dot.active span,.ef_slider.owl-carousel.owl-theme .owl-dots .owl-dot:hover span{
-    background-color:#82b440!important
+    background-color:#5082f0!important
 }
 .funfact_one .timer{
     color:#fff;
@@ -1692,7 +1692,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     background-color:#eee
 }
 .footer_social_widget.home5 li:hover{
-    background-color:#82b440
+    background-color:#5082f0
 }
 .footer_social_widget.home5 li:hover a{
     color:#fff
@@ -1780,7 +1780,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     width:80%
 }
 .newsletter_widget .mailchimp_form button{
-    background-color:#82b440;
+    background-color:#5082f0;
     border:transparent;
     height:50px;
     width:50px
@@ -1924,7 +1924,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
 }
 .testimonial_slider.owl-carousel.owl-theme .owl-dots .owl-dot{
     background-color:transparent;
-    border:1px solid #82b440;
+    border:1px solid #5082f0;
     border-radius:20px;
     height:15px;
     margin-left:10px;
@@ -1938,7 +1938,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     width:7px
 }
 .testimonial_slider.owl-carousel.owl-theme .owl-dots .owl-dot.active span,.testimonial_slider.owl-carousel.owl-theme .owl-dots .owl-dot:hover span{
-    background-color:#82b440!important
+    background-color:#5082f0!important
 }
 .testimonial_slider.owl-carousel.owl-theme .owl-item{
     margin-bottom:30px
@@ -1968,10 +1968,10 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     -moz-transition:all .3s ease 0s;
     -o-transition:all .3s ease 0s;
     transition:all .3s ease 0s;
-    background:#82b440;
-    background:-moz-linear-gradient(left,#82b440 0,#a1d45f 100%);
-    background:-webkit-linear-gradient(left,#82b440 0,#a1d45f 100%);
-    background:linear-gradient(to right,#82b440 0,#a1d45f 100%)
+    background:#5082f0;
+    background:-moz-linear-gradient(left,#5082f0 0,#a1d45f 100%);
+    background:-webkit-linear-gradient(left,#5082f0 0,#a1d45f 100%);
+    background:linear-gradient(to right,#5082f0 0,#a1d45f 100%)
 }
 .team_member:hover{
     cursor:pointer
@@ -2020,7 +2020,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
 }
 .team_slider.owl-carousel.owl-theme.owl-loaded .owl-next,.team_slider.owl-carousel.owl-theme.owl-loaded .owl-prev{
     background-color:#fff!important;
-    color:#82b440;
+    color:#5082f0;
     height:50px;
     line-height:45px;
     position:absolute;
@@ -2035,7 +2035,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     transition:all .3s ease 0s
 }
 .team_slider.owl-carousel.owl-theme.owl-loaded .owl-next:hover,.team_slider.owl-carousel.owl-theme.owl-loaded .owl-prev:hover{
-    background-color:#82b440!important;
+    background-color:#5082f0!important;
     color:#fff
 }
 .pricing_table{
@@ -2096,8 +2096,8 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
 }
 .pricing_table .pt_details a.btn{
     background-color:#fff;
-    border:1px solid #82b440;
-    color:#82b440;
+    border:1px solid #5082f0;
+    color:#5082f0;
     height:55px;
     font-size:16px;
     line-height:38px;
@@ -2113,7 +2113,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     margin-top:30px
 }
 .pricing_table.mid{
-    background-color:#82b440;
+    background-color:#5082f0;
     margin-top:-25px;
     -webkit-transition:all .3s ease 0s;
     -moz-transition:all .3s ease 0s;
@@ -2189,7 +2189,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
 }
 .how_it_works_sn .hiwc{
     border-radius:50%;
-    background-color:#82b440;
+    background-color:#5082f0;
     color:#fff;
     height:30px;
     line-height:30px;
@@ -2208,7 +2208,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
 }
 .how_it_works_sn2 .hiwc{
     border-radius:50%;
-    background-color:#82b440;
+    background-color:#5082f0;
     color:#fff;
     height:30px;
     line-height:30px;
@@ -2258,7 +2258,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     transition:all .3s ease 0s
 }
 .invoice_down_print li:hover{
-    background-color:#82b440;
+    background-color:#5082f0;
     cursor:pointer
 }
 .invoice_down_print li:last-child{
@@ -2373,10 +2373,10 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
 }
 .sign_up_form li.nav-item .nav-link{
     background-color:transparent;
-    border:1px solid #82b440
+    border:1px solid #5082f0
 }
 .sign_up_form li.nav-item .nav-link.active{
-    background-color:#82b440
+    background-color:#5082f0
 }
 .faq_search_widget input.form-control{
     border:1px solid #ddd;
@@ -2453,7 +2453,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     border-bottom:none
 }
 .faq_according .card-header.active{
-    background-color:#82b440
+    background-color:#5082f0
 }
 .faq_according .card-header.active .btn-link{
     color:#fff
@@ -2482,13 +2482,13 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     border-radius:4px
 }
 .faq_according .panel-default>.panel-heading a[aria-expanded=true]{
-    background-color:#82b440
+    background-color:#5082f0
 }
 .faq_according #accordion .panel-heading a:not(.collapsed){
-    background-color:#82b440
+    background-color:#5082f0
 }
 .ui_kit_tab .nav.nav-tabs{
-    background-color:#82b440;
+    background-color:#5082f0;
     border-radius:4px
 }
 .ui_kit_tab .nav.nav-tabs{
@@ -2508,7 +2508,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     border:1px solid transparent
 }
 .ui_kit_tab .nav.nav-tabs .nav-link.active{
-    color:#82b440;
+    color:#5082f0;
     border:none
 }
 .ui_kit_tab .tab-content .tab-pane{
@@ -2529,7 +2529,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     box-shadow:0 1px 4px 0 rgba(0,0,0,.09)
 }
 .ui_kit_table .table th{
-    background-color:#82b440;
+    background-color:#5082f0;
     border-bottom:transparent;
     color:#fff;
     font-weight:400
@@ -2640,7 +2640,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     margin-bottom:8px
 }
 .ui_kit_radiobox .radio input[type=radio]:checked+label .radio-label{
-    background-color:#82b440;
+    background-color:#5082f0;
     box-shadow:inset 0 0 0 5px #fff
 }
 .ui_kit_radiobox .radio input[type=radio]+label .radio-label{
@@ -2682,7 +2682,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     display:block
 }
 .ui_kit_radiobox .radio input[type=radio]+label .radio-label:after{
-    background-color:#82b440;
+    background-color:#5082f0;
     box-sizing:border-box;
     border-radius:50%;
     content:"";
@@ -2706,8 +2706,8 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     width:16px
 }
 .ui_kit_checkbox .custom-control-input:checked~.custom-control-label::before{
-    background-color:#82b440;
-    border-color:#82b440
+    background-color:#5082f0;
+    border-color:#5082f0
 }
 .ui_kit_checkbox .custom-control-label{
     margin:0 0 10px;
@@ -2722,7 +2722,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     padding-left:25px
 }
 .ui_kit_whitchbox .custom-control-input:checked~.custom-control-label::before{
-    background-color:#82b440
+    background-color:#5082f0
 }
 .ui_kit_whitchbox .custom-switch .custom-control-label::before{
     height:1.25rem;
@@ -2857,7 +2857,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     color:#221f1f
 }
 .mbp_pagination ul.page_navigation li.active .page-link{
-    background-color:#82b440;
+    background-color:#5082f0;
     color:#fff
 }
 .blog_grid_post .thumb{
@@ -2865,7 +2865,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     overflow:hidden
 }
 .blog_grid_post .thumb .tag{
-    background-color:#82b440;
+    background-color:#5082f0;
     border-radius:4px;
     color:#fff;
     font-size:15px;
@@ -2959,7 +2959,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     transition:all .3s ease 0s
 }
 .blog_category_widget ul li.list-group-item:hover{
-    color:#82b440;
+    color:#5082f0;
     cursor:pointer
 }
 .blog_category_widget ul li.list-group-item:hover span{
@@ -3129,7 +3129,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     margin-top:10px
 }
 .mbp_pagination_tab .pag_next a:hover,.mbp_pagination_tab .pag_next p:hover,.mbp_pagination_tab .pag_prev a:hover,.mbp_pagination_tab .pag_prev p:hover{
-    color:#82b440
+    color:#5082f0
 }
 .mbp_pagination_comments{
     position:relative;
@@ -3316,7 +3316,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     color:#979797
 }
 .header_user_notif li:first-child span:last-child{
-    background-color:#82b440;
+    background-color:#5082f0;
     border-radius:50%;
     color:#fff;
     font-size:13px;
@@ -3347,14 +3347,14 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     box-shadow:1px 1px 3px 1px rgba(0,0,0,.1)
 }
 .header_user_notif .user_notif .so_heading{
-    background-color:#82b440;
+    background-color:#5082f0;
     padding:15px 20px;
     position:relative;
     border-top-left-radius:4px;
     border-top-right-radius:4px
 }
 .header_user_notif .user_notif .so_heading:before{
-    background-color:#82b440;
+    background-color:#5082f0;
     content:"";
     height:15px;
     position:absolute;
@@ -3441,7 +3441,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     width:225px
 }
 .header_user_notif li.user_setting .dropdown-menu.show:before{
-    background-color:#82b440;
+    background-color:#5082f0;
     content:"";
     height:15px;
     position:absolute;
@@ -3457,8 +3457,8 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     padding:10px 20px 5px
 }
 .header_user_notif li.user_setting .dropdown-menu .user_set_header{
-    background-color:#82b440;
-    border:1px solid #82b440;
+    background-color:#5082f0;
+    border:1px solid #5082f0;
     border-top-left-radius:4px;
     border-top-right-radius:4px
 }
@@ -3616,7 +3616,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
 }
 .candidate_revew_select .dropdown-item.active,.candidate_revew_select .dropdown-item:active{
     background-color:transparent;
-    color:#82b440!important
+    color:#5082f0!important
 }
 .cnddte_fvrt_job .job_review_table img{
     border:1px solid #ececec;
@@ -3667,8 +3667,8 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     width:70%
 }
 .candidate_resume_uploader .upload{
-    background-color:#82b440;
-    border:1px solid #82b440;
+    background-color:#5082f0;
+    border:1px solid #5082f0;
     border-radius:5px;
     color:#fff;
     cursor:pointer;
@@ -3687,8 +3687,8 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
 }
 .candidate_resume_uploader .upload:hover{
     background-color:#fff;
-    border:1px solid #82b440;
-    color:#82b440
+    border:1px solid #5082f0;
+    color:#5082f0
 }
 .candidate_resume_uploader .upload:active{
     background-color:#fff
@@ -3847,7 +3847,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     z-index:-1
 }
 .my_resume_eduarea .content .circle{
-    background-color:#82b440;
+    background-color:#5082f0;
     border-radius:50%;
     height:18px;
     left:10px;
@@ -3856,7 +3856,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     width:18px
 }
 .my_resume_eduarea .content .edu_center{
-    color:#82b440;
+    color:#5082f0;
     margin-bottom:0
 }
 .my_resume_eduarea .content .edu_stats{
@@ -4131,7 +4131,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     font-size:14px
 }
 .inbox_chatting_box .chatting_content li.media .media-body p{
-    background-color:#82b440;
+    background-color:#5082f0;
     border:1px solid #fff;
     border-radius:4px;
     color:#fff;
@@ -4172,7 +4172,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     outline:0
 }
 .message_container .message_input form button.btn{
-    background-color:#82b440;
+    background-color:#5082f0;
     border:1px solid #fff;
     color:#fff;
     font-size:16px;
@@ -4585,7 +4585,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
 }
 .my_resume_eduarea.style2 .content .circle{
     background-color:#fff;
-    border:2px solid #82b440
+    border:2px solid #5082f0
 }
 .my_resume_eduarea.style2 .content:after{
     background-color:#eaeaea;
@@ -4633,7 +4633,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     width:100%
 }
 .candidate_resume_skill .progress-levels .progress-box .bar .bar-fill{
-    background-color:#82b440;
+    background-color:#5082f0;
     border-radius:2px;
     height:6px;
     left:-100%;
@@ -4881,7 +4881,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     box-shadow:0 1px 4px 0 rgba(0,0,0,.09)
 }
 .candidate_document_widget:hover{
-    background-color:#82b440;
+    background-color:#5082f0;
     cursor:pointer
 }
 .candidate_document_widget .icon{
@@ -5149,7 +5149,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     padding-left:10px
 }
 .candidate_list_view:hover a.btn{
-    background-color:#82b440;
+    background-color:#5082f0;
     color:#fff
 }
 .candidate_list_h3{
@@ -5169,11 +5169,11 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     margin-bottom:30px
 }
 .cl_pricing_slider .ui-slider-range.ui-corner-all.ui-widget-header{
-    background-color:#82b440
+    background-color:#5082f0
 }
 .cl_pricing_slider span.ui-slider-handle.ui-corner-all.ui-state-default{
     background-color:#fff;
-    border:2px solid #82b440;
+    border:2px solid #5082f0;
     border-radius:50%;
     height:18px;
     outline:0;
@@ -5271,8 +5271,8 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     opacity:.2
 }
 .ef_post.style2 .ef_header .ef_bookmark{
-    border:1px solid #82b440;
-    color:#82b440;
+    border:1px solid #5082f0;
+    color:#5082f0;
     width:50px;
     height:50px;
     text-align:center;
@@ -5284,7 +5284,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     transition:all .3s ease
 }
 .ef_post.style2:hover .ef_header .ef_bookmark{
-    background-color:#82b440;
+    background-color:#5082f0;
     color:#fff
 }
 .candidate_job_reivew.style2 .job_review_table .table tr{
@@ -5301,8 +5301,8 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     border-radius:4px
 }
 .candidate_list_view.style2:hover{
-    border:1px solid #82b440;
-    border-left:4px solid #82b440
+    border:1px solid #5082f0;
+    border-left:4px solid #5082f0
 }
 .candidate_list_view.style2 .view_edit_delete_list li{
     border-radius:4px;
@@ -5367,8 +5367,8 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     width:150px;
     height:50px;
     border-radius:4px;
-    background-color:#82b440;
-    border:1px solid #82b440;
+    background-color:#5082f0;
+    border:1px solid #5082f0;
     cursor:pointer;
     position:absolute;
     top:25px;
@@ -5383,10 +5383,10 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
 }
 .employer_profile .avatar-upload .avatar-edit input+label:hover{
     background-color:#fff;
-    border:1px solid #82b440
+    border:1px solid #5082f0
 }
 .employer_profile .avatar-upload .avatar-edit input+label:hover:after{
-    color:#82b440
+    color:#5082f0
 }
 .employer_profile .avatar-upload .avatar-edit input+label::after{
     content:"Browse";
@@ -5465,19 +5465,19 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     box-shadow:0 1px 4px 0 rgba(0,0,0,.09)
 }
 .fj_post.style2:hover{
-    border-left:4px solid #82b440
+    border-left:4px solid #5082f0
 }
 .fj_post.style2:hover a.favorit{
-    background-color:#82b440
+    background-color:#5082f0
 }
 .fj_post.style2:hover a.favorit span{
     color:#fff
 }
 .fj_post.style2 a.favorit{
     background-color:#fff;
-    border:1px solid #82b440;
+    border:1px solid #5082f0;
     border-radius:50%;
-    color:#82b440;
+    color:#5082f0;
     height:50px;
     line-height:50px;
     position:absolute;
@@ -5523,7 +5523,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     border:none
 }
 .fj_post.style3:hover a.btn{
-    background-color:#82b440;
+    background-color:#5082f0;
     color:#fff
 }
 .fj_post.style3 a.btn:focus{
@@ -5657,8 +5657,8 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     padding:10px 25px
 }
 .fj_post.style2.one:hover{
-    border:1px solid #82b440;
-    border-left:4px solid #82b440
+    border:1px solid #5082f0;
+    border-left:4px solid #5082f0
 }
 .candidate_working_widget.style2 .details{
     margin-bottom:30px
@@ -5724,7 +5724,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     transition:all .3s ease
 }
 .candidate_personal_overview.style3 li:hover a{
-    color:#82b440
+    color:#5082f0
 }
 .candidate_personal_info.style2,.candidate_personal_info.style2 .details{
 
@@ -5946,7 +5946,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     margin-bottom:0
 }
 .alpha-pag ul.option-set li:first-child a{
-    background-color:#82b440;
+    background-color:#5082f0;
     border-radius:4px;
     padding:15px 35px
 }
@@ -6019,7 +6019,7 @@ header.header-nav.menu_style_home_six .sign_up_btn .btn{
     transition:all .3s ease
 }
 .employe_grid:hover{
-    border-bottom:3px solid #82b440;
+    border-bottom:3px solid #5082f0;
     cursor:pointer
 }
 .employe_grid .thumb{
@@ -6120,7 +6120,7 @@ a.carrer_tips:hover{
     color:#555
 }
 a.scrollToHome.text-thm:hover{
-    color:#82b440!important
+    color:#5082f0!important
 }
 .carrer_tips .ct_header{
     border-radius:4px;
@@ -6311,7 +6311,7 @@ a.scrollToHome.text-thm:hover{
     margin-bottom:0
 }
 .contact_details{
-    background-color:#82b440;
+    background-color:#5082f0;
     border-radius:4px 0 0 4px;
     padding:40px 40px 50px 30px
 }
@@ -6492,7 +6492,7 @@ a.scrollToHome.text-thm:hover{
     height:100%
 }
 .filter_button{
-    background-color:#82b440;
+    background-color:#5082f0;
     border-radius:4px;
     color:#fff;
     cursor:pointer;
@@ -6551,7 +6551,7 @@ a.text-thm2:hover{
     width:100%!important
 }
 .text-thm{
-    color:#82b440!important
+    color:#5082f0!important
 }
 a.text-thm:hover{
     color:#262626!important
@@ -6635,7 +6635,7 @@ a.text-thm:hover{
     color:#ff4b53
 }
 .bgc-thm{
-    background-color:#82b440!important
+    background-color:#5082f0!important
 }
 .bgc-fb{
     background-color:#3b5998
@@ -6948,7 +6948,7 @@ a.text-thm:hover{
     transition:all .3s ease
 }
 .btn-white:active,.btn-white:focus,.btn-white:hover{
-    color:#82b440
+    color:#5082f0
 }
 .btn-gray{
     background-color:#b4b4b4;
@@ -8077,7 +8077,7 @@ section{
     padding:3px 10px;
     position:fixed;
     right:20px;
-    color:#82b440;
+    color:#5082f0;
     text-align:center;
     z-index:99999;
     -webkit-transition:all .3s ease-in-out;
@@ -8375,20 +8375,20 @@ section{
     height:45px
 }
 #maps .loading-container .spinner{
-    background-color:#82b440
+    background-color:#5082f0
 }
 #maps .control-left-wrapper div:after,#maps .control-right-wrapper div:after{
-    background-color:#82b440;
-    border:1px solid #82b440
+    background-color:#5082f0;
+    border:1px solid #5082f0
 }
 .ads-maps .price{
-    background-color:#82b440
+    background-color:#5082f0
 }
 .ads-maps .details{
-    border-bottom:4px solid #82b440
+    border-bottom:4px solid #5082f0
 }
 .map-popup>a{
-    background:#82b440
+    background:#5082f0
 }
 .map-popup>a:hover{
     background:#00463e
@@ -8545,29 +8545,29 @@ canvas{
     display:table-cell
 }
 #maps .loading-container .spinner{
-    background-color:#82b440
+    background-color:#5082f0
 }
 #maps .control-left-wrapper div:after,#maps .control-right-wrapper div:after{
-    background-color:#82b440;
-    border:1px solid #82b440
+    background-color:#5082f0;
+    border:1px solid #5082f0
 }
 .ads-maps .price{
-    background-color:#82b440
+    background-color:#5082f0
 }
 .ads-maps .details{
-    border-bottom:4px solid #82b440
+    border-bottom:4px solid #5082f0
 }
 .map-popup>a{
-    background:#82b440
+    background:#5082f0
 }
 .finddo-place.active,.finddo-place:hover{
-    background:#82b440
+    background:#5082f0
 }
 .map-popup>a:hover{
     background:#00463e
 }
 #main .filteropen{
-    background-color:#82b440;
+    background-color:#5082f0;
     border-radius:4px;
     color:#fff;
     cursor:pointer;
@@ -8691,7 +8691,7 @@ label{
     padding-bottom:45px
 }
 .dropdown-item.active,.dropdown-item:active{
-    color:#82b440!important;
+    color:#5082f0!important;
     background-color:transparent!important
 }
 .bootstrap-select .dropdown-menu{
