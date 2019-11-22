@@ -11,7 +11,7 @@
 	cursor: pointer; /* "hand" cursor */
 }
 </style>
-<div class="container mt-5" id="registroOpciones">
+<div class="container mt-5" style="margin-bottom: 100px;" id="registroOpciones">
     <div class="center-block">
         <div class="row">
             <div class="col-md-4 offset-md-2">
@@ -134,6 +134,7 @@
                                                     <label for="formGroupExampleInput2">Profesion <img id="unselected" style="display:none;" src="icons/alert.png"><img id="selected" style="display:none;" src="icons/check.png"></label>
                                                     <select id="subcategory" name="subcategory_id" class="form-control">
                                                     </select>
+                                                    <input type="text" name="subcategory_id" class="form-control" id="otrosServicios" minlength=6 placeholder="Nombrá tu profesión..." style="display: none;" >
                                                 </div>
                                             </div>
 
@@ -206,7 +207,7 @@
                                             <div class="col-md-6 col-lg-6">
                                                 <div class="my_profile_input form-group">
                                                     <label for="myInput">Barrio - Zona</label><br>
-                                                    <input class="form-control" name="zone" id="myInput" type="text" name="barrio" placeholder="Escriba el  Barrio">
+                                                    <input class="form-control" autocomplete="off" spellcheck="false" name="zone" id="myInput" type="text" name="barrio" placeholder="Escriba el  Barrio">
                                                 </div>
                                             </div>
                                         <div class="col-lg-12">
@@ -717,7 +718,12 @@
 
                         $('#category').on('change', function(){
                             var category_id = $(this).val();
-                            if($.trim(category_id) != ''){
+                            if($.trim(category_id) == 16){
+                                $('#subcategory').hide("slow");
+                                $('#otrosServicios').show('slow');
+                                $('#unselected').show('slow');
+                                $('#otrosServicios').css({"border":"1px solid #e46359"});
+                            }else if($.trim(category_id) != ''){
                                 $.get('subcategories', {category_id: category_id}, function(subcategories){
                                     $('#subcategory').empty();
                                     $('#subcategory').append("<option value=''>Seleccione Oficio</option>");
@@ -738,6 +744,18 @@
                             }else{
                                 $('#unselected').hide('slow');
                                 $('#subcategory').css({"border":"1px solid #ddd"});
+                                $('#selected').show('slow');
+                            }
+                        });
+
+                        $('#otrosServicios').on('change',function(){
+                            if($('#otrosServicios').val()==''){
+                                $('#selected').hide('slow');
+                                $('#unselected').show('slow');
+                                $('#otrosServicios').css({"border":"1px solid #e46359"}).show('slow');
+                            }else{
+                                $('#unselected').hide('slow');
+                                $('#otrosServicios').css({"border":"1px solid #ddd"});
                                 $('#selected').show('slow');
                             }
                         });

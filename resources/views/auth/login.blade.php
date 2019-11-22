@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container" style="margin-top: 100px; margin-bottom: 180px;">
+<div class="container" style="margin-top: 100px; margin-bottom: 280px;">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Iniciar sesion en MDP WORK</div>
+                <div class="card-header"><img src="img/logo.png" style="border-radius: 5px; height: 40px;"/> Iniciar sesion en <strong>MDP WORK INC.</strong></div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -45,7 +45,7 @@
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
+                                      Recordarme
                                     </label>
                                 </div>
                             </div>

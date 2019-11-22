@@ -143,6 +143,7 @@
                                                 <option value="{{ Auth::user()->job }}">{{ Auth::user()->job }}</option>
                                             @endif
                                         </select>
+                                        <input type="text" name="subcategory_id" class="form-control" id="otrosServicios" minlength=6 placeholder="Nombrá tu profesión..." style="display: none;" >
                                     </div>
                                 </div>
                             <div class="col-md-6 col-lg-6">
@@ -632,31 +633,48 @@ document.addEventListener("click", function (e) {
                 //fin formulario de editar imagen
                 //inicio del filtro de categorias
                 $('#category').on('change', function(){
-                    var category_id = $(this).val();
-                    if($.trim(category_id) != ''){
-                        $.get('subcategories', {category_id: category_id}, function(subcategories){
-                            $('#subcategory').empty();
-                            $('#subcategory').append("<option value=''>Seleccione Oficio</option>");
-                            $.each(subcategories, function(index, subcategory){
-                                $('#subcategory').append("<option value= '"+ subcategory.name +"'>"+ subcategory.name +"</option>");
+                            var category_id = $(this).val();
+                            if($.trim(category_id) == 16){
+                                $('#subcategory').hide("slow");
+                                $('#otrosServicios').show('slow');
+                                $('#unselected').show('slow');
+                                $('#otrosServicios').css({"border":"1px solid #e46359"});
+                            }else if($.trim(category_id) != ''){
+                                $.get('subcategories', {category_id: category_id}, function(subcategories){
+                                    $('#subcategory').empty();
+                                    $('#subcategory').append("<option value=''>Seleccione Oficio</option>");
+                                    $.each(subcategories, function(index, subcategory){
+                                        $('#subcategory').append("<option value= '"+ subcategory.name +"'>"+ subcategory.name +"</option>");
+                                        $('#selected').hide('slow');
+                                        $('#unselected').show('slow');
+                                        $('#subcategory').css({"border":"1px solid #e46359"});
+                                    })
+                                });
+                            }
+                        });
+                        $('#subcategory').on('change',function(){
+                            if($('#subcategory').val()==''){
                                 $('#selected').hide('slow');
                                 $('#unselected').show('slow');
-                                $('#subcategory').css({"border":"1px solid #e46359"});
-                            })
+                                $('#subcategory').css({"border":"1px solid #e46359"}).show('slow');
+                            }else{
+                                $('#unselected').hide('slow');
+                                $('#subcategory').css({"border":"1px solid #ddd"});
+                                $('#selected').show('slow');
+                            }
                         });
-                    }
-                });
-                $('#subcategory').on('change',function(){
-                    if($('#subcategory').val()==''){
-                        $('#selected').hide('slow');
-                        $('#unselected').show('slow');
-                        $('#subcategory').css({"border":"1px solid #e46359"}).show('slow');
-                    }else{
-                        $('#unselected').hide('slow');
-                        $('#subcategory').css({"border":"1px solid #ddd"});
-                        $('#selected').show('slow');
-                    }
-                });
+
+                        $('#otrosServicios').on('change',function(){
+                            if($('#otrosServicios').val()==''){
+                                $('#selected').hide('slow');
+                                $('#unselected').show('slow');
+                                $('#otrosServicios').css({"border":"1px solid #e46359"}).show('slow');
+                            }else{
+                                $('#unselected').hide('slow');
+                                $('#otrosServicios').css({"border":"1px solid #ddd"});
+                                $('#selected').show('slow');
+                            }
+                        });
 
 
 

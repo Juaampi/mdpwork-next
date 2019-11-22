@@ -11,6 +11,9 @@
 
     <title>Mdp Work Inc. - Encontrá lo que necesitas!</title>
 
+    <!-- ICONO -->
+    <link rel="shortcut icon" href="img/logo-ico.ico" />
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -19,8 +22,8 @@
     <link rel="stylesheet" href="css/style.css">
 
     <!-- template integrations -->
-    <meta name="keywords" content="candidates, career, employment, freelance, glassdoor, Human Resource Management, indeed, job board, job listing, job portal, job postings, jobs, listings, recruitment, resume">
-    <meta name="Mdp Work" content="ATFN">
+    <meta name="keywords" content="Profesionales, Mar del Plata, Mar, del, Plata, La feliz, Profesional, carpintero, empleos mar del plata, empleos, profesiones, techista mar del plata, psicólogo mar del plata, trabajo en mar del plata, mardel, profesional en mardel, profesiones en mardel, buscador de profesionales, buscar profesionales, buscarp profesiones, buscador de personas con trabajos en mar del plata">
+    <meta name="MDP WORK INC." content="ATFN">
     <!-- css file -->
     <link rel="stylesheet" href="css/theme.css">
     <!-- Responsive stylesheet -->

@@ -35,38 +35,35 @@ class UserController extends Controller
     public function search(Request $request){
         $categories = Category::all();
         $subcategories = Subcategory::all();
+        $coments = Coment::all();
         $array = [];
         $i = 0;
-         foreach($subcategories as $subcategory){
+        foreach($subcategories as $subcategory){
            $array[$i] = $subcategory->name;
            $i++;
-       }
-       $coments = Coment::all();
-       if(!empty($request['search']) && !empty($request['zone'])){
-        $busqueda = $request['search'];
-        $zona = $request['zone'];
-        $user = User::where('job', 'like', '%' . $busqueda . '%')->orWhere('zone', 'like', '%'. $zona . '%')->paginate(10);
-            if(!$user){
-                return redirect()->back()->with('response', 'error');
-            }else{
-                return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
-            }
-       }else if(!empty($request['search']) && empty($request['zone'])){
-           $busqueda = $request['search'];
-           $user = User::where('job', 'like', '%' . $busqueda . '%')->paginate(10);
-           if(!$user){
-                return redirect()->back()->with('response', 'error');
-            }else{
-                return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
-            }
+        }
+
+        if(!empty($request['search']) && !empty($request['zone'])){
+            $user = User::where('job', 'like', '%' . $request['search'] . '%')->orWhere('zone', 'like', '%'. $request['zone'] . '%')->paginate(10);
+                if(count($user) == 0){
+                    return redirect()->back()->with('response', 'error');
+                }else{
+                    return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
+                }
+        }else if(!empty($request['search']) && empty($request['zone'])){
+           $user = User::where('job', 'like', '%' . $request['search'] . '%')->paginate(10);
+                if(count($user) == 0){
+                    return redirect()->back()->with('response', 'error');
+                }else{
+                    return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
+                }
        }else if(!empty($request['zone']) && empty($request['search'])){
-            $zona = $request['zone'];
-            $user = User::where('zone', 'like', '%' . $zona . '%')->paginate(10);
-            if(!$user){
-                return redirect()->back()->with('response', 'error');
-            }else{
-                return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
-            }
+            $user = User::where('zone', 'like', '%' . $request['zone'] . '%')->paginate(10);
+                if(count($user) == 0){
+                    return redirect()->back()->with('response', 'error');
+                }else{
+                    return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
+                }
        }
        if(empty($request['search']) && empty($request['zone'])){
             return redirect()->back()->with('response', 'error');
