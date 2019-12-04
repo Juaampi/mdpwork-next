@@ -17,7 +17,7 @@ use Carbon\Carbon;
 							<h3>{{$user->name}}</h3>
 							<p>De <strong>{{$user->age}} años</strong> en <a style="color: #00b7ff" href="#" >Mar del Plata</a></p>
 							<ul class="address_list">
-                                <li class="list-inline-item"><a href="#"><img src="icons/location.png" /> {{$user->zone}}, Mar del Plata</a></li>
+                                <li class="list-inline-item"><a href="#"><img src="img-icons/location.png" /> {{$user->zone}}, Mar del Plata</a></li>
                             </ul>
 						</div>
 					</div>
@@ -33,29 +33,29 @@ use Carbon\Carbon;
                         <ul>
                             @if($user->whatsapp)
                             <li style="display: inline" class="text-center">
-                                <a href="https://wa.me/{{$user->whatsapp}}" target="_blank"> <img height="40px" class="mr-2" src="icons/whatsapp.png" /></a>
+                                <a href="https://wa.me/{{$user->whatsapp}}" target="_blank"> <img height="40px" class="mr-2" src="img-icons/whatsapp.png" /></a>
                             </li>
                             @else
                             <li style="display: inline" class="text-center">
-                                 <img height="40px" class="mr-2" src="icons/whatsappno.png" />
+                                 <img height="40px" class="mr-2" src="img-icons/whatsappno.png" />
                             </li>
                             @endif
                             @if($user->facebook)
                             <li style="display: inline">
-                            <a href="{{$user->facebook}}" target="_blank"><img height="40px" class="mr-2" src="icons/messenger.png" />
+                            <a href="{{$user->facebook}}" target="_blank"><img height="40px" class="mr-2" src="img-icons/messenger.png" />
                             </li>
                             @else
                             <li style="display: inline" class="text-center">
-                                <img height="40px" class="mr-2" src="icons/messengerno.png" />
+                                <img height="40px" class="mr-2" src="img-icons/messengerno.png" />
                             </li>
                             @endif
                             @if($user->phone)
                             <li style="display: inline">
-                            <a href="tel:{{$user->phone}}"><img class="mr-2" height="40px" src="icons/phone.png" /></a>
+                            <a href="tel:{{$user->phone}}"><img class="mr-2" height="40px" src="img-icons/phone.png" /></a>
                             </li>
                             @else
                             <li style="display: inline" class="text-center">
-                                <img height="40px" class="mr-2" src="icons/phoneno.png" />
+                                <img height="40px" class="mr-2" src="img-icons/phoneno.png" />
                             </li>
                             @endif
                         </ul>
@@ -116,11 +116,11 @@ use Carbon\Carbon;
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="candidate_about_info style2">
-                                    <p class="fwb mb10"><img src="icons/descripcion.png"> Descripción del trabajo</p>
+                                    <p class="fwb mb10"><img src="img-icons/descripcion.png"> Descripción del trabajo</p>
                                     <p>{{$user->description}}</p>
                                         <ul id="ulmetodos">
                                                 <li id="txtmetodos" style="float: left; margin: 0 10px 0 0;">
-                                                        <img src="icons/tarjeta.png" />  Métodos de pago aceptados:
+                                                        <img src="img-icons/tarjeta.png" />  Métodos de pago aceptados:
                                                 </li>
                                                 <li  class="limetodos" @if($user->isEfective) style="border: solid 1px #e6e6e6;padding: 6px;border-radius: 4px; background: #f9f9f9;" @endif>
                                                     <img src="img/credit-card/money.png" style="height: 25px; float: left;" />
@@ -138,7 +138,7 @@ use Carbon\Carbon;
 
                                             <small class="text-secondary"><strong>*ACLARACIÓN:</strong> Los medios de pago aceptados tienen un borde y un fondo gris.</small>
                                 <div class="table-responsive">
-                                        <p class="fwb"><img src="icons/horario.png"> Horarios</p>
+                                        <p class="fwb"><img src="img-icons/horario.png"> Horarios</p>
                                         <!--Table-->
                                         <table class="table">
 
@@ -301,23 +301,23 @@ use Carbon\Carbon;
                     <div class="col-lg-4 col-xl-4">
                         <h4 class="fz20 mb30">Información adicional</h4>
                         <div class="candidate_working_widget style2 bgc-fa">
-                            @if($user->website)<div class="icon text-thm"><img src="icons/website.png"> </span></div>
+                            @if($user->website)<div class="icon text-thm"><img src="img-icons/website.png"> </span></div>
                             <div class="details">
                                 <p class="color-black22">Sitio web</p>
                             <p>{{$user->website}}</p>
                             </div>
                             @endif
-                            <div class="icon text-thm"><img src="icons/genero.png" /></span></div>
+                            <div class="icon text-thm"><img src="img-icons/genero.png" /></span></div>
                             <div class="details">
                                 <p class="color-black22">Profesión</p>
                             <p>{{$user->job}}</p>
                             </div>
-                            <div class="icon text-thm"><img src="icons/experiencia.png" /></div>
+                            <div class="icon text-thm"><img src="img-icons/experiencia.png" /></div>
                             <div class="details">
                                 <p class="color-black22">Experiencia</p>
                             <p><strong>{{$user->experience}}</strong> @if($user->experience <= 1) Año @else Años @endif </p>
                             </div>
-                            <div class="icon text-thm"><img src="icons/titulo.png" /> </div>
+                            <div class="icon text-thm"><img src="img-icons/titulo.png" /> </div>
                             <div class="details">
                                 <p class="color-black22">Título / Profesión</p>
                             <p>{{$user->level}}</p>
@@ -399,7 +399,7 @@ use Carbon\Carbon;
                                         @endif
                                     @endforeach
                                         <ul class="address_list">
-                                        <li class="list-item"><img src="icons/coment.png" /> {{$coment->coment}}</li>
+                                        <li class="list-item"><img src="img-icons/coment.png" /> {{$coment->coment}}</li>
                                         </ul>
                                     </div>
                                 </div>

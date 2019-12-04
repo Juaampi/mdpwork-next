@@ -69,7 +69,7 @@
                                             <div class="my_profile_thumb_edit"></div>
                                         </div>
                                         <div class="col-md-12">
-                                                <p class="text-secondary"><img src="icons/login.png"/> Ingresa tus datos personales para inicio de sesion.</p>
+                                                <p class="text-secondary"><img src="img-icons/login.png"/> Ingresa tus datos personales para inicio de sesion.</p>
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                             <div class="my_profile_input form-group">
@@ -115,7 +115,7 @@
                                             <hr >
                                         </div>
                                         <div class="col-md-12">
-                                            <p class="text-secondary"><img src="icons/information.png"/> Ingresa tus datos personales para contacto e información para el usuario.</p>
+                                            <p class="text-secondary"><img src="img-icons/information.png"/> Ingresa tus datos personales para contacto e información para el usuario.</p>
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                             <div class="my_profile_input form-group">
@@ -131,7 +131,7 @@
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                                 <div class="my_profile_input form-group">
-                                                    <label for="formGroupExampleInput2">Profesion <img id="unselected" style="display:none;" src="icons/alert.png"><img id="selected" style="display:none;" src="icons/check.png"></label>
+                                                    <label for="formGroupExampleInput2">Profesion <img id="unselected" style="display:none;" src="img-icons/alert.png"><img id="selected" style="display:none;" src="img-icons/check.png"></label>
                                                     <select id="subcategory" name="subcategory_id" class="form-control">
                                                     </select>
                                                     <input type="text" name="subcategory_id" class="form-control" id="otrosServicios" minlength=6 placeholder="Nombrá tu profesión..." style="display: none;" >
@@ -517,7 +517,7 @@
                                                         <div class="my_profile_thumb_edit"></div>
                                                     </div>
                                                     <div class="col-md-12">
-                                                            <p class="text-secondary"><img src="icons/login.png"/> Ingresa tus datos personales para inicio de sesion. Una vez registrado va a poder puntuar y comentar a los profesionales.</p>
+                                                            <p class="text-secondary"><img src="img-icons/login.png"/> Ingresa tus datos personales para inicio de sesion. Una vez registrado va a poder puntuar y comentar a los profesionales.</p>
                                                     </div>
                                                     <div class="col-md-6 col-lg-6">
                                                         <div class="my_profile_input form-group">

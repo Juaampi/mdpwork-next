@@ -9,7 +9,7 @@ use Carbon\Carbon;
         <div class="row">
             <div class="col-lg-12 pt10">
                 <div class="bg_png">
-                    <img class="img-fluid" src="icons/coete.png" alt="cl1.png">
+                    <img class="img-fluid" src="img-icons/coete.png" alt="cl1.png">
                 </div>
                 <p class="text-center mb2"><strong>MDP WORK INC.</strong> - Utilizá el buscador y los filtros para encontrar lo que necesitas</p>
                 @if(session()->has('response'))
@@ -19,13 +19,13 @@ use Carbon\Carbon;
                 <form class="form-inline" method="GET" action="{{route('User.search')}}">
                          <div class="search_option_one">
                             <div class="form-group">
-                                <label for="exampleInputName"><img src="icons/search-icon.png"></label>
+                                <label for="exampleInputName"><img src="img-icons/search-icon.png"></label>
 							    	<input name="search" autocomplete="off" spellcheck="false" type="text" class="form-control h70" id="searchinput" placeholder="Escribe lo que buscas.. EJ:Carpintero, electricista">
                             </div>
                         </div>
                         <div class="search_option_two">
                             <div class="form-group">
-                                <label for="exampleInputEmail"><img src="icons/location.png"/></label>
+                                <label for="exampleInputEmail"><img src="img-icons/location.png"/></label>
 							    <input type="text" class="form-control h70" id="zoneinput" autocomplete="off" spellcheck="false" name="zone" placeholder="Busca por zona">
                             </div>
                         </div>
@@ -56,7 +56,7 @@ use Carbon\Carbon;
                 </div>
                 <div class="cl_carrer_lever mb30">
                             <div class="my_profile_input form-group">
-                                <label for="formGroupExampleInput2">Profesion <img id="unselected" style="display:none;" src="icons/alert.png"><img id="selected" style="display:none;" src="icons/check.png"></label>
+                                <label for="formGroupExampleInput2">Profesion <img id="unselected" style="display:none;" src="img-icons/alert.png"><img id="selected" style="display:none;" src="img-icons/check.png"></label>
                                 <select id="subcategory" name="search" class="form-control">
                                 </select>
                             </div>
@@ -89,7 +89,7 @@ use Carbon\Carbon;
                                         </select>
                                     </div>
                                 <div class="my_profile_input form-group text-center">
-                                        <label for="formGroupExampleInput2">Profesion <img id="unselectedmobile" style="display:none;" src="icons/alert.png"><img id="selectedmobile" style="display:none;" src="icons/check.png"></label>
+                                        <label for="formGroupExampleInput2">Profesion <img id="unselectedmobile" style="display:none;" src="img-icons/alert.png"><img id="selectedmobile" style="display:none;" src="img-icons/check.png"></label>
                                         <select id="subcategorymobile" name="search" class="form-control">
                                         </select>
                                 </div>
@@ -283,87 +283,87 @@ use Carbon\Carbon;
                                             <ul style="margin-bottom: 0px;">
                                                 @if($points <= 1)
                                                 <li style="display: inline">
-                                                    <img height="18px;" src="icons/llena.png">
+                                                    <img height="18px;" src="img-icons/llena.png">
                                                 </li>
                                                 <li style="display: inline">
-                                                    <img height="18px;" src="icons/vacia.png">
+                                                    <img height="18px;" src="img-icons/vacia.png">
                                                 </li>
                                                 <li style="display: inline">
-                                                    <img height="18px;" src="icons/vacia.png">
+                                                    <img height="18px;" src="img-icons/vacia.png">
                                                 </li>
                                                 <li style="display: inline">
-                                                    <img height="18px;" src="icons/vacia.png">
+                                                    <img height="18px;" src="img-icons/vacia.png">
                                                 </li>
                                                 <li style="display: inline">
-                                                    <img height="18px;" src="icons/vacia.png">
+                                                    <img height="18px;" src="img-icons/vacia.png">
                                                 </li>
                                                 @endif
                                                 @if($points > 1 && $points <= 2)
                                                 <li style="display: inline">
-                                                    <img height="18px;" src="icons/llena.png">
+                                                    <img height="18px;" src="img-icons/llena.png">
                                                 </li>
                                                 <li style="display: inline">
-                                                    <img height="18px;" src="icons/llena.png">
+                                                    <img height="18px;" src="img-icons/llena.png">
                                                 </li>
                                                 <li style="display: inline">
-                                                    <img height="18px;" src="icons/vacia.png">
+                                                    <img height="18px;" src="img-icons/vacia.png">
                                                 </li>
                                                 <li style="display: inline">
-                                                    <img height="18px;" src="icons/vacia.png">
+                                                    <img height="18px;" src="img-icons/vacia.png">
                                                 </li>
                                                 <li style="display: inline">
-                                                    <img height="18px;" src="icons/vacia.png">
+                                                    <img height="18px;" src="img-icons/vacia.png">
                                                 </li>
                                                 @endif
                                                 @if($points > 2 && $points <= 3)
                                                 <li style="display: inline">
-                                                    <img height="18px;" src="icons/llena.png">
+                                                    <img height="18px;" src="img-icons/llena.png">
                                                 </li>
                                                 <li style="display: inline">
-                                                    <img height="18px;" src="icons/llena.png">
+                                                    <img height="18px;" src="img-icons/llena.png">
                                                 </li>
                                                 <li style="display: inline">
-                                                    <img height="18px;" src="icons/llena.png">
+                                                    <img height="18px;" src="img-icons/llena.png">
                                                 </li>
                                                 <li style="display: inline">
-                                                    <img height="18px;" src="icons/vacia.png">
+                                                    <img height="18px;" src="img-icons/vacia.png">
                                                 </li>
                                                 <li style="display: inline">
-                                                    <img height="18px;" src="icons/vacia.png">
+                                                    <img height="18px;" src="img-icons/vacia.png">
                                                 </li>
                                                 @endif
                                                 @if($points > 3 && $points <= 4)
                                                 <li style="display: inline">
-                                                    <img height="18px;" src="icons/llena.png">
+                                                    <img height="18px;" src="img-icons/llena.png">
                                                 </li>
                                                 <li style="display: inline">
-                                                    <img height="18px;" src="icons/llena.png">
+                                                    <img height="18px;" src="img-icons/llena.png">
                                                 </li>
                                                 <li style="display: inline">
-                                                    <img height="18px;" src="icons/llena.png">
+                                                    <img height="18px;" src="img-icons/llena.png">
                                                 </li>
                                                 <li style="display: inline">
-                                                    <img height="18px;" src="icons/llena.png">
+                                                    <img height="18px;" src="img-icons/llena.png">
                                                 </li>
                                                 <li style="display: inline">
-                                                    <img height="18px;" src="icons/vacia.png">
+                                                    <img height="18px;" src="img-icons/vacia.png">
                                                 </li>
                                                 @endif
                                                 @if($points > 4 && $points <= 5)
                                                 <li style="display: inline">
-                                                    <img height="18px;" src="icons/llena.png">
+                                                    <img height="18px;" src="img-icons/llena.png">
                                                 </li>
                                                 <li style="display: inline">
-                                                    <img height="18px;" src="icons/llena.png">
+                                                    <img height="18px;" src="img-icons/llena.png">
                                                 </li>
                                                 <li style="display: inline">
-                                                    <img height="18px;" src="icons/llena.png">
+                                                    <img height="18px;" src="img-icons/llena.png">
                                                 </li>
                                                 <li style="display: inline">
-                                                    <img height="18px;" src="icons/llena.png">
+                                                    <img height="18px;" src="img-icons/llena.png">
                                                 </li>
                                                 <li style="display: inline">
-                                                    <img height="18px;" src="icons/llena.png">
+                                                    <img height="18px;" src="img-icons/llena.png">
                                                 </li>
                                                 @endif
                                             </ul>
@@ -375,12 +375,12 @@ use Carbon\Carbon;
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <h4>{{$last->name}}</h4>
-                                                <p style="width: 204px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><img src="icons/location.png" /> {{$last->zone}}, Mar del Plata</p>
+                                                <p style="width: 204px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><img src="img-icons/location.png" /> {{$last->zone}}, Mar del Plata</p>
                                             <p class="font-style-italic" ><a href="/busqueda?search={{$last->job}}"><strong>{{ $last->job }}</strong></a></p>
                                             </div>
                                             <div class="col-md-6">
                                                     <p>
-                                                        <img src="icons/horario.png" />
+                                                        <img src="img-icons/horario.png" />
                                                         	<!-- LUNES HORARIOS: -->
 											@if($carbon->isoFormat('dddd') == 'Monday')
                                             <strong>Lunes: </strong>
@@ -563,7 +563,7 @@ use Carbon\Carbon;
                                                                     @endphp
                                                                 @endif
                                                             @endforeach
-                                                        <img src="icons/coments.png" /> <strong>Comentarios: <span class="badge badge-secondary">{{$cantidadComentarios}}</span> </strong>
+                                                        <img src="img-icons/coments.png" /> <strong>Comentarios: <span class="badge badge-secondary">{{$cantidadComentarios}}</span> </strong>
                                                         </p>
                                             </div>
                                             <ul id="ulmetodos">
