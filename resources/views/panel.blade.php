@@ -47,8 +47,8 @@
 						  	<div class="media-body">
 						    	<h5 class="mt-0" style="font-size: 13px;">{{ Auth::user()->name }}</h5>
                                 @if(Auth::user()->rol == 'profesional')
-                                <p style="font-size: 11px;color: #949494;"><img style="width: 16px;" src="icons/location.png">{{ Auth::user()->zone}} </p>
-                                       <p style="font-style: italic;font-size: 13px;"><img src="icons/profesion.png" style="width:16px;"> {{ Auth::user()->job }}</p>
+                                <p style="font-size: 11px;color: #949494;"><img style="width: 16px;" src="img-icons/location.png">{{ Auth::user()->zone}} </p>
+                                       <p style="font-style: italic;font-size: 13px;"><img src="img-icons/profesion.png" style="width:16px;"> {{ Auth::user()->job }}</p>
                                 @else
                                     <p style="font-style: italic;font-size: 13px;"> Usuario MDP </p>
                                 @endif
@@ -67,17 +67,17 @@
 					<div class="dashbord_nav_list">
 						<ul>
 							<li class="active">
-                                <a href="page-candidates-profile.html"><img src="icons/perfil.png" class="mr-1" /> Información</a>
+                                <a href="page-candidates-profile.html"><img src="img-icons/perfil.png" class="mr-1" /> Información</a>
                             </li>
                             <li>
-                                <a href="/contraseña"><img src="icons/password.png" class="mr-1" /> Cambiar Contraseña</a></li>
+                                <a href="/contraseña"><img src="img-icons/password.png" class="mr-1" /> Cambiar Contraseña</a></li>
                             <li>
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
-                                <img src="icons/logout.png" class="mr-1" /> Cerrar Sesion</a>
+                                <img src="img-icons/logout.png" class="mr-1" /> Cerrar Sesion</a>
                             </li>
 							<li>
-                                <a href="#" class="text-danger font-weight-bold"><img src="icons/delete.png" class="mr-1" /> Eliminar Perfil</a>
+                                <a href="#" class="text-danger font-weight-bold"><img src="img-icons/delete.png" class="mr-1" /> Eliminar Perfil</a>
                             </li>
 						</ul>
                     </div>
@@ -137,7 +137,7 @@
                             </div>
                             <div class="col-md-6 col-lg-6">
                                     <div class="my_profile_input form-group">
-                                        <label for="formGroupExampleInput2">Profesion <img id="unselected" style="display:none;" src="icons/alert.png"><img id="selected" style="display:none;" src="icons/check.png"></label>
+                                        <label for="formGroupExampleInput2">Profesion <img id="unselected" style="display:none;" src="img-icons/alert.png"><img id="selected" style="display:none;" src="img-icons/check.png"></label>
                                         <select id="subcategory" name="subcategory_id" class="form-control">
                                             @if(Auth::user()->job)
                                                 <option value="{{ Auth::user()->job }}">{{ Auth::user()->job }}</option>

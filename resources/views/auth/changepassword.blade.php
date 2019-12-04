@@ -9,12 +9,12 @@
                     <div class="card-body">
                         @if (session('error'))
                             <div class="alert alert-danger">
-                                {{ session('error') }} <img src="icons/alert.png">
+                                {{ session('error') }} <img src="img-icons/alert.png">
                             </div>
                         @endif
                         @if (session('success'))
                             <div class="alert alert-success">
-                                {{ session('success') }} <img src="icons/check.png">
+                                {{ session('success') }} <img src="img-icons/check.png">
                             </div>
                         @endif
                         <form class="form-horizontal" method="GET" action="{{ route('User.updatePassword') }}">
