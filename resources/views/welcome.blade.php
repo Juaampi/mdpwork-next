@@ -27,8 +27,8 @@ use Carbon\Carbon;
 
                     </div>
 				</div>
-                <div class="col-lg-12" style="margin-top: 100px;">
-                    <h3 style="text-shadow: 1px 1px dimgrey;" class="text-white">Nuestros filtros especializados te permiten seleccionar entre las mejores opciones para encontrar la solución que estás buscando.</h3>
+                <div class="col-lg-12" style="margin-top: 60px;">
+                    <h4 style="text-shadow: 1px 1px dimgrey;" class="text-white">Nuestros filtros especializados te permiten seleccionar entre las mejores opciones para encontrar la solución que estás buscando.</h4>
 					<div class="home-job-search-box mt20 mb20">
 						<form action="{{route('User.search')}}" method="GET" class="form-inline">
 							<div class="search_option_one">
