@@ -18,11 +18,17 @@ use Carbon\Carbon;
 				<div class="col-lg-12">
 					<div class="home-text">
                         <h3 class="title-mdpwork">Mdp Work Inc.</h3>
-						<h2 class="fz40">Encontrá el profesional que necesitas!</h2>
-						<p>Cada mes, miles de personas resuelven sus problemas cotidianos utilizando el buscador de <strong>Mdp Work Inc.</strong></p>
-					</div>
+						<p class="ml4" style="text-shadow: 2px 2px #000000">
+                            <span class="letters letters-1">¿Se te rompió el auto?</span>
+                            <span class="letters letters-2">¿Necesitas un electricista?</span>
+                            <span class="letters letters-3">¿Tenes un evento importante?</span>
+                            <span class="letters letters-4">Tu solución está acá ! </span>
+                        </p>
+
+                    </div>
 				</div>
-				<div class="col-lg-12">
+                <div class="col-lg-12" style="margin-top: 100px;">
+                    <h3 style="text-shadow: 1px 1px dimgrey;" class="text-white">Nuestros filtros especializados te permiten seleccionar entre las mejores opciones para encontrar la solución que estás buscando.</h3>
 					<div class="home-job-search-box mt20 mb20">
 						<form action="{{route('User.search')}}" method="GET" class="form-inline">
 							<div class="search_option_one">
@@ -534,8 +540,73 @@ use Carbon\Carbon;
                 autocomplete(document.getElementById("zoneinput"), countries);
         </script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+        <script type="text/javascript">
+            var ml4 = {};
+ml4.opacityIn = [0,1];
+ml4.scaleIn = [0.2, 1];
+ml4.scaleOut = 2;
+ml4.durationIn = 800;
+ml4.durationOut = 600;
+ml4.delay = 500;
 
-
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml4 .letters-1',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-1',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-2',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-2',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-3',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-3',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  })
+  .add({
+    targets: '.ml4 .letters-4',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-4',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4',
+    opacity: 0,
+    duration: 500,
+    delay: 300
+  });
+        </script>
 
 
 @endsection

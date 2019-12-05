@@ -49,6 +49,7 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="img/logo.png"  style="border-radius: 30px;height: 40px;"/>
                 </a>
+                <h3 class="title-mdpwork-responsive">Mdp Work Inc.</h3>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -175,6 +176,7 @@
  <script type="text/javascript" src="js/barrios.js"></script>
 <!-- Custom script for all pages -->
 <script type="text/javascript" src="js/script.js"></script>
+
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

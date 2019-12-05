@@ -6,13 +6,16 @@
         left: 50%;
         transform: translate(-50%, -50%);
       }
-
       .title-mdpwork{
+       display: none;
+      }
+      .title-mdpwork-responsive{
         font-family: 'Bowlby One SC', cursive;
-        color:#00b7ff;
-        font-size: 25px;
-        text-shadow: 2px 2px #000000;
-
+        color: #00b7ff;
+        font-size: 23px;
+        text-shadow: 1px 1px #00000082;
+        margin-top: 10px;
+        margin-right: 17px;
       }
       .navbar-expand-md .navbar-nav{
         text-align: center;
@@ -86,6 +89,19 @@
         #filter-mobile-none{
             display:none;
         }
+        .ml4 {
+            position: relative;
+            font-weight: 900;
+            font-size: 40px;
+          }
+          .ml4 .letters {
+            position: absolute;
+            margin: auto;
+            left: 0;
+            top: -1.7em;
+            right: 0;
+            opacity: 0;
+          }
 
 }
 
@@ -97,14 +113,16 @@
         left: 50%;
         transform: translate(-50%, -50%);
       }
-
       .title-mdpwork{
         font-family: 'Bowlby One SC', cursive;
         color:#00b7ff;
-        font-size: 25px;
+        font-size: 50px;
         text-shadow: 2px 2px #000000;
 
       }
+      .title-mdpwork-responsive{
+        display: none;
+       }
       .navbar-expand-md .navbar-nav{
         text-align: center;
     }
@@ -159,6 +177,19 @@
                                                 right: 45px;
                                                 top: 71px;"
         }
+        .ml4 {
+            position: relative;
+            font-weight: 900;
+            font-size: 4.5em;
+          }
+          .ml4 .letters {
+            position: absolute;
+            margin: auto;
+            left: 0;
+            top: -0.4em;
+            right: 0;
+            opacity: 0;
+          }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -177,6 +208,9 @@
         text-shadow: 2px 2px #000000;
 
       }
+      .title-mdpwork-responsive{
+        display: none;
+       }
       .navbar-light .navbar-nav .nav-link{
         float: right;
     }
@@ -231,8 +265,21 @@
                                                 padding: 7px 33px;
                                                 position: absolute;
                                                 right: 45px;
-                                                top: 71px;"
+                                                top: 71px;
         }
+        .ml4 {
+            position: relative;
+            font-weight: 900;
+            font-size: 4.5em;
+          }
+          .ml4 .letters {
+            position: absolute;
+            margin: auto;
+            left: 0;
+            top: -0.4em;
+            right: 0;
+            opacity: 0;
+          }
 
 }
 
@@ -252,6 +299,9 @@
         text-shadow: 2px 2px #000000;
 
       }
+      .title-mdpwork-responsive{
+        display: none;
+       }
       .navbar-expand-md .navbar-nav{
         float: right;
     }
@@ -319,9 +369,10 @@
       border-top: none;
       z-index: 99;
       /*position the autocomplete items to be the same width as the container:*/
-      top: 100%;
-      left: 0;
-      right: 0;
+      top: 59%;
+    left: 15px;
+    right: 0;
+    width: 95%;
     }
     .autocomplete-items div {
       padding: 10px;
@@ -357,8 +408,21 @@
                                             padding: 7px 33px;
                                             position: absolute;
                                             right: 45px;
-                                            top: 71px;"
+                                            top: 71px;
     }
+    .ml4 {
+        position: relative;
+        font-weight: 900;
+        font-size: 4.5em;
+      }
+      .ml4 .letters {
+        position: absolute;
+        margin: auto;
+        left: 0;
+        top: -0.4em;
+        right: 0;
+        opacity: 0;
+      }
 
 }
 
@@ -381,6 +445,9 @@
         text-shadow: 2px 2px #000000;
 
       }
+      .title-mdpwork-responsive{
+        display: none;
+       }
       .title-description{
         font-family: 'Kanit', sans-serif;
         color:white;
@@ -483,9 +550,10 @@ input {
   border-top: none;
   z-index: 99;
   /*position the autocomplete items to be the same width as the container:*/
-  top: 100%;
-  left: 0;
-  right: 0;
+  top: 59%;
+    left: 15px;
+    right: 0;
+    width: 95%;
 }
 .autocomplete-items div {
   padding: 10px;
@@ -518,6 +586,20 @@ input {
                                         padding: 7px 33px;
                                         position: absolute;
                                         right: 45px;
-                                        top: 71px;"
+                                        top: 71px;
+
 }
+ .ml4 {
+            position: relative;
+            font-weight: 900;
+            font-size: 4.5em;
+          }
+          .ml4 .letters {
+            position: absolute;
+            margin: auto;
+            left: 0;
+            top: -0.4em;
+            right: 0;
+            opacity: 0;
+          }
 }
