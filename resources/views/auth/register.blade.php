@@ -122,7 +122,7 @@
                                                 <label for="formGroupExampleInput2">Categoría <span class="text-secondary">(Encuentre su sección)</span></label>
                                                 <select id="category" name="category_id" class="form-control">
                                                         <option selected class="alert alert-danger" value="">Seleccione Categoría</option>
-                                                    @foreach($errors as $category)
+                                                    @foreach($categories as $category)
                                                         <option value="{{$category->id}}">{{$category->name}}</option>
                                                     @endforeach
                                                 </select>
