@@ -194,16 +194,16 @@ use Carbon\Carbon;
                                     $day = 'miercoles';
                                 }
                                 if($day == 'Thursday'){
-                                    $day == 'jueves';
+                                    $day = 'jueves';
                                 }
                                 if($day == 'Friday'){
-                                    $day == 'viernes';
+                                    $day = 'viernes';
                                 }
                                 if($day == 'Saturday'){
-                                    $day =='sabado';
+                                    $day ='sabado';
                                 }
                                 if($day == 'Sunday'){
-                                    $day == 'domingo';
+                                    $day = 'domingo';
                                 }
 
                             @endphp
