@@ -22,7 +22,7 @@ use Carbon\Carbon;
                             <span class="letters letters-1">¿Se te rompió el auto?</span>
                             <span class="letters letters-2">¿Necesitas un electricista?</span>
                             <span class="letters letters-3">¿Tenes un evento importante?</span>
-                            <span class="letters letters-4">Tu solución está acá ! </span>
+                            <span class="letters letters-4">No busques más, tu solución está acá ! </span>
                         </p>
 
                     </div>

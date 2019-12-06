@@ -12,7 +12,7 @@
       .title-mdpwork-responsive{
         font-family: 'Bowlby One SC', cursive;
         color: #00b7ff;
-        font-size: 23px;
+        font-size: 17px;
         text-shadow: 1px 1px #00000082;
         margin-top: 10px;
         margin-right: 17px;
@@ -92,13 +92,13 @@
         .ml4 {
             position: relative;
             font-weight: 900;
-            font-size: 40px;
+            font-size: 29px;
           }
           .ml4 .letters {
             position: absolute;
             margin: auto;
             left: 0;
-            top: -1.7em;
+            top: -80px;
             right: 0;
             opacity: 0;
           }
