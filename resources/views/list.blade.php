@@ -565,6 +565,8 @@ use Carbon\Carbon;
                                                             @endforeach
                                                         <img src="img-icons/coments.png" /> <strong>Comentarios: <span class="badge badge-secondary">{{$cantidadComentarios}}</span> </strong>
                                                         </p>
+                                                        <p class="text-secondary text-sm" style="font-style: italic;">@if($last->job2)({{ $last->job2 }}) @endif</p>
+
                                             </div>
                                             <ul id="ulmetodos">
                                                 <li id="txtmetodos" style="float: left; margin: 0 10px 0 0;">

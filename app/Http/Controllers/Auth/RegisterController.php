@@ -101,6 +101,20 @@ class RegisterController extends Controller
         if(empty($data['inhourafterdomingo']) || empty($data['outhourafterdomingo'])){
             $data['inhourafterdomingo'] = null;
             $data['outhourafterdomingo'] = null;
+        }if(empty($data['subcategory_id-otro'])){
+            $data['subcategory_id'] = $data['subcategory_id'];
+        }else{
+            $data['subcategory_id'] = $data['subcategory_id-otro'];
+        }
+        if(empty($data['job2-otro']) && !empty($data['job2'])){
+            $data['job2'] = $data['job2'];
+        }else{
+            $data['job2'] = $data['job2-otro'];
+        }
+        if(empty($data['job3-otro']) && !empty($data['job3'])){
+            $data['job3'] = $data['job3'];
+        }else{
+            $data['job3'] = $data['job3-otro'];
         }
 
         return User::create([
@@ -108,7 +122,11 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'category' => $data['category_id'],
+            'category2' => $data['category_id2'],
+            'category3' => $data['category_id3'],
             'job' => $data['subcategory_id'],
+            'job2' => $data['job2'],
+            'job3' => $data['job3'],
             'whatsapp' => $data['whatsapp'],
             'phone' => $data['phone'],
             'website' => $data['website'],

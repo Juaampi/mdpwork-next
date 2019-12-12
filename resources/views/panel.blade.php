@@ -133,11 +133,14 @@
                                         @endforeach
                                     </select>
 
-								</div>
+                                </div>
+                                @if(!Auth::user()->job2)
+                                <a id="btn-show-job2" class="text-info btn btn-outline-info btn-small btn-sm">Agregar Profesión</a>
+                                @endif
                             </div>
                             <div class="col-md-6 col-lg-6">
                                     <div class="my_profile_input form-group">
-                                        <label for="formGroupExampleInput2">Profesion <img id="unselected" style="display:none;" src="img-icons/alert.png"><img id="selected" style="display:none;" src="img-icons/check.png"></label>
+                                        <label for="formGroupExampleInput2">Profesion Principal<img id="unselected" style="display:none;" src="img-icons/alert.png"><img id="selected" style="display:none;" src="img-icons/check.png"></label>
                                         <select id="subcategory" name="subcategory_id" class="form-control">
                                             @if(Auth::user()->job)
                                                 <option value="{{ Auth::user()->job }}">{{ Auth::user()->job }}</option>
@@ -146,6 +149,119 @@
                                         <input type="text" name="subcategory_id" class="form-control" id="otrosServicios" minlength=6 placeholder="Nombrá tu profesión..." style="display: none;" >
                                     </div>
                                 </div>
+
+                                @if(Auth::user()->job2)
+                                <div id="container-job2" class="row col-md-12">
+                                        <div id="" class="col-md-6 col-lg-6">
+                                            <div class="my_profile_input form-group">
+                                                <label for="">Categoría secundaria</label>
+                                                <select id="category2" name="category_id2" class="form-control">
+                                                        @foreach($categories as $category)
+                                                            <option @if(Auth::user()->category2 == $category->id) selected class="alert alert-danger" @endif value="{{$category->id}}">{{$category->name}}</option>
+                                                        @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="my_profile_input form-group">
+                                                <label>Profesión alternativa<img id="unselected2" style="display:none;" src="img-icons/alert.png"><img id="selected2" style="display:none;" src="img-icons/check.png"></label>
+                                                <select id="job2" name="job2" class="form-control">
+                                                    @if(Auth::user()->job2)
+                                                        <option value="{{ Auth::user()->job2 }}">{{ Auth::user()->job2 }}</option>
+                                                    @endif
+                                                </select>
+                                                <input type="text" name="job2" class="form-control" id="otrosServicios2" minlength=6 placeholder="Nombrá tu profesión..." style="display: none;" >
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row" style="margin-left: 25px;">
+                                        <a id="btn-hide-job2" class="btn text-danger btn-outline-danger btn-sm">Cancelar Profesión (x)</a>
+                                        <a id="btn-show-job3" class="btn text-white btn-info btn-sm">Agregar Profesión</a>
+                                        </div>
+                                </div>
+                                @else
+                                <div id="container-job2-non" class="row col-md-12" style="display: none;">
+                                    <div id="" class="col-md-6 col-lg-6">
+                                        <div class="my_profile_input form-group">
+                                            <label for="">Categoría secundaria</label>
+                                            <select id="category2-non" name="category_id2-non" class="form-control">
+                                                    <option selected class="alert alert-danger" value="">Seleccione Categoría</option>
+                                                @foreach($categories as $category)
+                                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6">
+                                        <div class="my_profile_input form-group">
+                                            <label for="formGroupExampleInput2">Profesión alternativa<img id="unselected2-non" style="display:none;" src="img-icons/alert.png"><img id="selected2-non" style="display:none;" src="img-icons/check.png"></label>
+                                            <select id="job2-non" name="job2-non" class="form-control">
+                                            </select>
+                                            <input type="text" name="job2-otro-non" class="form-control" id="otrosServicios2" minlength=6 placeholder="Nombrá tu profesión..." style="display: none;" >
+                                        </div>
+
+                                    </div>
+                                    <div class="row" style="margin-left: 25px;">
+                                    <a id="btn-hide-job2-non" class="btn text-danger btn-outline-danger btn-sm">Cancelar Profesión (x)</a>
+                                    <a id="btn-show-job3-non" class="btn text-white btn-info btn-sm">Agregar Profesión</a>
+                                    </div>
+                            </div>
+                                @endif
+
+                                @if(Auth::user()->job3)
+                                <div id="container-job3" class="row col-md-12">
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="my_profile_input form-group">
+                                                <label>Tercera categoría</label>
+                                                <select id="category3" name="category3" class="form-control">
+                                                    @foreach($categories as $category)
+                                                        <option @if(Auth::user()->category3 == $category->id) selected class="alert alert-danger" @endif value="{{$category->id}}">{{$category->name}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="my_profile_input form-group">
+                                                <label>Profesión alternativa adjunta<img id="unselected3" style="display:none;" src="img-icons/alert.png"><img id="selected3" style="display:none;" src="img-icons/check.png"></label>
+                                                <select id="job3" name="job3" class="form-control">
+                                                        @if(Auth::user()->job3)
+                                                            <option value="{{ Auth::user()->job3 }}">{{ Auth::user()->job3 }}</option>
+                                                        @endif
+                                                </select>
+                                                <input type="text" name="job3-otro" class="form-control" id="otrosServicios3" minlength=6 placeholder="Nombrá tu profesión..." style="display: none;" >
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-left: 25px;">
+                                                <a id="btn-hide-job3" class="btn text-danger btn-outline-danger btn-sm">Cancelar profesión (x)</a>
+                                        </div>
+                                </div>
+                                @else
+                                <div id="container-job3-non" class="row col-md-12" style="display:none;">
+                                    <div class="col-md-6 col-lg-6">
+                                        <div class="my_profile_input form-group">
+                                            <label>Tercera categoría</label>
+                                            <select id="category3-non" name="category_id3-non" class="form-control">
+                                                    <option selected class="alert alert-danger" value="">Seleccione Categoría</option>
+                                                @foreach($categories as $category)
+                                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6">
+                                        <div class="my_profile_input form-group">
+                                            <label>Profesión alternativa adjunta<img id="unselected3-non" style="display:none;" src="img-icons/alert.png"><img id="selected3-non" style="display:none;" src="img-icons/check.png"></label>
+                                            <select id="job3-non" name="job3-non" class="form-control">
+                                            </select>
+                                            <input type="text" name="job3-otro-non" class="form-control" id="otrosServicios3-non" minlength=6 placeholder="Nombrá tu profesión..." style="display: none;" >
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-left: 25px;">
+                                            <a id="btn-hide-job3-non" class="btn text-danger btn-outline-danger btn-sm">Cancelar profesión (x)</a>
+                                    </div>
+                            </div>
+                                @endif
                             <div class="col-md-6 col-lg-6">
                                     <div class="my_profile_input form-group">
                                         <label for="exampleInputPhone">WhatsApp</label>
@@ -675,6 +791,217 @@ document.addEventListener("click", function (e) {
                                 $('#selected').show('slow');
                             }
                         });
+
+                        $('#category2').on('change', function(){
+                            var category_id = $(this).val();
+                            if($.trim(category_id) == 16){
+                                $('#job2').hide("slow");
+                                $('#otrosServicios2').show('slow');
+                                $('#unselected2').show('slow');
+                                $('#otrosServicios2').css({"border":"1px solid #e46359"});
+                            }else if($.trim(category_id) != ''){
+                                $.get('subcategories', {category_id: category_id}, function(subcategories){
+                                    $('#job2').empty();
+                                    $('#job2').append("<option value=''>Seleccione Oficio</option>");
+                                    $.each(subcategories, function(index, subcategory){
+                                        $('#job2').append("<option value= '"+ subcategory.name +"'>"+ subcategory.name +"</option>");
+                                        $('#selected2').hide('slow');
+                                        $('#unselected2').show('slow');
+                                        $('#job2').css({"border":"1px solid #e46359"});
+                                    })
+                                });
+                            }
+                        });
+                        $('#job2').on('change',function(){
+                            if($('#job2').val()==''){
+                                $('#selected2').hide('slow');
+                                $('#unselected2').show('slow');
+                                $('#job2').css({"border":"1px solid #e46359"}).show('slow');
+                            }else{
+                                $('#unselected2').hide('slow');
+                                $('#job2').css({"border":"1px solid #ddd"});
+                                $('#selected2').show('slow');
+                            }
+                        });
+
+
+                        $('#category2-non').on('change', function(){
+                            var category_id = $(this).val();
+                            if($.trim(category_id) == 16){
+                                $('#job2-non').hide("slow");
+                                $('#otrosServicios2-non').show('slow');
+                                $('#unselected2-non').show('slow');
+                                $('#otrosServicios2-non').css({"border":"1px solid #e46359"});
+                            }else if($.trim(category_id) != ''){
+                                $.get('subcategories', {category_id: category_id}, function(subcategories){
+                                    $('#job2-non').empty();
+                                    $('#job2-non').append("<option value=''>Seleccione Oficio</option>");
+                                    $.each(subcategories, function(index, subcategory){
+                                        $('#job2-non').append("<option value= '"+ subcategory.name +"'>"+ subcategory.name +"</option>");
+                                        $('#selected2-non').hide('slow');
+                                        $('#unselected2-non').show('slow');
+                                        $('#job2-non').css({"border":"1px solid #e46359"});
+                                    })
+                                });
+                            }
+                        });
+                        $('#job2-non').on('change',function(){
+                            if($('#job2-non').val()==''){
+                                $('#selected2-non').hide('slow');
+                                $('#unselected2-non').show('slow');
+                                $('#job2-non').css({"border":"1px solid #e46359"}).show('slow');
+                            }else{
+                                $('#unselected2-non').hide('slow');
+                                $('#job2-non').css({"border":"1px solid #ddd"});
+                                $('#selected2-non').show('slow');
+                            }
+                        });
+
+
+                        $('#otrosServicios2').on('change',function(){
+                            if($('#otrosServicios2').val()==''){
+                                $('#selected2').hide('slow');
+                                $('#unselected2').show('slow');
+                                $('#otrosServicios2').css({"border":"1px solid #e46359"}).show('slow');
+                            }else{
+                                $('#unselected2').hide('slow');
+                                $('#otrosServicios2').css({"border":"1px solid #ddd"});
+                                $('#selected2').show('slow');
+                            }
+                        });
+
+                         /////////
+
+                         $('#category3-non').on('change', function(){
+                            var category_id = $(this).val();
+                            if($.trim(category_id) == 16){
+                                $('#job3-non').hide("slow");
+                                $('#otrosServicios3-non').show('slow');
+                                $('#unselected3-non').show('slow');
+                                $('#otrosServicios3-non').css({"border":"1px solid #e46359"});
+                            }else if($.trim(category_id) != ''){
+                                $.get('subcategories', {category_id: category_id}, function(subcategories){
+                                    $('#job3-non').empty();
+                                    $('#job3-non').append("<option value=''>Seleccione Oficio</option>");
+                                    $.each(subcategories, function(index, subcategory){
+                                        $('#job3-non').append("<option value= '"+ subcategory.name +"'>"+ subcategory.name +"</option>");
+                                        $('#selected3-non').hide('slow');
+                                        $('#unselected3-non').show('slow');
+                                        $('#job3-non').css({"border":"1px solid #e46359"});
+                                    })
+                                });
+                            }
+                        });
+                        $('#job3-non').on('change',function(){
+                            if($('#job3-non').val()==''){
+                                $('#selected3-non').hide('slow');
+                                $('#unselected3-non').show('slow');
+                                $('#job2-non').css({"border":"1px solid #e46359"}).show('slow');
+                            }else{
+                                $('#unselected3-non').hide('slow');
+                                $('#job3-non').css({"border":"1px solid #ddd"});
+                                $('#selected3-non').show('slow');
+                            }
+                        });
+
+                        $('#otrosServicios3-non').on('change',function(){
+                            if($('#otrosServicios3-non').val()==''){
+                                $('#selected3-non').hide('slow');
+                                $('#unselected3-non').show('slow');
+                                $('#otrosServicios3-non').css({"border":"1px solid #e46359"}).show('slow');
+                            }else{
+                                $('#unselected3-non').hide('slow');
+                                $('#otrosServicios3-non').css({"border":"1px solid #ddd"});
+                                $('#selected3-non').show('slow');
+                            }
+                        });
+
+
+                        $('#category3').on('change', function(){
+                            var category_id = $(this).val();
+                            if($.trim(category_id) == 16){
+                                $('#job3').hide("slow");
+                                $('#otrosServicios3').show('slow');
+                                $('#unselected3').show('slow');
+                                $('#otrosServicios3').css({"border":"1px solid #e46359"});
+                            }else if($.trim(category_id) != ''){
+                                $.get('subcategories', {category_id: category_id}, function(subcategories){
+                                    $('#job3').empty();
+                                    $('#job3').append("<option value=''>Seleccione Oficio</option>");
+                                    $.each(subcategories, function(index, subcategory){
+                                        $('#job3').append("<option value= '"+ subcategory.name +"'>"+ subcategory.name +"</option>");
+                                        $('#selected3').hide('slow');
+                                        $('#unselected3').show('slow');
+                                        $('#job3').css({"border":"1px solid #e46359"});
+                                    })
+                                });
+                            }
+                        });
+                        $('#job3').on('change',function(){
+                            if($('#job3').val()==''){
+                                $('#selected3').hide('slow');
+                                $('#unselected3').show('slow');
+                                $('#job2').css({"border":"1px solid #e46359"}).show('slow');
+                            }else{
+                                $('#unselected3').hide('slow');
+                                $('#job3').css({"border":"1px solid #ddd"});
+                                $('#selected3').show('slow');
+                            }
+                        });
+
+                        $('#otrosServicios3').on('change',function(){
+                            if($('#otrosServicios3').val()==''){
+                                $('#selected3').hide('slow');
+                                $('#unselected3').show('slow');
+                                $('#otrosServicios3').css({"border":"1px solid #e46359"}).show('slow');
+                            }else{
+                                $('#unselected3').hide('slow');
+                                $('#otrosServicios3').css({"border":"1px solid #ddd"});
+                                $('#selected3').show('slow');
+                            }
+                        });
+
+
+                        $('#btn-show-job2').click(function(){
+                            $('#btn-show-job2').hide('slow');
+                            $('#container-job2-non').show('slow');
+                        });
+                        $('#btn-hide-job2').click(function(){
+                            $('#container-job2').hide('slow');
+                            $('#btn-show-job2').show('slow');
+                            $('#container-job3').hide('slow');
+                            $('#job3').val() = null;
+                            $('#job2').val() = null;
+                            $('#job3-otros').val() = null;
+                            $('#job2-otros').val() = null;
+                        });
+                        $('#btn-show-job3').click(function(){
+                            $('#container-job3-non').show('slow');
+                        });
+                        $('#btn-hide-job3').click(function(){
+                            $('#container-job3').hide('slow');
+                            $('#job3').val() = null;
+                            $('#job3-otros').val() = null;
+                        });
+
+                        $('#btn-hide-job2-non').click(function(){
+                            $('#container-job2-non').hide('slow');
+                            $('#btn-show-job2').show('slow');
+                            $('#container-job3-non').hide('slow');
+                            $('#job3-non').val() = null;
+                            $('#job2-non').val() = null;
+                            $('#job3-otros').val() = null;
+                            $('#job2-otros').val() = null;
+                        });
+                        $('#btn-show-job3-non').click(function(){
+                            $('#container-job3-non').show('slow');
+                        });
+                        $('#btn-hide-job3-non').click(function(){
+                            $('#container-job3-non').hide('slow');
+                            $('#job3-non').val() = null;
+                            $('#job3-otros-non').val() = null;
+                        });
+
 
 
 

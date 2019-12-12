@@ -4,7 +4,7 @@ use Carbon\Carbon;
 @endphp
 @section('content')
 <div class="preloader"></div>
-<section class="bgc-lightgray pt80 mt-5 mbt45">
+<section class="bgc-lightgray pt80">
 		<div class="container">
 			<div class="row" id="row-text-description">
 				<div class="col-md-6">
@@ -15,7 +15,7 @@ use Carbon\Carbon;
 						<div class="details">
                         <span class="text-info"><strong>{{$user->job}}</strong></span>
 							<h3>{{$user->name}}</h3>
-							<p>De <strong>{{$user->age}} años</strong> en <a style="color: #00b7ff" href="#" >Mar del Plata</a></p>
+                            <p>De <strong>{{$user->age}} años</strong> en <a style="color: #00b7ff" href="#" >Mar del Plata</a></p>
 							<ul class="address_list">
                                 <li class="list-inline-item"><a href="#"><img src="img-icons/location.png" /> {{$user->zone}}, Mar del Plata</a></li>
                             </ul>
@@ -310,8 +310,12 @@ use Carbon\Carbon;
                             <div class="icon text-thm"><img src="img-icons/genero.png" /></span></div>
                             <div class="details">
                                 <p class="color-black22">Profesión</p>
-                            <p>{{$user->job}}</p>
-                            </div>
+                            <ul><li><strong> {{$user->job}} </strong><li>
+                            <li style="font-style: italic;">@if($user->job2)- {{ ($user->job2) }}@endif
+                            </li>
+                            <li style="font-style: italic;">@if($user->job3)- {{ ($user->job3) }}@endif
+                            </li>
+                             </div>
                             <div class="icon text-thm"><img src="img-icons/experiencia.png" /></div>
                             <div class="details">
                                 <p class="color-black22">Experiencia</p>

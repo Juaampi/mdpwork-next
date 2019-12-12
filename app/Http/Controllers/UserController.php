@@ -92,7 +92,6 @@ class UserController extends Controller
 
     }
 
-
     public function edit(Request $request){
 
         $user = User::find($request['id']);
@@ -108,8 +107,68 @@ class UserController extends Controller
             $user->category = $request['category_id'];
             $user->save();
         }
+        if(!empty($request['category_id2'])){
+            $user->category = $request['category_id3'];
+            $user->save();
+        }
+        if(!empty($request['category_id3'])){
+            $user->category = $request['category_id3'];
+            $user->save();
+        }
+        if(!empty($request['category_id2-non'])){
+            $user->category = $request['category_id2-non'];
+            $user->save();
+        }
+        if(!empty($request['category_id3-non'])){
+            $user->category = $request['category_id3-non'];
+            $user->save();
+        }
         if(!empty($request['subcategory_id'])){
             $user->job = $request['subcategory_id'];
+            $user->save();
+        }
+        if(!empty($request['job2'])){
+            $user->job2 = $request['job2'];
+            $user->save();
+        }
+        if($request['job2'] == null){
+            $user->job2 = null;
+            $user->save();
+        }
+        if(!empty($request['job3'])){
+            $user->job3 = $request['job3'];
+            $user->save();
+        }
+        if($request['job3'] == null){
+            $user->job3 = null;
+            $user->save();
+        }
+        if(!empty($request['job2-non'])){
+            $user->job2 = $request['job2-non'];
+            $user->save();
+        }
+        if(!empty($request['job3-non'])){
+            $user->job3 = $request['job3-non'];
+            $user->save();
+        }
+        if(!empty($request['subcategory_id-otro'])){
+            $user->job = $request['subcategory_id'];
+            $user->save();
+        }
+        if(!empty($request['job2-otro'])){
+            $user->job2 = $request['job2'];
+            $user->save();
+        }
+        if(!empty($request['job2-otro-non'])){
+            $user->job2 = $request['job2-otro-non'];
+            $user->save();
+        }
+        if(!empty($request['job3-otro'])){
+            $user->job3 = $request['job3'];
+            $user->save();
+        }
+        if(!empty($request['job3-otro-non'])){
+            $user->job3 = $request['job3-otro-non'];
             $user->save();
         }
         if(!empty($request['whatsapp'])){
