@@ -28,6 +28,10 @@ Route::get('/coment', 'ComentController@addcoment')->name('Coment.add');
 Route::get('/legales/terms', 'UserController@terms');
 Route::get('/legales/privacy', 'UserController@privacy');
 
+Route::get('/intro', function(){
+    return view('intro');
+});
+
 Auth::routes();
 
 Route::get('/panel', 'HomeController@index')->name('panel');

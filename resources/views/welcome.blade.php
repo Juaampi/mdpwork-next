@@ -427,8 +427,52 @@ use Carbon\Carbon;
 
 <a class="scrollToHome text-thm" href="#"><img src="img-icons/coete.png" /></a>
 </div>
+
+
 <!-- Wrapper End -->
 
+<div class="modal fade" id="info" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalScrollableTitle">Información de bienvenida</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="card text-center">
+                <div class="card-header">
+                    Bienvenidos a <strong>Mdp Work Inc.</strong>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">En ésta nueva era tecnológica una nueva herramienta virtual llamada
+                      <div class="badge badge-info">MDP WORK INC. </div> te ofrece una solución a tus problemas, sin perder tiempo y desde la comodidad de tu hogar.
+                </h5>
+                <h5><img src="img/dispositivos.png" class="mt-2 mb-2" style="height: 200px;"/></h5>
+                  <p class="card-text">La <strong><span class="text-info">tecnología</span></strong> hace años viene proponiendo un cambio en la vida de las personas que la utilizan. En éste caso éste sitio web ofrece 2 formas de ser utilizado que las explicamos a continuación.</p>
+                  <div class="bs-callout bs-callout-info"><p><strong>1. </strong>Si tenes alguna profesión, algun oficio o realizas algún tipo de trabajo en la zona, podés ingresar a la zona de <strong>profesionales</strong>, registrarte y automáticamente te encontrarás en nuestro listado. <a href="/register" class="btn btn-sm btn-info">Registrarme</a></p></div>
+                  <div class="bs-callout bs-callout-warning"><p><strong>2. </strong>Si tuviste algún problema en tu casa o con tu vehículo, judicial o simplemente necesitas hacerte las uñas, no dudes en utilizar el buscador que te ofrecemos y contactarte directamente, <strong>sin vueltas y sin publicidades</strong>, con la persona que te lo solucionará. Utilizá nuestros filtros especializados y no pierdas más tiempo! <a href="/lista" class="btn btn-sm btn-warning" >Ver listado</a></p></div>
+                </div>
+                <div class="card-footer text-muted">
+                  <strong>MDP WORK INC.</strong>. La nueva forma de solucionar tus problemas.
+                </div>
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok Gracias!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<style>
+
+.modal.show {
+    background-color: rgba(0,0,0, 0.5) !important;
+}
+
+    </style>
 
 <script>
         var countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antártida Argentina","Barrio 180","Lomas del Golf","Bernardino Rivadavia","Belgrano","Belisario Roldán","Bosque Alegre","Bosque Peralta Ramos","Caisamar","Centenario","Cerrito","Cerrito Sur","Cerrito San Salvador","Colina Alegre","Constitución","Coronel Dorrego","Costa Azul","Don Bosco","Don Emilio","Dorrego","El Grosellar","El Martillo","El Progreso","Estrada","Etchepare","Faro","Juramento","Las Américas","Las Avenidas","Colinas de Peralta Ramos","Las Heras","La Florida","La Perla","La Zulema","Libertad","Los Acantilados","Los Pinares","Los Troncos","Malvinas Argentinas","Newbery","Nueva Pompeya","Montemar","Parque Hermoso","Parque La Florida","Parque Luro","Parque Palermo","Parque Peña","Peralta Ramos Oeste","Pinos de Anchorena","Chapadmalal","Playa Grande","Punta Mogotes","San Antonio","San Carlos","San Eduardo","San Geronimo","San Jacinto","San José","San Patricio","San Salvador","Santa Mónica","Sarmiento","Stella Maris","Jardín Stella Maris","Jardín","Alfar","Nuevo Golf","Zacagnini", "Otra zona", "Todo Mar del Plata"];
@@ -540,6 +584,8 @@ use Carbon\Carbon;
                 autocomplete(document.getElementById("zoneinput"), countries);
         </script>
 
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
         <script type="text/javascript">
             var ml4 = {};
@@ -607,6 +653,8 @@ anime.timeline({loop: true})
     delay: 300
   });
         </script>
+
+
 
 
 @endsection
