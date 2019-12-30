@@ -447,7 +447,7 @@ use Carbon\Carbon;
                 </div>
                 <div class="card-body">
                   <h5 class="card-title">En ésta nueva era tecnológica una nueva herramienta virtual llamada
-                      <div class="badge badge-info">MDP WORK INC. </div> te ofrece una solución a tus problemas, sin perder tiempo y desde la comodidad de tu hogar.
+                      <div class="badge badge-info">MDP WORK INC. </div> te ofrece una solución a tus problemas, sin perder tiempo y desde la comodida de tu hogar.
                 </h5>
                 <h5><img src="img/dispositivos.png" class="mt-2 mb-2" style="height: 200px;"/></h5>
                   <p class="card-text">La <strong><span class="text-info">tecnología</span></strong> hace años viene proponiendo un cambio en la vida de las personas que la utilizan. En éste caso éste sitio web ofrece 2 formas de ser utilizado que las explicamos a continuación.</p>
@@ -466,13 +466,6 @@ use Carbon\Carbon;
     </div>
   </div>
 
-<style>
-
-.modal.show {
-    background-color: rgba(0,0,0, 0.5) !important;
-}
-
-    </style>
 
 <script>
         var countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antártida Argentina","Barrio 180","Lomas del Golf","Bernardino Rivadavia","Belgrano","Belisario Roldán","Bosque Alegre","Bosque Peralta Ramos","Caisamar","Centenario","Cerrito","Cerrito Sur","Cerrito San Salvador","Colina Alegre","Constitución","Coronel Dorrego","Costa Azul","Don Bosco","Don Emilio","Dorrego","El Grosellar","El Martillo","El Progreso","Estrada","Etchepare","Faro","Juramento","Las Américas","Las Avenidas","Colinas de Peralta Ramos","Las Heras","La Florida","La Perla","La Zulema","Libertad","Los Acantilados","Los Pinares","Los Troncos","Malvinas Argentinas","Newbery","Nueva Pompeya","Montemar","Parque Hermoso","Parque La Florida","Parque Luro","Parque Palermo","Parque Peña","Peralta Ramos Oeste","Pinos de Anchorena","Chapadmalal","Playa Grande","Punta Mogotes","San Antonio","San Carlos","San Eduardo","San Geronimo","San Jacinto","San José","San Patricio","San Salvador","Santa Mónica","Sarmiento","Stella Maris","Jardín Stella Maris","Jardín","Alfar","Nuevo Golf","Zacagnini", "Otra zona", "Todo Mar del Plata"];
