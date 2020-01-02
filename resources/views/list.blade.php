@@ -75,7 +75,7 @@ use Carbon\Carbon;
                             <button class="btn btn-thm btns dn db-991" style="margin: 0 auto;">Ver filtros</button>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-lg-6">
+                    <div class="col-sm-12 col-lg-6" >
                         <div class="content_details">
                             <div class="details">
                                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span>Esconder Filtro</span><i>×</i></a>
@@ -104,7 +104,7 @@ use Carbon\Carbon;
                     <div class="row">
                             @foreach($lastest as $last)
                             @if($last->rol = 'profesional')
-                            <div class="col-sm-12 col-lg-12">
+                            <div class="col-sm-12 col-lg-12" >
                                 <div class="fj_post">
                                     <div class="details">
                                         @php
@@ -372,11 +372,13 @@ use Carbon\Carbon;
 
                                         </div>
 
-                                        <div class="row">
+                                        <div class="row" id="perfil-responsive-div">
                                             <div class="col-md-4">
                                                 <h4>{{$last->name}}</h4>
-                                                <p style="width: 204px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><img src="img-icons/location.png" /> {{$last->zone}}, Mar del Plata</p>
-                                            <p class="font-style-italic" ><a href="/busqueda?search={{$last->job}}"><strong>{{ $last->job }}</strong></a></p>
+                                                <p style="width: 250px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><img src="img-icons/location.png" /> {{$last->zone}}, Mar del Plata</p>
+                                            <p class="font-style-italic" >
+                                                <img src="img-icons/experiencia.png"> <a href="/busqueda?search={{$last->job}}"><strong>{{ $last->job }}</strong> <img src="img-icons/check.png"></a>
+                                            </p>
                                             </div>
                                             <div class="col-md-6">
                                                     <p>
@@ -568,6 +570,7 @@ use Carbon\Carbon;
                                                         <p class="text-secondary text-sm" style="font-style: italic;">@if($last->job2)({{ $last->job2 }}) @endif</p>
 
                                             </div>
+                                            <div id="metodos-responsive">
                                             <ul id="ulmetodos">
                                                 <li id="txtmetodos" style="float: left; margin: 0 10px 0 0;">
                                                     Métodos de pago aceptados:
@@ -585,6 +588,7 @@ use Carbon\Carbon;
                                                         <img src="img/credit-card/mercado.png" style="height: 25px; float: left;" title="Mercado Pago" />
                                                    </li>
                                             </ul>
+                                            </div>
 
                                     </div>
 
