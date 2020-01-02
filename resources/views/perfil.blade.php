@@ -142,7 +142,7 @@ use Carbon\Carbon;
                                             $cantidadComentarios = 0;
                                             @endphp
                                                 @foreach($coments as $coment)
-                                                @if($coment->user_id == $$user->id)
+                                                @if($coment->user_id == $user->id)
                                                     @php
                                                         $cantidadComentarios ++;
                                                     @endphp
