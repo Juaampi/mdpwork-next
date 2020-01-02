@@ -488,7 +488,7 @@ use Carbon\Carbon;
                                 <div class="table-responsive">
 
                                         <p class="fwb"><img src="img-icons/horario.png"> Horarios del Profesional</p>
-                                        <small class="text-danger mb-2" style="display: block;"><strong>*IMPORTANTE:</strong> Si el profesional no se encuentra disponible, es posible que no responda su comunicación. Por eso es importante verificar el siguiente cuadro. Ante cualquier inconveniente no dude comunicarse con nosotros.</small>
+                                        <div class="alert alert-danger"><small class="text-danger mb-2" style="display: block;"><strong>*IMPORTANTE:</strong> Si el profesional no se encuentra disponible, es posible que no responda su comunicación. Por eso es importante verificar el siguiente cuadro. Ante cualquier inconveniente no dude comunicarse con nosotros.</small></div>
                                         <!--Table-->
                                         <table class="table">
 
@@ -505,7 +505,7 @@ use Carbon\Carbon;
 
                                           <!--Table body-->
                                           @php
-                                          $carbon = Carbon::now();
+                                          $carbon = Carbon::now('America/Argentina/Buenos_Aires');
                                         @endphp
                                           <tbody>
                                             <tr @if($carbon->isoFormat('dddd') == 'Monday') style="background: #ececec;" @endif>

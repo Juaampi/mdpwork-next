@@ -108,7 +108,7 @@ use Carbon\Carbon;
                                 <div class="fj_post">
                                     <div class="details">
                                         @php
-                                            $carbon = Carbon::now();
+                                            $carbon = Carbon::now('America/Argentina/Buenos_Aires');
                                         @endphp
 
                                         <!-- ACA ESTA CADA DÍA EL HORARIO DISPONIBLE -->

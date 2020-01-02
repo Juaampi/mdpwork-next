@@ -181,7 +181,7 @@ use Carbon\Carbon;
 					<div class="fj_post">
 						<div class="details">
                             @php
-                                $carbon = Carbon::now();
+                                $carbon = Carbon::now('America/Argentina/Buenos_Aires');
                                 $day = $carbon->isoFormat('dddd');
                                 $hour = $carbon->isoFormat('H:i:s');
                                 if($day == 'Monday'){
@@ -343,7 +343,7 @@ use Carbon\Carbon;
                                 <div class="col-md-4">
 							        <h4>{{$last->name}}</h4>
                                     <p class="font-style-italic"><img src="img-icons/location.png" /> {{$last->zone}}, Mar del Plata</p>
-                                    <p class="font-style-italic" ><a href="/busqueda?search={{$last->job}}"><strong>{{ $last->job }}</strong></a>                         </a></p>
+                                    <img src="img-icons/experiencia.png"> <a href="/busqueda?search={{$last->job}}"><strong>{{ $last->job }}</strong> <img src="img-icons/check.png"></a>
                                 </div>
                                 <div class="col-md-6">
                                         <p>

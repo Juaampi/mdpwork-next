@@ -9,10 +9,10 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Mdp Work Inc. - Encontrá lo que necesitas!</title>
+    <title>Mdp Work Inc. - Profesionales en Mar del Plata</title>
 
     <!-- ICONO -->
-    <link rel="shortcut icon" href="img/logo-ico.ico" />
+    <link rel="shortcut icon" href="img/logo-ico.ico" alt="Carpintero, Plomero, Abogado, Electricista Mar del plata" />
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="css/style.css">
 
     <!-- template integrations -->
-    <meta name="keywords" content="Profesionales, Mar del Plata, Mar, del, Plata, La feliz, Profesional, carpintero, empleos mar del plata, empleos, profesiones, techista mar del plata, psicólogo mar del plata, trabajo en mar del plata, mardel, profesional en mardel, profesiones en mardel, buscador de profesionales, buscar profesionales, buscarp profesiones, buscador de personas con trabajos en mar del plata">
+    <meta name="keywords" content="Profesionales, Mar del Plata, Mar, del, Plata, La feliz, Profesional, carpintero, empleos mar del plata, empleos, profesiones, techista mar del plata, psicólogo mar del plata, trabajo en mar del plata, mardel, profesional en mardel, profesiones en mardel, buscador de profesionales, buscar profesionales, electricista mar del plata, buscador de personas con trabajos en mar del plata, plomero mar del plata, plomeria mar del plata">
     <meta name="MDP WORK INC." content="ATFN">
     <!-- css file -->
     <link rel="stylesheet" href="css/theme.css">
@@ -71,15 +71,15 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link btn btn-outline-primary" href="{{ route('register') }}">Registrate! </a>
+                                <a class="nav-link btn btn-outline-secondary" href="{{ route('register') }}"><img src="img-icons/register.png" /> Registrate! </a>
                             </li>
                         @endguest
                             <li class="nav-item">
-                                <a class="nav-link" id="btn-quienes-top" data-toggle="modal" data-target="#exampleModal">¿Quienés Somos?</a>
+                                <a class="nav-link" id="btn-quienes-top" data-toggle="modal" data-target="#exampleModal"><img src="img-icons/quienes.png" /> ¿Quienés Somos?</a>
                             </li>
                          @guest
                             <li class="nav-item">
-                                <a class="nav-link font-weight-bold" href="{{ route('login') }}">Ingresar</a>
+                                <a class="nav-link" href="{{ route('login') }}"><img src="img-icons/auth.png" /> Ingresar</a>
                             </li>
 
                             <li class="nav-item">
