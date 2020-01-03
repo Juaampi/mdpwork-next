@@ -55,8 +55,9 @@
            display:none;
         }
         #ulmetodos{
-           float: left; margin: 20px 0 30px 4px;
-        }
+            float: left;
+            margin: 10px 0 10px 30px;
+         }
         .limetodos{
             float: left; margin: 0 10px 0 0;
         }
@@ -98,7 +99,7 @@
             position: absolute;
             margin: auto;
             left: 0;
-            top: -80px;
+            top: -2.4em;
             right: 0;
             opacity: 0;
           }
@@ -243,15 +244,17 @@
         transform: translate(-50%, -50%);
       }
       .title-mdpwork{
-        font-family: 'Bowlby One SC', cursive;
-        color:#00b7ff;
-        font-size: 50px;
-        text-shadow: 2px 2px #000000;
+       display: none;
 
       }
       .title-mdpwork-responsive{
-        display: none;
-       }
+        font-family: 'Bowlby One SC', cursive;
+        color: #00b7ff;
+        font-size: 17px;
+        text-shadow: 1px 1px #00000082;
+        margin-top: 10px;
+        margin-right: 17px;
+      }
       .navbar-expand-md .navbar-nav{
         text-align: center;
     }
@@ -290,7 +293,8 @@
             float: left; margin: 0 10px 0 0;
         }
         #ulmetodos{
-            float: left; margin: 20px 0 10px 0px;
+            float: left;
+            margin: 10px 0 10px 30px;
          }
          .limetodos{
             float: left; margin: 0 10px 0 0;
@@ -308,7 +312,7 @@
             position: absolute;
             margin: auto;
             left: 0;
-            top: -0.4em;
+            top: -2.4em;
             right: 0;
             opacity: 0;
           }
@@ -436,7 +440,7 @@
     #img-perfil{
         margin-left: 90px;
     }
-    #btn-ver{
+    .btn-ver{
         border-radius: 4px;
                                             line-height: 40px;
                                             padding: 7px 33px;
@@ -673,7 +677,7 @@ input {
 #img-perfil{
     margin-left: 90px;
 }
-#btn-ver{
+.btn-ver{
     border-radius: 4px;
                                         line-height: 40px;
                                         padding: 7px 33px;

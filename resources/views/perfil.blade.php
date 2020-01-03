@@ -132,6 +132,51 @@ use Carbon\Carbon;
                                 </div>
                                 <div class="col-md-4">
                                     <div class="details" style="padding: 33px;">
+                                        @php
+                                        $carbon = Carbon::now('America/Argentina/Buenos_Aires');
+                                        $day = $carbon->isoFormat('dddd');
+                                        $hour = $carbon->format('H:i:s');
+                                        if($day == 'Monday'){
+                                            $day = 'lunes';
+                                        }
+                                        if($day == 'Tuesday'){
+                                            $day = 'martes';
+                                        }
+                                        if($day == 'Wednesday'){
+                                            $day = 'miercoles';
+                                        }
+                                        if($day == 'Thursday'){
+                                            $day = 'jueves';
+                                        }
+                                        if($day == 'Friday'){
+                                            $day = 'viernes';
+                                        }
+                                        if($day == 'Saturday'){
+                                            $day ='sabado';
+                                        }
+                                        if($day == 'Sunday'){
+                                            $day = 'domingo';
+                                        }
+
+                                    @endphp
+
+                                    <!-- OPTIMIZACION DE CODIGO ESTO VA EN LA CONTROLADORA -->
+                                    @if($user->{'inhourafter'.$day} && $user->{'outhourafter'.$day})
+                                        @if($hour >= $user->{'inhourafter'.$day} && $hour <= $user->{'outhourafter'.$day})
+                                             <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+                                        @elseif($hour >= $user->{'inhourafter'.$day} && $hour <= $user->{'outhourafter'.$day})
+                                            <h5 class="job_chedule mt0 badge badge-success text-white"><strong>Disponible</strong></h5>
+                                        @else
+                                            <h5 class="job_chedule badge badge-danger text-white mt0"><strong>No disponible</strong></h5>
+                                        @endif
+                                    @else
+                                        @if($hour >= $user->{'inhour'.$day} && $hour <= $user->{'outhour'.$day})
+                                            <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+                                        @else
+                                            <h5 class="job_chedule badge badge-danger text-white mt0"><strong>No disponible</strong></h5>
+                                        @endif
+                                    @endif
+
                                         <h4 class="text-secondary"><strong>{{$user->name}}</strong></h4>
                                         <ul class="address_list">
                                             <li class="list-inline-item" style="font-style: italic;"><img src="img-icons/location.png" /> {{$user->zone}}, Mar del Plata</li>
@@ -253,8 +298,24 @@ use Carbon\Carbon;
                     </div>
                     <div class="card-body">
                         <div class="text-center">
+
                             <img class="img-fluid rounded" style="height: 150px" src="img-perfil/{{$user->img}}" alt="cl1.jpg">
                             <div class="thumb fn-smd">
+                                @if($user->{'inhourafter'.$day} && $user->{'outhourafter'.$day})
+                                @if($hour >= $user->{'inhourafter'.$day} && $hour <= $user->{'outhourafter'.$day})
+                                     <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+                                @elseif($hour >= $user->{'inhourafter'.$day} && $hour <= $user->{'outhourafter'.$day})
+                                    <h5 class="job_chedule mt0 badge badge-success text-white"><strong>Disponible</strong></h5>
+                                @else
+                                    <h5 class="job_chedule badge badge-danger text-white mt0"><strong>No disponible</strong></h5>
+                                @endif
+                            @else
+                                @if($hour >= $user->{'inhour'.$day} && $hour <= $user->{'outhour'.$day})
+                                    <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
+                                @else
+                                    <h5 class="job_chedule badge badge-danger text-white mt0"><strong>No disponible</strong></h5>
+                                @endif
+                            @endif
                                 @php
                                 $cantComent = 0;
                                 $cantPoints = 0;

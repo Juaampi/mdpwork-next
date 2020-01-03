@@ -10,11 +10,7 @@ use Carbon\Carbon;
 	<section class="home-one style2" style="background-image: url('img/fondo.jpg'); background-size: cover;">
 		<div class="container">
 			<div class="row home-content text-center">
-				<div class="col-lg-12">
-					<div class="find-cand-sec">
-						<div class="mockup-top"><img class="animute" src="images/home/home2_bg.png" alt="" /></div>
-					</div>
-				</div>
+
 				<div class="col-lg-12">
 					<div class="home-text">
                         <h3 class="title-mdpwork">Mdp Work Inc.</h3>
@@ -22,7 +18,7 @@ use Carbon\Carbon;
                             <span class="letters letters-1">¿Se te rompió el auto?</span>
                             <span class="letters letters-2">¿Necesitas un electricista?</span>
                             <span class="letters letters-3">¿Tenes un evento importante?</span>
-                            <span class="letters letters-4">No busques más, tu solución está acá ! </span>
+                            <span class="letters letters-4">Tu solución está acá ! </span>
                         </p>
 
                     </div>
@@ -183,7 +179,7 @@ use Carbon\Carbon;
                             @php
                                 $carbon = Carbon::now('America/Argentina/Buenos_Aires');
                                 $day = $carbon->isoFormat('dddd');
-                                $hour = $carbon->isoFormat('H:i:s');
+                                $hour = $carbon->format('H:i:s');
                                 if($day == 'Monday'){
                                     $day = 'lunes';
                                 }
@@ -339,10 +335,10 @@ use Carbon\Carbon;
 									<span class="badge badge-warning"><strong>{{$points}}</strong></span>
 							</div>
 
-                            <div class="row">
+                            <div class="row" id="perfil-responsive-div">
                                 <div class="col-md-4">
 							        <h4>{{$last->name}}</h4>
-                                    <p class="font-style-italic"><img src="img-icons/location.png" /> {{$last->zone}}, Mar del Plata</p>
+                                    <p style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><img src="img-icons/location.png" /> {{$last->zone}}, Mar del Plata</p>
                                     <img src="img-icons/experiencia.png"> <a href="/busqueda?search={{$last->job}}"><strong>{{ $last->job }}</strong> <img src="img-icons/check.png"></a>
                                 </div>
                                 <div class="col-md-6">
@@ -369,9 +365,6 @@ use Carbon\Carbon;
 														<span style="font-size: 14px; font-style: italic;" class="text-danger font-weight-bold">No disponible por hoy</span>
 													@endif
 												@endif
-
-
-
                                         </p>
                                         <p>
                                             @php
@@ -384,7 +377,7 @@ use Carbon\Carbon;
                                                     @endphp
                                                 @endif
                                             @endforeach
-                                        <img src="img-icons/coments.png" /> <strong>Comentarios: <span class="badge badge-secondary">{{$cantidadComentarios}}</span> </strong>
+                                        <img src="img-icons/coments.png" /> Comentarios: <span class="badge badge-secondary">{{$cantidadComentarios}}</span>
                                         </p>
                                 </div>
 
@@ -409,9 +402,9 @@ use Carbon\Carbon;
                             </ul>
                         </div>
                         </div>
-                        <form action="{{route('User.perfil')}}" method="GET">
+                        <form action="{{route('User.perfil')}}" method="GET" class="text-center">
                                         <input type="hidden" value="{{$last->id}}" name="user_id">
-                                        <input type="submit" id="btn-ver" class="btn btn-md btn-transparent float-right fn-smd" value="Ver/Contactar" />
+                                        <input type="submit" class="btn-ver btn btn-md btn-transparent float-right fn-smd" value="Ver/Contactar" />
                         </form>
 					</div>
                 </div>
@@ -450,7 +443,7 @@ use Carbon\Carbon;
                       <div class="badge badge-info">MDP WORK INC. </div> te ofrece una solución a tus problemas, sin perder tiempo y desde la comodida de tu hogar.
                 </h5>
                 <h5><img src="img/dispositivos.png" class="mt-2 mb-2" style="height: 200px;"/></h5>
-                  <p class="card-text">La <strong><span class="text-info">tecnología</span></strong> hace años viene proponiendo un cambio en la vida de las personas que la utilizan. En éste caso éste sitio web ofrece 2 formas de ser utilizado que las explicamos a continuación.</p>
+                  <p class="card-text">La <strong><span class="text-info">tecnología</span></strong> hace años viene proponiendo un cambio en la vida de las personas que la utilizan. En éste caso éste sitio web ofrece 2 formas de ser utilizado: </p>
                   <div class="bs-callout bs-callout-info"><p><strong>1. </strong>Si tenes alguna profesión, algun oficio o realizas algún tipo de trabajo en la zona, podés ingresar a la zona de <strong>profesionales</strong>, registrarte y automáticamente te encontrarás en nuestro listado. <a href="/register" class="btn btn-sm btn-info">Registrarme</a></p></div>
                   <div class="bs-callout bs-callout-warning"><p><strong>2. </strong>Si tuviste algún problema en tu casa o con tu vehículo, judicial o simplemente necesitas hacerte las uñas, no dudes en utilizar el buscador que te ofrecemos y contactarte directamente, <strong>sin vueltas y sin publicidades</strong>, con la persona que te lo solucionará. Utilizá nuestros filtros especializados y no pierdas más tiempo! <a href="/lista" class="btn btn-sm btn-warning" >Ver listado</a></p></div>
                 </div>
