@@ -131,7 +131,7 @@
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                             <div class="my_profile_input form-group">
-                                                <label for="formGroupExampleInput2">Profesión Principal<img id="unselected" style="display:none;" src="img-icons/alert.png"><img id="selected" style="display:none;" src="img-icons/check.png"></label>
+                                                <label for="formGroupExampleInput2">Profesión Principal <img id="unselected" style="display:none;" src="img-icons/alert.png"> <img id="selected" style="display:none;" src="img-icons/check.png"></label>
                                                 <select id="subcategory" name="subcategory_id" class="form-control">
                                                 </select>
                                                 <input type="text" name="subcategory_id-otro" class="form-control" id="otrosServicios" minlength=6 placeholder="Nombrá tu profesión..." style="display: none;" >
@@ -156,7 +156,7 @@
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                             <div class="my_profile_input form-group">
-                                                <label for="formGroupExampleInput2">Profesión alternativa<img id="unselected2" style="display:none;" src="img-icons/alert.png"><img id="selected2" style="display:none;" src="img-icons/check.png"></label>
+                                                <label for="formGroupExampleInput2">Profesión alternativa <img id="unselected2" style="display:none;" src="img-icons/alert.png"> <img id="selected2" style="display:none;" src="img-icons/check.png"></label>
                                                 <select id="job2" name="job2" class="form-control">
                                                 </select>
                                                 <input type="text" name="job2-otro" class="form-control" id="otrosServicios2" minlength=6 placeholder="Nombrá tu profesión..." style="display: none;" >
@@ -182,7 +182,7 @@
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                             <div class="my_profile_input form-group">
-                                                <label>Profesión alternativa adjunta<img id="unselected3" style="display:none;" src="img-icons/alert.png"><img id="selected3" style="display:none;" src="img-icons/check.png"></label>
+                                                <label>Profesión alternativa adjunta <img id="unselected3" style="display:none;" src="img-icons/alert.png"> <img id="selected3" style="display:none;" src="img-icons/check.png"></label>
                                                 <select id="job3" name="job3" class="form-control">
                                                 </select>
                                                 <input type="text" name="job3-otro" class="form-control" id="otrosServicios3" minlength=6 placeholder="Nombrá tu profesión..." style="display: none;" >
@@ -193,10 +193,16 @@
                                         </div>
                                 </div>
                                         <div class="col-md-6 col-lg-6">
-                                                <div class="my_profile_input form-group">
-                                                    <label for="exampleInputPhone">WhatsApp</label>
-                                                    <input type="number" name="whatsapp"  class="form-control" id="exampleInputPhone" aria-describedby="phoneNumber" placeholder="EJ: 223534445">
+                                            <div class="my_profile_input form-group">
+                                            <label >WhatsApp</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                  <span class="input-group-text form-control mb-0" id="basic-addon1"><img height="30px" src="img-icons/whatsapp.png" /></span>
                                                 </div>
+                                                <input type="number" name="whatsapp"  class="form-control mb-0" id="exampleInputPhone" aria-describedby="phoneNumber" placeholder="Ej: Mdq. 223587851, Cap. 115325253 (Sin el 0 y sin el 15)">
+                                            </div>
+                                            </div>
+
                                             </div>
                                             <div class="col-md-6 col-lg-6">
                                                     <div class="my_profile_input form-group">
@@ -208,7 +214,7 @@
                                         <div class="col-md-6 <col-lg-6">
                                             <div class="my_profile_input form-group">
                                                 <label for="exampleFormControlInput2">Sitio Web</label>
-                                            <input type="text" name="website" class="form-control" id="exampleFormControlInput2" placeholder="EJ: http://mdpwork.com.ar">
+                                            <input type="text" name="website" class="form-control" id="exampleFormControlInput2" placeholder="EJ: http://mdpworkinc.com">
                                             </div>
                                         </div>
 
@@ -216,12 +222,12 @@
                                             <div class="my_profile_input form-group">
                                                 <label for="exampleFormControlInput5">Experiencia <span class="text-secondary">(En su profesión)</span></label>
                                                <select name="experience" class="form-control" >
-                                                   <option> Año/s</option>
+                                                    <option value="0"> -1 Año</option>
+                                                    <option value="1"> 1 Año</option>
                                                     <option value="2">2-3 Año/s</option>
                                                     <option value="4" >4-5 Año/s</option>
                                                     <option value="6" >6-7 Año/s</option>
                                                     <option value="10" >8-10 Año/s</option>
-                                                    <option value="1">None</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -242,6 +248,7 @@
                                                     <option value="Maestria">Maestria</option>
                                                     <option value="Doctorado">Doctorado</option>
                                                     <option value="Titulo en Curso">Título en Curso</option>
+                                                    <option value="Titulo en Curso">Formación Profesional</option>
                                                 </select>
                                             </div>
                                         </div>
