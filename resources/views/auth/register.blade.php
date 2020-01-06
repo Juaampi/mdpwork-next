@@ -15,20 +15,6 @@
     <div class="center-block">
         <div class="row">
             <div class="col-md-4 offset-md-2">
-                <div class="card mb-5">
-                    <div class="card-header">
-                        Registro de <strong>Usuario</strong>
-                    </div>
-                    <img class="card-img-top" style="height: 240px;" src="/img/usuario.png" alt="Imagen de registro de usuario MDPWORK">
-                    <div class="card-body">
-                        Si querés registrarte como un <strong>usuario</strong>, puntuar y dejar tu opinión sobre un profesional, éste es el registro que buscas.
-                    </div>
-                    <div class="card-footer text-center">
-                        <div id="btnusuario" class="btn btn-info" style="background:#00b7ff;color:white;">Quiero ser un usuario !</div>
-                    </div>
-                </div>
-        </div>
-        <div class="col-md-4">
                 <div class="card">
                     <div class="card-header">
                         Registro de <strong>Profesional</strong>
@@ -41,6 +27,20 @@
                             <div id="btnprofesional" class="btn btn-info" style="background:#00b7ff;color:white;">Quiero ofrecer un servicio !</div>
                      </div>
                 </div>
+             </div>
+        <div class="col-md-4">
+            <div class="card mb-5">
+                <div class="card-header">
+                    Registro de <strong>Usuario</strong>
+                </div>
+                <img class="card-img-top" style="height: 240px;" src="/img/usuario.png" alt="Imagen de registro de usuario MDPWORK">
+                <div class="card-body">
+                    Si querés registrarte como un <strong>usuario</strong>, puntuar y dejar tu opinión sobre un profesional, éste es el registro que buscas.
+                </div>
+                <div class="card-footer text-center">
+                    <div id="btnusuario" class="btn btn-info" style="background:#00b7ff;color:white;">Quiero ser un usuario !</div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -350,7 +350,7 @@
                                             </div>
                                             <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
                                             <div id="horamiercoles2" class="form-group form-inline">
-                                                <input name="inhouraftermiercoles" id="inhouraftermiercoles" disabled type="time" style="width: auto;" class="form-control mr-3 text-center"> - <input name="outhouraftermiercoles" id="outhouraftermiercoles" disabled type="time" class="form-control ml-3 text-center">
+                                                <input name="inhouraftermiercoles" id="inhouraftermiercoles" disabled type="time" style="width: auto;" class="form-control mr-3 text-center"> - <input name="outhouraftermiercoles" id="outhouraftermiercoles" disabled type="time" class="form-control ml-3 text-center" style="width: auto;">
                                             </div>
                                             <div class="form-group form-inline">
                                             <span id="btnagregarhorariomiercoles" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
@@ -376,7 +376,7 @@
                                             </div>
                                             <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
                                             <div id="horajueves2" class="form-group form-inline">
-                                                <input name="inhourafterjueves" id="inhourafterjueves" disabled type="time" class="form-control mr-3 text-center"> - <input  style="width: auto;" name="outhourafterjueves" id="outhourafterjueves" disabled type="time" class="form-control ml-3 text-center">
+                                                <input name="inhourafterjueves" id="inhourafterjueves" disabled type="time" style="width: auto;" class="form-control mr-3 text-center"> - <input  style="width: auto;" name="outhourafterjueves" id="outhourafterjueves" disabled type="time" class="form-control ml-3 text-center">
                                             </div>
                                             <div class="form-group form-inline">
                                             <span id="btnagregarhorariojueves" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
@@ -402,7 +402,7 @@
                                             </div>
                                             <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
                                             <div id="horaviernes2" class="form-group form-inline">
-                                                <input name="inhourafterviernes" id="inhourafterviernes" disabled type="time" class="form-control mr-3 text-center"> - <input name="outhourafterviernes" style="width: auto;" id="outhourafterviernes" disabled type="time" class="form-control ml-3 text-center">
+                                                <input name="inhourafterviernes" id="inhourafterviernes" disabled type="time" style="width: auto;" class="form-control mr-3 text-center"> - <input name="outhourafterviernes" style="width: auto;" id="outhourafterviernes" disabled type="time" class="form-control ml-3 text-center">
                                             </div>
                                             <div class="form-group form-inline">
                                             <span id="btnagregarhorarioviernes" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
@@ -428,7 +428,7 @@
                                             </div>
                                             <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
                                             <div id="horasabado2" class="form-group form-inline">
-                                                <input name="inhouraftersabado" id="inhouraftersabado" disabled type="time" class="form-control mr-3 text-center"> - <input name="outhouraftersabado" style="width: auto;" id="outhouraftersabado" disabled type="time" class="form-control ml-3 text-center">
+                                                <input name="inhouraftersabado" id="inhouraftersabado" disabled type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input name="outhouraftersabado" style="width: auto;" id="outhouraftersabado" disabled type="time" class="form-control ml-3 text-center">
                                             </div>
                                             <div class="form-group form-inline">
                                             <span id="btnagregarhorariosabado" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>

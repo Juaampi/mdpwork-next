@@ -46,21 +46,24 @@ class UserController extends Controller
         if(!empty($request['search']) && !empty($request['zone'])){
             $user = User::where('job', 'like', '%' . $request['search'] . '%')->orWhere('zone', 'like', '%'. $request['zone'] . '%')->paginate(10);
                 if(count($user) == 0){
-                    return redirect()->back()->with('response', 'error');
+                    $user = User::paginate(10);
+                    return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
                 }else{
                     return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
                 }
         }else if(!empty($request['search']) && empty($request['zone'])){
            $user = User::where('job', 'like', '%' . $request['search'] . '%')->paginate(10);
                 if(count($user) == 0){
-                    return redirect()->back()->with('response', 'error');
+                    $user = User::paginate(10);
+                    return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
                 }else{
                     return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
                 }
        }else if(!empty($request['zone']) && empty($request['search'])){
             $user = User::where('zone', 'like', '%' . $request['zone'] . '%')->paginate(10);
                 if(count($user) == 0){
-                    return redirect()->back()->with('response', 'error');
+                    $user = User::paginate(10);
+                    return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
                 }else{
                     return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
                 }

@@ -103,7 +103,7 @@ use Carbon\Carbon;
                     </div>
                     <div class="row">
                             @foreach($lastest as $last)
-                            @if($last->rol = 'profesional')
+                            @if($last->rol == 'profesional')
                             <div class="col-sm-12 col-lg-12" >
                                 <div class="fj_post">
                                     <div class="details">

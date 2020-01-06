@@ -403,8 +403,8 @@ use Carbon\Carbon;
                         </div>
                         </div>
                         <form action="{{route('User.perfil')}}" method="GET" class="text-center">
-                                        <input type="hidden" value="{{$last->id}}" name="user_id">
-                                        <input type="submit" class="btn-ver btn btn-md btn-transparent float-right fn-smd" value="Ver/Contactar" />
+                            <input type="hidden" value="{{$last->id}}" name="user_id">
+                            <input type="submit" class="btn-ver btn btn-md btn-transparent float-right fn-smd" value="Ver/Contactar" />
                         </form>
 					</div>
                 </div>

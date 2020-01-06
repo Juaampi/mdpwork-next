@@ -1133,7 +1133,7 @@
 		padding-left: 0
 	}
 	.candidate_personal_info .thumb {
-		float: none;
+		float: left;
 		text-align: left!important
 	}
 	.candidate_personal_info.style2 .job_meta_list button {

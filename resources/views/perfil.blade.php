@@ -160,6 +160,26 @@ use Carbon\Carbon;
 
                                     @endphp
 
+                                    <!-- Algoritmo para saber si esta disponible el profesional -->
+
+                                    @if($user->{'inhourafter'.$day} && $user->{'outhourafter'.$day})
+                                        @if($hour >= $user->{'inhourafter'.$day} && $hour <= $user->{'outhourafter'.$day})
+                                            @php $disponible = true; @endphp
+                                        @elseif($hour >= $user->{'inhourafter'.$day} && $hour <= $user->{'outhourafter'.$day})
+                                            @php $disponible = true; @endphp
+                                        @else
+                                            @php $disponible = false; @endphp
+                                        @endif
+                                    @else
+                                    @if($hour >= $user->{'inhour'.$day} && $hour <= $user->{'outhour'.$day})
+                                        @php $disponible = true; @endphp
+                                    @else
+                                        @php $disponible = false; @endphp
+                                    @endif
+                                    @endif
+
+                                    <!-- FIN DE ALGORITMO PARA DISPONOBILIDAD -->
+
                                     <!-- OPTIMIZACION DE CODIGO ESTO VA EN LA CONTROLADORA -->
                                     @if($user->{'inhourafter'.$day} && $user->{'outhourafter'.$day})
                                         @if($hour >= $user->{'inhourafter'.$day} && $hour <= $user->{'outhourafter'.$day})
@@ -204,7 +224,8 @@ use Carbon\Carbon;
                                     <div class="row">
                                         <p><strong>Contacto Directo</strong></p>
                                     </div>
-                                    <ul>
+                                @if($disponible)
+                                <ul>
                                 @if($user->whatsapp)
                                 <li style="display: inline" class="text-center">
                                     <a href="https://wa.me/{{$user->whatsapp}}" target="_blank"> <img height="40px" class="mr-2" src="img-icons/whatsapp.png" /></a>
@@ -233,6 +254,11 @@ use Carbon\Carbon;
                                 </li>
                                 @endif
                                 </ul>
+                                @else
+                                <div class="alert alert-danger text-center"><small>
+                                     <span style="font-style: italic;"><strong>Fuera de horario <img src="img-icons/alert.png" /></strong></span></small>
+                                </div>
+                                @endif
                                 <div class="row">
                                     <p><strong>Redes sociales</strong></p>
                                 </div>
@@ -301,7 +327,7 @@ use Carbon\Carbon;
 
                             <img class="img-fluid rounded" style="height: 150px" src="img-perfil/{{$user->img}}" alt="cl1.jpg">
                             <div class="thumb fn-smd">
-                                @if($user->{'inhourafter'.$day} && $user->{'outhourafter'.$day})
+                            @if($user->{'inhourafter'.$day} && $user->{'outhourafter'.$day})
                                 @if($hour >= $user->{'inhourafter'.$day} && $hour <= $user->{'outhourafter'.$day})
                                      <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
                                 @elseif($hour >= $user->{'inhourafter'.$day} && $hour <= $user->{'outhourafter'.$day})
@@ -439,7 +465,31 @@ use Carbon\Carbon;
                             <h6 class="text-secondary">- {{$user->job3}} <img src="img-icons/check.png"></h6></li>
                         @endif
                     </ul>
-                    <p><strong>Contacto directo</strong></p>
+
+                    @if($user->job2)
+                    <h6 class="text-secondary">- {{$user->job2}} <img src="img-icons/check.png"></h6></li>
+               @endif
+               @if($user->job3)
+                    <h6 class="text-secondary">- {{$user->job3}} <img src="img-icons/check.png"></h6></li>
+                @endif
+            </ul>
+                @if($user->{'inhourafter'.$day} && $user->{'outhourafter'.$day})
+                    @if($hour >= $user->{'inhourafter'.$day} && $hour <= $user->{'outhourafter'.$day})
+                        @php $disponible = true; @endphp
+                    @elseif($hour >= $user->{'inhourafter'.$day} && $hour <= $user->{'outhourafter'.$day})
+                        @php $disponible = true; @endphp
+                    @else
+                        @php $disponible = false; @endphp
+                    @endif
+                @else
+                    @if($hour >= $user->{'inhour'.$day} && $hour <= $user->{'outhour'.$day})
+                        @php $disponible = true; @endphp
+                    @else
+                        @php $disponible = false; @endphp
+                    @endif
+                @endif
+                <p><strong>Contacto directo</strong></p>
+                    @if($disponible)
                     <ul>
                             @if($user->whatsapp)
                             <li style="display: inline" class="text-center">
@@ -469,6 +519,11 @@ use Carbon\Carbon;
                             </li>
                             @endif
                         </ul>
+                        @else
+                        <div class="alert alert-danger">
+                            El contacto directo no está disponible <span style="font-style: italic;"><strong>fuera de horario</strong></span>
+                        </div>
+                        @endif
                         <p><strong>Redes sociales</strong></p>
                         <ul>
                             @if($user->facebook)
@@ -549,7 +604,7 @@ use Carbon\Carbon;
                                 <div class="table-responsive">
 
                                         <p class="fwb"><img src="img-icons/horario.png"> Horarios del Profesional</p>
-                                        <div class="alert alert-danger"><small class="text-danger mb-2" style="display: block;"><strong>*IMPORTANTE:</strong> Si el profesional no se encuentra disponible, es posible que no responda su comunicación. Por eso es importante verificar el siguiente cuadro. Ante cualquier inconveniente no dude comunicarse con nosotros.</small></div>
+                                        <div class="alert alert-danger"><small class="text-danger mb-2" style="display: block;"><strong>*IMPORTANTE:</strong> Si el profesional no se encuentra disponible, no se va a poder comunicar directamente, pero puede optar por las redes sociales. Por eso es importante visualizar el siguiente cuadro y verificar el horario en el que se va a encontrar disponible.</small></div>
                                         <!--Table-->
                                         <table class="table">
 
@@ -749,7 +804,7 @@ use Carbon\Carbon;
                             @if(Auth::user())
                             @if(Auth::user()->rol == 'usuario')
                             <div id="comentario">
-                                <form action="{{route('Coment.add')}}" methos="GET">
+                                <form action="{{route('Coment.add')}}" method="GET">
                                 <h4 class="text-secondary">Comentá y puntuá a <strong>{{$user->name}}</strong></h4>
                                 @if(session()->has('response'))
                                 <div class="alert alert-success text-center">El profesional fue puntuado correctamente.</div>
