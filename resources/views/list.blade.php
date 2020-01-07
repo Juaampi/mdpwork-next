@@ -188,7 +188,7 @@ use Carbon\Carbon;
                                     <!-- ACA FINALIZA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
 
                                         <div class="thumb fn-smd">
-                                        <img class="img-fluid" style="height: 120px" src="img-perfil/{{$last->img}}" alt="1.jpg">
+                                        <img class="img-fluid" style="height: 120px; width: 140px;" src="img-perfil/{{$last->img}}" alt="1.jpg">
                                         @php
                                         $cantComent = 0;
                                         $cantPoints = 0;
