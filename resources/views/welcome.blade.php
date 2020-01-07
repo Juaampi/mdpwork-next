@@ -383,23 +383,52 @@ use Carbon\Carbon;
 
                         </div>
                         <div class="row">
-                            <ul id="ulmetodos">
-                                <li id="txtmetodos" style="float: left; margin: 0 10px 0 0;">
-                                    Métodos de pago aceptados:
-                                </li>
-                                <li  class="limetodos" @if($last->isEfective) style="border: solid 1px #a5a5a5;padding: 6px;border-radius: 4px; background: #f7f7f7;" @endif>
-                                    <img src="img/credit-card/money.png" style="height: 25px; float: left;"  title="Efectivo" />
-                                </li>
-                                <li class="limetodos" @if($last->isVisa) style="border: solid 1px #a5a5a5;padding: 6px;border-radius: 4px; background: #f7f7f7;" @endif>
-                                    <img src="img/credit-card/visa.png" style="height: 25px; float: left;" title="Tarjeta de crédito VISA" />
-                                </li>
-                                <li class="limetodos" @if($last->isMasterCard) style="border: solid 1px #a5a5a5;padding: 6px;border-radius: 4px; background: #f7f7f7;" @endif>
-                                     <img src="img/credit-card/mastercard.png" style="height: 25px; float: left;" title="Tarjeta de crédito MASTER CARD" />
-                                </li>
-                                <li class="limetodos" @if($last->isMercadoPago) style="border: solid 1px #a5a5a5;padding: 6px;border-radius: 4px; background: #f7f7f7;" @endif>
-                                        <img src="img/credit-card/mercado.png" style="height: 25px; float: left;"  title="Mercado Pago"/>
+                            <div class="text-center">
+                                <ul id="ulmetodos">
+                                    <li id="txtmetodos" style="float: left; margin: 7px 12px 2px 90px">
+                                        <img src="img-icons/tarjeta.png" /> <span style="font-style: italic;">Métodos de pago aceptados</span>
+                                    </li>
+                                    @if($last->isEfective)
+                                        <li  class="limetodos">
+                                            <img src="img/credit-card/moneysi.png" style="height: 40px; float: left;"  title="Efectivo" />
+                                        </li>
+                                    @else
+                                        <li  class="limetodos">
+                                            <img src="img/credit-card/money.png" style="height: 40px; float: left;"  title="Efectivo" />
+                                        </li>
+                                    @endif
+                                    @if($last->isVisa)
+                                    <li class="limetodos">
+                                        <img src="img/credit-card/visasi.png" style="height: 40px; float: left;" title="Tarjeta de crédito VISA" />
+                                    </li>
+                                    @else
+                                    <li class="limetodos">
+                                        <img src="img/credit-card/visa.png" style="height: 40px; float: left;" title="Tarjeta de crédito VISA" />
+                                    </li>
+                                    @endif
+                                    @if($last->isMasterCard)
+                                    <li class="limetodos">
+                                         <img src="img/credit-card/mastercardsi.png" style="height: 40px; float: left;" title="Tarjeta de crédito MASTER CARD" />
+                                    </li>
+                                    @else
+                                    <li class="limetodos">
+                                        <img src="img/credit-card/mastercard.png" style="height: 40px; float: left;" title="Tarjeta de crédito MASTER CARD" />
                                    </li>
-                            </ul>
+                                    @endif
+                                    @if($last->isMercadoPago)
+                                    <li class="limetodos">
+                                            <img src="img/credit-card/mercadosi.png" style="height: 40px; float: left;"  title="Mercado Pago"/>
+                                    </li>
+                                    @else
+                                    <li class="limetodos">
+                                        <img src="img/credit-card/mercado.png" style="height: 40px; float: left;"  title="Mercado Pago"/>
+                                     </li>
+                                    @endif
+                                    <li class="limetodos">
+                                        <img src="img/credit-card/american.png" style="height: 40px; float: left;"  title="American Express"/>
+                                     </li>
+                                </ul>
+                            </div>
                         </div>
                         </div>
                         <form action="{{route('User.perfil')}}" method="GET" class="text-center">

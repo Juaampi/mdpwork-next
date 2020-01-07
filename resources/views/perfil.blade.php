@@ -583,28 +583,54 @@ use Carbon\Carbon;
                                 <div class="candidate_about_info style2">
                                     <p class="fwb mb10"><img src="img-icons/descripcion.png"> Descripción del trabajo</p>
                                     <p>{{$user->description}}</p>
-                                    <div class="alert alert-warning"><small class="text-secondary"><strong>*ACLARACIÓN:</strong> Los medios de pago aceptados tienen un borde y un fondo gris.</small></div>
-                                        <ul id="ulmetodos">
-                                                <li id="txtmetodos" style="float: left; margin: 0 10px 0 0;">
-                                                        <img src="img-icons/tarjeta.png" />  Métodos de pago aceptados:
-                                                </li>
-                                                <li  class="limetodos" @if($user->isEfective) style="border: solid 1px #e6e6e6;padding: 6px;border-radius: 4px; background: #f9f9f9;" @endif>
-                                                    <img src="img/credit-card/money.png" style="height: 25px; float: left;" />
-                                                </li>
-                                                <li class="limetodos" @if($user->isVisa) style="border: solid 1px #e6e6e6;padding: 6px;border-radius: 4px; background: #f9f9f9;" @endif>
-                                                    <img src="img/credit-card/visa.png" style="height: 25px; float: left;" />
-                                                </li>
-                                                <li class="limetodos" @if($user->isMasterCard) style="border: solid 1px #e6e6e6;padding: 6px;border-radius: 4px; background: #f9f9f9;" @endif>
-                                                     <img src="img/credit-card/mastercard.png" style="height: 25px; float: left;" />
-                                                </li>
-                                                <li class="limetodos" @if($user->isMercadoPago) style="border: solid 1px #e6e6e6;padding: 6px;border-radius: 4px; background: #f9f9f9;" @endif>
-                                                        <img src="img/credit-card/mercado.png" style="height: 25px; float: left;" />
-                                                </li>
-                                            </ul>
+                                    <div class="alert alert-warning"><small class="text-secondary"><strong>*ACLARACIÓN:</strong> Los medios de pago aceptados están <strong>resaltados en color</strong>.</small></div>
+                                    <ul id="ulmetodos">
+                                        <li id="txtmetodos" style="float: left; margin: 7px 10px 24px 0px">
+                                            <img src="img-icons/tarjeta.png" /><strong> Métodos de pago aceptados</strong>
+                                        </li>
+                                        @if($user->isEfective)
+                                            <li  class="limetodos">
+                                                <img src="img/credit-card/moneysi.png" style="height: 40px; float: left;"  title="Efectivo" />
+                                            </li>
+                                        @else
+                                            <li  class="limetodos">
+                                                <img src="img/credit-card/money.png" style="height: 40px; float: left;"  title="Efectivo" />
+                                            </li>
+                                        @endif
+                                        @if($user->isVisa)
+                                        <li class="limetodos">
+                                            <img src="img/credit-card/visasi.png" style="height: 40px; float: left;" title="Tarjeta de crédito VISA" />
+                                        </li>
+                                        @else
+                                        <li class="limetodos">
+                                            <img src="img/credit-card/visa.png" style="height: 40px; float: left;" title="Tarjeta de crédito VISA" />
+                                        </li>
+                                        @endif
+                                        @if($user->isMasterCard)
+                                        <li class="limetodos">
+                                             <img src="img/credit-card/mastercardsi.png" style="height: 40px; float: left;" title="Tarjeta de crédito MASTER CARD" />
+                                        </li>
+                                        @else
+                                        <li class="limetodos">
+                                            <img src="img/credit-card/mastercard.png" style="height: 40px; float: left;" title="Tarjeta de crédito MASTER CARD" />
+                                       </li>
+                                        @endif
+                                        @if($user->isMercadoPago)
+                                        <li class="limetodos">
+                                                <img src="img/credit-card/mercadosi.png" style="height: 40px; float: left;"  title="Mercado Pago"/>
+                                        </li>
+                                        @else
+                                        <li class="limetodos">
+                                            <img src="img/credit-card/mercado.png" style="height: 40px; float: left;"  title="Mercado Pago"/>
+                                         </li>
+                                        @endif
+                                        <li class="limetodos">
+                                            <img src="img/credit-card/american.png" style="height: 40px; float: left;"  title="American Express"/>
+                                         </li>
+                                    </ul>
                                 <div class="table-responsive">
 
                                         <p class="fwb"><img src="img-icons/horario.png"> Horarios del Profesional</p>
-                                        <div class="alert alert-danger"><small class="text-danger mb-2" style="display: block;"><strong>*IMPORTANTE:</strong> Si el profesional no se encuentra disponible, no se va a poder comunicar directamente, pero puede optar por las redes sociales. Por eso es importante visualizar el siguiente cuadro y verificar el horario en el que se va a encontrar disponible.</small></div>
                                         <!--Table-->
                                         <table class="table">
 
@@ -759,6 +785,7 @@ use Carbon\Carbon;
                                         <!--Table-->
 
                                       </div>
+                                      <div class="alert alert-danger text-center"><small class="text-danger mb-2" style="display: block;"><strong>*IMPORTANTE:</strong> Si el profesional no se encuentra disponible, no se va a poder comunicar directamente, pero puede optar por las redes sociales. Por eso es importante visualizar el siguiente cuadro y verificar el horario en el que se va a encontrar disponible.</small></div>
 
                                 </div>
                             </div>

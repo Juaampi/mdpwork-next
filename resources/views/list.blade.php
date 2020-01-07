@@ -4,19 +4,27 @@ use Carbon\Carbon;
 @endphp
 @section('content')
 <div class="preloader"></div>
-<section class="bgc-fa">
+<style>
+    #btn-filter-active{
+    cursor: pointer;
+    }
+    #btn-cancel-filter{
+    cursor: pointer;
+    }
+    #btnsubmitfilter{
+    cursor: pointer;
+    }
+    </style>
+<section class="bgc-fa" style="padding: 20px 0px;">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 pt10">
                 <div class="bg_png">
                     <img class="img-fluid" src="img-icons/coete.png" alt="cl1.png">
                 </div>
-                <p class="text-center mb2"><strong>MDP WORK INC.</strong> - Utilizá el buscador y los filtros para encontrar lo que necesitas</p>
-                @if(session()->has('response'))
-                    <div class="alert alert-danger text-center">Lamentablemente no pudimos encontrar lo que busca, pruebe utilizando los filtros especiales de <strong>MDPWORK</strong></div>
-                @endif
+                <p class="text-center mb2"><strong>MDP WORK INC.</strong> - Utilizá el buscador y los filtros para encontrar lo que necesitas.</p>
                 <div class="home-job-search-box mt20 mb20">
-                <form class="form-inline" method="GET" action="{{route('User.search')}}">
+                <form class="form-inline" method="GET" action="{{route('User.search')}}" >
                          <div class="search_option_one">
                             <div class="form-group">
                                 <label for="exampleInputName"><img src="img-icons/search-icon.png"></label>
@@ -36,40 +44,65 @@ use Carbon\Carbon;
                 </div>
             </div>
         </div>
+        <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+            <div class="bs-callout bs-callout-info bg-white"><img src="img-icons/info.png" /> <small class="text-muted" style="font-style: italic;"> Debajo del buscador aparecerán los resultados de la búsqueda que realizó. Recomendamos utilizar los filtros especiales haciendo <a id="btn-filter-active" class="stretched-link text-danger"><strong> Click aquí</strong></a>. </small>
+            </div>
+            </div>
+        </div>
+        </div>
+        <div class="container" id="filter-container" style="display:none;">
+            <div class="row">
+                <div class="col-lg-12 col-xl-12 dn-smd" id="filter-mobile-none">
+                    <div class="card">
+                        <div class="card-header">Filtros Especiales - <span class="text-muted"> Para que funcionen correctamente debe seleccionar primero <strong>"Categorías Generales"</strong></span></div>
+                        <div class="card-body">
+                        <form action="{{route('User.search')}}" method="GET">
+                            <div class="form-row align-items-center">
+                            <div class="cl_skill_checkbox">
+                                <div class="col-auto">
+                                    <label for="formGroupExampleInput2">Categorías generales</label>
+                                    <select id="category" name="category_id" class="form-control">
+                                         @foreach($categories as $category)
+                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                         @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="cl_carrer_lever">
+                                        <div class="col-auto">
+                                            <label for="formGroupExampleInput2">Profesion <img id="unselected" style="display:none;" src="img-icons/alert.png"><img id="selected" style="display:none;" src="img-icons/check.png"></label>
+                                            <select id="subcategory" name="search" class="form-control" style="display: inline;width: 100%;" >
+                                            </select>
+                                        </div>
+                                </div>
+                                <div class="form-inline mt-4 mr-3">
+                                    <button id="btnsubmitfilter" disabled type="submit" class="btn btn-primary">Filtrar</button>
+                                </div>
+                                <div class="form-inline mt-4">
+                                    <a id="btn-cancel-filter" class="btn btn-danger text-white">Cancelar</a>
+                                </div>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 </section>
 
 <section class="our-faq">
-    <div class="container" style="max-width: 94%;">
+    <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-xl-3 dn-smd card-header" id="filter-mobile-none">
-<form action="{{route('User.search')}}" method="GET">
-                <div class="cl_skill_checkbox mb30">
-                        <div class="my_profile_input form-group">
-                                <label for="formGroupExampleInput2">Categorías generales</label>
-                                <select id="category" name="category_id" class="form-control">
-                                    @foreach($categories as $category)
-                                        <option value="{{$category->id}}">{{$category->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                </div>
-                <div class="cl_carrer_lever mb30">
-                            <div class="my_profile_input form-group">
-                                <label for="formGroupExampleInput2">Profesion <img id="unselected" style="display:none;" src="img-icons/alert.png"><img id="selected" style="display:none;" src="img-icons/check.png"></label>
-                                <select id="subcategory" name="search" class="form-control">
-                                </select>
-                            </div>
-                    </div>
-                    <div class="cl_carrer_lever mb30">
-                        <button id="btnsubmitfilter" disabled type="submit" class="btn btn-danger btn-secondary">Filtrar</button>
-                    </div>
-</form>
-
-            </div>
-            <div class="col-lg-9 col-xl-9">
-
-                <div class="row">
+            <div class="col-lg-12 col-xl-12">
+                <div class="row" >
+                    @if(!empty($empty))
+                        <div class="alert alert-danger text-center" style="width: 100%">Lamentablemente no pudimos encontrar lo que busca, por favor intente nuevamente.</div>
+                    @endif
                     <div class="col-sm-12 col-lg-6">
                         <div class="candidate_job_alart_btn">
                             <button class="btn btn-thm btns dn db-991" style="margin: 0 auto;">Ver filtros</button>
@@ -319,23 +352,50 @@ use Carbon\Carbon;
 
                                             </div>
                                             <div id="metodos-responsive">
-                                            <ul id="ulmetodos">
-                                                <li id="txtmetodos" style="float: left; margin: 0 10px 0 0;">
-                                                    Métodos de pago aceptados:
-                                                </li>
-                                                <li  class="limetodos" @if($last->isEfective) style="border: solid 1px #a5a5a5;padding: 6px;border-radius: 4px; background: #f7f7f7;" @endif>
-                                                    <img src="img/credit-card/money.png" style="height: 25px; float: left;" title="Efectivo" />
-                                                </li>
-                                                <li class="limetodos" @if($last->isVisa) style="border: solid 1px #a5a5a5;padding: 6px;border-radius: 4px; background: #f7f7f7;" @endif>
-                                                    <img src="img/credit-card/visa.png" style="height: 25px; float: left;" title="Tarjeta de crédito VISA" />
-                                                </li>
-                                                <li class="limetodos" @if($last->isMasterCard) style="border: solid 1px #a5a5a5;padding: 6px;border-radius: 4px; background: #f7f7f7;" @endif>
-                                                     <img src="img/credit-card/mastercard.png" style="height: 25px; float: left;" title="Tarjeta de crédito MASTER CARD" />
-                                                </li>
-                                                <li class="limetodos" @if($last->isMercadoPago) style="border: solid 1px #a5a5a5;padding: 6px;border-radius: 4px; background: #f7f7f7;" @endif>
-                                                        <img src="img/credit-card/mercado.png" style="height: 25px; float: left;" title="Mercado Pago" />
+                                                <ul id="ulmetodos">
+                                                    <li id="txtmetodos" style="float: left; margin: 7px 12px 2px 90px">
+                                                        <img src="img-icons/tarjeta.png" /> <span style="font-style: italic;">Métodos de pago aceptados</span>
+                                                    </li>
+                                                    @if($last->isEfective)
+                                                        <li  class="limetodos">
+                                                            <img src="img/credit-card/moneysi.png" style="height: 40px; float: left;"  title="Efectivo" />
+                                                        </li>
+                                                    @else
+                                                        <li  class="limetodos">
+                                                            <img src="img/credit-card/money.png" style="height: 40px; float: left;"  title="Efectivo" />
+                                                        </li>
+                                                    @endif
+                                                    @if($last->isVisa)
+                                                    <li class="limetodos">
+                                                        <img src="img/credit-card/visasi.png" style="height: 40px; float: left;" title="Tarjeta de crédito VISA" />
+                                                    </li>
+                                                    @else
+                                                    <li class="limetodos">
+                                                        <img src="img/credit-card/visa.png" style="height: 40px; float: left;" title="Tarjeta de crédito VISA" />
+                                                    </li>
+                                                    @endif
+                                                    @if($last->isMasterCard)
+                                                    <li class="limetodos">
+                                                         <img src="img/credit-card/mastercardsi.png" style="height: 40px; float: left;" title="Tarjeta de crédito MASTER CARD" />
+                                                    </li>
+                                                    @else
+                                                    <li class="limetodos">
+                                                        <img src="img/credit-card/mastercard.png" style="height: 40px; float: left;" title="Tarjeta de crédito MASTER CARD" />
                                                    </li>
-                                            </ul>
+                                                    @endif
+                                                    @if($last->isMercadoPago)
+                                                    <li class="limetodos">
+                                                            <img src="img/credit-card/mercadosi.png" style="height: 40px; float: left;"  title="Mercado Pago"/>
+                                                    </li>
+                                                    @else
+                                                    <li class="limetodos">
+                                                        <img src="img/credit-card/mercado.png" style="height: 40px; float: left;"  title="Mercado Pago"/>
+                                                     </li>
+                                                    @endif
+                                                    <li class="limetodos">
+                                                        <img src="img/credit-card/american.png" style="height: 40px; float: left;"  title="American Express"/>
+                                                     </li>
+                                                </ul>
                                             </div>
 
                                     </div>
@@ -476,6 +536,14 @@ use Carbon\Carbon;
 
 <script>
       $(document).ready(function(){
+
+          $('#btn-filter-active').on('click', function(){
+            $('#filter-container').show('slow');
+          });
+
+          $('#btn-cancel-filter').on('click', function(){
+            $('#filter-container').hide('slow');
+          });
 
         $('#category').on('change', function(){
                     var category_id = $(this).val();

@@ -56,7 +56,7 @@
         }
         #ulmetodos{
             float: left;
-            margin: 10px 0 10px 30px;
+            margin: 10px 0 30px 30px;
          }
         .limetodos{
             float: left; margin: 0 10px 0 0;
@@ -294,7 +294,7 @@
         }
         #ulmetodos{
             float: left;
-            margin: 10px 0 10px 30px;
+            margin: 10px 0 30px 30px;
          }
          .limetodos{
             float: left; margin: 0 10px 0 0;
@@ -432,7 +432,7 @@
     }
     /* END AUTOCOMPLETE STYLES */
     #ulmetodos{
-        float: left; margin: 20px 0 10px 0px;
+        float: left; margin: 0px 0px 0px 0px;
      }
      .limetodos{
         float: left; margin: 0 10px 0 0;
@@ -669,7 +669,7 @@ input {
 }
 /* END AUTOCOMPLETE STYLES */
 #ulmetodos{
-    float: left; margin: 20px 0 10px 0px;
+    float: left; margin: 0px 0px 0px 0px;
  }
  .limetodos{
     float: left; margin: 0 10px 0 0;
