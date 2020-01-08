@@ -41,13 +41,16 @@ use Carbon\Carbon;
                             <button type="submit" class="btn btn-thm btn-secondary h70">Buscar</button>
                         </div>
                     </form>
+                    <div class="mt-2">
+                        <button class="btn text-white btns btn-danger dn db-991" style="margin: 0 auto;">Ver filtros</button>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="container">
         <div class="row">
             <div class="col-md-12">
-            <div class="bs-callout bs-callout-info bg-white"><img src="img-icons/info.png" /> <small class="text-muted" style="font-style: italic;"> Debajo del buscador aparecerán los resultados de la búsqueda que realizó. Recomendamos utilizar los filtros especiales haciendo <a id="btn-filter-active" class="stretched-link text-danger"><strong> Click aquí</strong></a>. </small>
+            <div id="alerta-informacion" class="bs-callout bs-callout-info bg-white"><img src="img-icons/info.png" /> <small class="text-muted" style="font-style: italic;"> Debajo del buscador aparecerán los resultados de la búsqueda que realizó. Recomendamos utilizar los filtros especiales haciendo <a id="btn-filter-active" class="stretched-link text-danger"><strong> Click aquí</strong></a>. </small>
             </div>
             </div>
         </div>
@@ -81,7 +84,7 @@ use Carbon\Carbon;
                                     <button id="btnsubmitfilter" disabled type="submit" class="btn btn-primary">Filtrar</button>
                                 </div>
                                 <div class="form-inline mt-4">
-                                    <a id="btn-cancel-filter" class="btn btn-danger text-white">Cancelar</a>
+                                    <a id="btn-cancel-filter" class="text-danger"><strong>Cancelar</strong></a>
                                 </div>
                             </div>
                         </form>
@@ -103,11 +106,6 @@ use Carbon\Carbon;
                     @if(!empty($empty))
                         <div class="alert alert-danger text-center" style="width: 100%">Lamentablemente no pudimos encontrar lo que busca, por favor intente nuevamente.</div>
                     @endif
-                    <div class="col-sm-12 col-lg-6">
-                        <div class="candidate_job_alart_btn">
-                            <button class="btn btn-thm btns dn db-991" style="margin: 0 auto;">Ver filtros</button>
-                        </div>
-                    </div>
                     <div class="col-sm-12 col-lg-6" >
                         <div class="content_details">
                             <div class="details">
@@ -404,7 +402,7 @@ use Carbon\Carbon;
                                     </div>
                                     <form action="{{route('User.perfil')}}" method="GET" class="text-center">
                                         <input type="hidden" value="{{$last->id}}" name="user_id">
-                                        <input type="submit" class="btn btn-md btn-transparent float-right fn-smd btn-ver" value="Ver/Contactar" />
+                                        <input type="submit" class="btn btn-md btn-transparent float-right fn-smd btn-ver stretched-link" value="Ver/Contactar" />
                                     </form>
                                 </div>
                             </div>

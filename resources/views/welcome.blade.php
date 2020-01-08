@@ -7,7 +7,7 @@ use Carbon\Carbon;
 	<div class="preloader"></div>
 
 	<!-- Home Design -->
-	<section class="home-one style2" style="background-image: url('img/fondo.jpg'); background-size: cover;">
+	<section class="home-one style2" style="background-image: url('img/fondo.jpg'); background-size: cover; height: 100%;">
 		<div class="container">
 			<div class="row home-content text-center">
 
@@ -30,7 +30,7 @@ use Carbon\Carbon;
 							<div class="search_option_one">
 							    <div class="form-group">
 							    	<label for="exampleInputName"><img src="img-icons/search-icon.png"></label>
-							    	<input type="text" autocomplete="off" spellcheck="false" class="form-control h70" name="search" id="searchinput" placeholder="Escribe lo que buscas.. EJ:Carpintero, electricista">
+							    	<input type="text" autocomplete="off" spellcheck="false" class="form-control h70" name="search" id="searchinput" placeholder="Carpintero, Electricista, Uñas, Bebidas">
 							    </div>
 							</div>
 							<div class="search_option_two">
@@ -44,7 +44,7 @@ use Carbon\Carbon;
 							</div>
 						</form>
 					</div>
-                    <p style="color: white"><span class="color-white"><strong>Más buscados:</strong></span> Electricista,  Albañil,  Desarrollador Web,  Dentista,  Maquillaje,  Uñas,  Paseador de perros</p>
+                    <p id="description-add" style="color: white"><span class="color-white"><strong>Más buscados:</strong></span> Electricista,  Albañil,  Desarrollador Web,  Dentista,  Maquillaje,  Uñas,  Paseador de perros</p>
                     <a class="btn btn-outline-light" style="margin-top: 15px;font-size: 25px;" href="/lista">Ver la lista completa</a>
 				</div>
 			</div>
@@ -342,7 +342,7 @@ use Carbon\Carbon;
                                     <img src="img-icons/experiencia.png"> <a href="/busqueda?search={{$last->job}}"><strong>{{ $last->job }}</strong> <img src="img-icons/check.png"></a>
                                 </div>
                                 <div class="col-md-6">
-                                        <p>
+                                        <p id="horario">
 											<img src="img-icons/horario.png" />
                                             <!-- TODOS  HORARIOS: -->
 												<strong>{{$day}}: </strong>
@@ -352,7 +352,7 @@ use Carbon\Carbon;
 													@elseif($hour >= $last->{'inhourafter'.$day} && $hour <= $last->{'outhourafter'.$day} )
 														<span style="font-size: 14px">@php echo date('G:i',strtotime($last->{'inhourafter'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhourafter'.$day} )) @endphp hs</span>
                                                     @else
-                                                        <span style="font-size: 14px; font-style: italic;" class="text-danger font-weight-bold">No disponible por hoy</span>
+                                                        <span style="font-size: 14px; font-style: italic;" class="text-danger font-weight-bold">No disponible hoy</span>
                                                     @endif
 												@else
 													@if($last->{'inhour'.$day} && $last->{'outhour'.$day})
@@ -362,7 +362,7 @@ use Carbon\Carbon;
 															<span style="font-size: 14px" class="text-danger font-weight-bold">@php echo date('G:i',strtotime($last->{'inhour'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day} )) @endphp hs</span>
 														@endif
 													@else
-														<span style="font-size: 14px; font-style: italic;" class="text-danger font-weight-bold">No disponible por hoy</span>
+														<span style="font-size: 14px; font-style: italic;" class="text-danger font-weight-bold">No disponible hoy</span>
 													@endif
 												@endif
                                         </p>
@@ -383,7 +383,7 @@ use Carbon\Carbon;
 
                         </div>
                         <div class="row">
-                            <div class="text-center">
+
                                 <ul id="ulmetodos">
                                     <li id="txtmetodos" style="float: left; margin: 7px 12px 2px 90px">
                                         <img src="img-icons/tarjeta.png" /> <span style="font-style: italic;">Métodos de pago aceptados</span>
@@ -428,7 +428,7 @@ use Carbon\Carbon;
                                         <img src="img/credit-card/american.png" style="height: 40px; float: left;"  title="American Express"/>
                                      </li>
                                 </ul>
-                            </div>
+
                         </div>
                         </div>
                         <form action="{{route('User.perfil')}}" method="GET" class="text-center">
