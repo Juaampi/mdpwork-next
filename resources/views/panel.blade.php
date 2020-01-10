@@ -134,9 +134,6 @@
                                     </select>
 
                                 </div>
-                                @if(!Auth::user()->job2)
-                                <a id="btn-show-job2" class="text-info btn btn-outline-info btn-small btn-sm">Agregar Profesión</a>
-                                @endif
                             </div>
                             <div class="col-md-6 col-lg-6">
                                     <div class="my_profile_input form-group">
@@ -148,6 +145,9 @@
                                         </select>
                                         <input type="text" name="subcategory_id" class="form-control" id="otrosServicios" minlength=6 placeholder="Nombrá tu profesión..." style="display: none;" >
                                     </div>
+                                    @if(!Auth::user()->job2)
+                                    <a id="btn-show-job2" class="text-info btn btn-outline-info btn-small btn-sm">Agregar Profesión Secundaria</a>
+                                    @endif
                                 </div>
 
                                 @if(Auth::user()->job2)
@@ -177,7 +177,7 @@
 
                                         <div class="row" style="margin-left: 25px;">
                                         <a id="btn-hide-job2" class="btn text-danger btn-outline-danger btn-sm">Cancelar Profesión (x)</a>
-                                        <a id="btn-show-job3" class="btn text-white btn-info btn-sm">Agregar Profesión</a>
+                                        <a id="btn-show-job3" class="btn text-white btn-info btn-sm">Agregar Profesión Alterna</a>
                                         </div>
                                 </div>
                                 @else

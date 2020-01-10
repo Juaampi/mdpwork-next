@@ -139,7 +139,7 @@
                                         </div>
                                         <div class="col-md-12">
                                             <p class="text-secondary">La categoría es el campo más importante, ya que es lo que utiliza el buscador para encontrar resultados. Por lo tanto, deberá prestar mucha atención a la hora de elegir su categoría y su profesión. Si desea, puede agregar más de una profesión, haciendo click en el siguiente botón.
-                                                <a id="btn-show-job2" class="text-info btn btn-outline-info btn-small btn-sm">Agregar Profesión</a>
+                                                <a id="btn-show-job2" class="text-info btn btn-outline-info btn-small btn-sm">Agregar Profesión Secundaria</a>
                                         </div>
 
                                  <div id="container-job2" class="row col-md-12" style="display: none;">
@@ -165,7 +165,7 @@
                                         </div>
                                         <div class="row" style="margin-left: 25px;">
                                         <a id="btn-hide-job2" class="btn text-danger btn-outline-danger btn-sm">Cancelar Profesión (x)</a>
-                                        <a id="btn-show-job3" class="btn text-white btn-info btn-sm">Agregar Profesión</a>
+                                        <a id="btn-show-job3" class="btn text-white btn-info btn-sm">Agregar Profesión Alterna</a>
                                         </div>
                                 </div>
                                 <div id="container-job3" class="row col-md-12" style="display:none;">
