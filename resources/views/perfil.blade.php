@@ -465,14 +465,6 @@ use Carbon\Carbon;
                             <h6 class="text-secondary">- {{$user->job3}} <img src="img-icons/check.png"></h6></li>
                         @endif
                     </ul>
-
-                    @if($user->job2)
-                    <h6 class="text-secondary">- {{$user->job2}} <img src="img-icons/check.png"></h6></li>
-               @endif
-               @if($user->job3)
-                    <h6 class="text-secondary">- {{$user->job3}} <img src="img-icons/check.png"></h6></li>
-                @endif
-            </ul>
                 @if($user->{'inhourafter'.$day} && $user->{'outhourafter'.$day})
                     @if($hour >= $user->{'inhourafter'.$day} && $hour <= $user->{'outhourafter'.$day})
                         @php $disponible = true; @endphp
