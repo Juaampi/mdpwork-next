@@ -408,7 +408,7 @@
                                <div id="martes" class="col-lg-12">
                                     <div class="form-check">
                                         <input name="ismartes" type="checkbox" class="form-check-input" id="martescheckbox" @if(Auth::user()->inhourmartes) checked @endif>
-                                        <label class="form-check-label" for="martescheckbox">martes</label>
+                                        <label class="form-check-label" for="martescheckbox">Martes</label>
                                     </div>
                                     <div id="horariomartes" @if(!Auth::user()->inhourmartes) style="display: none;" @endif>
                                         <div id="horamartes" class="form-group form-inline">
@@ -434,7 +434,7 @@
                             <div id="miercoles" class="col-lg-12">
                                     <div class="form-check">
                                         <input name="ismiercoles" type="checkbox" class="form-check-input" id="miercolescheckbox" @if(Auth::user()->inhourmiercoles) checked @endif>
-                                        <label class="form-check-label" for="miercolescheckbox">miercoles</label>
+                                        <label class="form-check-label" for="miercolescheckbox">Miércoles</label>
                                     </div>
                                     <div id="horariomiercoles" @if(!Auth::user()->inhourmiercoles) style="display: none;" @endif>
                                         <div id="horamiercoles" class="form-group form-inline">
@@ -442,7 +442,7 @@
                                         </div>
                                         <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
                                         <div id="horamiercoles2" class="form-group form-inline">
-                                            <input name="inhouraftermiercoles" id="inhouraftermiercoles" @if(Auth::user()->inhouraftermiercoles) style="width: auto;" value="{{Auth::user()->inhouraftermiercoles}}" @else disabled @endif type="time" style="width: auto;" class="form-control mr-3 text-center"> - <input name="outhouraftermiercoles" id="outhouraftermiercoles" @if(Auth::user()->outhouraftermiercoles) value="{{Auth::user()->outhouraftermiercoles}}" @else disabled @endif type="time" class="form-control ml-3 text-center">
+                                            <input name="inhouraftermiercoles" id="inhouraftermiercoles" @if(Auth::user()->inhouraftermiercoles) style="width: auto;" value="{{Auth::user()->inhouraftermiercoles}}" @else disabled @endif type="time" style="width: auto;" class="form-control mr-3 text-center"> - <input style="width: auto;" name="outhouraftermiercoles" id="outhouraftermiercoles" @if(Auth::user()->outhouraftermiercoles) value="{{Auth::user()->outhouraftermiercoles}}" @else disabled @endif type="time" class="form-control ml-3 text-center">
                                         </div>
                                         <div class="form-group form-inline">
                                         <span id="btnagregarhorariomiercoles" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
@@ -460,7 +460,7 @@
                             <div id="jueves" class="col-lg-12">
                                     <div class="form-check">
                                         <input name="isjueves" type="checkbox" class="form-check-input" id="juevescheckbox" @if(Auth::user()->inhourjueves) checked @endif>
-                                        <label class="form-check-label" for="juevescheckbox">jueves</label>
+                                        <label class="form-check-label" for="juevescheckbox">Jueves</label>
                                     </div>
                                     <div id="horariojueves" @if(!Auth::user()->inhourjueves) style="display: none;" @endif>
                                         <div id="horajueves" class="form-group form-inline">
@@ -468,7 +468,7 @@
                                         </div>
                                         <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
                                         <div id="horajueves2" class="form-group form-inline">
-                                            <input name="inhourafterjueves" id="inhourafterjueves" @if(Auth::user()->inhourafterjueves) style="width: auto;" value="{{Auth::user()->inhourafterjueves}}" @else disabled @endif type="time" class="form-control mr-3 text-center"> - <input  style="width: auto;" name="outhourafterjueves" id="outhourafterjueves" @if(Auth::user()->outhourafterjueves) value="{{Auth::user()->outhourafterjueves}}" @else disabled @endif type="time" class="form-control ml-3 text-center">
+                                            <input name="inhourafterjueves" id="inhourafterjueves" style="width: auto;" @if(Auth::user()->inhourafterjueves) value="{{Auth::user()->inhourafterjueves}}" @else disabled @endif type="time" class="form-control mr-3 text-center"> - <input  style="width: auto;" name="outhourafterjueves" id="outhourafterjueves" @if(Auth::user()->outhourafterjueves) value="{{Auth::user()->outhourafterjueves}}" @else disabled @endif type="time" class="form-control ml-3 text-center">
                                         </div>
                                         <div class="form-group form-inline">
                                         <span id="btnagregarhorariojueves" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
@@ -486,7 +486,7 @@
                             <div id="viernes" class="col-lg-12">
                                     <div class="form-check">
                                         <input name="isviernes" type="checkbox" class="form-check-input" id="viernescheckbox" @if(Auth::user()->inhourviernes) checked @endif>
-                                        <label class="form-check-label" for="viernescheckbox">viernes</label>
+                                        <label class="form-check-label" for="viernescheckbox">Viernes</label>
                                     </div>
                                     <div id="horarioviernes" @if(!Auth::user()->inhourviernes) style="display: none;" @endif>
                                         <div id="horaviernes" class="form-group form-inline">
@@ -494,7 +494,7 @@
                                         </div>
                                         <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
                                         <div id="horaviernes2" class="form-group form-inline">
-                                            <input name="inhourafterviernes" id="inhourafterviernes" @if(Auth::user()->inhourafterviernes) style="width: auto;" value="{{Auth::user()->inhourafterviernes}}" @else disabled @endif type="time" class="form-control mr-3 text-center"> - <input name="outhourafterviernes" style="width: auto;" id="outhourafterviernes" @if(Auth::user()->outhourafterviernes) value="{{Auth::user()->outhourafterviernes}}" @else disabled @endif type="time" class="form-control ml-3 text-center">
+                                            <input name="inhourafterviernes" id="inhourafterviernes" style="width: auto;" @if(Auth::user()->inhourafterviernes) value="{{Auth::user()->inhourafterviernes}}" @else disabled @endif type="time" class="form-control mr-3 text-center"> - <input name="outhourafterviernes" style="width: auto;" id="outhourafterviernes" @if(Auth::user()->outhourafterviernes) value="{{Auth::user()->outhourafterviernes}}" @else disabled @endif type="time" class="form-control ml-3 text-center">
                                         </div>
                                         <div class="form-group form-inline">
                                         <span id="btnagregarhorarioviernes" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
@@ -512,7 +512,7 @@
                             <div id="sabado" class="col-lg-12">
                                     <div class="form-check">
                                         <input name="issabado" type="checkbox" class="form-check-input" id="sabadocheckbox" @if(Auth::user()->inhoursabado) checked @endif>
-                                        <label class="form-check-label" for="sabadocheckbox">sabado</label>
+                                        <label class="form-check-label" for="sabadocheckbox">Sábado</label>
                                     </div>
                                     <div id="horariosabado" @if(!Auth::user()->inhoursabado) style="display: none;" @endif>
                                         <div id="horasabado" class="form-group form-inline">
@@ -520,7 +520,7 @@
                                         </div>
                                         <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
                                         <div id="horasabado2" class="form-group form-inline">
-                                            <input name="inhouraftersabado" id="inhouraftersabado" @if(Auth::user()->inhouraftersabado) style="width: auto;" value="{{Auth::user()->inhouraftersabado}}" @else disabled @endif type="time" class="form-control mr-3 text-center"> - <input name="outhouraftersabado" style="width: auto;" id="outhouraftersabado" @if(Auth::user()->outhouraftersabado) value="{{Auth::user()->outhouraftersabado}}" @else disabled @endif type="time" class="form-control ml-3 text-center">
+                                            <input name="inhouraftersabado" id="inhouraftersabado"  style="width: auto;"  @if(Auth::user()->inhouraftersabado) value="{{Auth::user()->inhouraftersabado}}" @else disabled @endif type="time" class="form-control mr-3 text-center"> - <input name="outhouraftersabado" style="width: auto;" id="outhouraftersabado" @if(Auth::user()->outhouraftersabado) value="{{Auth::user()->outhouraftersabado}}" @else disabled @endif type="time" class="form-control ml-3 text-center">
                                         </div>
                                         <div class="form-group form-inline">
                                         <span id="btnagregarhorariosabado" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
@@ -538,7 +538,7 @@
                             <div id="domingo" class="col-lg-12">
                                     <div class="form-check">
                                         <input name="isdomingo" type="checkbox" class="form-check-input" id="domingocheckbox" @if(Auth::user()->inhourdomingo) checked @endif>
-                                        <label class="form-check-label" for="domingocheckbox">domingo</label>
+                                        <label class="form-check-label" for="domingocheckbox">Domingo</label>
                                     </div>
                                     <div id="horariodomingo" @if(!Auth::user()->inhourdomingo) style="display: none;" @endif>
                                         <div id="horadomingo" class="form-group form-inline">
@@ -546,7 +546,7 @@
                                         </div>
                                         <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
                                         <div id="horadomingo2" class="form-group form-inline">
-                                            <input name="inhourafterdomingo" id="inhourafterdomingo" @if(Auth::user()->inhourafterdomingo) style="width: auto;" value="{{Auth::user()->inhourafterdomingo}}" @else disabled @endif type="time" class="form-control mr-3 text-center"> - <input name="outhourafterdomingo" style="width: auto;" id="outhourafterdomingo" @if(Auth::user()->outhourafterdomingo) value="{{Auth::user()->outhourafterdomingo}}" @else disabled @endif type="time" class="form-control ml-3 text-center">
+                                            <input name="inhourafterdomingo" id="inhourafterdomingo" style="width: auto;"  @if(Auth::user()->inhourafterdomingo) value="{{Auth::user()->inhourafterdomingo}}" @else disabled @endif type="time" class="form-control mr-3 text-center"> - <input name="outhourafterdomingo" style="width: auto;" id="outhourafterdomingo" @if(Auth::user()->outhourafterdomingo) value="{{Auth::user()->outhourafterdomingo}}" @else disabled @endif type="time" class="form-control ml-3 text-center">
                                         </div>
                                         <div class="form-group form-inline">
                                         <span id="btnagregarhorariodomingo" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
