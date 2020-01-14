@@ -123,7 +123,7 @@
                     <div class="row">
                         <div class="col-lg-4 pb10 pt10">
                             <div class="copyright-widget tac-smd mt10">
-                                <p>© 2019 <strong>Mdp Work Inc</strong>. All Rights Reserved.</p>
+                                <p>© 2020 <strong>Mdp Work Inc</strong>. All Rights Reserved.</p>
                             </div>
                         </div>
                         <div class="col-lg-8 pb10 pt10">

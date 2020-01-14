@@ -54,6 +54,9 @@
         #txtmetodos{
            display:none;
         }
+        .row-responsive{
+            justify-content: center!important;
+        }
         #ulmetodos{
             float: left;
             margin: 10px 0 30px 0px;
@@ -164,6 +167,7 @@
         }
         #perfil-responsive-div{
             text-align: center;
+            justify-content: center;
         }
         #metodos-responsive{
             margin-left:20px;
@@ -182,6 +186,7 @@
     }
     #perfil-responsive-div{
         text-align: center;
+        justify-content: center;
     }
 
     #row-text-description{
@@ -295,12 +300,15 @@
             margin: 12px 11px;
             margin-top: 5px;
         }
+        .row-responsive{
+            justify-content: center!important;
+        }
         #txtmetodos{
             display: none;
         }
         #ulmetodos{
             float: left;
-            margin: 10px 0 30px 120px;
+            margin: 10px 0 30px 0px;
          }
          .limetodos{
             float: left; margin: 0 10px 0 0;

@@ -349,7 +349,7 @@ use Carbon\Carbon;
                                                         <p class="text-secondary text-sm" style="font-style: italic;">@if($last->job2)({{ $last->job2 }}) @endif</p>
 
                                             </div>
-                                            <div id="metodos-responsive">
+                                            <div class="row row-responsive">
                                                 <ul id="ulmetodos">
                                                     <li id="txtmetodos" style="float: left; margin: 7px 12px 2px 90px">
                                                         <img src="img-icons/tarjeta.png" /> <span style="font-style: italic;">Métodos de pago aceptados</span>

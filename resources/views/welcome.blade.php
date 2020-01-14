@@ -26,6 +26,7 @@ use Carbon\Carbon;
                 <div class="col-lg-12" style="margin-top: 60px;">
                     <h4 style="text-shadow: 1px 1px dimgrey;" class="text-white">Nuestros filtros especializados te permiten seleccionar entre las mejores opciones para encontrar la solución que estás buscando.</h4>
 					<div class="home-job-search-box mt20 mb20">
+                        <p class="text-white" style="font-weight: 600;">¿Querés postularte gratis en el sitio? <a class="btn btn-sm btn-info" href="/register">¡Registrarme! </a></p>
 						<form action="{{route('User.search')}}" method="GET" class="form-inline">
 							<div class="search_option_one">
 							    <div class="form-group">
@@ -382,7 +383,7 @@ use Carbon\Carbon;
                                 </div>
 
                         </div>
-                        <div class="row">
+                        <div class="row row-responsive">
 
                                 <ul id="ulmetodos">
                                     <li id="txtmetodos" style="float: left; margin: 7px 12px 2px 90px">
