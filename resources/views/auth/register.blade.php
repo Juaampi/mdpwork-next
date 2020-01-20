@@ -11,39 +11,33 @@
 	cursor: pointer; /* "hand" cursor */
 }
 </style>
-<div class="container mt-5" style="margin-bottom: 100px;" id="registroOpciones">
-    <div class="center-block">
-        <div class="row">
-            <div class="col-md-4 offset-md-2">
-                <div class="card">
+<div class="container" id="registroOpciones">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card text-center">
                     <div class="card-header">
-                        Registro de <strong>Profesional</strong>
+                        Quiero ser un <strong>Profesional</strong>
                     </div>
-                    <img class="card-img-top" style="height: 240px;" src="/img/profesional.png" alt="Imagen de registro de profesional MDPWORK">
-                    <div class="card-body">
-                            Si querés registrarte como un <strong>profesional</strong> y ofrecer tus servicios a los usuarios, éste es el registro que buscas.
-                     </div>
-                    <div class="card-footer text-center">
-                            <div id="btnprofesional" class="btn btn-info" style="background:#00b7ff;color:white;">Quiero ofrecer un servicio !</div>
+                    <div class="card-body" >
+                            <img src="img/profesional.png" />
+                            <p style="color: #999;font-size: 15px;line-height: 1.2;">Si queres aparecer en la lista de profesionales del sitio, éste es el registro que estás buscando ! </p>
+                            <div id="btnprofesional" class="mt-2" style="color: #3483fa;font-size: 14px;text-decoration: none;">¡Quiero ofrecer un servicio!</div>
                      </div>
                 </div>
              </div>
         <div class="col-md-4">
-            <div class="card mb-5">
+            <div id="registroUsuarioCard" class="card text-center mb-5">
                 <div class="card-header">
-                    Registro de <strong>Usuario</strong>
+                    Quiero ser un <strong>Usuario</strong>
                 </div>
-                <img class="card-img-top" style="height: 240px;" src="/img/usuario.png" alt="Imagen de registro de usuario MDPWORK">
                 <div class="card-body">
-                    Si querés registrarte como un <strong>usuario</strong>, puntuar y dejar tu opinión sobre un profesional, éste es el registro que buscas.
-                </div>
-                <div class="card-footer text-center">
-                    <div id="btnusuario" class="btn btn-info" style="background:#00b7ff;color:white;">Quiero ser un usuario !</div>
+                    <img src="img/usuario.png" />
+                    <p style="color: #999;font-size: 15px;line-height: 1.2;">Si querés registrarte como un usuario, puntuar y dejar tu opinión sobre un profesional, éste es el registro que buscas!</p>
+                    <div id="btnusuario" style="color: #3483fa;font-size: 14px;text-decoration: none;">¡Quiero ser un usuario!</div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 
 

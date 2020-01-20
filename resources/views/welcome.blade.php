@@ -41,7 +41,7 @@ use Carbon\Carbon;
 							    </div>
 							</div>
 							<div class="search_option_button">
-							    <button type="submit" class="btn btn-thm btn-secondary h70">Buscar</button>
+							    <button type="submit" id="submit-busqueda" class="btn btn-thm btn-secondary h70">Buscar</button>
 							</div>
 						</form>
 					</div>
@@ -51,6 +51,42 @@ use Carbon\Carbon;
 			</div>
 		</div>
 	</section>
+
+    <script>
+       // Get the input field
+var input = document.getElementById("zoneinput");
+
+// Execute a function when the user releases a key on the keyboard
+input.addEventListener("keyup", function(event) {
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("submit-busqueda").click();
+  }
+});
+
+
+    </script>
+
+<script>
+    // Get the input field
+var input = document.getElementById("searchinput");
+
+// Execute a function when the user releases a key on the keyboard
+input.addEventListener("keyup", function(event) {
+// Number 13 is the "Enter" key on the keyboard
+if (event.keyCode === 13) {
+ // Cancel the default action, if needed
+ event.preventDefault();
+ // Trigger the button element with a click
+ document.getElementById("submit-busqueda").click();
+}
+});
+
+
+ </script>
 
 	<!-- Popular Job Categories -->
 	<section class="popular-job bgc-fa">
@@ -469,8 +505,8 @@ use Carbon\Carbon;
                     Bienvenidos a <strong>Mdp Work Inc.</strong>
                 </div>
                 <div class="card-body">
-                  <h5 class="card-title">En ésta nueva era tecnológica una nueva herramienta virtual llamada
-                      <div class="badge badge-info">MDP WORK INC. </div> te ofrece una solución a tus problemas, sin perder tiempo y desde la comodida de tu hogar.
+                  <h5 class="card-title">En ésta era tecnológica una nueva herramienta virtual llamada
+                      <div class="badge badge-info">MDP WORK INC. </div> te ofrece una solución a tus problemas, sin perder tiempo y desde la comodidad de tu hogar.
                 </h5>
                 <h5><img src="img/dispositivos.png" class="mt-2 mb-2" style="height: 200px;"/></h5>
                   <p class="card-text">La <strong><span class="text-info">tecnología</span></strong> hace años viene proponiendo un cambio en la vida de las personas que la utilizan. En éste caso éste sitio web ofrece 2 formas de ser utilizado: </p>

@@ -28,17 +28,17 @@ use Carbon\Carbon;
                          <div class="search_option_one">
                             <div class="form-group">
                                 <label for="exampleInputName"><img src="img-icons/search-icon.png"></label>
-							    	<input name="search" autocomplete="off" spellcheck="false" type="text" class="form-control h70" id="searchinput" placeholder="Escribe lo que buscas.. EJ:Carpintero, electricista">
+							    	<input name="search" autocomplete="off" spellcheck="false" type="text" class="form-control h70" id="searchinput" placeholder="Carpintero, electricista, plomero">
                             </div>
                         </div>
                         <div class="search_option_two">
                             <div class="form-group">
                                 <label for="exampleInputEmail"><img src="img-icons/location.png"/></label>
-							    <input type="text" class="form-control h70" id="zoneinput" autocomplete="off" spellcheck="false" name="zone" placeholder="Busca por zona">
+							    <input type="text" class="form-control h70" id="zoneinput" autocomplete="off" spellcheck="false" name="zone" id="zoneinput" placeholder="Busca por zona">
                             </div>
                         </div>
                         <div class="search_option_button">
-                            <button type="submit" class="btn btn-thm btn-secondary h70">Buscar</button>
+                            <button id="submit-busqueda" type="submit" class="btn btn-thm btn-secondary h70">Buscar</button>
                         </div>
                     </form>
                     <div class="mt-2">
@@ -47,6 +47,41 @@ use Carbon\Carbon;
                 </div>
             </div>
         </div>
+        <script>
+            // Get the input field
+     var input = document.getElementById("zoneinput");
+
+     // Execute a function when the user releases a key on the keyboard
+     input.addEventListener("keyup", function(event) {
+       // Number 13 is the "Enter" key on the keyboard
+       if (event.keyCode === 13) {
+         // Cancel the default action, if needed
+         event.preventDefault();
+         // Trigger the button element with a click
+         document.getElementById("submit-busqueda").click();
+       }
+     });
+
+
+         </script>
+
+     <script>
+         // Get the input field
+     var input = document.getElementById("searchinput");
+
+     // Execute a function when the user releases a key on the keyboard
+     input.addEventListener("keyup", function(event) {
+     // Number 13 is the "Enter" key on the keyboard
+     if (event.keyCode === 13) {
+      // Cancel the default action, if needed
+      event.preventDefault();
+      // Trigger the button element with a click
+      document.getElementById("submit-busqueda").click();
+     }
+     });
+
+
+      </script>
         <div class="container">
         <div class="row">
             <div class="col-md-12">
