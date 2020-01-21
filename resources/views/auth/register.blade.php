@@ -21,7 +21,7 @@
                     <div class="card-body" >
                             <img src="img/profesional.png" />
                             <p style="color: #999;font-size: 15px;line-height: 1.2;">Si queres aparecer en la lista de profesionales del sitio, éste es el registro que estás buscando ! </p>
-                            <div id="btnprofesional" class="mt-2" style="color: #3483fa;font-size: 14px;text-decoration: none;">¡Quiero ofrecer un servicio!</div>
+                            <div id="btnprofesional" class="mt-2" style="color: #3483fa;font-size: 14px;text-decoration: none;font-weight: 600">¡Quiero ofrecer un servicio!</div>
                      </div>
                 </div>
              </div>
@@ -33,7 +33,7 @@
                 <div class="card-body">
                     <img src="img/usuario.png" />
                     <p style="color: #999;font-size: 15px;line-height: 1.2;">Si querés registrarte como un usuario, puntuar y dejar tu opinión sobre un profesional, éste es el registro que buscas!</p>
-                    <div id="btnusuario" style="color: #3483fa;font-size: 14px;text-decoration: none;">¡Quiero ser un usuario!</div>
+                    <div id="btnusuario" style="color: #3483fa;font-size: 14px;text-decoration: none;font-weight: 600">¡Quiero ser un usuario!</div>
                 </div>
             </div>
         </div>
@@ -67,8 +67,8 @@
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                             <div class="my_profile_input form-group">
-                                                <label for="formGroupExampleInput1">Nombre Completo</label>
-                                            <input type="text" name="name" class="form-control" id="formGroupExampleInput1"  @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Ej: Juan Perez">
+                                                <label for="formGroupExampleInput9">Nombre Completo</label>
+                                            <input type="text" name="name" class="form-control" id="formGroupExampleInput9"  @error('name') is-invalid @enderror name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Ej: Juan Perez">
                                             @error('name')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -90,7 +90,7 @@
 
                                         <div class="col-md-6 col-lg-6">
                                                 <div class="my_profile_input form-group">
-                                                    <label for="exampleInputPhone">Contraseña</label>
+                                                    <label>Contraseña</label>
                                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                                                     @error('password')
                                                     <span class="invalid-feedback" role="alert">
@@ -193,7 +193,7 @@
                                                 <div class="input-group-prepend">
                                                   <span class="input-group-text form-control mb-0" id="basic-addon1"><img height="30px" src="img-icons/whatsapp.png" /></span>
                                                 </div>
-                                                <input type="number" name="whatsapp"  class="form-control mb-0" id="exampleInputPhone" aria-describedby="phoneNumber" placeholder="Ej: Mdq. 223587851, Cap. 115325253 (Sin el 0 y sin el 15)">
+                                                <input type="number" name="whatsapp"  class="form-control mb-0" aria-describedby="phoneNumber" placeholder="Ej: Mdq. 223587851, Cap. 115325253 (Sin el 0 y sin el 15)">
                                             </div>
                                             </div>
 
@@ -227,8 +227,8 @@
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                                 <div class="my_profile_input form-group">
-                                                    <label for="exampleFormControlInput2">Edad</label>
-                                                <input type="number" name="age" class="form-control" id="exampleFormControlInput2" placeholder="años">
+                                                    <label for="exampleFormControlInput5">Edad</label>
+                                                <input type="number" name="age" class="form-control" id="exampleFormControlInput5" placeholder="años">
                                                 </div>
                                             </div>
                                         <div class="col-md-6 col-lg-6">
@@ -472,25 +472,25 @@
                                                     <div class="col-md-2">
                                                         <div class="custom-control custom-switch mt-1">
                                                             <input type="checkbox" name="isEfective" class="custom-control-input" id="switch1">
-                                                            <label class="custom-control-label" for="switch1"><span style="height: 25px;" class="payment">Efectivo</span></label>
+                                                            <label class="custom-control-label" for="switch1"><span style="height: 25px;" class="payment"><img src="img/credit-card/moneysi.png" height="40px;"></span></label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <div class="custom-control custom-switch mt-1">
                                                             <input type="checkbox" name="isVisa" class="custom-control-input" id="switch2">
-                                                            <label class="custom-control-label" for="switch2"> <span style="height: 25px;" class="payment"><img src="img/credit-card/visa.png" /></span></label>
+                                                            <label class="custom-control-label" for="switch2"> <span style="height: 25px;" class="payment"><img src="img/credit-card/visa.png" height="40px;"/></span></label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                             <div class="custom-control custom-switch mt-1">
                                                                 <input type="checkbox" name="isMercadoPago" class="custom-control-input" id="switch3">
-                                                                <label class="custom-control-label" for="switch3"> <span style="height: 25px;" class="payment"><img src="img/credit-card/mercado.png"/></span></label>
+                                                                <label class="custom-control-label" for="switch3"> <span style="height: 25px;" class="payment"><img src="img/credit-card/mercado.png" height="40px"/></span></label>
                                                             </div>
                                                         </div>
                                                     <div class="col-md-2">
                                                         <div class="custom-control custom-switch mt-1">
                                                             <input type="checkbox" name="isMasterCard" class="custom-control-input" id="switch4">
-                                                            <label class="custom-control-label" for="switch4"> <span style="height: 25px;" class="payment"><img src="img/credit-card/mastercard.png"></span></label>
+                                                            <label class="custom-control-label" for="switch4"> <span style="height: 25px;" class="payment"><img src="img/credit-card/mastercard.png" height="40px"></span></label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -501,26 +501,26 @@
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                                   <div class="my_profile_input form-group">
-                                                    <label for="formGroupExampleInput1">Facebook</label>
-                                                    <input type="text" name="facebook" class="form-control" id="formGroupExampleInput1"  placeholder="Ej: http://facebook.com/mdpwork">
+                                                    <label for="formGroupExampleInput8">Facebook</label>
+                                                    <input type="text" name="facebook" class="form-control" id="formGroupExampleInput8"  placeholder="Ej: http://facebook.com/mdpwork">
                                                 </div>
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                                   <div class="my_profile_input form-group">
-                                                    <label for="formGroupExampleInput1">Twitter</label>
-                                                    <input type="text" name="twitter" class="form-control" id="formGroupExampleInput1" placeholder="Ej: http://twitter.com/mdpwork" >
+                                                    <label for="formGroupExampleInput2">Twitter</label>
+                                                    <input type="text" name="twitter" class="form-control" id="formGroupExampleInput2" placeholder="Ej: http://twitter.com/mdpwork" >
                                                 </div>
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                                 <div class="my_profile_input form-group">
-                                                    <label for="formGroupExampleInput1">Linkedin</label>
-                                                    <input type="text" name="linkedin" class="form-control" id="formGroupExampleInput1" placeholder="Ej: http://linkedin.com/mdpwork">
+                                                    <label for="formGroupExampleInput3">Linkedin</label>
+                                                    <input type="text" name="linkedin" class="form-control" id="formGroupExampleInput3" placeholder="Ej: http://linkedin.com/mdpwork">
                                                 </div>
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                                 <div class="my_profile_input form-group">
-                                                    <label for="formGroupExampleInput1">Instagram</label>
-                                                    <input type="text" name="instagram" class="form-control" id="formGroupExampleInput1" placeholder="Ej: http://instagram.com/mdpwork" >
+                                                    <label for="formGroupExampleInput4">Instagram</label>
+                                                    <input type="text" name="instagram" class="form-control" id="formGroupExampleInput4" placeholder="Ej: http://instagram.com/mdpwork" >
                                                 </div>
                                         </div>
                                         <div class="col-md-6 col-lg-6 mt-2">
@@ -587,8 +587,8 @@
                                                     </div>
                                                     <div class="col-md-6 col-lg-6">
                                                             <div class="my_profile_input form-group">
-                                                                <label for="exampleFormControlInput1">Email <span class="text-secondary font-style-italic">(Para iniciar sesion)</span></label>
-                                                                <input type="email" name="email" class="form-control" id="exampleFormControlInput1" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Ej: mdpwork@gmail.com">
+                                                                <label for="exampleFormControlInput3">Email <span class="text-secondary font-style-italic">(Para iniciar sesion)</span></label>
+                                                                <input type="email" name="email" class="form-control" id="exampleFormControlInput3" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Ej: mdpwork@gmail.com">
                                                                 @error('email')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
@@ -599,8 +599,8 @@
 
                                                     <div class="col-md-6 col-lg-6">
                                                             <div class="my_profile_input form-group">
-                                                                <label for="exampleInputPhone">Contraseña</label>
-                                                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                                                <label>Contraseña</label>
+                                                                <input id="password1" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                                                                 @error('password')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
@@ -610,8 +610,8 @@
                                                         </div>
                                                     <div class="col-md-6 col-lg-6">
                                                         <div class="my_profile_input form-group">
-                                                            <label for="exampleFormControlInput1">Confirmar Contraseña</label>
-                                                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                                            <label for="password-confirm1">Confirmar Contraseña</label>
+                                                            <input id="password-confirm1" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6 col-lg-6 mt-2">

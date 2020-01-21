@@ -7,37 +7,39 @@ use Carbon\Carbon;
 	<div class="preloader"></div>
 
 	<!-- Home Design -->
-	<section class="home-one style2" style="background-image: url('img/fondo.jpg'); background-size: cover; height: 100%;">
+	<section class="home-one style2" style="background-size: cover; height: 100%;background: #fafafa">
 		<div class="container">
 			<div class="row home-content text-center">
 
 				<div class="col-lg-12">
 					<div class="home-text">
-                        <h3 class="title-mdpwork">Mdp Work Inc.</h3>
-						<p class="ml4" style="text-shadow: 2px 2px #000000">
-                            <span class="letters letters-1">¿Se te rompió el auto?</span>
+                        <h3 class="title-mdpwork">Mdp Work Inc<span style="font-size: 15px;">©</span></h3>
+						<p class="ml4" style="color: #6f6f6f">
+                            <span class="letters letters-1">¿Buscas un profesional en Mardel?</span>
                             <span class="letters letters-2">¿Necesitas un electricista?</span>
                             <span class="letters letters-3">¿Tenes un evento importante?</span>
-                            <span class="letters letters-4">Tu solución está acá ! </span>
+                            <span class="letters letters-4">¿Se te pinchó un caño de agua? </span>
+                            <span class="letters letters-5">¡Tu solución está en Mdp Work Inc.! </span>
                         </p>
 
                     </div>
 				</div>
                 <div class="col-lg-12" style="margin-top: 60px;">
-                    <h4 style="text-shadow: 1px 1px dimgrey;" class="text-white">Nuestros filtros especializados te permiten seleccionar entre las mejores opciones para encontrar la solución que estás buscando.</h4>
+                    <p style="color: #999;font-size: 15px;line-height: 1.2">Encontrá a la persona que necesitas utilizando el <strong>buscador de Mar del Plata</strong>. Filtra por palabras clave, el buscador te ayudará.</p>
+                    <p style="color: #999;font-size: 15px;line-height: 1.2">¿Querés postularte gratis en el sitio? <a style="color: #007bff;text-decoration: none;font-weight: 600;" href="/register">¡Registrarme! </a></p>
 					<div class="home-job-search-box mt20 mb20">
-                        <p class="text-white" style="font-weight: 600;">¿Querés postularte gratis en el sitio? <a class="btn btn-sm btn-info" href="/register">¡Registrarme! </a></p>
+
 						<form action="{{route('User.search')}}" method="GET" class="form-inline">
 							<div class="search_option_one">
-							    <div class="form-group">
+							    <div class="form-group" style="background: #ffffff">
 							    	<label for="exampleInputName"><img src="img-icons/search-icon.png"></label>
-							    	<input type="text" autocomplete="off" spellcheck="false" class="form-control h70" name="search" id="searchinput" placeholder="Carpintero, Electricista, Uñas, Bebidas">
+							    	<input type="text" style="background: #ffffff" autocomplete="off" spellcheck="false" class="form-control h70" name="search" id="searchinput" placeholder="Carpintero, Electricista, Uñas, Bebidas">
 							    </div>
 							</div>
 							<div class="search_option_two">
-							    <div class="form-group">
+							    <div class="form-group" style="background: #ffffff">
 							    	<label for="exampleInputEmail"><img src="img-icons/location.png"/></label>
-							    	<input type="text" autocomplete="off" spellcheck="false" name="zone" class="form-control h70" id="zoneinput" placeholder="Busca por zona">
+							    	<input type="text" style="background: #ffffff" autocomplete="off" spellcheck="false" name="zone" class="form-control h70" id="zoneinput" placeholder="Busca por zona">
 							    </div>
 							</div>
 							<div class="search_option_button">
@@ -45,9 +47,10 @@ use Carbon\Carbon;
 							</div>
 						</form>
 					</div>
-                    <p id="description-add" style="color: white"><span class="color-white"><strong>Más buscados:</strong></span> Electricista,  Albañil,  Desarrollador Web,  Dentista,  Maquillaje,  Uñas,  Paseador de perros</p>
-                    <a class="btn btn-outline-light" style="margin-top: 15px;font-size: 25px;" href="/lista">Ver la lista completa</a>
-				</div>
+                    <p id="description-add" style="color: #999"><strong>Más buscados:</strong> Electricista,  Albañil,  Desarrollador Web,  Dentista,  Maquillaje,  Uñas,  Paseador de perros</p>
+                    <a style="display:block;margin-top: 30px;color: #007bff;text-decoration: none;font-weight: 600;" href="/lista">¡Ver listado de profesionales!</a>
+                </div>
+
 			</div>
 		</div>
 	</section>
@@ -89,7 +92,7 @@ if (event.keyCode === 13) {
  </script>
 
 	<!-- Popular Job Categories -->
-	<section class="popular-job bgc-fa">
+	<section class="popular-job" style="background: #ffffff">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">
@@ -645,8 +648,8 @@ ml4.opacityIn = [0,1];
 ml4.scaleIn = [0.2, 1];
 ml4.scaleOut = 2;
 ml4.durationIn = 800;
-ml4.durationOut = 600;
-ml4.delay = 500;
+ml4.durationOut = 800;
+ml4.delay = 800;
 
 anime.timeline({loop: true})
   .add({
@@ -693,6 +696,18 @@ anime.timeline({loop: true})
     duration: ml4.durationIn
   }).add({
     targets: '.ml4 .letters-4',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+   }).add({
+    targets: '.ml4 .letters-5',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-5',
     opacity: 0,
     scale: ml4.scaleOut,
     duration: ml4.durationOut,
