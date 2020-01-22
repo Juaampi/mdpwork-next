@@ -15,7 +15,7 @@ use Carbon\Carbon;
 					<div class="home-text">
                         <h3 class="title-mdpwork">Mdp Work Inc<span style="font-size: 15px;">©</span></h3>
 						<p class="ml4" style="color: #6f6f6f">
-                            <span class="letters letters-1">¿Buscas un profesional en Mardel?</span>
+                            <span class="letters letters-1">¿Buscas un profesional?</span>
                             <span class="letters letters-2">¿Necesitas un electricista?</span>
                             <span class="letters letters-3">¿Tenes un evento y necesitas un retoque?</span>
                             <span class="letters letters-4">¿Se te rompió el auto y necesitas auxilio? </span>
