@@ -17,9 +17,10 @@ use Carbon\Carbon;
 						<p class="ml4" style="color: #6f6f6f">
                             <span class="letters letters-1">¿Buscas un profesional en Mardel?</span>
                             <span class="letters letters-2">¿Necesitas un electricista?</span>
-                            <span class="letters letters-3">¿Tenes un evento importante?</span>
-                            <span class="letters letters-4">¿Se te pinchó un caño de agua? </span>
+                            <span class="letters letters-3">¿Tenes un evento y necesitas un retoque?</span>
+                            <span class="letters letters-4">¿Se te rompió el auto y necesitas auxilio? </span>
                             <span class="letters letters-5">¡Tu solución está en Mdp Work Inc.! </span>
+                            <span class="letters letters-6">¿Te estás mudando y buscas un flete? </span>
                         </p>
 
                     </div>
@@ -708,6 +709,18 @@ anime.timeline({loop: true})
     duration: ml4.durationIn
   }).add({
     targets: '.ml4 .letters-5',
+    opacity: 0,
+    scale: ml4.scaleOut,
+    duration: ml4.durationOut,
+    easing: "easeInExpo",
+    delay: ml4.delay
+  }).add({
+    targets: '.ml4 .letters-6',
+    opacity: ml4.opacityIn,
+    scale: ml4.scaleIn,
+    duration: ml4.durationIn
+  }).add({
+    targets: '.ml4 .letters-6',
     opacity: 0,
     scale: ml4.scaleOut,
     duration: ml4.durationOut,
