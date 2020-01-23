@@ -224,7 +224,6 @@ use Carbon\Carbon;
                                     <div class="row">
                                         <p><strong>Contacto Directo</strong></p>
                                     </div>
-                                @if($disponible)
                                 <ul>
                                 @if($user->whatsapp)
                                 <li style="display: inline" class="text-center">
@@ -254,11 +253,7 @@ use Carbon\Carbon;
                                 </li>
                                 @endif
                                 </ul>
-                                @else
-                                <div class="alert alert-danger text-center"><small>
-                                     <span style="font-style: italic;"><strong>Fuera de horario <img src="img-icons/alert.png" /></strong></span></small>
-                                </div>
-                                @endif
+
                                 <div class="row">
                                     <p><strong>Redes sociales</strong></p>
                                 </div>
@@ -481,7 +476,6 @@ use Carbon\Carbon;
                     @endif
                 @endif
                 <p><strong>Contacto directo</strong></p>
-                    @if($disponible)
                     <ul>
                             @if($user->whatsapp)
                             <li style="display: inline" class="text-center">
@@ -511,11 +505,6 @@ use Carbon\Carbon;
                             </li>
                             @endif
                         </ul>
-                        @else
-                        <div class="alert alert-danger">
-                            El contacto directo no está disponible <span style="font-style: italic;"><strong>fuera de horario</strong></span>
-                        </div>
-                        @endif
                         <p><strong>Redes sociales</strong></p>
                         <ul>
                             @if($user->facebook)
