@@ -15,12 +15,12 @@ use Carbon\Carbon;
 					<div class="home-text">
                         <h3 class="title-mdpwork">Mdp Work Inc<span style="font-size: 15px;">©</span></h3>
 						<p class="ml4" style="color: #6f6f6f">
-                            <span class="letters letters-1">¿Buscas un profesional?</span>
+                            <span class="letters letters-1">¿Buscás un profesional?</span>
                             <span class="letters letters-2">¿Necesitas un electricista?</span>
-                            <span class="letters letters-3">¿Tenes un evento y necesitas un retoque?</span>
+                            <span class="letters letters-3">¿Tenés un evento y necesitas un retoque?</span>
                             <span class="letters letters-4">¿Se te rompió el auto y necesitas auxilio? </span>
-                            <span class="letters letters-5">¡Tu solución está en Mdp Work Inc.! </span>
-                            <span class="letters letters-6">¿Te estás mudando y buscas un flete? </span>
+                            <span class="letters letters-5">¿Te estás mudando y buscas un flete?</span>
+                            <span class="letters letters-6">¡Tu solución está en Mdp Work Inc.!</span>
                         </p>
 
                     </div>
@@ -510,12 +510,34 @@ if (event.keyCode === 13) {
                 </div>
                 <div class="card-body">
                   <h5 class="card-title" style="color: #999;font-size: 15px;line-height: 1.2;">En ésta era tecnológica una nueva herramienta virtual llamada
-                      <div class="badge badge-info">MDP WORK INC. </div> te ofrece una solución a tus problemas, sin perder tiempo y desde la comodidad de tu hogar.
+                      <div class="badge badge-info">MDP WORK INC. </div> te ofrece una solución a tus problemas, sin perder tiempo y desde la comodidad de tu hogar. A continuación te mostramos las 2 formas de utilizar el sitio.
                 </h5>
-                <h5><img src="img/dispositivos.png" class="mt-2 mb-2" style="height: 200px;"/></h5>
-                  <p class="card-text" style="color: #999;font-size: 15px;line-height: 1.2;">La <strong><span class="text-info">tecnología</span></strong> hace años viene proponiendo un cambio en la vida de las personas que la utilizan. En éste caso éste sitio web ofrece 2 formas de ser utilizado: </p>
-                  <div class="bs-callout bs-callout-info"><p style="color: #999;font-size: 15px;line-height: 1.2;"><strong>1. </strong>Si tenes alguna profesión, algun oficio o realizas algún tipo de trabajo en la zona, podés ingresar a la zona de <strong>profesionales</strong>, registrarte y automáticamente te encontrarás en nuestro listado. <a href="/register" class="btn btn-sm btn-info">Registrarme</a></p></div>
-                  <div class="bs-callout bs-callout-warning"><p style="color: #999;font-size: 15px;line-height: 1.2;"><strong>2. </strong>Si tuviste algún problema en tu casa o con tu vehículo, judicial o simplemente necesitas hacerte las uñas, no dudes en utilizar el buscador que te ofrecemos y contactarte directamente, <strong>sin vueltas y sin publicidades</strong>, con la persona que te lo solucionará. Utilizá nuestros filtros especializados y no pierdas más tiempo! <a href="/lista" class="btn btn-sm btn-warning" >Ver listado</a></p></div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <div class="card text-center">
+                                <div class="card-header">
+                                   Soy un <strong>Profesional</strong>
+                                </div>
+                                <div class="card-body" >
+                                        <img src="img/profesional.png" />
+                                        <p style="color: #999;font-size: 15px;line-height: 1.2;">Si queres aparecer en la lista de profesionales del sitio, éste es el registro que estás buscando ! </p>
+                                        <a class="mt-2" href="/register" style="color: #3483fa;font-size: 14px;text-decoration: none;font-weight: 600">¡Quiero ofrecer un servicio!</a>
+                                 </div>
+                            </div>
+                         </div>
+                    <div class="col-md-6">
+                        <div id="registroUsuarioCard" class="card text-center mb-5">
+                            <div class="card-header">
+                               Soy un <strong>Usuario</strong>
+                            </div>
+                            <div class="card-body">
+                                <img src="img/usuario.png" />
+                                <p style="color: #999;font-size: 15px;line-height: 1.2;">Si sos de esas personas que necesita un profesional para solucionar un problema, te invito a conocer la lista de profesionales.</p>
+                                <a href="/lista" style="color: #3483fa;font-size: 14px;text-decoration: none;font-weight: 600">¡Ver lista de profesionales!</a>
+                            </div>
+                        </div>
+                    </div>
+            </div>
                 </div>
                 <div class="card-footer text-muted">
                   <strong>MDP WORK INC.</strong>. La nueva forma de solucionar tus problemas.

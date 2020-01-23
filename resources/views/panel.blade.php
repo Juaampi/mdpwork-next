@@ -32,7 +32,27 @@
 #btnagregarlunes{
     cursor: pointer;
 }
-
+#button-add-img1{
+    cursor: pointer;
+}
+#button-add-img1:hover{
+    -webkit-filter: brightness(50%);
+filter: brightness(50%);
+}
+#button-add-img2{
+    cursor: pointer;
+}
+#button-add-img2:hover{
+    -webkit-filter: brightness(50%);
+filter: brightness(50%);
+}
+#button-add-img3{
+    cursor: pointer;
+}
+#button-add-img3:hover{
+    -webkit-filter: brightness(50%);
+filter: brightness(50%);
+}
 </style>
 
 <section class="our-dashbord dashbord" style="background: #ffffff">
@@ -62,7 +82,7 @@
                             <label id="labelImg" style="font-size:11px;" class="text-secondary" for="file">Elegir archivo</label>
                             <button style="font-size:12px;" type="submit" class="btn b">Guardar</button>
                             <label style="font-size:12px;" id="cancelUpdateImg" class="text-danger font-weight-bold">Cancelar</label>
-                      </form>
+                         </form>
 					</div>
 					<div class="dashbord_nav_list">
 						<ul>
@@ -93,8 +113,10 @@
 				</div>
 				<div class="col-sm-12 col-lg-8 col-xl-9">
 					<div class="my_profile_form_area">
-                            <form action="{{route('User.edit')}}" method="GET">
+                        <form id="form-user-edit" action="{{route('User.edit')}}" method="POST" enctype="multipart/form-data">
+                                @csrf
                             <input type="hidden" name="id" value="{{Auth::user()->id}}">
+
 						    <div class="row">
 							    <div class="col-lg-12">
                                     <h4 class="fz20 mb20">Mis datos</h4>
@@ -589,16 +611,73 @@
 							    		<input type="text" name="instagram" class="form-control" id="formGroupExampleInput1" @if(Auth::user()->instagram) placeholder="{{Auth::user()->instagram}}" @else placeholder="Ej: http://instagram.com/mdpwork"@endif>
 									</div>
                             </div>
-                            @endif
-                            <div class="col-lg-4">
+                            <div class="col-lg-12">
+								<h4 class="fz18 mb20 mt-4">Imágenes de trabajos realizados.</h4>
+                            </div>
+                            <div class="col-md-4 text-center mt-3">
+                                <div class="card">
+                                <div class="card-header"><h4>Imagen 1</h4></div>
+                                <div class="card-body">
+                                @if(Auth::user()->img1)
+                                    <img id="img1-selected-db" style="width: 80px;height: 80px" src="img-jobs/{{Auth::user()->img1}}">
+                                    <p><a id="delete-img1-selected" class="btn btn-outline-danger text-danger btn-sm">Eliminar <img src="img-icons/basura.png"></a></p>
+                                @endif
+                                <div id="select-img1">
+                                    <label id="button-add-img1" for="file-img1"><img src="img/addimg.png"></label>
+                                    <input name="img1" id="file-img1" type="file" accept="image/*" style="display: none"/>
+                                </div>
+                                <div id="div-img1-selected" class="mt-3">
+                                </div>
+                                <a id="delete-img1" style="color: red;text-decoration: none;font-weight: 600;display:none;"><img  class="mt-3" src="img/delete.png"></a>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center mt-3">
+                                <div class="card">
+                                <div class="card-header"><h4>Imagen 2</h4></div>
+                                <div class="card-body">
+                                @if(Auth::user()->img2)
+                                    <img id="img2-selected-db" style="width: 80px;height: 80px" src="img-jobs/{{Auth::user()->img2}}">
+                                    <p><a id="delete-img2-selected" class="btn btn-outline-danger text-danger btn-sm">Eliminar <img src="img-icons/basura.png"></a></p>
+                                @endif
+                                <div id="select-img2">
+                                <label id="button-add-img2" for="file-img2"><img src="img/addimg.png"></label>
+                                    <input name="img2" id="file-img2" type="file" accept="image/*" style="display: none"/>
+                                </div>
+                                <div id="div-img2-selected" class="mt-3">
+                                </div>
+                                <a id="delete-img2" style="color: red;text-decoration: none;font-weight: 600;display:none;"><img class="mt-3" src="img/delete.png"></a>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center mt-3">
+                                <div class="card">
+                                <div class="card-header"><h4>Imagen 3</h4></div>
+                                <div class="card-body">
+                                @if(Auth::user()->img3)
+                                    <img id="img3-selected-db" style="width: 80px;height: 80px" src="img-jobs/{{Auth::user()->img3}}">
+                                    <p><a id="delete-img3-selected" class="btn btn-outline-danger text-danger btn-sm">Eliminar <img src="img-icons/basura.png"></a></p>
+                                @endif
+                                <div id="select-img3">
+                                    <label id="button-add-img3" for="file-img3"><img src="img/addimg.png"></label>
+                                    <input name="img3" id="file-img3" type="file" accept="image/*" style="display: none"/>
+                                </div>
+                                <div id="div-img3-selected" class="mt-3">
+                                </div>
+                                <a id="delete-img3" style="color: red;text-decoration: none;font-weight: 600;display:none;"><img class="mt-3" src="img/delete.png"></a>
+                                </div>
+                                </div>
+                            </div>
+                            @endif <!-- si es profesional es esto -->
+                            <div class="col-lg-8 mt-4">
                                     <div class="form-inline mt-2">
                                         <input type="submit" class="btn btn-lg btn-info mr-2" value="Guardar Cambios" />
                                         <a class="btn btn-lg btn-danger bg-danger" href="#">Cancelar</a>
                                     </div>
                             </div>
-
                         </form>
-						</div>
+                        </div>
+
 					</div>
 				</div>
 			</div>
@@ -616,6 +695,36 @@
             reader.onload = function (e) {
                 $('#img-contenedor + img').remove();
                 $('#img-contenedor').append('<img id="img-perfil-panel" src="'+e.target.result+'" class="align-self-start mr-3 rounded-circle" />');
+            }
+            reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function filePreviewimg1(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#div-img1-selected').append('<img height="200px" width="200px" id="img1-selected" src="'+e.target.result+'" class="text-center" />');
+            }
+            reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function filePreviewimg2(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#div-img2-selected').append('<img height="200px" width="200px" id="img2-selected" src="'+e.target.result+'" class="text-center" />');
+            }
+            reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function filePreviewimg3(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#div-img3-selected').append('<img height="200px" width="200px" id="img3-selected" src="'+e.target.result+'" class="text-center" />');
             }
             reader.readAsDataURL(input.files[0]);
             }
@@ -735,6 +844,81 @@ document.addEventListener("click", function (e) {
                     filePreview(this);
                     $('#labelImg').hide('slow');
             });
+
+            $("#file-img1").change(function () {
+                    $('#select-img1').hide();
+                    $('#div-img1-selected').show('slow');
+                    filePreviewimg1(this);
+                    $('#delete-img1').show('slow');
+         });
+            $("#delete-img1").click(function () {
+                    $('#div-img1-selected').hide('slow');
+                    $('#select-img1').show('slow');
+                    $("#file-img1").val('');
+                    $('#img1-selected').remove();
+                    $('#delete-img1').hide('slow');
+            });
+
+
+            $("#file-img2").change(function () {
+                    $('#select-img2').hide();
+                    $('#div-img2-selected').show('slow');
+                    filePreviewimg2(this);
+                    $('#delete-img2').show('slow');
+            });
+            $("#delete-img2").click(function () {
+                    $('#div-img2-selected').hide('slow');
+                    $('#select-img2').show('slow');
+                    $("#file-img2").val('');
+                    $('#img2-selected').remove();
+                    $('#delete-img2').hide('slow');
+            });
+
+
+
+            $("#file-img3").change(function () {
+                    $('#select-img3').hide();
+                    $('#div-img3-selected').show('slow');
+                    filePreviewimg3(this);
+                    $('#delete-img3').show('slow');
+            });
+            $("#delete-img3").click(function () {
+                    $('#div-img3-selected').hide('slow');
+                    $('#select-img3').show('slow');
+                    $("#file-img3").val('');
+                    $('#img3-selected').remove();
+                    $('#delete-img3').hide('slow');
+            });
+
+            $("#delete-img1-selected").click(function(){
+                var text = 'delete';
+                var type = 'text';
+                if (confirm('¿Estás seguro de Eliminar la Imagen 1?')){
+                    $("#file-img1").attr({ type: type, value: text});
+                    $("#form-user-edit").submit();
+                }
+            });
+
+            $("#delete-img2-selected").click(function(){
+                var text = 'delete';
+                var type = 'text';
+                if (confirm('¿Estás seguro de Eliminar la Imagen 2?')){
+                    $("#file-img2").attr({ type: type, value: text});
+                    $("#form-user-edit").submit();
+                }
+
+            });
+
+            $("#delete-img3-selected").click(function(){
+                var text = 'delete';
+                var type = 'text';
+                if (confirm('¿Estás seguro de Eliminar la Imagen 3?')){
+                    $("#file-img3").attr({ type: type, value: text});
+                    $("#form-user-edit").submit();
+                }
+
+            });
+
                 //comienzo del formulario de editar imagen
                 $("#showUpdateImg").click(function () {
                     $('#formUpdateImg').show('slow');

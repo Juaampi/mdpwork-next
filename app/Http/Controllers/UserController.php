@@ -422,6 +422,53 @@ class UserController extends Controller
             $user->outhourafterdomingo = null;
             $user->save();
         }
+
+         if(!empty($request['img1'])){
+            if($request['img1'] == 'delete'){
+                $user->img1 = null;
+                $user->save();
+            }
+        }
+
+        if(!empty($request['img2'])){
+            if($request['img2'] == 'delete'){
+                $user->img2 = null;
+                $user->save();
+            }
+        }
+
+        if(!empty($request['img3'])){
+            if($request['img3'] == 'delete'){
+                $user->img3 = null;
+                $user->save();
+            }
+        }
+
+
+        if($request->hasFile('img1')){
+            $file = $request->file('img1');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/img-jobs/', $name);
+            $user->img1 = $name;
+            $user->save();
+        }
+
+        if($request->hasFile('img2')){
+            $file = $request->file('img2');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/img-jobs/', $name);
+            $user->img2 = $name;
+            $user->save();
+        }
+
+        if($request->hasFile('img3')){
+            $file = $request->file('img3');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/img-jobs/', $name);
+            $user->img3 = $name;
+            $user->save();
+        }
+
        return redirect()->back()->with('response','success');
     }
 

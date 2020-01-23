@@ -75,7 +75,7 @@
                             </li>
                         @endguest
                             <li class="nav-item">
-                                <a class="nav-link" id="btn-quienes-top" data-toggle="modal" data-target="#exampleModal"><img src="img-icons/quienes.png" /> ¿Quienés Somos?</a>
+                                <a class="nav-link" id="btn-quienes-top" data-toggle="modal" data-target="#exampleModal"><img src="img-icons/quienes.png" /> ¿Quiénes Somos?</a>
                             </li>
                          @guest
                             <li class="nav-item">

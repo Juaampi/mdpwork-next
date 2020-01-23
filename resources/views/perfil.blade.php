@@ -817,9 +817,31 @@ use Carbon\Carbon;
                 </div>
                 <hr>
             </div>
+            <div class="container">
+            <div class="row" style="margin-left: 10px;">
+                <p class="fwb"><img src="img-icons/imagen.png"> Imágenes del Profesional</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    @if($user->img1)
+                    <img src="img-jobs/{{$user->img1}}" />
+                    @endif
+                </div>
+                <div class="col-lg-4">
+                    @if($user->img2)
+                    <img src="img-jobs/{{$user->img2}}" />
+                    @endif
+                </div>
+                <div class="col-lg-4">
+                    @if($user->img3)
+                    <img src="img-jobs/{{$user->img3}}" />
+                    @endif
+                </div>
+            </div>
+            </div>
 
             <div class="container">
-                        <div class="col-lg-8">
+                        <div class="col-lg-8 mt-3">
                             @if(Auth::user())
                             @if(Auth::user()->rol == 'usuario')
                             <div id="comentario">
