@@ -806,6 +806,7 @@ use Carbon\Carbon;
                 </div>
                 <hr>
             </div>
+            @if($user->img1 || $user->img2 || $user->img3)
             <div class="container">
             <div class="row" style="margin-left: 10px;">
                 <p class="fwb"><img src="img-icons/imagen.png"> Imágenes del Profesional</p>
@@ -828,7 +829,7 @@ use Carbon\Carbon;
                 </div>
             </div>
             </div>
-
+            @endif
             <div class="container">
                         <div class="col-lg-8 mt-3">
                             @if(Auth::user())
@@ -872,6 +873,9 @@ use Carbon\Carbon;
                             @endif
                             @if(!empty($coments))
                             <h4 class="text-secondary"> Comentarios y puntuaciones: </h4>
+                            @if(!auth::user())
+                                <div class="alert alert-info">Debes iniciar sesion como usuario para comentar. <a class="mt-2" href="/register" style="color: #3483fa;font-size: 14px;text-decoration: none;font-weight: 600">¡Quiero Registrarme!</a>
+                            @endif
                             @foreach($coments as $coment)
                             <div class="candidate_personal_info style2">
                                     <div class="thumb text-center">
