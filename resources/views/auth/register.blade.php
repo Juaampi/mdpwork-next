@@ -46,8 +46,8 @@
     <div  id="registroProfesional"  style="display: none;" class="row justify-content-center">
         <div class="col-md-12">
             <div class="card mt-4">
-                <div class="card-header text-center" style="background:#00b7ff; color:white;"><p>Formulario de registro para <strong>Mdp Work</strong>.</p>
-                    <p>Por favor para el correcto funcionamiento de su perfil, complete todos los datos con información real de contacto. </p><p>Recuerde que el equipo de <strong>Mdp Work</strong> revisa diariamente los perfiles y verifica la infirmación solicitada. Una vez completado el perfil aparecerá automaticamente en el sitio. Gracias por participar en <strong>Mdp Work</strong>.</p>
+                <div class="card-header text-center" style="background:#00b7ff; color:white;"><p>Formulario de registro para <strong>Mdp Work Inc.</strong>.</p>
+                    <p>Por favor para el correcto funcionamiento de su perfil, complete todos los datos con información real de contacto. </p><p>Recuerde que el equipo de <strong>Mdp Work Inc.</strong> revisa diariamente los perfiles y verifica la información solicitada. Una vez completado el perfil aparecerá automáticamente en el sitio. Gracias por participar en <strong>Mdp Work Inc.</strong>.</p>
 
                 </div>
 
@@ -67,7 +67,7 @@
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                             <div class="my_profile_input form-group">
-                                                <label for="formGroupExampleInput9">Nombre Completo</label>
+                                                <label for="formGroupExampleInput9">Nombre Completo <span class="text-danger">*</span></label>
                                             <input type="text" name="name" class="form-control" id="formGroupExampleInput9"  @error('name') is-invalid @enderror name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Ej: Juan Perez">
                                             @error('name')
                                             <span class="invalid-feedback" role="alert">
@@ -78,7 +78,7 @@
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                                 <div class="my_profile_input form-group">
-                                                    <label for="exampleFormControlInput1">Email <span class="text-secondary font-style-italic">(Para iniciar sesion)</span></label>
+                                                    <label for="exampleFormControlInput1">Email <span class="text-danger">*</span><span class="text-secondary font-style-italic">(Para iniciar sesion)</span></label>
                                                     <input type="email" name="email" class="form-control" id="exampleFormControlInput1" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Ej: mdpwork@gmail.com">
                                                     @error('email')
                                                     <span class="invalid-feedback" role="alert">
@@ -113,7 +113,7 @@
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                             <div class="my_profile_input form-group">
-                                                <label>Categoría principal <span class="text-secondary">(Busque su sección)</span></label>
+                                                <label>Categoría principal <span class="text-danger">*</span><span class="text-secondary">(Busque su sección)</span></label>
                                                 <select id="category" name="category_id" class="form-control">
                                                         <option selected class="alert alert-danger" value="">Seleccione Categoría</option>
                                                     @foreach($categories as $category)
@@ -125,7 +125,7 @@
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                             <div class="my_profile_input form-group">
-                                                <label for="formGroupExampleInput2">Profesión Principal <img id="unselected" style="display:none;" src="img-icons/alert.png"> <img id="selected" style="display:none;" src="img-icons/check.png"></label>
+                                                <label for="formGroupExampleInput2">Profesión Principal <span class="text-danger">*</span><img id="unselected" style="display:none;" src="img-icons/alert.png"> <img id="selected" style="display:none;" src="img-icons/check.png"></label>
                                                 <select id="subcategory" name="subcategory_id" class="form-control">
                                                 </select>
                                                 <input type="text" name="subcategory_id-otro" class="form-control" id="otrosServicios" minlength=6 placeholder="Nombrá tu profesión..." style="display: none;" >
@@ -188,7 +188,7 @@
                                 </div>
                                         <div class="col-md-6 col-lg-6">
                                             <div class="my_profile_input form-group">
-                                            <label >WhatsApp</label>
+                                            <label >WhatsApp <span class="text-danger">*</span></label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
                                                   <span class="input-group-text form-control mb-0" id="basic-addon1"><img height="30px" src="img-icons/whatsapp.png" /></span>
@@ -200,7 +200,7 @@
                                             </div>
                                             <div class="col-md-6 col-lg-6">
                                                     <div class="my_profile_input form-group">
-                                                        <label for="exampleInputPhone">Teléfono</label>
+                                                        <label for="exampleInputPhone">Teléfono <span class="text-danger">*</span></label>
                                                         <input type="number" name="phone" class="form-control" id="exampleInputPhone" aria-describedby="phoneNumber" placeholder="EJ: +5492234675858">
                                                     </div>
                                                 </div>
@@ -251,7 +251,7 @@
                                             </div>
                                             <div class="col-md-6 col-lg-6">
                                                 <div class="my_profile_input form-group">
-                                                    <label for="exampleFormControlInput9">Ciudad</label><br>
+                                                    <label for="exampleFormControlInput9">Ciudad <span class="text-danger">*</span></label><br>
                                                     <select name="city" class="form-control">
                                                         <option value="Mar del Plata">Mar del Plata</option>
                                                         <option value="Miramar">Miramar</option>
@@ -261,7 +261,7 @@
                                             </div>
                                             <div class="col-md-6 col-lg-6">
                                                 <div class="my_profile_input form-group">
-                                                    <label for="myInput">Barrio - Zona</label><br>
+                                                    <label for="myInput">Barrio - Zona <span class="text-danger">*</span></label><br>
                                                     <input class="form-control" autocomplete="off" spellcheck="false" name="zone" id="myInput" type="text" name="barrio" placeholder="Escriba el  Barrio">
                                                 </div>
                                             </div>

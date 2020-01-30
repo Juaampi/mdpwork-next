@@ -1,5 +1,11 @@
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+    #list-responsive{
+        display: block;
+    }
+    #list-no-responsive{
+        display:none;
+    }
     .centered {
         position: absolute;
         top: 40%;
@@ -339,6 +345,12 @@
           #alerta-informacion{
             display: none;
         }
+        #list-responsive{
+            display: none;
+        }
+        #list-no-responsive{
+            display:block;
+        }
 
 }
 
@@ -582,5 +594,11 @@ input {
         #registroOpciones{
             margin-bottom: 180px;
             margin-top: 100px;
+        }
+        #list-responsive{
+            display: none;
+        }
+        #list-no-responsive{
+            display:block;
         }
 }

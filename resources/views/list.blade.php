@@ -170,7 +170,7 @@ use Carbon\Carbon;
                     <div class="row">
                             @foreach($lastest as $last)
                             @if($last->rol == 'profesional')
-                            <div class="col-sm-12 col-lg-12" >
+                            <div class="col-sm-12 col-lg-12" id="list-no-responsive" >
                                 <div class="fj_post">
                                     <div class="details">
                                          @php
@@ -441,6 +441,88 @@ use Carbon\Carbon;
                                     </form>
                                 </div>
                             </div>
+
+
+                            <div id="list-responsive" class="container">
+                                <div class="row bg-white" style="padding: 5px;">
+                                    <div class="col-3">
+                                        <img style="border-radius: 10px;" class="img-fluid" src="img-perfil/{{$last->img}}" alt="1.jpg">
+                                    </div>
+                                    <div class="col-7">
+                                        @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
+                                    @if($hour >= $last->{'inhourafter'.$day} && $hour <= $last->{'outhourafter'.$day})
+                                    <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-success">Disponible</p>
+                                    @elseif($hour >= $last->{'inhourafter'.$day} && $hour <= $last->{'outhourafter'.$day})
+                                    <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-success">Disponible</p>
+                                    @else
+                                    <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-danger">No Disponible</p>
+                                    @endif
+                                @else
+                                    @if($hour >= $last->{'inhour'.$day} && $hour <= $last->{'outhour'.$day})
+                                    <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-success">Disponible</p>
+                                    @else
+                                    <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-danger">No Disponible</p>                                @endif
+                                @endif
+                                        <h4 style="font-size: 15px; margin-bottom: 0px;">{{$last->name}}</h4>
+                                        <p style="font-weight: 600;font-size: 12px;margin-bottom: 0px;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ $last->job }} <img src="img-icons/check.png"></a></p>
+                                        <p style="margin-bottom:0px;font-size: 12px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><img height="20px" src="img-icons/location.png" /> {{$last->zone}}, Mar del Plata</p>
+                                        <p style="margin-bottom: 0px;font-size: 12px;">{{$day}}:
+                                                    @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
+                                                        @if($hour <= $last->{'outhour'.$day} && $hour >= $last->{'inhour'.$day})
+                                                            <span style="font-size: 12px;">@php echo date('G:i',strtotime($last->{'inhour'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day} )) @endphp hs</span>
+                                                        @elseif($hour >= $last->{'inhourafter'.$day} && $hour <= $last->{'outhourafter'.$day} )
+                                                            <span style="font-size: 12px">@php echo date('G:i',strtotime($last->{'inhourafter'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhourafter'.$day} )) @endphp hs</span>
+                                                        @else
+                                                            <span style="font-size: 12px; font-style: italic;" class="text-danger font-weight-bold">No disponible hoy</span>
+                                                        @endif
+                                                    @else
+                                                        @if($last->{'inhour'.$day} && $last->{'outhour'.$day})
+                                                            @if($hour <= $last->{'outhour'.$day} && $hour >= $last->{'inhour'.$day})
+                                                                <span style="font-size: 12px">@php echo date('G:i',strtotime($last->{'inhour'.$day}))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day} )) @endphp hs</span>
+                                                            @else
+                                                                <span style="font-size: 12px" class="text-danger font-weight-bold">@php echo date('G:i',strtotime($last->{'inhour'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day} )) @endphp hs</span>
+                                                            @endif
+                                                        @else
+                                                            <span style="font-size: 12px; font-style: italic;" class="text-danger font-weight-bold">No disponible hoy</span>
+                                                        @endif
+                                                    @endif
+                                                    </p>
+                                                    <form action="{{route('User.perfil')}}" method="GET">
+                                                        <input type="hidden" value="{{$last->id}}" name="user_id">
+                                                        <input type="submit" style="text-decoration: none;  color: #3db39e;background: none;border: none;font-size: 12px;" value="Ver/Contactar" />
+                                                    </form>
+                                        <hr>
+                                    </div>
+                                    <div class="col-2">
+                                        @php
+                                        $cantComent = 0;
+                                        $cantPoints = 0;
+                                        $points = 0;
+                                    @endphp
+                                    @foreach($coments as $coment)
+                                        @if($coment->user_id == $last->id)
+                                            @php
+                                                $cantComent ++;
+                                                $cantPoints += $coment->point;
+                                            @endphp
+                                        @endif
+                                    @endforeach
+                                    @php
+                                    if($cantPoints != 0){
+                                     $points = $cantPoints / $cantComent;
+                                    }else{
+                                     $points = 4;
+                                    }
+                                    @endphp
+                                        <p style="font-size: 12px;"><img height="8px;" src="img-icons/llena.png">
+                                        <span class="text-warning"><strong>{{$points}}</strong></span></p>
+                                    </div>
+
+                                </div>
+                                </div>
+
+
+
                             @endif
                             @endforeach
                         </div>
