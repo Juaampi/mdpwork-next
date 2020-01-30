@@ -351,6 +351,9 @@
         #list-no-responsive{
             display:block;
         }
+        #text-list-responsive{
+            display:none;
+        }
 
 }
 
@@ -600,5 +603,8 @@ input {
         }
         #list-no-responsive{
             display:block;
+        }
+        #text-list-responsive{
+            display:none;
         }
 }

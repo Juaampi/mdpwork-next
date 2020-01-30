@@ -167,7 +167,10 @@ use Carbon\Carbon;
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="container">
+                    <div class="row bg-white">
+                        <p id="text-list-responsive">Listado: </p>
+                                <hr>
                             @foreach($lastest as $last)
                             @if($last->rol == 'profesional')
                             <div class="col-sm-12 col-lg-12" id="list-no-responsive" >
@@ -463,8 +466,8 @@ use Carbon\Carbon;
                                     @else
                                     <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-danger">No Disponible</p>                                @endif
                                 @endif
-                                        <h4 style="font-size: 15px; margin-bottom: 0px;">{{$last->name}}</h4>
-                                        <p style="font-weight: 600;font-size: 12px;margin-bottom: 0px;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ $last->job }} <img src="img-icons/check.png"></a></p>
+                                        <h4 style="font-size: 15px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{$last->name}}</h4>
+                                        <p style="font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ $last->job }} <img src="img-icons/check.png"></a></p>
                                         <p style="margin-bottom:0px;font-size: 12px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><img height="20px" src="img-icons/location.png" /> {{$last->zone}}, Mar del Plata</p>
                                         <p style="margin-bottom: 0px;font-size: 12px;">{{$day}}:
                                                     @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
@@ -526,6 +529,7 @@ use Carbon\Carbon;
                             @endif
                             @endforeach
                         </div>
+                    </div>
                     <div class="col-lg-12">
                         <div class="mbp_pagination">
                            {{ $lastest->links() }}

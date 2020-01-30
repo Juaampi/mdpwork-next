@@ -19,7 +19,7 @@ class UserController extends Controller
     }
 
     public function showlist(){
-        $users = User::where('rol', '=', 'profesional')->paginate(10);
+        $users = User::where('rol', '=', 'profesional')->orderBy('created_at', 'desc')->paginate(10);
         $categories = Category::all();
         $subcategories = Subcategory::all();
         $array = [];
