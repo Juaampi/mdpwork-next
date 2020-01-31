@@ -15,14 +15,15 @@ use Carbon\Carbon;
     cursor: pointer;
     }
     </style>
-<section class="bgc-fa" style="padding: 20px 0px;">
+<section class="bgc-fa" style="padding: 10px 0px;">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 pt10">
+            <div class="col-lg-12">
                 <div class="bg_png">
                     <img class="img-fluid" src="img-icons/coete.png" alt="cl1.png">
                 </div>
-                <p class="text-center mb2"><strong>MDP WORK INC.</strong> - Utilizá el buscador y los filtros para encontrar lo que necesitas.</p>
+                <p style="font-size: 13px;" class="text-center mb2">A continuación escribe lo que buscas</p>
+                <p class="text-center mb2 text-no-responsive"><strong>MDP WORK INC.</strong> - Utilizá el buscador y los filtros para encontrar lo que necesitas.</p>
                 <div class="home-job-search-box mt20 mb20">
                 <form class="form-inline" method="GET" action="{{route('User.search')}}" >
                          <div class="search_option_one">
@@ -41,8 +42,8 @@ use Carbon\Carbon;
                             <button id="submit-busqueda" type="submit" class="btn btn-thm btn-secondary h70">Buscar</button>
                         </div>
                     </form>
-                    <div class="mt-2">
-                        <button class="btn text-white btns btn-danger dn db-991" style="margin: 0 auto;">Ver filtros</button>
+                    <div class="mt-2 text-center">
+                        <button style=" border:none; background: none;margin: 0 auto;" class="text-center text-info btns dn db-991">Utilizar filtros especiales</button>
                     </div>
                 </div>
             </div>
@@ -169,7 +170,7 @@ use Carbon\Carbon;
                     </div>
                     <div class="container">
                     <div class="row bg-white">
-                        <p id="text-list-responsive">Listado: </p>
+                        <p id="text-list-responsive" style="padding: 10px;"><strong>{{$lastest->count()}}</strong> Profesionales encontrados.</p>
                                 <hr>
                             @foreach($lastest as $last)
                             @if($last->rol == 'profesional')
@@ -181,25 +182,25 @@ use Carbon\Carbon;
                                          $day = $carbon->isoFormat('dddd');
                                          $hour = $carbon->format('H:i:s');
                                          if($day == 'Monday'){
-                                             $day = 'lunes';
+                                             $day = 'Lunes';
                                          }
                                          if($day == 'Tuesday'){
-                                             $day = 'martes';
+                                             $day = 'Martes';
                                          }
                                          if($day == 'Wednesday'){
-                                             $day = 'miercoles';
+                                             $day = 'Miercoles';
                                          }
                                          if($day == 'Thursday'){
-                                             $day = 'jueves';
+                                             $day = 'Jueves';
                                          }
                                          if($day == 'Friday'){
-                                             $day = 'viernes';
+                                             $day = 'Viernes';
                                          }
                                          if($day == 'Saturday'){
-                                             $day ='sabado';
+                                             $day ='Sabado';
                                          }
                                          if($day == 'Sunday'){
-                                             $day = 'domingo';
+                                             $day = 'Domingo';
                                          }
 
                                      @endphp
@@ -496,7 +497,7 @@ use Carbon\Carbon;
                                                     </form>
                                         <hr>
                                     </div>
-                                    <div class="col-2">
+                                    <div class="col-2" style="padding: 0;">
                                         @php
                                         $cantComent = 0;
                                         $cantPoints = 0;

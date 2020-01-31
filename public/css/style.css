@@ -187,6 +187,9 @@
         #registroUsuarioCard{
             margin-top: 15px;
         }
+        .text-no-responsive{
+            display:none;
+        }
 
 }
 
@@ -352,6 +355,9 @@
             display:block;
         }
         #text-list-responsive{
+            display:none;
+        }
+        .responsive{
             display:none;
         }
 
@@ -605,6 +611,23 @@ input {
             display:block;
         }
         #text-list-responsive{
+            display:none;
+        }
+        .info-slide::before{
+            background-color: #e2e2e2;
+        content: "";
+        display: block;
+        margin-top: -32.5px;
+        height: 65px;
+        position: absolute;
+        top: 50%;
+        width: 1px;
+        right: 0;
+        }
+        .info-slide::after{
+            left: 0;
+        }
+        .responsive{
             display:none;
         }
 }

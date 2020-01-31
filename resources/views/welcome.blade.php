@@ -17,10 +17,10 @@ use Carbon\Carbon;
 						<p class="ml4" style="color: #6f6f6f">
                             <span class="letters letters-1">¿Buscás un profesional?</span>
                             <span class="letters letters-2">¿Necesitas un electricista?</span>
-                            <span class="letters letters-3">¿Tenés un evento y necesitas un retoque?</span>
-                            <span class="letters letters-4">¿Se te rompió el auto y necesitas auxilio? </span>
+                            <span class="letters letters-3">¿Tenes un evento importante?</span>
+                            <span class="letters letters-4">¿Se te rompió el auto? </span>
                             <span class="letters letters-5">¿Te estás mudando y buscas un flete?</span>
-                            <span class="letters letters-6">¡Tu solución está en Mdp Work Inc.!</span>
+                            <span class="letters letters-6">¡Tu solución está en Mdp Work Inc!</span>
                         </p>
 
                     </div>
@@ -54,7 +54,48 @@ use Carbon\Carbon;
 
 			</div>
 		</div>
-	</section>
+    </section>
+<style>
+
+    </style>
+    <section class="bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 info-slide">
+                    <div class="card" style="border: none;">
+                    <div class="card-body text-center">
+                        <img src="img/slider1.png">
+                        <h4 style="font-size: 20px;font-weight: 500;line-height: 1.4;color: #4b4b4b;margin: 16px 0 0;">Utilizá el buscador</h4>
+                        <p style="color: #999;font-size: 15px;line-height: 1.2;">Si estás necesitando de alguien para solucionar un problema específico, ¡Acá lo vas a encontrar!</p>
+                        <a href="/lista" style="font-size: 14px;text-decoration: none;color: #3483fa" >Quiero utilizar el buscador</a>
+                    </div>
+                    </div>
+                    <hr class="responsive" style="width: 50%; text-align: center;">
+                </div>
+                <div class="col-md-4 info-slide">
+                    <div class="card" style="border: none;">
+                    <div class="card-body text-center">
+                        <img src="img/slider2.png">
+                        <h4 style="font-size: 20px;font-weight: 500;line-height: 1.4;color: #4b4b4b;margin: 16px 0 0;">Contactá rápidamente</h4>
+                        <p style="color: #999;font-size: 15px;line-height: 1.2;">Ponete en contacto directo con la persona que necesitas de manera fácil, rápida, segura y gratuita!</p>
+                        <a href="/lista" style="font-size: 14px;text-decoration: none;color: #3483fa" >Quiero encontrar lo que necesito</a>
+                    </div>
+                    </div>
+                    <hr class="responsive" style="width: 50%; text-align: center;">
+                </div>
+                <div class="col-md-4">
+                    <div class="card" style="border: none;">
+                        <div class="card-body text-center">
+                            <img src="img/slider3.png">
+                            <h4 style="font-size: 20px;font-weight: 500;line-height: 1.4;color: #4b4b4b;margin: 16px 0 0;">¿Realizas alguna actividad?</h4>
+                            <p style="color: #999;font-size: 15px;line-height: 1.2;">Si tenes algún tipo de profesión, practicás un oficio o trabajas de manera autónoma, registrate!</p>
+                            <a href="/lista" style="font-size: 14px;text-decoration: none;color: #3483fa" >Quiero participar del sitio</a>
+                        </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <script>
        // Get the input field
@@ -93,7 +134,7 @@ if (event.keyCode === 13) {
  </script>
 
 	<!-- Popular Job Categories -->
-	<section class="popular-job" style="background: #ffffff">
+	<section class="popular-job" style="background: #fafafa">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">
@@ -201,13 +242,14 @@ if (event.keyCode === 13) {
 	</section>
 
 	<!-- Features Job List Design -->
-	<section class="popular-job bgc-lightgray pb30">
+	<section class="popular-job bg-white pb30">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="ulockd-main-title">
-						<h3 class="mt0">Últimos profesionales agregados</h3>
-						<a class="text-thm float-right" href="#">Ver todos<i class="flaticon-right-arrow pl15"></i></a>
+                        <h3 class="mt0">Últimos profesionales</h3>
+                        <h5 class="text-muted">Le damos la bienvenida a todos los nuevos ingresantes del sitio!</h5>
+						<a class="text-thm" href="/lista">Ver todos<i class="flaticon-right-arrow pl15"></i></a>
 					</div>
 				</div>
 			</div>
@@ -222,25 +264,25 @@ if (event.keyCode === 13) {
                                 $day = $carbon->isoFormat('dddd');
                                 $hour = $carbon->format('H:i:s');
                                 if($day == 'Monday'){
-                                    $day = 'lunes';
+                                    $day = 'Lunes';
                                 }
                                 if($day == 'Tuesday'){
-                                    $day = 'martes';
+                                    $day = 'Martes';
                                 }
                                 if($day == 'Wednesday'){
-                                    $day = 'miercoles';
+                                    $day = 'Miercoles';
                                 }
                                 if($day == 'Thursday'){
-                                    $day = 'jueves';
+                                    $day = 'Jueves';
                                 }
                                 if($day == 'Friday'){
-                                    $day = 'viernes';
+                                    $day = 'Viernes';
                                 }
                                 if($day == 'Saturday'){
-                                    $day ='sabado';
+                                    $day ='Sabado';
                                 }
                                 if($day == 'Sunday'){
-                                    $day = 'domingo';
+                                    $day = 'Domingo';
                                 }
 
                             @endphp
