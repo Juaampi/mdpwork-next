@@ -182,25 +182,25 @@ use Carbon\Carbon;
                                          $day = $carbon->isoFormat('dddd');
                                          $hour = $carbon->format('H:i:s');
                                          if($day == 'Monday'){
-                                             $day = 'Lunes';
+                                             $day = 'lunes';
                                          }
                                          if($day == 'Tuesday'){
-                                             $day = 'Martes';
+                                             $day = 'martes';
                                          }
                                          if($day == 'Wednesday'){
-                                             $day = 'Miercoles';
+                                             $day = 'miercoles';
                                          }
                                          if($day == 'Thursday'){
-                                             $day = 'Jueves';
+                                             $day = 'jueves';
                                          }
                                          if($day == 'Friday'){
-                                             $day = 'Viernes';
+                                             $day = 'viernes';
                                          }
                                          if($day == 'Saturday'){
-                                             $day ='Sabado';
+                                             $day ='sabado';
                                          }
                                          if($day == 'Sunday'){
-                                             $day = 'Domingo';
+                                             $day = 'domingo';
                                          }
 
                                      @endphp
@@ -351,7 +351,7 @@ use Carbon\Carbon;
                                                         <img src="img-icons/horario.png" />
 
                                     <!-- HORARIOS: -->
-                                                        <strong>{{$day}}: </strong>
+                                                        <strong>Hoy: </strong>
                                                         @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
                                                             @if($hour >= $last->{'inhourafter'.$day} && $hour <= $last->{'outhourafter'.$day})
                                                                 <span style="font-size: 14px">@php echo date('G:i',strtotime($last->{'inhour'.$day}))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day})) @endphp hs</span>
@@ -470,7 +470,7 @@ use Carbon\Carbon;
                                         <h4 style="font-size: 15px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{$last->name}}</h4>
                                         <p style="font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ $last->job }} <img src="img-icons/check.png"></a></p>
                                         <p style="margin-bottom:0px;font-size: 12px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><img height="20px" src="img-icons/location.png" /> {{$last->zone}}, Mar del Plata</p>
-                                        <p style="margin-bottom: 0px;font-size: 12px;">{{$day}}:
+                                        <p style="margin-bottom: 0px;font-size: 12px;">
                                                     @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
                                                         @if($hour <= $last->{'outhour'.$day} && $hour >= $last->{'inhour'.$day})
                                                             <span style="font-size: 12px;">@php echo date('G:i',strtotime($last->{'inhour'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day} )) @endphp hs</span>
