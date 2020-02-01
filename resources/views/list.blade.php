@@ -170,7 +170,7 @@ use Carbon\Carbon;
                     </div>
                     <div class="container">
                     <div class="row bg-white">
-                        <p id="text-list-responsive" style="padding: 10px;"><strong>{{$lastest->count()}}</strong> Profesionales encontrados.</p>
+                        <p id="text-list-responsive" style="padding: 10px;"><strong>{{$lastest->total()}}</strong> Profesionales encontrados.</p>
                                 <hr>
                             @foreach($lastest as $last)
                             @if($last->rol == 'profesional')
