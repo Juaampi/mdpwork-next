@@ -216,7 +216,7 @@
                                             <div class="my_profile_input form-group">
                                                 <label for="exampleFormControlInput5">Experiencia <span class="text-secondary">(En su profesión)</span></label>
                                                <select name="experience" class="form-control" >
-                                                    <option value="0"> -1 Año</option>
+                                                    <option value="0"> Menos de 1 año</option>
                                                     <option value="1"> 1 Año</option>
                                                     <option value="2">2-3 Año/s</option>
                                                     <option value="4" >4-5 Año/s</option>
@@ -279,7 +279,81 @@
                                                 <h4 class="fz18 mb20 mt-4">Horarios de atención <span class="text-secondary">al cliente</span></h4>
                                         </div>
 
+                                        <div class="col-md-12 col-lg-12 mt-2">
+                                            <div class="my_profile_input form-group">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" name="lunesaviernescheckbox"  class="custom-control-input" id="lunesaviernescheckbox" >
+                                                    <label class="custom-control-label" for="lunesaviernescheckbox"> Lunes a Viernes</label>
+                                                </div>
+                                                <div id="horariolunesaviernes" style="display: none;">
+                                                    <div id="horalunesaviernes" class="form-group form-inline">
+                                                    <input name="inhourlunesaviernes" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input style="width: auto;" name="outhourlunesaviernes" type="time" class="form-control ml-3 text-center">
+                                                    </div>
+                                                    <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
+                                                    <div id="horalunesaviernes2" class="form-group form-inline">
+                                                        <input name="inhourafterlunesaviernes" id="inhourafterlunesaviernes" style="width: auto;" disabled type="time" class="form-control mr-3 text-center"> - <input style="width: auto;" name="outhourafterlunesaviernes" id="outhourafterlunesaviernes" disabled type="time" class="form-control ml-3 text-center">
+                                                    </div>
+                                                    <div class="form-group form-inline">
+                                                    <span id="btnagregarhorariolunesaviernes" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
+                                                    <span id="btncancelarhorariolunesaviernes" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
+                                                    </div>
+                                                    <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
+                                                </div>
+                                            </div>
+                                    </div>
+
+
+                                    <div class="col-md-12 col-lg-12 mt-2">
+                                        <div class="my_profile_input form-group">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" name="lunesasabadocheckbox"  class="custom-control-input" id="lunesasabadocheckbox" >
+                                                <label class="custom-control-label" for="lunesasabadocheckbox"> Lunes a Sábado</label>
+                                            </div>
+                                            <div id="horariolunesasabado" style="display: none;">
+                                                <div id="horalunesasabado" class="form-group form-inline">
+                                                <input name="inhourlunesasabado" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input style="width: auto;" name="outhourlunesasabado" type="time" class="form-control ml-3 text-center">
+                                                </div>
+                                                <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
+                                                <div id="horalunesasabado2" class="form-group form-inline">
+                                                    <input name="inhourafterlunesasabado" id="inhourafterlunesasabado" style="width: auto;" disabled type="time" class="form-control mr-3 text-center"> - <input style="width: auto;" name="outhourafterlunesasabado" id="outhourafterlunesasabado" disabled type="time" class="form-control ml-3 text-center">
+                                                </div>
+                                                <div class="form-group form-inline">
+                                                <span id="btnagregarhorariolunesasabado" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
+                                                <span id="btncancelarhorariolunesasabado" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
+                                                </div>
+                                                <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
+                                            </div>
+                                        </div>
+                                </div>
+
+                                <div class="col-md-12 col-lg-12 mt-2">
+                                    <div class="my_profile_input form-group">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" name="lunesadomingocheckbox"  class="custom-control-input" id="lunesadomingocheckbox" >
+                                            <label class="custom-control-label" for="lunesadomingocheckbox"> Lunes a Domingo</label>
+                                        </div>
+                                        <div id="horariolunesadomingo" style="display: none;">
+                                            <div id="horalunesadomingo" class="form-group form-inline">
+                                            <input name="inhourlunesadomingo" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input style="width: auto;" name="outhourlunesadomingo" type="time" class="form-control ml-3 text-center">
+                                            </div>
+                                            <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
+                                            <div id="horalunesadomingo2" class="form-group form-inline">
+                                                <input name="inhourafterlunesadomingo" id="inhourafterlunesadomingo" style="width: auto;" disabled type="time" class="form-control mr-3 text-center"> - <input style="width: auto;" name="outhourafterlunesadomingo" id="outhourafterlunesadomingo" disabled type="time" class="form-control ml-3 text-center">
+                                            </div>
+                                            <div class="form-group form-inline">
+                                            <span id="btnagregarhorariolunesadomingo" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
+                                            <span id="btncancelarhorariolunesadomingo" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
+                                            </div>
+                                            <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
+                                        </div>
+                                    </div>
+                            </div>
+
+
                                          <!-- TODO LO QUE TENGA QUE VER CON EL LUNES -->
+                                         <div class="col-lg-12" id="lunesaviernestexto">
+                                            <h5 class="mb20 mt-4">Horarios personalizados <span class="text-secondary">para cargar de a un día.</span></h5>
+                                         </div>
 
                             <div id="lunes" class="col-lg-12">
                                     <div class="form-check">
@@ -929,9 +1003,133 @@
 
             //TODO ESTO TIENE QUE VER CON EL LUNES NADA MAS LA PUTA MADRE QUE ME PARIO ES UNA BANDA DE CODIGO ESTA MAL HECHO
 
+                  //Lunes a Sabado checkbox
+                  $('#lunesasabadocheckbox').change(function(){
+                    if($('#lunesasabadocheckbox').is(':checked')){
+                        $('#horariolunesasabado').show('slow');
+                        $('#lunes').hide('slow');
+                        $('#martes').hide('slow');
+                        $('#miercoles').hide('slow');
+                        $('#jueves').hide('slow');
+                        $('#viernes').hide('slow');
+                        $('#sabado').hide('slow');
+                        $('#domingo').hide('slow');
+                        $('#lunesaviernestexto').hide('slow');
+                        $("#lunesaviernescheckbox").prop("checked", false);
+                        $("#lunesadomingocheckbox").prop("checked", false);
+                        $("#horariolunesaviernes").hide("slow");
+                        $("#horariolunesadomingo").hide("slow");
+                    }else{
+                        $('#horariolunesasabado').hide('slow');
+                        $('#lunes').show('slow');
+                        $('#martes').show('slow');
+                        $('#miercoles').show('slow');
+                        $('#jueves').show('slow');
+                        $('#viernes').show('slow');
+                        $('#sabado').show('slow');
+                        $('#domingo').show('slow');
+                        $('#lunesaviernestexto').show('slow');
+                    }
+                });
 
-                //Lunes checkbox
-                $('#lunescheckbox').change(function(){
+                //Lunes a Sabado Agregar Horario
+                $('#btnagregarhorariolunesasabado').click(function(){
+                    $('#inhourafterlunesasabado').prop('disabled', false);
+                    $('#outhourafterlunesasabado').prop('disabled', false);
+                    $('#btnagregarhorariolunesasabado').hide('slow');
+                    $('#btncancelarhorariolunesasabado').show('slow');
+                });
+
+
+                   //Lunes a Domingo checkbox
+                   $('#lunesadomingocheckbox').change(function(){
+                    if($('#lunesadomingocheckbox').is(':checked')){
+                        $('#horariolunesadomingo').show('slow');
+                        $('#lunes').hide('slow');
+                        $('#martes').hide('slow');
+                        $('#miercoles').hide('slow');
+                        $('#jueves').hide('slow');
+                        $('#viernes').hide('slow');
+                        $('#sabado').hide('slow');
+                        $('#domingo').hide('slow');
+                        $('#lunesaviernestexto').hide('slow');
+                        $("#lunesaviernescheckbox").prop("checked", false);
+                        $("#lunesasabadocheckbox").prop("checked", false);
+                        $("#horariolunesaviernes").hide("slow");
+                        $("#horariolunesasabado").hide("slow");
+                    }else{
+                        $('#horariolunesadomingo').hide('slow');
+                        $('#lunes').show('slow');
+                        $('#martes').show('slow');
+                        $('#miercoles').show('slow');
+                        $('#jueves').show('slow');
+                        $('#viernes').show('slow');
+                        $('#sabado').show('slow');
+                        $('#domingo').show('slow');
+                        $('#lunesaviernestexto').show('slow');
+                    }
+                });
+
+                //Lunes a Domingo Agregar Horario
+                $('#btnagregarhorariolunesadomingo').click(function(){
+                    $('#inhourafterlunesadomingo').prop('disabled', false);
+                    $('#outhourafterlunesadomingo').prop('disabled', false);
+                    $('#btnagregarhorariolunesadomingo').hide('slow');
+                    $('#btncancelarhorariolunesadomingo').show('slow');
+                });
+
+
+
+
+
+                 //Lunes a Viernes checkbox
+                 $('#lunesaviernescheckbox').change(function(){
+                    if($('#lunesaviernescheckbox').is(':checked')){
+                        $('#horariolunesaviernes').show('slow');
+                        $('#lunes').hide('slow');
+                        $('#martes').hide('slow');
+                        $('#miercoles').hide('slow');
+                        $('#jueves').hide('slow');
+                        $('#viernes').hide('slow');
+                        $('#sabado').hide('slow');
+                        $('#domingo').hide('slow');
+                        $('#lunesaviernestexto').hide('slow');
+                        $("#lunesasabadocheckbox").prop("checked", false);
+                        $("#lunesadomingocheckbox").prop("checked", false);
+                        $("#horariolunesasabado").hide("slow");
+                        $("#horariolunesadomingo").hide("slow");
+                    }else{
+                        $('#horariolunesaviernes').hide('slow');
+                        $('#lunes').show('slow');
+                        $('#martes').show('slow');
+                        $('#miercoles').show('slow');
+                        $('#jueves').show('slow');
+                        $('#viernes').show('slow');
+                        $('#sabado').show('slow');
+                        $('#domingo').show('slow');
+                        $('#lunesaviernestexto').show('slow');
+                    }
+                });
+
+                //Lunes a Viernes Agregar Horario
+                $('#btnagregarhorariolunesaviernes').click(function(){
+                    $('#inhourafterlunesaviernes').prop('disabled', false);
+                    $('#outhourafterlunesaviernes').prop('disabled', false);
+                    $('#btnagregarhorariolunesaviernes').hide('slow');
+                    $('#btncancelarhorariolunesaviernes').show('slow');
+                });
+
+                $('#btncancelarhorariolunesaviernes').click(function(){
+                    $('#inhourafterlunesaviernes').prop('disabled', true);
+                    $('#outhourafterlunesaviernes').prop('disabled', true);
+                    $('#inhourafterlunesaviernes').val("");
+                    $('#outhourafterlunesaviernes').val("");
+                    $('#btncancelarhorariolunesaviernes').hide('slow');
+                    $('#btnagregarhorariolunesaviernes').show('slow');
+                });
+
+                  //Lunes checkbox
+                  $('#lunescheckbox').change(function(){
                     if($('#lunescheckbox').is(':checked')){
                         $('#horariolunes').show('slow');
                     }else{

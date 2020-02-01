@@ -117,6 +117,108 @@ class RegisterController extends Controller
             $data['job3'] = $data['job3-otro'];
         }
 
+        if(isset($data['lunesaviernescheckbox'])){
+            $data['inhourlunes'] = $data['inhourlunesaviernes'];
+            $data['outhourlunes'] = $data['outhourlunesaviernes'];
+            $data['inhourmartes'] = $data['inhourlunesaviernes'];
+            $data['outhourmartes'] = $data['outhourlunesaviernes'];
+            $data['inhourmiercoles'] = $data['inhourlunesaviernes'];
+            $data['outhourmiercoles'] = $data['outhourlunesaviernes'];
+            $data['inhourjueves'] = $data['inhourlunesaviernes'];
+            $data['outhourjueves'] = $data['outhourlunesaviernes'];
+            $data['inhourviernes'] = $data['inhourlunesaviernes'];
+            $data['outhourviernes'] = $data['outhourlunesaviernes'];
+            $data['inhoursabado'] = null;
+            $data['outhoursabado'] = null;
+            $data['inhourdomingo'] = null;
+            $data['outhourdomingo'] = null;
+
+            if(empty($data['inhourafterlunesaviernes']) || empty($data['outhourafterlunesaviernes'])){
+                $data['inhourafterlunes'] = null;
+                $data['outhourafterlunes'] = null;
+                $data['inhouraftermartes'] = null;
+                $data['outhouraftermartes'] = null;
+                $data['inhouraftermiercoles'] = null;
+                $data['outhouraftermiercoles'] = null;
+                $data['inhourafterjueves'] = null;
+                $data['outhourafterjueves'] = null;
+                $data['inhourafterviernes'] = null;
+                $data['outhourafterviernes'] = null;
+                $data['inhouraftersabado'] = null;
+                $data['outhouraftersabado'] = null;
+                $data['inhourafterdomingo'] = null;
+                $data['outhourafterdomingo'] = null;
+            }
+        }
+
+        if(isset($data['lunesasabadocheckbox'])){
+            $data['inhourlunes'] = $data['inhourlunesasabado'];
+            $data['outhourlunes'] = $data['outhourlunesasabado'];
+            $data['inhourmartes'] = $data['inhourlunesasabado'];
+            $data['outhourmartes'] = $data['outhourlunesasabado'];
+            $data['inhourmiercoles'] = $data['inhourlunesasabado'];
+            $data['outhourmiercoles'] = $data['outhourlunesasabado'];
+            $data['inhourjueves'] = $data['inhourlunesasabado'];
+            $data['outhourjueves'] = $data['outhourlunesasabado'];
+            $data['inhourviernes'] = $data['inhourlunesasabado'];
+            $data['outhourviernes'] = $data['outhourlunesasabado'];
+            $data['inhoursabado'] = $data['outhourlunesasabado'];
+            $data['outhoursabado'] = $data['outhourlunesasabado'];
+            $data['inhourdomingo'] = null;
+            $data['outhourdomingo'] = null;
+
+            if(empty($data['inhourafterlunesasabado']) || empty($data['outhourafterlunesasabado'])){
+                $data['inhourafterlunes'] = null;
+                $data['outhourafterlunes'] = null;
+                $data['inhouraftermartes'] = null;
+                $data['outhouraftermartes'] = null;
+                $data['inhouraftermiercoles'] = null;
+                $data['outhouraftermiercoles'] = null;
+                $data['inhourafterjueves'] = null;
+                $data['outhourafterjueves'] = null;
+                $data['inhourafterviernes'] = null;
+                $data['outhourafterviernes'] = null;
+                $data['inhouraftersabado'] = null;
+                $data['outhouraftersabado'] = null;
+                $data['inhourafterdomingo'] = null;
+                $data['outhourafterdomingo'] = null;
+            }
+        }
+
+        if(isset($data['lunesadomingocheckbox'])){
+            $data['inhourlunes'] = $data['inhourlunesadomingo'];
+            $data['outhourlunes'] = $data['outhourlunesadomingo'];
+            $data['inhourmartes'] = $data['inhourlunesadomingo'];
+            $data['outhourmartes'] = $data['outhourlunesadomingo'];
+            $data['inhourmiercoles'] = $data['inhourlunesadomingo'];
+            $data['outhourmiercoles'] = $data['outhourlunesadomingo'];
+            $data['inhourjueves'] = $data['inhourlunesadomingo'];
+            $data['outhourjueves'] = $data['outhourlunesadomingo'];
+            $data['inhourviernes'] = $data['inhourlunesadomingo'];
+            $data['outhourviernes'] = $data['outhourlunesadomingo'];
+            $data['inhoursabado'] = $data['outhourlunesadomingo'];
+            $data['outhoursabado'] = $data['outhourlunesadomingo'];
+            $data['inhourdomingo'] = $data['outhourlunesadomingo'];
+            $data['outhourdomingo'] = $data['outhourlunesadomingo'];
+
+            if(empty($data['inhourafterlunesadomingo']) || empty($data['outhourafterlunesadomingo'])){
+                $data['inhourafterlunes'] = null;
+                $data['outhourafterlunes'] = null;
+                $data['inhouraftermartes'] = null;
+                $data['outhouraftermartes'] = null;
+                $data['inhouraftermiercoles'] = null;
+                $data['outhouraftermiercoles'] = null;
+                $data['inhourafterjueves'] = null;
+                $data['outhourafterjueves'] = null;
+                $data['inhourafterviernes'] = null;
+                $data['outhourafterviernes'] = null;
+                $data['inhouraftersabado'] = null;
+                $data['outhouraftersabado'] = null;
+                $data['inhourafterdomingo'] = null;
+                $data['outhourafterdomingo'] = null;
+            }
+        }
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],

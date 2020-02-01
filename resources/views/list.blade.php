@@ -22,7 +22,7 @@ use Carbon\Carbon;
                 <div class="bg_png">
                     <img class="img-fluid" src="img-icons/coete.png" alt="cl1.png">
                 </div>
-                <p style="font-size: 13px;" class="text-center mb2">A continuación escribe lo que buscas</p>
+                <p style="font-size: 13px;" class="responsive text-center mb2">A continuación escribe lo que buscas</p>
                 <p class="text-center mb2 text-no-responsive"><strong>MDP WORK INC.</strong> - Utilizá el buscador y los filtros para encontrar lo que necesitas.</p>
                 <div class="home-job-search-box mt20 mb20">
                 <form class="form-inline" method="GET" action="{{route('User.search')}}" >
@@ -340,9 +340,9 @@ use Carbon\Carbon;
 
                                         <div class="row" id="perfil-responsive-div">
                                             <div class="col-md-4">
-                                                <h4>{{$last->name}}</h4>
+                                                <h4 style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{$last->name}}</h4>
                                                 <p style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><img src="img-icons/location.png" /> {{$last->zone}}, Mar del Plata</p>
-                                            <p class="font-style-italic" >
+                                            <p class="font-style-italic" style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
                                                 <img src="img-icons/experiencia.png"> <a href="/busqueda?search={{$last->job}}"><strong>{{ $last->job }}</strong> <img src="img-icons/check.png"></a>
                                             </p>
                                             </div>

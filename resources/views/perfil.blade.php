@@ -793,7 +793,7 @@ use Carbon\Carbon;
                             <div class="icon text-thm"><img src="img-icons/experiencia.png" /></div>
                             <div class="details">
                                 <p class="color-black22">Experiencia</p>
-                            <p><strong>{{$user->experience}}</strong> @if($user->experience <= 1) Año @else Años @endif </p>
+                            <p><strong>@if($user->experience > 0) {{$user->experience}} @endif</strong> @if($user->experience == 1) Año @elseif($user->experience == 0) Menos de 1 año @elseif ($user->experience > 1) Años @endif </p>
                             </div>
                             <div class="icon text-thm"><img src="img-icons/titulo.png" /> </div>
                             <div class="details">
