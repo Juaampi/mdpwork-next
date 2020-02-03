@@ -1,633 +1,145 @@
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-    #list-responsive{
-        display: block;
-    }
-    #list-no-responsive{
-        display:none;
-    }
-    .centered {
-        position: absolute;
-        top: 40%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-      .title-mdpwork{
-       display: none;
-      }
-      .title-mdpwork-responsive{
-        font-family: 'Bowlby One SC', cursive;
-        color: #00b7ff;
-        font-size: 17px;
-        text-shadow: 1px 1px #00000082;
-        margin-top: 10px;
-        margin-right: 17px;
-      }
-      .navbar-expand-md .navbar-nav{
-        text-align: center;
-    }
-    .payment{
-        align-items: center;
-    border-radius: 3px;
-    color: #00558d;
-    display: inline-flex;
-    height: 40px;
-    justify-content: center;
-    line-height: 1;
-    min-width: 72px;
-    padding: 0 5px;
-    position: relative;
-    }
-    .payment-visa{
-        background-image: url(../img/credit-card/visa.png);
-        background-size: 50px 16px;
-        display: block;
-        height: 16px;
-        width: 50px;
-        margin: 12px 11px;
-        margin-top: 5px;
-        }
-
-        .payment-mercado{
-            background-image: url(../img/credit-card/mercado.png);
-            background-size: 50px 16px;
-            display: block;
-            height: 16px;
-            width: 50px;
-            margin: 12px 11px;
-            margin-top: 5px;
-        }
-        #txtmetodos{
-           display:none;
-        }
-        .row-responsive{
-            justify-content: center!important;
-        }
-        #ulmetodos{
-            float: left;
-            margin: 10px 0 30px 0px;
-         }
-        .limetodos{
-            float: left; margin: 0 10px 0 0;
-        }
-        #horario{
-            font-size: 14px;
-        }
-        #description-add{
-            display: none;
-        }
-        #contenedor-contacto{
-            margin-left: 50px;
-        }
-        #row-text-description{
-            display: none;
-        }
-        #img-perfil{
-            margin-left: 110px;
-        }
-        #bar-mobile{
-            display: none;
-        }
-        #img-perfil-panel{
-            margin-left: 30px;
-        }
-        #showUpdateImg{
-            margin-top: 20px;
-            margin-left: 31px;
-        }
-        #formUpdateImg{
-            margin-top: 15px;
-            margin-left: 30px;
-        }
-        #filter-mobile-none{
-            display:none;
-        }
-        .ml4 {
-            position: relative;
-            font-weight: 900;
-            font-size: 29px;
-          }
-          .ml4 .letters {
-            position: absolute;
-            margin: auto;
-            left: 0;
-            top: -2.4em;
-            right: 0;
-            opacity: 0;
-          }
-          .bs-callout {
-            padding: 20px;
-            margin: 20px 0;
-            border: 1px solid #eee;
-            border-left-width: 5px;
-            border-radius: 3px;
-        }
-        .bs-callout h4 {
-            margin-top: 0;
-            margin-bottom: 5px;
-        }
-        .bs-callout p:last-child {
-            margin-bottom: 0;
-        }
-        .bs-callout code {
-            border-radius: 3px;
-        }
-        .bs-callout+.bs-callout {
-            margin-top: -5px;
-        }
-        .bs-callout-default {
-            border-left-color: #777;
-        }
-        .bs-callout-default h4 {
-            color: #777;
-        }
-        .bs-callout-primary {
-            border-left-color: #428bca;
-        }
-        .bs-callout-primary h4 {
-            color: #428bca;
-        }
-        .bs-callout-success {
-            border-left-color: #5cb85c;
-        }
-        .bs-callout-success h4 {
-            color: #5cb85c;
-        }
-        .bs-callout-danger {
-            border-left-color: #d9534f;
-        }
-        .bs-callout-danger h4 {
-            color: #d9534f;
-        }
-        .bs-callout-warning {
-            border-left-color: #f0ad4e;
-        }
-        .bs-callout-warning h4 {
-            color: #f0ad4e;
-        }
-        .bs-callout-info {
-            border-left-color: #5bc0de;
-        }
-        .bs-callout-info h4 {
-            color: #5bc0de;
-        }
-        #perfil-responsive-div{
-            text-align: center;
-            justify-content: center;
-        }
-        #metodos-responsive{
-            margin-left:20px;
-        }
-        #alerta-informacion{
-            display: none;
-        }
-        #registroOpciones{
-            margin-top: 15px;
-        }
-        #registroUsuarioCard{
-            margin-top: 15px;
-        }
-        .text-no-responsive{
-            display:none;
-        }
-
+@media only screen and (max-width:600px){#list-responsive{display:block;}
+#list-no-responsive{display:none;}
+.centered{position:absolute;top:40%;left:50%;transform:translate(-50%, -50%);}
+.title-mdpwork{display:none;}
+.title-mdpwork-responsive{font-family:'Bowlby One SC', cursive;color:#00b7ff;font-size:17px;text-shadow:1px 1px #00000082;margin-top:10px;margin-right:17px;}
+.navbar-expand-md .navbar-nav{text-align:center;}
+.payment{align-items:center;border-radius:3px;color:#00558d;display:inline-flex;height:40px;justify-content:center;line-height:1;min-width:72px;padding:0 5px;position:relative;}
+.payment-visa{background-image:url(../img/credit-card/visa.png);background-size:50px 16px;display:block;height:16px;width:50px;margin:12px 11px;margin-top:5px;}
+.payment-mercado{background-image:url(../img/credit-card/mercado.png);background-size:50px 16px;display:block;height:16px;width:50px;margin:12px 11px;margin-top:5px;}
+#txtmetodos{display:none;}
+.row-responsive{justify-content:center!important;}
+#ulmetodos{float:left;margin:10px 0 30px 0px;}
+.limetodos{float:left;margin:0 10px 0 0;}
+#horario{font-size:14px;}
+#description-add{display:none;}
+#contenedor-contacto{margin-left:50px;}
+#row-text-description{display:none;}
+#img-perfil{margin-left:110px;}
+#bar-mobile{display:none;}
+#img-perfil-panel{margin-left:30px;}
+#showUpdateImg{margin-top:20px;margin-left:31px;}
+#formUpdateImg{margin-top:15px;margin-left:30px;}
+#filter-mobile-none{display:none;}
+.ml4{position:relative;font-weight:900;font-size:29px;}
+.ml4 .letters{position:absolute;margin:auto;left:0;top:-2.4em;right:0;opacity:0;}
+.bs-callout{padding:20px;margin:20px 0;border:1px solid #eee;border-left-width:5px;border-radius:3px;}
+.bs-callout h4{margin-top:0;margin-bottom:5px;}
+.bs-callout p:last-child{margin-bottom:0;}
+.bs-callout code{border-radius:3px;}
+.bs-callout+.bs-callout{margin-top:-5px;}
+.bs-callout-default{border-left-color:#777;}
+.bs-callout-default h4{color:#777;}
+.bs-callout-primary{border-left-color:#428bca;}
+.bs-callout-primary h4{color:#428bca;}
+.bs-callout-success{border-left-color:#5cb85c;}
+.bs-callout-success h4{color:#5cb85c;}
+.bs-callout-danger{border-left-color:#d9534f;}
+.bs-callout-danger h4{color:#d9534f;}
+.bs-callout-warning{border-left-color:#f0ad4e;}
+.bs-callout-warning h4{color:#f0ad4e;}
+.bs-callout-info{border-left-color:#5bc0de;}
+.bs-callout-info h4{color:#5bc0de;}
+#perfil-responsive-div{text-align:center;justify-content:center;}
+#metodos-responsive{margin-left:20px;}
+#alerta-informacion{display:none;}
+#registroOpciones{margin-top:15px;}
+#registroUsuarioCard{margin-top:15px;}
+.text-no-responsive{display:none;}
 }
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) and (max-width: 900px) and (orientation: landscape) {
-
-    #metodos-responsive{
-        margin-left:20px;
-    }
-    #perfil-responsive-div{
-        text-align: center;
-        justify-content: center;
-    }
-
-    #row-text-description{
-        display: none;
-    }
-    .bs-callout {
-        padding: 20px;
-        margin: 20px 0;
-        border: 1px solid #eee;
-        border-left-width: 5px;
-        border-radius: 3px;
-    }
-    .bs-callout h4 {
-        margin-top: 0;
-        margin-bottom: 5px;
-    }
-    .bs-callout p:last-child {
-        margin-bottom: 0;
-    }
-    .bs-callout code {
-        border-radius: 3px;
-    }
-    .bs-callout+.bs-callout {
-        margin-top: -5px;
-    }
-    .bs-callout-default {
-        border-left-color: #777;
-    }
-    .bs-callout-default h4 {
-        color: #777;
-    }
-    .bs-callout-primary {
-        border-left-color: #428bca;
-    }
-    .bs-callout-primary h4 {
-        color: #428bca;
-    }
-    .bs-callout-success {
-        border-left-color: #5cb85c;
-    }
-    .bs-callout-success h4 {
-        color: #5cb85c;
-    }
-    .bs-callout-danger {
-        border-left-color: #d9534f;
-    }
-    .bs-callout-danger h4 {
-        color: #d9534f;
-    }
-    .bs-callout-warning {
-        border-left-color: #f0ad4e;
-    }
-    .bs-callout-warning h4 {
-        color: #f0ad4e;
-    }
-    .bs-callout-info {
-        border-left-color: #5bc0de;
-    }
-    .bs-callout-info h4 {
-        color: #5bc0de;
-    }
-    .centered {
-        position: absolute;
-        top: 40%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-      .title-mdpwork{
-       display: none;
-
-      }
-      .title-mdpwork-responsive{
-        font-family: 'Bowlby One SC', cursive;
-        color: #00b7ff;
-        font-size: 17px;
-        text-shadow: 1px 1px #00000082;
-        margin-top: 10px;
-        margin-right: 17px;
-      }
-      .navbar-expand-md .navbar-nav{
-        text-align: center;
-    }
-    .payment{
-        align-items: center;
-    border-radius: 3px;
-    color: #00558d;
-    display: inline-flex;
-    height: 40px;
-    justify-content: center;
-    line-height: 1;
-    min-width: 72px;
-    padding: 0 5px;
-    position: relative;
-    }
-    .payment-visa{
-        background-image: url(../img/credit-card/visa.png);
-        background-size: 50px 16px;
-        display: block;
-        height: 16px;
-        width: 50px;
-        margin: 12px 11px;
-        margin-top: 5px;
-        }
-
-        .payment-mercado{
-            background-image: url(../img/credit-card/mercado.png);
-            background-size: 50px 16px;
-            display: block;
-            height: 16px;
-            width: 50px;
-            margin: 12px 11px;
-            margin-top: 5px;
-        }
-        .row-responsive{
-            justify-content: center!important;
-        }
-        #txtmetodos{
-            display: none;
-        }
-        #ulmetodos{
-            float: left;
-            margin: 10px 0 30px 0px;
-         }
-         .limetodos{
-            float: left; margin: 0 10px 0 0;
-        }
-        #img-perfil{
-            margin-left: 90px;
-        }
-
-        .ml4 {
-            position: relative;
-            font-weight: 900;
-            font-size: 2.5em;
-          }
-          .ml4 .letters {
-            position: absolute;
-            margin: auto;
-            left: 0;
-            top: -2.4em;
-            right: 0;
-            opacity: 0;
-          }
-          #alerta-informacion{
-            display: none;
-        }
-        #list-responsive{
-            display: none;
-        }
-        #list-no-responsive{
-            display:block;
-        }
-        #text-list-responsive{
-            display:none;
-        }
-        .responsive{
-            display:none;
-        }
-
+@media only screen and (min-width:600px) and (max-width:900px) and (orientation:landscape){#metodos-responsive{margin-left:20px;}
+#perfil-responsive-div{text-align:center;justify-content:center;}
+#row-text-description{display:none;}
+.bs-callout{padding:20px;margin:20px 0;border:1px solid #eee;border-left-width:5px;border-radius:3px;}
+.bs-callout h4{margin-top:0;margin-bottom:5px;}
+.bs-callout p:last-child{margin-bottom:0;}
+.bs-callout code{border-radius:3px;}
+.bs-callout+.bs-callout{margin-top:-5px;}
+.bs-callout-default{border-left-color:#777;}
+.bs-callout-default h4{color:#777;}
+.bs-callout-primary{border-left-color:#428bca;}
+.bs-callout-primary h4{color:#428bca;}
+.bs-callout-success{border-left-color:#5cb85c;}
+.bs-callout-success h4{color:#5cb85c;}
+.bs-callout-danger{border-left-color:#d9534f;}
+.bs-callout-danger h4{color:#d9534f;}
+.bs-callout-warning{border-left-color:#f0ad4e;}
+.bs-callout-warning h4{color:#f0ad4e;}
+.bs-callout-info{border-left-color:#5bc0de;}
+.bs-callout-info h4{color:#5bc0de;}
+.centered{position:absolute;top:40%;left:50%;transform:translate(-50%, -50%);}
+.title-mdpwork{display:none;}
+.title-mdpwork-responsive{font-family:'Bowlby One SC', cursive;color:#00b7ff;font-size:17px;text-shadow:1px 1px #00000082;margin-top:10px;margin-right:17px;}
+.navbar-expand-md .navbar-nav{text-align:center;}
+.payment{align-items:center;border-radius:3px;color:#00558d;display:inline-flex;height:40px;justify-content:center;line-height:1;min-width:72px;padding:0 5px;position:relative;}
+.payment-visa{background-image:url(../img/credit-card/visa.png);background-size:50px 16px;display:block;height:16px;width:50px;margin:12px 11px;margin-top:5px;}
+.payment-mercado{background-image:url(../img/credit-card/mercado.png);background-size:50px 16px;display:block;height:16px;width:50px;margin:12px 11px;margin-top:5px;}
+.row-responsive{justify-content:center!important;}
+#txtmetodos{display:none;}
+#ulmetodos{float:left;margin:10px 0 30px 0px;}
+.limetodos{float:left;margin:0 10px 0 0;}
+#img-perfil{margin-left:90px;}
+.ml4{position:relative;font-weight:900;font-size:2.5em;}
+.ml4 .letters{position:absolute;margin:auto;left:0;top:-2.4em;right:0;opacity:0;}
+#alerta-informacion{display:none;}
+#list-responsive{display:none;}
+#list-no-responsive{display:block;}
+#text-list-responsive{display:none;}
+.responsive{display:none;}
 }
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 900px) and (max-width: 1600px) {
-    #row-description-responsive{
-        display: none;
-    }
-    #txtmetodos{
-        float: left; margin: 0 10px 0 0;
-    }
-    .centered {
-        position: absolute;
-        top: 40%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-
-      .title-mdpwork{
-        font-family: 'Bowlby One SC', cursive;
-        color:#00b7ff;
-        font-size: 60px;
-        text-shadow: 2px 2px #000000;
-
-      }
-      .title-mdpwork-responsive{
-        display: none;
-       }
-      .title-description{
-        font-family: 'Kanit', sans-serif;
-        color:white;
-        text-align: center;
-        font-size: 18px;
-      }
-      .steps{
-        margin-top: 110px;
-      }
-      .steps-img{
-        height: 80px;
-      }
-      .navbar-expand-md .navbar-nav{
-        float: right;
-    }
-    .steps-text-description{
-        color: #ffffff;font-style: italic
-    }
-    .payment{
-        align-items: center;
-    border-radius: 3px;
-    color: #00558d;
-    display: inline-flex;
-    height: 40px;
-    justify-content: center;
-    line-height: 1;
-    margin-right: 8px;
-    min-width: 72px;
-    padding: 0 5px;
-    position: relative;
-    }
-    .payment-visa{
-    background-image: url(../img/credit-card/visa.png);
-    background-size: 50px 16px;
-    display: block;
-    height: 16px;
-    width: 50px;
-    margin: 12px 11px;
-    margin-top: 5px;
-    }
-
-    .payment-mercado{
-        background-image: url(../img/credit-card/mercado.png);
-        background-size: 50px 16px;
-        display: block;
-        height: 16px;
-        width: 50px;
-        margin: 12px 11px;
-        margin-top: 5px;
-    }
-    .payment-mastercard{
-    background-image: url(../img/credit-card/mastercard.png);
-    background-size: 44px 26px;
-    display: block;
-    height: 26px;
-    width: 44px;
-    margin: 7px 14px;
-    }
-    .hr{
-
-        border:         none;
-        border-left:    1px solid hsla(200, 10%, 50%,100);
-        height:         100vh;
-        width:          1px;
-    }
-    .dateshours{
-        border: none;
-    width: 100%;
-    display: inline-block;
-    line-height: 2.6;
-    margin: 0 .1em;
-    }
-    .peyaCard{
-        background-color: #fff;
-    border: 1px solid #fff;
-    border-radius: 4px;
-    padding: 1em;
-    }
-
-    /* AUTOCOMPLETE STYLES */
-    * { box-sizing: border-box; }
-
-.autocomplete {
-  /*the container must be positioned relative:*/
-  position: relative;
-  display: inline-block;
-}
-input {
-  border: 1px solid transparent;
-  background-color: #f1f1f1;
-  padding: 10px;
-  font-size: 16px;
-}
-
-
-.autocomplete-items {
-  position: absolute;
-  border: 1px solid #d4d4d4;
-  border-bottom: none;
-  border-top: none;
-  z-index: 99;
-  /*position the autocomplete items to be the same width as the container:*/
-  top: 59%;
-    left: 15px;
-    right: 0;
-    width: 95%;
-}
-.autocomplete-items div {
-  padding: 10px;
-  cursor: pointer;
-  background-color: #fff;
-  border-bottom: 1px solid #d4d4d4;
-}
-.autocomplete-items div:hover {
-  /*when hovering an item:*/
-  background-color: #e9e9e9;
-}
-.autocomplete-active {
-  /*when navigating through the items using the arrow keys:*/
-  background-color: DodgerBlue !important;
-  color: #ffffff;
-}
-/* END AUTOCOMPLETE STYLES */
-#ulmetodos{
-    float: left; margin: 0px 0px 0px 0px;
- }
- .limetodos{
-    float: left; margin: 0 10px 0 0;
-}
-#img-perfil{
-    margin-left: 90px;
-}
-.btn-ver{
-    border-radius: 4px;
-                                        line-height: 40px;
-                                        padding: 7px 33px;
-                                        position: absolute;
-                                        right: 45px;
-                                        top: 71px;
-
-}
- .ml4 {
-            position: relative;
-            font-weight: 900;
-            font-size: 2.5em;
-          }
-          .ml4 .letters {
-            position: absolute;
-            margin: auto;
-            left: 0;
-            top: -0.4em;
-            right: 0;
-            opacity: 0;
-          }
-          .bs-callout {
-            padding: 20px;
-            margin: 20px 0;
-            border: 1px solid #eee;
-            border-left-width: 5px;
-            border-radius: 3px;
-        }
-        .bs-callout h4 {
-            margin-top: 0;
-            margin-bottom: 5px;
-        }
-        .bs-callout p:last-child {
-            margin-bottom: 0;
-        }
-        .bs-callout code {
-            border-radius: 3px;
-        }
-        .bs-callout+.bs-callout {
-            margin-top: -5px;
-        }
-        .bs-callout-default {
-            border-left-color: #777;
-        }
-        .bs-callout-default h4 {
-            color: #777;
-        }
-        .bs-callout-primary {
-            border-left-color: #428bca;
-        }
-        .bs-callout-primary h4 {
-            color: #428bca;
-        }
-        .bs-callout-success {
-            border-left-color: #5cb85c;
-        }
-        .bs-callout-success h4 {
-            color: #5cb85c;
-        }
-        .bs-callout-danger {
-            border-left-color: #d9534f;
-        }
-        .bs-callout-danger h4 {
-            color: #d9534f;
-        }
-        .bs-callout-warning {
-            border-left-color: #f0ad4e;
-        }
-        .bs-callout-warning h4 {
-            color: #f0ad4e;
-        }
-        .bs-callout-info {
-            border-left-color: #5bc0de;
-        }
-        .bs-callout-info h4 {
-            color: #5bc0de;
-        }
-        .filter-sidebar{background-color:#fff;padding:30px;-webkit-transition:all 0.4s ease-in-out 0s;-o-transition:all 0.4s ease-in-out 0s;transition:all 0.4s ease-in-out 0s;-webkit-box-shadow:1px 1px 4px 0 rgba(0, 0, 0, 0.09);box-shadow:1px 1px 4px 0 rgba(0, 0, 0, 0.09);position:fixed;z-index:8;width:320px;height:100vh;top:0;left:0;}
-
-        #registroOpciones{
-            margin-bottom: 180px;
-            margin-top: 100px;
-        }
-        #list-responsive{
-            display: none;
-        }
-        #list-no-responsive{
-            display:block;
-        }
-        #text-list-responsive{
-            display:none;
-        }
-        .info-slide::before{
-            background-color: #e2e2e2;
-        content: "";
-        display: block;
-        margin-top: -32.5px;
-        height: 65px;
-        position: absolute;
-        top: 50%;
-        width: 1px;
-        right: 0;
-        }
-        .info-slide::after{
-            left: 0;
-        }
-        .responsive{
-            display:none;
-        }
+@media only screen and (min-width:900px) and (max-width:1600px){#row-description-responsive{display:none;}
+#txtmetodos{float:left;margin:0 10px 0 0;}
+.centered{position:absolute;top:40%;left:50%;transform:translate(-50%, -50%);}
+.title-mdpwork{font-family:'Bowlby One SC', cursive;color:#00b7ff;font-size:60px;text-shadow:2px 2px #000000;}
+.title-mdpwork-responsive{display:none;}
+.title-description{font-family:'Kanit', sans-serif;color:white;text-align:center;font-size:18px;}
+.steps{margin-top:110px;}
+.steps-img{height:80px;}
+.navbar-expand-md .navbar-nav{float:right;}
+.steps-text-description{color:#ffffff;font-style:italic}
+.payment{align-items:center;border-radius:3px;color:#00558d;display:inline-flex;height:40px;justify-content:center;line-height:1;margin-right:8px;min-width:72px;padding:0 5px;position:relative;}
+.payment-visa{background-image:url(../img/credit-card/visa.png);background-size:50px 16px;display:block;height:16px;width:50px;margin:12px 11px;margin-top:5px;}
+.payment-mercado{background-image:url(../img/credit-card/mercado.png);background-size:50px 16px;display:block;height:16px;width:50px;margin:12px 11px;margin-top:5px;}
+.payment-mastercard{background-image:url(../img/credit-card/mastercard.png);background-size:44px 26px;display:block;height:26px;width:44px;margin:7px 14px;}
+.hr{border:none;border-left:1px solid hsla(200, 10%, 50%,100);height:100vh;width:1px;}
+.dateshours{border:none;width:100%;display:inline-block;line-height:2.6;margin:0 .1em;}
+.peyaCard{background-color:#fff;border:1px solid #fff;border-radius:4px;padding:1em;}
+*{box-sizing:border-box;}
+.autocomplete{position:relative;display:inline-block;}
+input{border:1px solid transparent;background-color:#f1f1f1;padding:10px;font-size:16px;}
+.autocomplete-items{position:absolute;border:1px solid #d4d4d4;border-bottom:none;border-top:none;z-index:99;top:59%;left:15px;right:0;width:95%;}
+.autocomplete-items div{padding:10px;cursor:pointer;background-color:#fff;border-bottom:1px solid #d4d4d4;}
+.autocomplete-items div:hover{background-color:#e9e9e9;}
+.autocomplete-active{background-color:DodgerBlue !important;color:#ffffff;}
+#ulmetodos{float:left;margin:0px 0px 0px 0px;}
+.limetodos{float:left;margin:0 10px 0 0;}
+#img-perfil{margin-left:90px;}
+.btn-ver{border-radius:4px;line-height:40px;padding:7px 33px;position:absolute;right:45px;top:71px;}
+.ml4{position:relative;font-weight:900;font-size:2.5em;}
+.ml4 .letters{position:absolute;margin:auto;left:0;top:-0.4em;right:0;opacity:0;}
+.bs-callout{padding:20px;margin:20px 0;border:1px solid #eee;border-left-width:5px;border-radius:3px;}
+.bs-callout h4{margin-top:0;margin-bottom:5px;}
+.bs-callout p:last-child{margin-bottom:0;}
+.bs-callout code{border-radius:3px;}
+.bs-callout+.bs-callout{margin-top:-5px;}
+.bs-callout-default{border-left-color:#777;}
+.bs-callout-default h4{color:#777;}
+.bs-callout-primary{border-left-color:#428bca;}
+.bs-callout-primary h4{color:#428bca;}
+.bs-callout-success{border-left-color:#5cb85c;}
+.bs-callout-success h4{color:#5cb85c;}
+.bs-callout-danger{border-left-color:#d9534f;}
+.bs-callout-danger h4{color:#d9534f;}
+.bs-callout-warning{border-left-color:#f0ad4e;}
+.bs-callout-warning h4{color:#f0ad4e;}
+.bs-callout-info{border-left-color:#5bc0de;}
+.bs-callout-info h4{color:#5bc0de;}
+.filter-sidebar{background-color:#fff;padding:30px;-webkit-transition:all 0.4s ease-in-out 0s;-o-transition:all 0.4s ease-in-out 0s;transition:all 0.4s ease-in-out 0s;-webkit-box-shadow:1px 1px 4px 0 rgba(0, 0, 0, 0.09);box-shadow:1px 1px 4px 0 rgba(0, 0, 0, 0.09);position:fixed;z-index:8;width:320px;height:100vh;top:0;left:0;}
+#registroOpciones{margin-bottom:180px;margin-top:100px;}
+#list-responsive{display:none;}
+#list-no-responsive{display:block;}
+#text-list-responsive{display:none;}
+.info-slide::before{background-color:#e2e2e2;content:"";display:block;margin-top:-32.5px;height:65px;position:absolute;top:50%;width:1px;right:0;}
+.info-slide::after{left:0;}
+.responsive{display:none;}
 }

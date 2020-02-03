@@ -89,7 +89,7 @@ use Carbon\Carbon;
                             <img src="img/slider3.png">
                             <h4 style="font-size: 20px;font-weight: 500;line-height: 1.4;color: #4b4b4b;margin: 16px 0 0;">¿Realizas alguna actividad?</h4>
                             <p style="color: #999;font-size: 15px;line-height: 1.2;">Si tenes algún tipo de profesión, practicás un oficio o trabajas de manera autónoma, registrate!</p>
-                            <a href="/lista" style="font-size: 14px;text-decoration: none;color: #3483fa" >Quiero participar del sitio</a>
+                            <a href="/register" style="font-size: 14px;text-decoration: none;color: #3483fa" >Quiero participar del sitio</a>
                         </div>
                         </div>
                 </div>
@@ -149,7 +149,7 @@ if (event.keyCode === 13) {
 						<div class="overlay">
 							<div class="icon"><img src="img/construccion.png" /></div>
 							<div class="details">
-								<h5>Albañiles</h5>
+								<h6>Albañiles</h6>
 								<p><strong>22</strong> Profesionales</p>
 							</div>
 						</div>
@@ -160,7 +160,7 @@ if (event.keyCode === 13) {
 						<div class="overlay">
 							<div class="icon"><img src="img/mecanico.png" /></div>
 							<div class="details">
-								<h5>Mantenimiento de Vehículos</h5>
+								<h6>Mantenimiento de Vehículos</h6>
 								<p><strong>60</strong> Profesionales</p>
 							</div>
 						</div>
@@ -171,7 +171,7 @@ if (event.keyCode === 13) {
 						<div class="overlay">
 							<div class="icon"><img src="img/nail.png" /></div>
 							<div class="details">
-								<h5>Maquillaje y Peinados</h5>
+								<h6>Maquillaje y Peinados</h6>
 								<p><strong>24</strong> Profesionales</p>
 							</div>
 						</div>
@@ -182,7 +182,7 @@ if (event.keyCode === 13) {
 						<div class="overlay">
 							<div class="icon"><img src="img/fotografia.png" /></span></div>
 							<div class="details">
-								<h5>Fotografía</h5>
+								<h6>Fotografía</h6>
 								<p><strong>17</strong> Profesionales</p>
 							</div>
 						</div>
@@ -193,7 +193,7 @@ if (event.keyCode === 13) {
 						<div class="overlay">
 							<div class="icon"><img src="img/medicina.png" /></div>
 							<div class="details">
-								<h5>Psicología</h5>
+								<h6>Psicología</h6>
 								<p><strong>60</strong> Profesionales</p>
 							</div>
 						</div>
@@ -204,7 +204,7 @@ if (event.keyCode === 13) {
 						<div class="overlay">
 							<div class="icon"><img src="img/fiesta.png" /></div>
 							<div class="details">
-								<h5>Animación infantil</h5>
+								<h6>Animación infantil</h6>
 								<p><strong>22</strong> Profesionales</p>
 							</div>
 						</div>
@@ -215,7 +215,7 @@ if (event.keyCode === 13) {
 						<div class="overlay">
 							<div class="icon"><img src="img/oficina.png" /></div>
 							<div class="details">
-								<h5>Limpieza Profesional</h5>
+								<h6>Limpieza Profesional</h6>
 								<p><strong>5</strong> Profesionales</p>
 							</div>
 						</div>
@@ -226,7 +226,7 @@ if (event.keyCode === 13) {
 						<div class="overlay">
 							<div class="icon"><img src="img/contable.png" /></div>
 							<div class="details">
-								<h5>Abogado Derecho Laboral</h5>
+								<h6>Abogado Derecho Laboral</h6>
 								<p><strong>10</strong> Profesionales</p>
 							</div>
 						</div>
@@ -420,7 +420,7 @@ if (event.keyCode === 13) {
 
                             <div class="row" id="perfil-responsive-div">
                                 <div class="col-md-4">
-							        <h4>{{$last->name}}</h4>
+							        <h5>{{$last->name}}</h5>
                                     <p style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><img src="img-icons/location.png" /> {{$last->zone}}, Mar del Plata</p>
                                     <p style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><img src="img-icons/experiencia.png"> <a href="/busqueda?search={{$last->job}}"><strong>{{ $last->job }}</strong> <img src="img-icons/check.png"></a></p>
                                 </div>
@@ -529,22 +529,23 @@ if (event.keyCode === 13) {
                         </div>
                         <div class="col-7">
                             @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
-                        @if($hour >= $last->{'inhourafter'.$day} && $hour <= $last->{'outhourafter'.$day})
-                        <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-success">Disponible</p>
-                        @elseif($hour >= $last->{'inhourafter'.$day} && $hour <= $last->{'outhourafter'.$day})
-                        <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-success">Disponible</p>
-                        @else
-                        <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-danger">No Disponible</p>
-                        @endif
-                    @else
-                        @if($hour >= $last->{'inhour'.$day} && $hour <= $last->{'outhour'.$day})
-                        <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-success">Disponible</p>
-                        @else
-                        <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-danger">No Disponible</p>                                @endif
-                    @endif
-                            <h4 style="font-size: 15px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{$last->name}}</h4>
+                                @if($hour >= $last->{'inhour'.$day} && $hour <= $last->{'outhour'.$day})
+                                    <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-success">Disponible</p>
+                                @elseif($hour >= $last->{'inhourafter'.$day} && $hour <= $last->{'outhourafter'.$day})
+                                    <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-success">Disponible</p>
+                                @else
+                                 <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-danger">No Disponible</p>
+                                @endif
+                             @else
+                                @if($hour >= $last->{'inhour'.$day} && $hour <= $last->{'outhour'.$day})
+                                    <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-success">Disponible</p>
+                                @else
+                                    <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-danger">No Disponible</p>
+                                @endif
+                            @endif
+                            <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{$last->name}}</h4>
                             <p style="font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ $last->job }} <img src="img-icons/check.png"></a></p>
-                            <p style="margin-bottom:0px;font-size: 12px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><img height="20px" src="img-icons/location.png" /> {{$last->zone}}, Mar del Plata</p>
+                            <p style="margin-bottom:0px;font-size: 12px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><img height="16px" src="img-icons/location.png" /> {{$last->zone}}, Mar del Plata</p>
                             <p style="margin-bottom: 0px;font-size: 12px;">
                                         @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
                                             @if($hour <= $last->{'outhour'.$day} && $hour >= $last->{'inhour'.$day})
@@ -572,7 +573,7 @@ if (event.keyCode === 13) {
                                         </form>
                             <hr>
                         </div>
-                        <div class="col-2">
+                        <div class="col-2" style="padding: 0px;">
                             @php
                             $cantComent = 0;
                             $cantPoints = 0;

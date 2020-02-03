@@ -454,7 +454,7 @@ use Carbon\Carbon;
                                     </div>
                                     <div class="col-7">
                                         @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
-                                    @if($hour >= $last->{'inhourafter'.$day} && $hour <= $last->{'outhourafter'.$day})
+                                    @if($hour >= $last->{'inhour'.$day} && $hour <= $last->{'outhour'.$day})
                                     <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-success">Disponible</p>
                                     @elseif($hour >= $last->{'inhourafter'.$day} && $hour <= $last->{'outhourafter'.$day})
                                     <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-success">Disponible</p>
@@ -467,9 +467,9 @@ use Carbon\Carbon;
                                     @else
                                     <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-danger">No Disponible</p>                                @endif
                                 @endif
-                                        <h4 style="font-size: 15px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{$last->name}}</h4>
+                                        <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{$last->name}}</h4>
                                         <p style="font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ $last->job }} <img src="img-icons/check.png"></a></p>
-                                        <p style="margin-bottom:0px;font-size: 12px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><img height="20px" src="img-icons/location.png" /> {{$last->zone}}, Mar del Plata</p>
+                                        <p style="margin-bottom:0px;font-size: 12px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><img height="16px" src="img-icons/location.png" /> {{$last->zone}}, Mar del Plata</p>
                                         <p style="margin-bottom: 0px;font-size: 12px;">
                                                     @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
                                                         @if($hour <= $last->{'outhour'.$day} && $hour >= $last->{'inhour'.$day})
