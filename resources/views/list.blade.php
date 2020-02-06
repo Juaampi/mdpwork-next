@@ -15,21 +15,17 @@ use Carbon\Carbon;
     cursor: pointer;
     }
     </style>
-<section class="bgc-fa" style="padding: 10px 0px;">
+<section style="background: #f1f1f1" style="padding: 10px 0px;">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="bg_png">
-                    <img class="img-fluid" src="img-icons/coete.png" alt="cl1.png">
-                </div>
-                <p style="font-size: 13px;" class="responsive text-center mb2">A continuación escribe lo que buscas</p>
                 <p class="text-center mb2 text-no-responsive"><strong>MDP WORK INC.</strong> - Utilizá el buscador y los filtros para encontrar lo que necesitas.</p>
-                <div class="home-job-search-box mt20 mb20">
+                <div class="home-job-search-box mt20 mb90">
                 <form class="form-inline" method="GET" action="{{route('User.search')}}" >
                          <div class="search_option_one">
                             <div class="form-group">
                                 <label for="exampleInputName"><img src="img-icons/search-icon.png"></label>
-							    	<input name="search" autocomplete="off" spellcheck="false" type="text" class="form-control h70" id="searchinput" placeholder="Carpintero, electricista, plomero">
+                                    <input name="search" autocomplete="off" spellcheck="false" type="text" class="form-control h70" id="searchinput" placeholder="Carpintero, electricista, plomero">
                             </div>
                         </div>
                         <div class="search_option_two">
@@ -39,11 +35,11 @@ use Carbon\Carbon;
                             </div>
                         </div>
                         <div class="search_option_button">
-                            <button id="submit-busqueda" type="submit" class="btn btn-thm btn-secondary h70">Buscar</button>
+                            <button id="submit-busqueda" style="background: #00b7ff" type="submit" class="btn btn-thm btn-secondary h70">Buscar</button>
                         </div>
                     </form>
                     <div class="mt-2 text-center">
-                        <button style=" border:none; background: none;margin: 0 auto;" class="text-center text-info btns dn db-991">Utilizar filtros especiales</button>
+                        <button style=" border:none; background: none;margin: 0 auto;" id="filtros-btn" class="text-center text-info btns db-991">Utilizar filtros especiales</button>
                     </div>
                 </div>
             </div>
@@ -547,7 +543,7 @@ use Carbon\Carbon;
 </script>
 
 <script>
-        function autocomplete(inp, arr) {
+        function autocomplete(inp, arr, arr2) {
           /*the autocomplete function takes two arguments,
           the text field element and an array of possible autocompleted values:*/
           var currentFocus;
@@ -570,11 +566,22 @@ use Carbon\Carbon;
                 if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
                   /*create a DIV element for each matching element:*/
                   b = document.createElement("DIV");
+                  b.setAttribute("class", "ayudadorlistaporuno");
                   /*make the matching letters bold:*/
                   b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
                   b.innerHTML += arr[i].substr(val.length);
                   /*insert a input field that will hold the current array item's value:*/
                   b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+                  if(arr2[i] == 0){
+                    b.innerHTML += "<p class='text-left font-style-italic' style='font-size: 12px;'>Sin resultados</p>";
+                  }
+                  if(arr2[i] == 1){
+                    b.innerHTML += "<p class='text-left' style='font-size: 12px;'><strong>" + arr2[i] + "</strong> Encontrado</p>";
+                  }
+                  if(arr2[i] > 1){
+                    b.innerHTML += "<p class='text-left' style='font-size: 12px;'><strong>" + arr2[i] + "</strong> Encontrados</p>";
+                  }
+                  b.innerHTML += "<hr>";
                   /*execute a function when someone clicks on the item value (DIV element):*/
                       b.addEventListener("click", function(e) {
                       /*insert the value for the autocomplete text field:*/
@@ -648,7 +655,8 @@ use Carbon\Carbon;
 
         <script type="text/javascript">
                 var subcategoriesArray = @json($subcategoriesArray);
-                autocomplete(document.getElementById("searchinput"), subcategoriesArray);
+                var cantidadesarray = @json($cantidadesarray);
+                autocomplete(document.getElementById("searchinput"), subcategoriesArray, cantidadesarray);
                 autocomplete(document.getElementById("zoneinput"), countries);
         </script>
 

@@ -22,50 +22,73 @@ class UserController extends Controller
         $users = User::where('rol', '=', 'profesional')->orderBy('created_at', 'desc')->paginate(10);
         $categories = Category::all();
         $subcategories = Subcategory::all();
+        foreach($subcategories as $subcategory){
+            $cuenta = User::where('job', '=', $subcategory->name)->count();
+            array_add($subcategory, 'cantidad', $cuenta);
+        }
         $array = [];
+        $cantidades = [];
+        $u = 0;
         $i = 0;
         $coments = Coment::all();
        foreach($subcategories as $subcategory){
            $array[$i] = $subcategory->name;
            $i++;
        }
-        return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $users, 'subcategories' => $subcategories, 'coments' => $coments]);
+       foreach($subcategories as $subcategory){
+        $cantidades[$u] = $subcategory->cantidad;
+        $u++;
+    }
+
+        return view('list', ['cantidadesarray' => $cantidades, 'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $users, 'subcategories' => $subcategories, 'coments' => $coments]);
     }
 
     public function search(Request $request){
         $categories = Category::all();
         $subcategories = Subcategory::all();
         $coments = Coment::all();
+        foreach($subcategories as $subcategory){
+            $cuenta = User::where('job', '=', $subcategory->name)->count();
+            array_add($subcategory, 'cantidad', $cuenta);
+        }
+
+
         $array = [];
+        $cantidades = [];
+        $u = 0;
         $i = 0;
         foreach($subcategories as $subcategory){
            $array[$i] = $subcategory->name;
            $i++;
+        }
+        foreach($subcategories as $subcategory){
+            $cantidades[$u] = $subcategory->cantidad;
+            $u++;
         }
 
         if(!empty($request['search']) && !empty($request['zone'])){
             $user = User::where('job', 'like', '%' . $request['search'] . '%')->orWhere('zone', 'like', '%'. $request['zone'] . '%')->paginate(10);
                 if(count($user) == 0){
                     $user = User::paginate(10);
-                    return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
+                    return view('list', ['cantidadesarray' => $cantidades, 'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
                 }else{
-                    return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
+                    return view('list', ['cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
                 }
         }else if(!empty($request['search']) && empty($request['zone'])){
            $user = User::where('job', 'like', '%' . $request['search'] . '%')->paginate(10);
                 if(count($user) == 0){
                     $user = User::paginate(10);
-                    return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
+                    return view('list', ['cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
                 }else{
-                    return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
+                    return view('list', ['cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
                 }
        }else if(!empty($request['zone']) && empty($request['search'])){
             $user = User::where('zone', 'like', '%' . $request['zone'] . '%')->paginate(10);
                 if(count($user) == 0){
                     $user = User::paginate(10);
-                    return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
+                    return view('list', ['cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
                 }else{
-                    return view('list', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
+                    return view('list', ['cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
                 }
        }
        if(empty($request['search']) && empty($request['zone'])){
@@ -475,16 +498,26 @@ class UserController extends Controller
 
     public function welcome(){
         $subcategories = Subcategory::all();
+        foreach($subcategories as $subcategory){
+            $cuenta = User::where('job', '=', $subcategory->name)->count();
+            array_add($subcategory, 'cantidad', $cuenta);
+        }
         $array = [];
+        $cantidades = [];
         $i = 0;
+        $u = 0;
        foreach($subcategories as $subcategory){
            $array[$i] = $subcategory->name;
            $i++;
+       }
+       foreach($subcategories as $subcategory){
+           $cantidades[$u] = $subcategory->cantidad;
+           $u++;
        }
         $categories = Category::all();
         $ultimos = User::orderBy('created_at', 'desc')->take(10)->get();
         $coments = Coment::all();
 
-        return view('welcome', ['subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $ultimos, 'subcategories' => $subcategories, 'coments' => $coments]);
+        return view('welcome', ['cantidadesarray' => $cantidades, 'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $ultimos, 'subcategories' => $subcategories, 'coments' => $coments]);
     }
 }

@@ -44,7 +44,7 @@ use Carbon\Carbon;
 							    </div>
 							</div>
 							<div class="search_option_button">
-							    <button type="submit" id="submit-busqueda" class="btn btn-thm btn-secondary h70">Buscar</button>
+							    <button type="submit" id="submit-busqueda" style="background: #00b7ff" class="btn btn-thm btn-secondary h70">Buscar</button>
 							</div>
 						</form>
 					</div>
@@ -233,8 +233,8 @@ if (event.keyCode === 13) {
 					</a>
 				</div>
 				<div class="col-lg-6 offset-lg-3">
-					<div class="pjc_all_btn text-center">
-						<a class="btn btn-thm" href="/lista">Ver todos los profesionales</a>
+					<div class="text-center">
+						<a class="btn btn-thm bg-white" href="/lista">Ver todos los profesionales</a>
 					</div>
 				</div>
 			</div>
@@ -248,7 +248,7 @@ if (event.keyCode === 13) {
 				<div class="col-lg-12">
 					<div class="ulockd-main-title">
                         <h3 class="mt0">Últimos profesionales</h3>
-                        <h5 class="text-muted">Le damos la bienvenida a todos los nuevos ingresantes del sitio!</h5>
+                        <h6 class="text-muted">Le damos la bienvenida a todos los nuevos ingresantes del sitio!</h6>
 						<a class="text-thm" href="/lista">Ver todos<i class="flaticon-right-arrow pl15"></i></a>
 					</div>
 				</div>
@@ -606,75 +606,16 @@ if (event.keyCode === 13) {
                 @endif
                 @endforeach
             </div>
-            <a class="btn btn-thm" href="/lista">Ver todos los profesionales</a>
+            <a class="btn btn-thm bg-secondary text-white text-center" href="/lista">Ver todos los profesionales</a>
 		</div>
 	</section>
 
 
 	<!-- Our Footer Bottom Area -->
-
-<a class="scrollToHome text-thm" href="#"><img src="img-icons/coete.png" /></a>
 </div>
 
 
 <!-- Wrapper End -->
-
-<div class="modal fade" id="info" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalScrollableTitle">Información de bienvenida</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <div class="card text-center">
-                <div class="card-header">
-                    Bienvenidos a <strong>Mdp Work Inc.</strong>
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title" style="color: #999;font-size: 15px;line-height: 1.2;">En ésta era tecnológica una nueva herramienta virtual llamada
-                      <div class="badge badge-info">MDP WORK INC. </div> te ofrece una solución a tus problemas, sin perder tiempo y desde la comodidad de tu hogar. A continuación te mostramos las 2 formas de utilizar el sitio.
-                </h5>
-                    <div class="row mt-2">
-                        <div class="col-md-6">
-                            <div class="card text-center">
-                                <div class="card-header">
-                                   Soy un <strong>Profesional</strong>
-                                </div>
-                                <div class="card-body" >
-                                        <img src="img/profesional.png" />
-                                        <p style="color: #999;font-size: 15px;line-height: 1.2;">Si queres aparecer en la lista de profesionales del sitio, éste es el registro que estás buscando ! </p>
-                                        <a class="mt-2" href="/register" style="color: #3483fa;font-size: 14px;text-decoration: none;font-weight: 600">¡Quiero ofrecer un servicio!</a>
-                                 </div>
-                            </div>
-                         </div>
-                    <div class="col-md-6">
-                        <div id="registroUsuarioCard" class="card text-center mb-5">
-                            <div class="card-header">
-                               Soy un <strong>Usuario</strong>
-                            </div>
-                            <div class="card-body">
-                                <img src="img/usuario.png" />
-                                <p style="color: #999;font-size: 15px;line-height: 1.2;">Si sos de esas personas que necesita un profesional para solucionar un problema, te invito a conocer la lista de profesionales.</p>
-                                <a href="/lista" style="color: #3483fa;font-size: 14px;text-decoration: none;font-weight: 600">¡Ver lista de profesionales!</a>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-                </div>
-                <div class="card-footer text-muted">
-                  <strong>MDP WORK INC.</strong>. La nueva forma de solucionar tus problemas.
-                </div>
-              </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok Gracias!</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
 
 <script>
@@ -682,7 +623,7 @@ if (event.keyCode === 13) {
     </script>
 
 <script>
-        function autocomplete(inp, arr) {
+        function autocomplete(inp, arr, arr2) {
           /*the autocomplete function takes two arguments,
           the text field element and an array of possible autocompleted values:*/
           var currentFocus;
@@ -705,11 +646,22 @@ if (event.keyCode === 13) {
                 if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
                   /*create a DIV element for each matching element:*/
                   b = document.createElement("DIV");
+                  b.setAttribute("class", "ayudadorlistaporuno text-left");
                   /*make the matching letters bold:*/
                   b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
                   b.innerHTML += arr[i].substr(val.length);
                   /*insert a input field that will hold the current array item's value:*/
                   b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+                  if(arr2[i] == 0){
+                    b.innerHTML += "<p class='text-left font-style-italic' style='font-size: 12px;'>Sin resultados</p>";
+                  }
+                  if(arr2[i] == 1){
+                    b.innerHTML += "<p class='text-left' style='font-size: 12px;'><strong>" + arr2[i] + "</strong> Encontrado</p>";
+                  }
+                  if(arr2[i] > 1){
+                    b.innerHTML += "<p class='text-left' style='font-size: 12px;'><strong>" + arr2[i] + "</strong> Encontrados</p>";
+                  }
+                  b.innerHTML += "<hr>";
                   /*execute a function when someone clicks on the item value (DIV element):*/
                       b.addEventListener("click", function(e) {
                       /*insert the value for the autocomplete text field:*/
@@ -783,8 +735,8 @@ if (event.keyCode === 13) {
 
         <script type="text/javascript">
                 var subcategoriesArray = @json($subcategoriesArray);
-                autocomplete(document.getElementById("searchinput"), subcategoriesArray);
-                autocomplete(document.getElementById("zoneinput"), countries);
+                var cantidadesarray = @json($cantidadesarray);
+                autocomplete(document.getElementById("searchinput"), subcategoriesArray, cantidadesarray);
         </script>
 
 
