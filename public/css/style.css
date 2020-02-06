@@ -2,7 +2,7 @@
 #list-no-responsive{display:none;}
 .centered{position:absolute;top:40%;left:50%;transform:translate(-50%, -50%);}
 .title-mdpwork{display:none;}
-.title-mdpwork-responsive{font-family:'Bowlby One SC', cursive;color:#00b7ff;font-size:22px;margin-top:10px;}
+.title-mdpwork-responsive{font-family:'Bowlby One SC', cursive;color:#00b7ff;font-size:18px;margin-top:10px;}
 .navbar-expand-md .navbar-nav{text-align:center;}
 .payment{align-items:center;border-radius:3px;color:#00558d;display:inline-flex;height:40px;justify-content:center;line-height:1;min-width:72px;padding:0 5px;position:relative;}
 .payment-visa{background-image:url(../img/credit-card/visa.png);background-size:50px 16px;display:block;height:16px;width:50px;margin:12px 11px;margin-top:5px;}
