@@ -48,7 +48,7 @@
 .text-no-responsive{display:none;}
 #filtros-btn{display:block;}
 .ayudadorlistaporuno{margin-top: 10px;margin-bottom: 10px;font-family: 'roboto', sans-serif;}
-.nav-search{position:absolute;left: 94px; right: 94px;margin-top: -19px;}
+.nav-search{position:absolute;left: 70px; right: 90px;margin-top: -19px;}
 .autocomplete-items{background: white;z-index: 9999;position: absolute;background: white;width: 100%;padding: 14px; }
 .home-job-search-box{display:none}
 }

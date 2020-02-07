@@ -241,7 +241,7 @@
             $('.back-icon').css({'height': '15px'});
         });
         $('#back-icon').click(function(){
-            $('.nav-search').css({'left': '96px', 'right': '96px', 'margin-top': '', 'position': 'absolute', 'transition': 'left 0.5s, right 0.5s, margin-top 0.5s'});
+            $('.nav-search').css({'left': '70px', 'right': '90px', 'margin-top': '', 'position': 'absolute', 'transition': 'left 0.5s, right 0.5s, margin-top 0.5s'});
             $('.input-search').css({'height': '', 'padding-left': '', 'border-radius': '','border-top': '', 'border-right': '', 'border-left': '', 'border-bottom': '', 'transition': 'height 0.5s'});
             $('.form-control-feedback').show('slow');
             $('.btn-back').hide();
