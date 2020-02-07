@@ -25,7 +25,7 @@ use Carbon\Carbon;
                          <div class="search_option_one">
                             <div class="form-group">
                                 <label for="exampleInputName"><img src="img-icons/search-icon.png"></label>
-                                    <input name="search" autocomplete="off" spellcheck="false" type="text" class="form-control h70" id="searchinput3" placeholder="Carpintero, electricista, plomero">
+                                    <input name="search" autocomplete="off" spellcheck="false" type="text" class="form-control h70" id="searchinput1" placeholder="Carpintero, electricista, plomero">
                             </div>
                         </div>
                         <div class="search_option_two">
@@ -572,15 +572,6 @@ use Carbon\Carbon;
                   b.innerHTML += arr[i].substr(val.length);
                   /*insert a input field that will hold the current array item's value:*/
                   b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
-                  if(arr2[i] == 0){
-                    b.innerHTML += "<p class='text-left font-style-italic' style='font-size: 12px;'>Sin resultados</p>";
-                  }
-                  if(arr2[i] == 1){
-                    b.innerHTML += "<p class='text-left' style='font-size: 12px;'><strong>" + arr2[i] + "</strong> Encontrado</p>";
-                  }
-                  if(arr2[i] > 1){
-                    b.innerHTML += "<p class='text-left' style='font-size: 12px;'><strong>" + arr2[i] + "</strong> Encontrados</p>";
-                  }
                   b.innerHTML += "<hr>";
                   /*execute a function when someone clicks on the item value (DIV element):*/
                       b.addEventListener("click", function(e) {
@@ -656,8 +647,8 @@ use Carbon\Carbon;
         <script type="text/javascript">
                 var subcategoriesArray = @json($subcategoriesArray);
                 var cantidadesarray = @json($cantidadesarray);
-                autocomplete(document.getElementById("searchinput"), subcategoriesArray, cantidadesarray);
-                autocomplete(document.getElementById("zoneinput"), countries);
+                autocomplete(document.getElementById("searchinput1"), subcategoriesArray, cantidadesarray);
+                //autocomplete(document.getElementById("zoneinput"), countries);
         </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

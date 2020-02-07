@@ -34,6 +34,19 @@
 
 
 </head>
+
+
+@php
+    use App\Subcategory;
+        $subcategories = Subcategory::all();
+        $subcategoriesArray = [];
+        $i = 0;
+       foreach($subcategories as $subcategory){
+           $subcategoriesArray[$i] = $subcategory->name;
+           $i++;
+       }
+
+@endphp
 <body class="bgc-lightgray">
 
     <div id="app">
@@ -82,7 +95,7 @@
                       <!-- Actual search box -->
                         <div class="has-search responsive-search">
                             <form action="{{route('User.search')}}" id="form-search" method="GET" class="nav-search">
-                                <span class="btn-back"><img id="back-icon" class="back-icon" src="img-icons/back.png"> </span>
+                                <span class="btn-back" id="back-icon"><img class="back-icon" src="img-icons/back.png"> </span>
                                 <span class="form-control-feedback"><img height="14px" src="img-icons/search-icon.png"></span>
                                 <input style="font-size: 15px;" name="search" id="searchinput" type="text" autocomplete="off" spellcheck="false" class="form-control input-search" placeholder="Estoy buscando...">
                             </form>
@@ -239,7 +252,7 @@
    </script>
 
        <script>
-        function autocomplete(inp, arr, arr2) {
+        function autocomplete(inp, arr) {
           /*the autocomplete function takes two arguments,
           the text field element and an array of possible autocompleted values:*/
           var currentFocus;
@@ -344,8 +357,7 @@
 
         <script type="text/javascript">
                 var subcategoriesArray = @json($subcategoriesArray);
-                var cantidadesarray = @json($cantidadesarray);
-                autocomplete(document.getElementById("searchinput"), subcategoriesArray, cantidadesarray);
+                autocomplete(document.getElementById("searchinput"), subcategoriesArray);
         </script>
 
         <script>
