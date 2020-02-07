@@ -49,13 +49,45 @@
 #btn-quienes-top{
     cursor: pointer;
 }
+.has-search .form-control {
+    padding-left: 25px;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    width: 30px;
+    height: 20px;
+    line-height:35px;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+.btn-back{
+    top: 1px;
+    left: -4px;
+    opacity: 0;
+    will-change: opacity;
+    -webkit-transition: opacity .15s ease-out;
+    transition: opacity .15s ease-out;
+    display:none;
+}
+
             </style>
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="img/logo.png"  style="border-radius: 30px;height: 40px;"/>
                 </a>
-                <h3 class="title-mdpwork-responsive">Mdp Work Inc.</h3>
+                      <!-- Actual search box -->
+                        <div class="has-search responsive-search">
+                            <form action="{{route('User.search')}}" id="form-search" method="GET" class="nav-search">
+                                <span class="btn-back"><img id="back-icon" class="back-icon" src="img-icons/back.png"> </span>
+                                <span class="form-control-feedback"><img height="14px" src="img-icons/search-icon.png"></span>
+                                <input style="font-size: 15px;" name="search" id="searchinput" type="text" autocomplete="off" spellcheck="false" class="form-control input-search" placeholder="Estoy buscando...">
+                            </form>
+                        </div>
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -186,10 +218,143 @@
 
 
   <script type="text/javascript">
-    $(document).ready(function(){
-     $("#info").modal("show");
-    });
+
+      $(document).ready(function(){
+        $( "#searchinput" ).focus(function() {
+            $('.nav-search').css({'left': '0px', 'right': '0px', 'margin-top': '-33px', 'position': 'absolute', 'transition': 'left 0.5s, right 0.5s, margin-top 0.5s'});
+            $('.input-search').css({'box-shadow': '', 'height': '66px', 'padding-left': '50px', 'border-radius': '0px','border-top': 'none', 'border-right': 'none', 'border-left': 'none', 'border-bottom': '1px solid #00b7ff', 'transition': 'height 0.5s'});
+            $('.form-control-feedback').hide();
+            $('.btn-back').css({'top': '19px','left': '5px','opacity': '1','will-change': 'opacity','display': 'block', 'position': 'absolute', 'margin-left': '10px'});
+            $('.back-icon').css({'height': '15px'});
+        });
+        $('#back-icon').click(function(){
+            $('.nav-search').css({'left': '96px', 'right': '96px', 'margin-top': '', 'position': 'absolute', 'transition': 'left 0.5s, right 0.5s, margin-top 0.5s'});
+            $('.input-search').css({'height': '', 'padding-left': '', 'border-radius': '','border-top': '', 'border-right': '', 'border-left': '', 'border-bottom': '', 'transition': 'height 0.5s'});
+            $('.form-control-feedback').show('slow');
+            $('.btn-back').hide();
+        });
+
+      });
+
    </script>
 
+       <script>
+        function autocomplete(inp, arr, arr2) {
+          /*the autocomplete function takes two arguments,
+          the text field element and an array of possible autocompleted values:*/
+          var currentFocus;
+          /*execute a function when someone writes in the text field:*/
+          inp.addEventListener("input", function(e) {
+              var a, b, i, val = this.value;
+              /*close any already open lists of autocompleted values*/
+              closeAllLists();
+              if (!val) { return false;}
+              currentFocus = -1;
+              /*create a DIV element that will contain the items (values):*/
+              a = document.createElement("DIV");
+              a.setAttribute("id", this.id + "autocomplete-list");
+              a.setAttribute("class", "autocomplete-items");
+              /*append the DIV element as a child of the autocomplete container:*/
+              this.parentNode.appendChild(a);
+              /*for each item in the array...*/
+              for (i = 0; i < arr.length; i++) {
+                /*check if the item starts with the same letters as the text field value:*/
+                if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                  /*create a DIV element for each matching element:*/
+                  b = document.createElement("DIV");
+                  b.setAttribute("class", "ayudadorlistaporuno");
+                  /*make the matching letters bold:*/
+                  b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+                  b.innerHTML += arr[i].substr(val.length);
+                  /*insert a input field that will hold the current array item's value:*/
+                  b.innerHTML += "<img style='float: left;height: 18px;margin-top: 4px;margin-right: 15px;' src='img-icons/search-icon.png'>";
+                  b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+                  b.innerHTML += "<hr>";
+                  /*execute a function when someone clicks on the item value (DIV element):*/
+                      b.addEventListener("click", function(e) {
+                      /*insert the value for the autocomplete text field:*/
+                      inp.value = this.getElementsByTagName("input")[0].value;
+                      $('#form-search').submit();
+                      /*close the list of autocompleted values,
+                      (or any other open lists of autocompleted values:*/
+                      closeAllLists();
+                  });
+                  a.appendChild(b);
+                }
+              }
+          });
+          /*execute a function presses a key on the keyboard:*/
+          inp.addEventListener("keydown", function(e) {
+              var x = document.getElementById(this.id + "autocomplete-list");
+              if (x) x = x.getElementsByTagName("div");
+              if (e.keyCode == 40) {
+                /*If the arrow DOWN key is pressed,
+                increase the currentFocus variable:*/
+                currentFocus++;
+                /*and and make the current item more visible:*/
+                addActive(x);
+              } else if (e.keyCode == 38) { //up
+                /*If the arrow UP key is pressed,
+                decrease the currentFocus variable:*/
+                currentFocus--;
+                /*and and make the current item more visible:*/
+                addActive(x);
+              } else if (e.keyCode == 13) {
+                /*If the ENTER key is pressed, prevent the form from being submitted,*/
+                e.preventDefault();
+                if (currentFocus > -1) {
+                  /*and simulate a click on the "active" item:*/
+                  if (x) x[currentFocus].click();
+                }
+              }
+          });
+          function addActive(x) {
+            /*a function to classify an item as "active":*/
+            if (!x) return false;
+            /*start by removing the "active" class on all items:*/
+            removeActive(x);
+            if (currentFocus >= x.length) currentFocus = 0;
+            if (currentFocus < 0) currentFocus = (x.length - 1);
+            /*add class "autocomplete-active":*/
+            x[currentFocus].classList.add("autocomplete-active");
+          }
+          function removeActive(x) {
+            /*a function to remove the "active" class from all autocomplete items:*/
+            for (var i = 0; i < x.length; i++) {
+              x[i].classList.remove("autocomplete-active");
+            }
+          }
+          function closeAllLists(elmnt) {
+            /*close all autocomplete lists in the document,
+            except the one passed as an argument:*/
+            var x = document.getElementsByClassName("autocomplete-items");
+            for (var i = 0; i < x.length; i++) {
+              if (elmnt != x[i] && elmnt != inp) {
+              x[i].parentNode.removeChild(x[i]);
+            }
+          }
+        }
+        /*execute a function when someone clicks in the document:*/
+        document.addEventListener("click", function (e) {
+            closeAllLists(e.target);
+        });
+        }
+
+        </script>
+
+        <script type="text/javascript">
+                var subcategoriesArray = @json($subcategoriesArray);
+                var cantidadesarray = @json($cantidadesarray);
+                autocomplete(document.getElementById("searchinput"), subcategoriesArray, cantidadesarray);
+        </script>
+
+        <script>
+            $('#searchinput').keypress(function (e) {
+                if (e.which == 13) {
+                    $('#form-search').submit();
+                    return false;
+                }
+            });
+        </script>
 </body>
 </html>

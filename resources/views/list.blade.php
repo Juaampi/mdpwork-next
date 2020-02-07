@@ -15,7 +15,7 @@ use Carbon\Carbon;
     cursor: pointer;
     }
     </style>
-<section style="background: #f1f1f1" style="padding: 10px 0px;">
+<section class="text-no-responsive" style="background: #f1f1f1;padding: 10px 0px;">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -25,7 +25,7 @@ use Carbon\Carbon;
                          <div class="search_option_one">
                             <div class="form-group">
                                 <label for="exampleInputName"><img src="img-icons/search-icon.png"></label>
-                                    <input name="search" autocomplete="off" spellcheck="false" type="text" class="form-control h70" id="searchinput" placeholder="Carpintero, electricista, plomero">
+                                    <input name="search" autocomplete="off" spellcheck="false" type="text" class="form-control h70" id="searchinput3" placeholder="Carpintero, electricista, plomero">
                             </div>
                         </div>
                         <div class="search_option_two">
