@@ -303,11 +303,7 @@
                   /*insert a input field that will hold the current array item's value:*/
                   b.innerHTML += "<i style='float: left;height: 18px;margin-top: 4px;margin-right: 15px;' class='fa fa-search'>";
                   b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
-                  b.innerHTML += "<i style='float: right; margin-right: 20px' class='fa fa-reply settext'></i>";
                   b.innerHTML += "<hr>";
-                  $('.fa fa-reply settext').click(function(){
-                     inp.value = this.getElementsByTagName("input")[0].value;
-                  });
                   /*execute a function when someone clicks on the item value (DIV element):*/
                       b.addEventListener("click", function(e) {
                       /*insert the value for the autocomplete text field:*/
