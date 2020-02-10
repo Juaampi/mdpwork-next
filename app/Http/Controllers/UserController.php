@@ -8,6 +8,8 @@ use App\Subcategory;
 use App\Category;
 use App\Coment;
 use Illuminate\Support\Collection as Collection;
+use PhpParser\Node\Expr\AssignOp\Concat;
+
 class UserController extends Controller
 
 {
@@ -22,19 +24,32 @@ class UserController extends Controller
         $users = User::where('rol', '=', 'profesional')->orderBy('created_at', 'desc')->paginate(10);
         $categories = Category::all();
         $subcategories = Subcategory::all();
+        $coments = Coment::all();
+        $array = [];
+        $cantidades = [];
         foreach($subcategories as $subcategory){
             $cuenta = User::where('job', '=', $subcategory->name)->count();
             array_add($subcategory, 'cantidad', $cuenta);
         }
-        $array = [];
-        $cantidades = [];
-        $u = 0;
-        $i = 0;
-        $coments = Coment::all();
+        $o = 0;
+        for($u = 0; $u<count($users); $u++){
+            $bandera = 0;
+            for($i = 0; $i<count($subcategories); $i++)
+            {
+                if($users[$u]->job == $subcategories[$i]->name){
+                    $bandera = 1;
+                }
+            }
+            if($bandera == 0){
+                $array[$o] = $users[$u]->job;
+                $o++;
+            }
+        }
        foreach($subcategories as $subcategory){
-           $array[$i] = $subcategory->name;
-           $i++;
+           $array[$o] = $subcategory->name;
+           $o++;
        }
+       $u = 0;
        foreach($subcategories as $subcategory){
         $cantidades[$u] = $subcategory->cantidad;
         $u++;
@@ -45,25 +60,37 @@ class UserController extends Controller
 
     public function search(Request $request){
         $categories = Category::all();
+        $users = User::all();
         $subcategories = Subcategory::all();
         $coments = Coment::all();
+        $array = [];
+        $cantidades = [];
         foreach($subcategories as $subcategory){
             $cuenta = User::where('job', '=', $subcategory->name)->count();
             array_add($subcategory, 'cantidad', $cuenta);
         }
-
-
-        $array = [];
-        $cantidades = [];
-        $u = 0;
-        $i = 0;
-        foreach($subcategories as $subcategory){
-           $array[$i] = $subcategory->name;
-           $i++;
+        $o = 0;
+        for($u = 0; $u<count($users); $u++){
+            $bandera = 0;
+            for($i = 0; $i<count($subcategories); $i++)
+            {
+                if($users[$u]->job == $subcategories[$i]->name){
+                    $bandera = 1;
+                }
+            }
+            if($bandera == 0){
+                $array[$o] = $users[$u]->job;
+                $o++;
+            }
         }
-        foreach($subcategories as $subcategory){
-            $cantidades[$u] = $subcategory->cantidad;
-            $u++;
+       foreach($subcategories as $subcategory){
+           $array[$o] = $subcategory->name;
+           $o++;
+       }
+       $u = 0;
+       foreach($subcategories as $subcategory){
+        $cantidades[$u] = $subcategory->cantidad;
+        $u++;
         }
 
         if(!empty($request['search']) && !empty($request['zone'])){
@@ -498,22 +525,37 @@ class UserController extends Controller
 
     public function welcome(){
         $subcategories = Subcategory::all();
+        $users = User::all();
+        $array = [];
+        $cantidades = [];
         foreach($subcategories as $subcategory){
             $cuenta = User::where('job', '=', $subcategory->name)->count();
             array_add($subcategory, 'cantidad', $cuenta);
         }
-        $array = [];
-        $cantidades = [];
-        $i = 0;
-        $u = 0;
+        $o = 0;
+        for($u = 0; $u<count($users); $u++){
+            $bandera = 0;
+            for($i = 0; $i<count($subcategories); $i++)
+            {
+                if($users[$u]->job == $subcategories[$i]->name){
+                    $bandera = 1;
+                }
+            }
+            if($bandera == 0){
+                $array[$o] = $users[$u]->job;
+                $o++;
+            }
+        }
        foreach($subcategories as $subcategory){
-           $array[$i] = $subcategory->name;
-           $i++;
+           $array[$o] = $subcategory->name;
+           $o++;
        }
+       $u = 0;
        foreach($subcategories as $subcategory){
-           $cantidades[$u] = $subcategory->cantidad;
-           $u++;
-       }
+        $cantidades[$u] = $subcategory->cantidad;
+        $u++;
+        }
+
         $categories = Category::all();
         $ultimos = User::orderBy('created_at', 'desc')->take(10)->get();
         $coments = Coment::all();

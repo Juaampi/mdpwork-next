@@ -339,7 +339,7 @@ use Carbon\Carbon;
                                                 <h4 style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{$last->name}}</h4>
                                                 <p style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><img src="img-icons/location.png" /> {{$last->zone}}, Mar del Plata</p>
                                             <p class="font-style-italic" style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
-                                                <img src="img-icons/experiencia.png"> <a href="/busqueda?search={{$last->job}}"><strong>{{ $last->job }}</strong> <img src="img-icons/check.png"></a>
+                                                <img src="img-icons/experiencia.png"> <a href="/busqueda?search={{$last->job}}"><strong>{{ ucfirst($last->job) }}</strong> <img src="img-icons/check.png"></a>
                                             </p>
                                             </div>
                                             <div class="col-md-6">
@@ -381,7 +381,7 @@ use Carbon\Carbon;
                                                             @endforeach
                                                         <img src="img-icons/coments.png" /> Comentarios: <span class="badge badge-secondary">{{$cantidadComentarios}}</span>
                                                         </p>
-                                                        <p class="text-secondary text-sm" style="font-style: italic;">@if($last->job2)({{ $last->job2 }}) @endif</p>
+                                                        <p class="text-secondary text-sm" style="font-style: italic;">@if($last->job2)({{ ucfirst($last->job2) }}) @endif</p>
 
                                             </div>
                                             <div class="row row-responsive">
@@ -464,7 +464,7 @@ use Carbon\Carbon;
                                     <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-danger">No Disponible</p>                                @endif
                                 @endif
                                         <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{$last->name}}</h4>
-                                        <p style="font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ $last->job }} <img src="img-icons/check.png"></a></p>
+                                        <p style="font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ ucfirst($last->job) }} <img src="img-icons/check.png"></a></p>
                                         <p style="margin-bottom:0px;font-size: 12px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><img height="16px" src="img-icons/location.png" /> {{$last->zone}}, Mar del Plata</p>
                                         <p style="margin-bottom: 0px;font-size: 12px;">
                                                     @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})

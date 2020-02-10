@@ -117,7 +117,7 @@ input.addEventListener("keyup", function(event) {
 
 <script>
     // Get the input field
-var input = document.getElementById("searchinput");
+var input = document.getElementById("searchinput1");
 
 // Execute a function when the user releases a key on the keyboard
 input.addEventListener("keyup", function(event) {
@@ -422,7 +422,7 @@ if (event.keyCode === 13) {
                                 <div class="col-md-4">
 							        <h5>{{$last->name}}</h5>
                                     <p style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><img src="img-icons/location.png" /> {{$last->zone}}, Mar del Plata</p>
-                                    <p style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><img src="img-icons/experiencia.png"> <a href="/busqueda?search={{$last->job}}"><strong>{{ $last->job }}</strong> <img src="img-icons/check.png"></a></p>
+                                    <p style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><img src="img-icons/experiencia.png"> <a href="/busqueda?search={{$last->job}}"><strong>{{ ucfirst($last->job) }}</strong> <img src="img-icons/check.png"></a></p>
                                 </div>
                                 <div class="col-md-6">
                                         <p id="horario">
@@ -544,7 +544,7 @@ if (event.keyCode === 13) {
                                 @endif
                             @endif
                             <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{$last->name}}</h4>
-                            <p style="font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ $last->job }} <img src="img-icons/check.png"></a></p>
+                            <p style="font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ ucfirst($last->job) }} <img src="img-icons/check.png"></a></p>
                             <p style="margin-bottom:0px;font-size: 12px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><img height="16px" src="img-icons/location.png" /> {{$last->zone}}, Mar del Plata</p>
                             <p style="margin-bottom: 0px;font-size: 12px;">
                                         @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})

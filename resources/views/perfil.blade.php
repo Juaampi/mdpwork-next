@@ -201,7 +201,7 @@ use Carbon\Carbon;
                                         <ul class="address_list">
                                             <li class="list-inline-item" style="font-style: italic;"><img src="img-icons/location.png" /> {{$user->zone}}, Mar del Plata</li>
                                         </ul>
-                                        <h5><img src="img-icons/experiencia.png"> {{$user->job}} <img src="img-icons/check.png"></h5>
+                                        <h5><img src="img-icons/experiencia.png"> {{ ucfirst($user->job) }} <img src="img-icons/check.png"></h5>
                                         <p>De <strong>{{$user->age}} años</strong></p>
                                         <p class="text-muted"> @php
                                             $cantidadComentarios = 0;
@@ -452,12 +452,12 @@ use Carbon\Carbon;
                       <h4 class="card-title mt-1">{{$user->name}}</h4>
                     <ul class="address_list card-text">
                         <li class="list-inline-item"><a href="#"><h5 style="font-size: 15px; font-style: italic;"><img src="img-icons/location.png" /> {{$user->zone}}, Mar del Plata</a></h5></li>
-                       <h5><img src="img-icons/experiencia.png" /> {{$user->job}} <img src="img-icons/check.png"></h5></li>
+                       <h5><img src="img-icons/experiencia.png" /> {{ ucfirst($user->job )}} <img src="img-icons/check.png"></h5></li>
                        @if($user->job2)
-                            <h6 class="text-secondary">- {{$user->job2}} <img src="img-icons/check.png"></h6></li>
+                            <h6 class="text-secondary">- {{ ucfirst($user->job2) }} <img src="img-icons/check.png"></h6></li>
                        @endif
                        @if($user->job3)
-                            <h6 class="text-secondary">- {{$user->job3}} <img src="img-icons/check.png"></h6></li>
+                            <h6 class="text-secondary">- {{ucfirst($user->job3) }} <img src="img-icons/check.png"></h6></li>
                         @endif
                     </ul>
                 @if($user->{'inhourafter'.$day} && $user->{'outhourafter'.$day})
@@ -775,31 +775,10 @@ use Carbon\Carbon;
                     <div class="col-lg-4 col-xl-4">
                         <h4 class="fz20 mb30">Información adicional</h4>
                         <div class="candidate_working_widget style2 bgc-fa">
-                            @if($user->website)<div class="icon text-thm"><img src="img-icons/website.png"> </span></div>
-                            <div class="details">
-                                <p class="color-black22">Sitio web</p>
-                            <p>{{$user->website}}</p>
-                            </div>
-                            @endif
-                            <div class="icon text-thm"><img src="img-icons/genero.png" /></span></div>
-                            <div class="details">
-                                <p class="color-black22">Profesión</p>
-                            <ul><li><strong> {{$user->job}} </strong><li>
-                            <li style="font-style: italic;">@if($user->job2)- {{ ($user->job2) }}@endif
-                            </li>
-                            <li style="font-style: italic;">@if($user->job3)- {{ ($user->job3) }}@endif
-                            </li>
-                             </div>
-                            <div class="icon text-thm"><img src="img-icons/experiencia.png" /></div>
-                            <div class="details">
-                                <p class="color-black22">Experiencia</p>
-                            <p><strong>@if($user->experience > 0) {{$user->experience}} @endif</strong> @if($user->experience == 1) Año @elseif($user->experience == 0) Menos de 1 año @elseif ($user->experience > 1) Años @endif </p>
-                            </div>
-                            <div class="icon text-thm"><img src="img-icons/titulo.png" /> </div>
-                            <div class="details">
-                                <p class="color-black22">Título / Profesión</p>
-                            <p>{{$user->level}}</p>
-                            </div>
+                            @if($user->website)<p><img src="img-icons/quienes.png"> <strong>Sitio Web: </strong>  {{$user->website}}</p>@endif<hr>
+                            @if($user->job)<p><img src="img-icons/register.png"> <strong>Profesión: </strong>  {{ ucfirst($user->job) }}</p>@endif<hr>
+                            @if($user->experience)<p><img src="img-icons/experiencia.png"> <strong>Experiencia: </strong> @if($user->experience == 0 )Menos de 1 año @elseif($user->experience == 1) 1 Año @elseif($user->experience > 1)  {{$user->experience}} años @endif  </p>@endif<hr>
+                            @if($user->level)<p><img src="img-icons/titulo.png"> <strong>Titulo / Certificado: </strong>  {{$user->level}}</p>@endif<hr>
                         </div>
                     </div>
 
@@ -874,18 +853,18 @@ use Carbon\Carbon;
                             @if(!empty($coments))
                             <h4 class="text-secondary"> Comentarios y puntuaciones: </h4>
                             @if(!auth::user())
-                                <div class="alert alert-info">Debes iniciar sesion como usuario para comentar. <a class="mt-2" href="/register" style="color: #3483fa;font-size: 14px;text-decoration: none;font-weight: 600">¡Quiero Registrarme!</a>
+                                <div class="alert alert-info">Debes iniciar sesion como usuario para comentar. <a class="mt-2" href="/register" style="color: #3483fa;font-size: 14px;text-decoration: none;font-weight: 600">¡Quiero Registrarme!</a></div>
                             @endif
                             @foreach($coments as $coment)
-                            <div class="candidate_personal_info style2">
-                                    <div class="thumb text-center">
+                            <div class="row">
+                                    <div class="col-3">
                                     @foreach ( $users as $guest )
                                         @if($guest->id == $coment->guest_id)
                                             <img class="img-fluid rounded" style="height: 80px; border-radius: " src="img-perfil/{{$guest->img}}" alt="{{$guest->name}}.jpg"><br><br>
                                         @endif
                                     @endforeach
                                     </div>
-                                    <div class="details">
+                                    <div class="col-9">
                                     <span class="text-info"><strong>Puntuación:
                                         @if($coment->point <= 2)
                                             <span class="badge badge-danger">{{$coment->point}}</span>

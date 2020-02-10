@@ -38,12 +38,28 @@
 
 @php
     use App\Subcategory;
+    use App\User;
         $subcategories = Subcategory::all();
+        $users = User::where('rol', '=', 'profesional')->orderBy('created_at', 'desc')->paginate(10);
         $subcategoriesArray = [];
-        $i = 0;
+        $cantidades = [];
+        $o = 0;
+        for($u = 0; $u<count($users); $u++){
+            $bandera = 0;
+            for($i = 0; $i<count($subcategories); $i++)
+            {
+                if($users[$u]->job == $subcategories[$i]->name){
+                    $bandera = 1;
+                }
+            }
+            if($bandera == 0){
+                $subcategoriesArray[$o] = $users[$u]->job;
+                $o++;
+            }
+        }
        foreach($subcategories as $subcategory){
-           $subcategoriesArray[$i] = $subcategory->name;
-           $i++;
+           $subcategoriesArray[$o] = $subcategory->name;
+           $o++;
        }
 
 @endphp
@@ -271,6 +287,7 @@
               this.parentNode.appendChild(a);
               /*for each item in the array...*/
               for (i = 0; i < arr.length; i++) {
+                arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
                 /*check if the item starts with the same letters as the text field value:*/
                 if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
                   /*create a DIV element for each matching element:*/
@@ -360,13 +377,22 @@
                 autocomplete(document.getElementById("searchinput"), subcategoriesArray);
         </script>
 
-        <script>
-            $('#searchinput').keypress(function (e) {
-                if (e.which == 13) {
-                    $('#form-search').submit();
-                    return false;
-                }
-            });
-        </script>
+<script>
+    // Get the input field
+var input = document.getElementById("searchinput");
+
+// Execute a function when the user releases a key on the keyboard
+input.addEventListener("keyup", function(event) {
+// Number 13 is the "Enter" key on the keyboard
+if (event.keyCode === 13) {
+ // Cancel the default action, if needed
+ event.preventDefault();
+ // Trigger the button element with a click
+ $('#form-search').submit();
+}
+});
+
+
+ </script>
 </body>
 </html>
