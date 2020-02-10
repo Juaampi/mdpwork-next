@@ -30,7 +30,6 @@
     <link rel="stylesheet" href="css/responsive.css">
 
     <!-- font-awesome -->
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
     <script src="https://use.fontawesome.com/8ee5d67531.js"></script>
 
    <!-- end template integration css -->
