@@ -33,13 +33,13 @@ use Carbon\Carbon;
 						<form action="{{route('User.search')}}" method="GET" class="form-inline">
 							<div class="search_option_one">
 							    <div class="form-group" style="background: #ffffff">
-							    	<label for="exampleInputName"><img src="img-icons/search-icon.png"></label>
+							    	<label for="exampleInputName"><i class="fa fa-search"></i></label>
 							    	<input type="text" style="background: #ffffff" autocomplete="off" spellcheck="false" class="form-control h70" name="search" id="searchinput1" placeholder="Carpintero, Electricista, Uñas, Bebidas">
 							    </div>
 							</div>
 							<div class="search_option_two">
 							    <div class="form-group" style="background: #ffffff">
-							    	<label for="exampleInputEmail"><img src="img-icons/location.png"/></label>
+							    	<label for="exampleInputEmail"><span style="color:gray;"><i class="fa fa-thumbtack"></i></span></label>
 							    	<input type="text" style="background: #ffffff" autocomplete="off" spellcheck="false" name="zone" class="form-control h70" id="zoneinput" placeholder="Busca por zona">
 							    </div>
 							</div>
@@ -421,8 +421,8 @@ if (event.keyCode === 13) {
                             <div class="row" id="perfil-responsive-div">
                                 <div class="col-md-4">
 							        <h5>{{$last->name}}</h5>
-                                    <p style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><img src="img-icons/location.png" /> {{$last->zone}}, Mar del Plata</p>
-                                    <p style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><img src="img-icons/experiencia.png"> <a href="/busqueda?search={{$last->job}}"><strong>{{ ucfirst($last->job) }}</strong> <img src="img-icons/check.png"></a></p>
+                                    <p style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><span style="color:gray;"><i class="fa fa-thumbtack"></i></span> {{$last->zone}}, Mar del Plata</p>
+                                    <p style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><i class="fa fa-user-md"></i> <a href="/busqueda?search={{$last->job}}"><strong>{{ ucfirst($last->job) }}</strong> <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a></p>
                                 </div>
                                 <div class="col-md-6">
                                         <p id="horario">
@@ -544,8 +544,8 @@ if (event.keyCode === 13) {
                                 @endif
                             @endif
                             <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{$last->name}}</h4>
-                            <p style="font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ ucfirst($last->job) }} <img src="img-icons/check.png"></a></p>
-                            <p style="margin-bottom:0px;font-size: 12px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><img height="16px" src="img-icons/location.png" /> {{$last->zone}}, Mar del Plata</p>
+                            <p style="font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ ucfirst($last->job) }} <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a></p>
+                            <p style="margin-bottom:0px;font-size: 12px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><span style="color:gray;"><i class="fa fa-thumbtack"></i></span> {{$last->zone}}, Mar del Plata</p>
                             <p style="margin-bottom: 0px;font-size: 12px;">
                                         @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
                                             @if($hour <= $last->{'outhour'.$day} && $hour >= $last->{'inhour'.$day})
@@ -594,8 +594,19 @@ if (event.keyCode === 13) {
                          $points = 4;
                         }
                         @endphp
-                            <p style="font-size: 12px;"><img height="8px;" src="img-icons/llena.png">
-                            <span class="text-warning"><strong>{{$points}}</strong></span></p>
+                            @if($points < 2)
+                            <p style="font-size: 12px;"><span style="color: #d84747;"><i class="fa fa-star"></i></span>
+                            <span style="color: #d84747;"><strong>{{$points}}</strong></span></p>
+                            @elseif($points >= 3 && $points < 4)
+                            <p style="font-size: 12px;"><span style="color: #d66514;"><i class="fa fa-star"></i></span>
+                            <span style="color: #d66514;"><strong>{{$points}}</strong></span></p>
+                            @elseif($points >= 4 && $points < 5)
+                            <p style="font-size: 12px;"><span style="color: #28af77"><i class="fa fa-star"></i></span>
+                            <span style="color: #28af77"><strong>{{$points}}</strong></span></p>
+                            @elseif($points == 5)
+                            <p style="font-size: 12px;"><span style="color: #ffc107"><i class="fa fa-star"></i></span>
+                            <span style="color: #ffc107"><strong>{{$points}}</strong></span></p>
+                            @endif
                         </div>
 
                     </div>

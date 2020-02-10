@@ -24,13 +24,13 @@ use Carbon\Carbon;
                 <form class="form-inline" method="GET" action="{{route('User.search')}}" >
                          <div class="search_option_one">
                             <div class="form-group">
-                                <label for="exampleInputName"><img src="img-icons/search-icon.png"></label>
+                                <label for="exampleInputName"><i class="fa fa-search"></i></label>
                                     <input name="search" autocomplete="off" spellcheck="false" type="text" class="form-control h70" id="searchinput1" placeholder="Carpintero, electricista, plomero">
                             </div>
                         </div>
                         <div class="search_option_two">
                             <div class="form-group">
-                                <label for="exampleInputEmail"><img src="img-icons/location.png"/></label>
+                                <label for="exampleInputEmail"><i class="fa fa-thumbtack"></i></label>
 							    <input type="text" class="form-control h70" id="zoneinput" autocomplete="off" spellcheck="false" name="zone" id="zoneinput" placeholder="Busca por zona">
                             </div>
                         </div>
@@ -337,9 +337,9 @@ use Carbon\Carbon;
                                         <div class="row" id="perfil-responsive-div">
                                             <div class="col-md-4">
                                                 <h4 style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{$last->name}}</h4>
-                                                <p style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><img src="img-icons/location.png" /> {{$last->zone}}, Mar del Plata</p>
+                                                <p style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><i class="fa fa-thumbtack"></i>  {{$last->zone}}, Mar del Plata</p>
                                             <p class="font-style-italic" style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
-                                                <img src="img-icons/experiencia.png"> <a href="/busqueda?search={{$last->job}}"><strong>{{ ucfirst($last->job) }}</strong> <img src="img-icons/check.png"></a>
+                                                <img src="img-icons/experiencia.png"> <a href="/busqueda?search={{$last->job}}"><strong>{{ ucfirst($last->job) }}</strong> <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a>
                                             </p>
                                             </div>
                                             <div class="col-md-6">
@@ -464,8 +464,8 @@ use Carbon\Carbon;
                                     <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-danger">No Disponible</p>                                @endif
                                 @endif
                                         <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{$last->name}}</h4>
-                                        <p style="font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ ucfirst($last->job) }} <img src="img-icons/check.png"></a></p>
-                                        <p style="margin-bottom:0px;font-size: 12px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><img height="16px" src="img-icons/location.png" /> {{$last->zone}}, Mar del Plata</p>
+                                        <p style="font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ ucfirst($last->job) }} <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a></p>
+                                        <p style="margin-bottom:0px;font-size: 12px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><i class="fa fa-thumbtack"></i> {{$last->zone}}, Mar del Plata</p>
                                         <p style="margin-bottom: 0px;font-size: 12px;">
                                                     @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
                                                         @if($hour <= $last->{'outhour'.$day} && $hour >= $last->{'inhour'.$day})
@@ -514,8 +514,19 @@ use Carbon\Carbon;
                                      $points = 4;
                                     }
                                     @endphp
-                                        <p style="font-size: 12px;"><img height="8px;" src="img-icons/llena.png">
-                                        <span class="text-warning"><strong>{{$points}}</strong></span></p>
+                                        @if($points < 2)
+                                        <p style="font-size: 12px;"><span style="color: #d84747;"><i class="fa fa-star"></i></span>
+                                        <span style="color: #d84747;"><strong>{{$points}}</strong></span></p>
+                                        @elseif($points >= 3 && $points < 4)
+                                        <p style="font-size: 12px;"><span style="color: #d66514;"><i class="fa fa-star"></i></span>
+                                        <span style="color: #d66514;"><strong>{{$points}}</strong></span></p>
+                                        @elseif($points >= 4 && $points < 5)
+                                        <p style="font-size: 12px;"><span style="color: #28af77"><i class="fa fa-star"></i></span>
+                                        <span style="color: #28af77"><strong>{{$points}}</strong></span></p>
+                                        @elseif($points == 5)
+                                        <p style="font-size: 12px;"><span style="color: #ffc107"><i class="fa fa-star"></i></span>
+                                        <span style="color: #ffc107"><strong>{{$points}}</strong></span></p>
+                                        @endif
                                     </div>
 
                                 </div>

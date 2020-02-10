@@ -29,6 +29,10 @@
     <!-- Responsive stylesheet -->
     <link rel="stylesheet" href="css/responsive.css">
 
+    <!-- font-awesome -->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
+    <script src="https://use.fontawesome.com/8ee5d67531.js"></script>
+
    <!-- end template integration css -->
    <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap" rel="stylesheet">
 
@@ -112,7 +116,7 @@
                         <div class="has-search responsive-search">
                             <form action="{{route('User.search')}}" id="form-search" method="GET" class="nav-search">
                                 <span class="btn-back" id="back-icon"><img class="back-icon" src="img-icons/back.png"> </span>
-                                <span class="form-control-feedback"><img height="14px" src="img-icons/search-icon.png"></span>
+                                <span class="form-control-feedback"><i class="fa fa-search"></i></span>
                                 <input style="font-size: 15px;" name="search" id="searchinput" type="text" autocomplete="off" spellcheck="false" class="form-control input-search" placeholder="Estoy buscando...">
                             </form>
                         </div>
@@ -254,7 +258,7 @@
             $('.input-search').css({'box-shadow': '', 'height': '66px', 'padding-left': '50px', 'border-radius': '0px','border-top': 'none', 'border-right': 'none', 'border-left': 'none', 'border-bottom': '1px solid #00b7ff', 'transition': 'height 0.5s'});
             $('.form-control-feedback').hide();
             $('.btn-back').css({'top': '19px','left': '5px','opacity': '1','will-change': 'opacity','display': 'block', 'position': 'absolute', 'margin-left': '10px'});
-            $('.back-icon').css({'height': '15px'});
+            $('.back-icon').css({'height': '15px'});a
         });
         $('#back-icon').click(function(){
             $('.nav-search').css({'left': '70px', 'right': '90px', 'margin-top': '', 'position': 'absolute', 'transition': 'left 0.5s, right 0.5s, margin-top 0.5s'});
@@ -289,7 +293,7 @@
               for (i = 0; i < arr.length; i++) {
                 arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
                 /*check if the item starts with the same letters as the text field value:*/
-                if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                if (arr[i].toUpperCase().indexOf(val.toUpperCase()) !== -1) {
                   /*create a DIV element for each matching element:*/
                   b = document.createElement("DIV");
                   b.setAttribute("class", "ayudadorlistaporuno");
@@ -297,9 +301,13 @@
                   b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
                   b.innerHTML += arr[i].substr(val.length);
                   /*insert a input field that will hold the current array item's value:*/
-                  b.innerHTML += "<img style='float: left;height: 18px;margin-top: 4px;margin-right: 15px;' src='img-icons/search-icon.png'>";
+                  b.innerHTML += "<i style='float: left;height: 18px;margin-top: 4px;margin-right: 15px;' class='fa fa-search'>";
                   b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+                  b.innerHTML += "<i style='float: right; margin-right: 20px' class='fa fa-reply settext'></i>";
                   b.innerHTML += "<hr>";
+                  $('.fa fa-reply settext').click(function(){
+                     inp.value = this.getElementsByTagName("input")[0].value;
+                  });
                   /*execute a function when someone clicks on the item value (DIV element):*/
                       b.addEventListener("click", function(e) {
                       /*insert the value for the autocomplete text field:*/
