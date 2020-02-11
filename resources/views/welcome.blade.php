@@ -39,7 +39,7 @@ use Carbon\Carbon;
 							</div>
 							<div class="search_option_two">
 							    <div class="form-group" style="background: #ffffff">
-							    	<label for="exampleInputEmail"><span style="color:gray;"><i class="fa fa-thumbtack"></i></span></label>
+							    	<label for="exampleInputEmail"><span style="color:gray;"><i class="fa fa-location-arrow"></i></span></label>
 							    	<input type="text" style="background: #ffffff" autocomplete="off" spellcheck="false" name="zone" class="form-control h70" id="zoneinput" placeholder="Busca por zona">
 							    </div>
 							</div>
@@ -421,7 +421,7 @@ if (event.keyCode === 13) {
                             <div class="row" id="perfil-responsive-div">
                                 <div class="col-md-4">
 							        <h5>{{$last->name}}</h5>
-                                    <p style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><span style="color:gray;"><i class="fa fa-thumbtack"></i></span> {{$last->zone}}, Mar del Plata</p>
+                                    <p style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><span style="color:gray;"><i class="fa fa-location-arrow"></i></span> {{$last->zone}}, Mar del Plata</p>
                                     <p style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><i class="fa fa-user-md"></i> <a href="/busqueda?search={{$last->job}}"><strong>{{ ucfirst($last->job) }}</strong> <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a></p>
                                 </div>
                                 <div class="col-md-6">
@@ -545,7 +545,7 @@ if (event.keyCode === 13) {
                             @endif
                             <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{$last->name}}</h4>
                             <p style="font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ ucfirst($last->job) }} <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a></p>
-                            <p style="margin-bottom:0px;font-size: 12px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><span style="color:gray;"><i class="fa fa-thumbtack"></i></span> {{$last->zone}}, Mar del Plata</p>
+                            <p style="margin-bottom:0px;font-size: 12px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><span style="color:gray;"><i class="fa fa-location-arrow"></i></span> {{$last->zone}}, Mar del Plata</p>
                             <p style="margin-bottom: 0px;font-size: 12px;">
                                         @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
                                             @if($hour <= $last->{'outhour'.$day} && $hour >= $last->{'inhour'.$day})

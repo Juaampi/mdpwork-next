@@ -34,6 +34,7 @@
 
    <!-- end template integration css -->
    <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
 
 </head>
@@ -100,8 +101,8 @@
     left: -4px;
     opacity: 0;
     will-change: opacity;
-    -webkit-transition: opacity .15s ease-out;
-    transition: opacity .15s ease-out;
+    -webkit-transition: opacity .10s ease-out;
+    transition: opacity .10s ease-out;
     display:none;
 }
 
@@ -253,16 +254,16 @@
 
       $(document).ready(function(){
         $( "#searchinput" ).focus(function() {
-            $('.nav-search').css({'left': '0px', 'right': '0px', 'margin-top': '-33px', 'position': 'absolute', 'transition': 'left 0.5s, right 0.5s, margin-top 0.5s'});
-            $('.input-search').css({'box-shadow': '', 'height': '66px', 'padding-left': '50px', 'border-radius': '0px','border-top': 'none', 'border-right': 'none', 'border-left': 'none', 'border-bottom': '1px solid #00b7ff', 'transition': 'height 0.5s'});
+            $('.nav-search').css({'left': '0px', 'right': '0px', 'margin-top': '-33px', 'position': 'absolute', 'transition': 'left 0.2s, right 0.2s, margin-top 0.2s'});
+            $('.input-search').css({'box-shadow': '', 'height': '66px', 'padding-left': '50px', 'border-radius': '0px','border-top': 'none', 'border-right': 'none', 'border-left': 'none', 'border-bottom': '1px solid #00b7ff', 'transition': 'height 0.2s'});
             $('.form-control-feedback').hide();
             $('.btn-back').css({'top': '19px','left': '5px','opacity': '1','will-change': 'opacity','display': 'block', 'position': 'absolute', 'margin-left': '10px'});
-            $('.back-icon').css({'height': '15px'});a
+            $('.back-icon').css({'height': '15px'});
         });
         $('#back-icon').click(function(){
-            $('.nav-search').css({'left': '70px', 'right': '90px', 'margin-top': '', 'position': 'absolute', 'transition': 'left 0.5s, right 0.5s, margin-top 0.5s'});
-            $('.input-search').css({'height': '', 'padding-left': '', 'border-radius': '','border-top': '', 'border-right': '', 'border-left': '', 'border-bottom': '', 'transition': 'height 0.5s'});
-            $('.form-control-feedback').show('slow');
+            $('.nav-search').css({'left': '70px', 'right': '90px', 'margin-top': '', 'position': 'absolute', 'transition': 'left 0.2s, right 0.2s, margin-top 0.2s'});
+            $('.input-search').css({'height': '', 'padding-left': '', 'border-radius': '','border-top': '', 'border-right': '', 'border-left': '', 'border-bottom': '', 'transition': 'height 0.2s'});
+            $('.form-control-feedback').show();
             $('.btn-back').hide();
         });
 
@@ -297,8 +298,12 @@
                   b = document.createElement("DIV");
                   b.setAttribute("class", "ayudadorlistaporuno");
                   /*make the matching letters bold:*/
-                  b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-                  b.innerHTML += arr[i].substr(val.length);
+
+                  let fromIdx = arr[i].toUpperCase().indexOf(val.toUpperCase());
+let toIdx = fromIdx + val.length;
+b.innerHTML = arr[i].substring(0, fromIdx);
+b.innerHTML += "<strong>" + arr[i].substring(fromIdx, toIdx) + "</strong>";
+b.innerHTML += arr[i].substring(toIdx);
                   /*insert a input field that will hold the current array item's value:*/
                   b.innerHTML += "<i style='float: left;height: 18px;margin-top: 4px;margin-right: 15px;' class='fa fa-search'>";
                   b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";

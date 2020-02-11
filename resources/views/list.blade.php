@@ -30,7 +30,7 @@ use Carbon\Carbon;
                         </div>
                         <div class="search_option_two">
                             <div class="form-group">
-                                <label for="exampleInputEmail"><i class="fa fa-thumbtack"></i></label>
+                                <label for="exampleInputEmail"><i class="fa fa-location-arrow"></i></label>
 							    <input type="text" class="form-control h70" id="zoneinput" autocomplete="off" spellcheck="false" name="zone" id="zoneinput" placeholder="Busca por zona">
                             </div>
                         </div>
@@ -337,7 +337,7 @@ use Carbon\Carbon;
                                         <div class="row" id="perfil-responsive-div">
                                             <div class="col-md-4">
                                                 <h4 style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{$last->name}}</h4>
-                                                <p style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><i class="fa fa-thumbtack"></i>  {{$last->zone}}, Mar del Plata</p>
+                                                <p style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><i class="fa fa-location-arrow"></i>  {{$last->zone}}, Mar del Plata</p>
                                             <p class="font-style-italic" style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
                                                 <img src="img-icons/experiencia.png"> <a href="/busqueda?search={{$last->job}}"><strong>{{ ucfirst($last->job) }}</strong> <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a>
                                             </p>
@@ -465,7 +465,7 @@ use Carbon\Carbon;
                                 @endif
                                         <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{$last->name}}</h4>
                                         <p style="font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ ucfirst($last->job) }} <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a></p>
-                                        <p style="margin-bottom:0px;font-size: 12px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><i class="fa fa-thumbtack"></i> {{$last->zone}}, Mar del Plata</p>
+                                        <p style="margin-bottom:0px;font-size: 12px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><i class="fa fa-location-arrow"></i> {{$last->zone}}, Mar del Plata</p>
                                         <p style="margin-bottom: 0px;font-size: 12px;">
                                                     @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
                                                         @if($hour <= $last->{'outhour'.$day} && $hour >= $last->{'inhour'.$day})
