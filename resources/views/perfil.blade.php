@@ -313,7 +313,7 @@ use Carbon\Carbon;
             </div>
             <div class="row mb-2" id="row-description-responsive">
                 <div class="col-md-12">
-                    <div class="card">
+                    <div class="card" style="width:100%">
                     <div class="card-header">
                         <strong>Información de Contacto</strong>
                     </div>
