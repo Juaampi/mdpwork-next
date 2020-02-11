@@ -6,12 +6,12 @@ use Carbon\Carbon;
 <div class="preloader"></div>
 <div class="bgc-lightgray mt-4 mb-4">
 		<div class="container">
-			<div class="row" id="row-text-description">
+			<div class="row" id="row-text-description" style="margin: 0px;">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">Información de Contacto</div>
                         <div class="card-body">
-                            <div class="row">
+                            <div class="row" style="margin: 0px;">
                                 <div class="col-md-3">
                                 <div class="card">
                                     <div class="card-body text-center">
@@ -311,7 +311,7 @@ use Carbon\Carbon;
 
                 </div>
             </div>
-            <div class="row mb-2" id="row-description-responsive">
+            <div class="row mb-2" id="row-description-responsive" style="margin: 0px;">
                 <div class="col-md-12">
                     <div class="card" style="width:100%">
                     <div class="card-header">
@@ -425,7 +425,7 @@ use Carbon\Carbon;
                             @endif
                         </ul>
                         <p style="font-size: 14px;">Redes sociales</p>
-                        <ul style="margin-top: -5px">
+                        <ul style="margin-top: -5px; margin-bottom: 30px;">
                             @if($user->facebook)
                             <li style="display: inline" class="text-center">
                             <a href="{{$user->facebook}}" target="_blank"><img height="30px" class="mr-2" src="img/facebook.png" /></a>
@@ -463,6 +463,8 @@ use Carbon\Carbon;
                                 </li>
                             @endif
                         </ul>
+                        @php $namemail = str_replace(" ","%20",$user->name); @endphp
+                        <a href="mailto:reclamar@mdpworkinc.com?Subject=Quiero20%reclamar20el%20perfil20%{{$namemail}}" style="font-size: 13px;"><span style="color: #bbbbbb"><i class="fa fa-shield"></i> Reclamar éste perfil</span></a>
 
                         </div>
 
@@ -477,9 +479,9 @@ use Carbon\Carbon;
 		</div>
     <section class="bgc-white pb30">
             <div class="container">
-                <div class="row">
+                <div class="row" style="margin: 0px;">
                     <div class="col-lg-8 col-xl-8">
-                        <div class="row">
+                        <div class="row" style="margin: 0px;">
                             <div class="col-lg-12">
                                 <div class="candidate_about_info style2">
                                     <p class="fwb mb10"><img src="img-icons/descripcion.png"> Descripción del trabajo</p>
@@ -710,7 +712,7 @@ use Carbon\Carbon;
             <div class="row" style="margin-left: 10px;">
                 <p class="fwb"><img src="img-icons/imagen.png"> Imágenes del Profesional</p>
             </div>
-            <div class="row">
+            <div class="row" style="margin: 0px;">
                 <div class="col-lg-4">
                     @if($user->img1)
                     <img src="img-jobs/{{$user->img1}}" />
@@ -776,7 +778,7 @@ use Carbon\Carbon;
                                 <div class="alert alert-info">Debes iniciar sesion como usuario para comentar. <a class="mt-2" href="/register" style="color: #3483fa;font-size: 14px;text-decoration: none;font-weight: 600">¡Quiero Registrarme!</a></div>
                             @endif
                             @foreach($coments as $coment)
-                            <div class="row">
+                            <div class="row" style="margin: 0px;">
                                     <div class="col-3">
                                     @foreach ( $users as $guest )
                                         @if($guest->id == $coment->guest_id)
