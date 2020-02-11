@@ -9,7 +9,7 @@
 .payment-mercado{background-image:url(../img/credit-card/mercado.png);background-size:50px 16px;display:block;height:16px;width:50px;margin:12px 11px;margin-top:5px;}
 #txtmetodos{display:none;}
 .row-responsive{justify-content:center!important;}
-#ulmetodos{float:left;margin:10px 0 30px 0px;}
+#ulmetodos{float:left;margin:10px 0 10px 0px;}
 .limetodos{float:left;margin:0 10px 0 0;}
 #horario{font-size:14px;}
 #description-add{display:none;}

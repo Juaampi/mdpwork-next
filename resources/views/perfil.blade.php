@@ -340,7 +340,9 @@ use Carbon\Carbon;
                         @endif
                         <h5 class="card-title mt-1" style="margin-bottom: -2px;font-family: 'Roboto', sans-serif;font-weight: bold;">{{$user->name}}</h5>
                         <p style="font-size: 12px;">En <span class="text-info"> {{$user->zone}}, Mar del Plata </span></p>
-                        <p style="font-size: 15px;"><span style="color: #bbbbbb"><i class="fa fa-shield"></i></span> {{ucfirst($user->job)}} </p>
+                        <p style="font-size: 14px;"><span style="color: #bbbbbb"></span> {{ucfirst($user->job)}} <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></p>
+                        @if($user->job2)<p style="font-size: 14px;"> - <strong>Secundaria:</strong> <span style="color: #bbbbbb"></span> {{ucfirst($user->job2)}} <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></p>@endif
+                        @if($user->job3)<p style="font-size: 14px;"> - <strong>Alterna:</strong> <span style="color: #bbbbbb"></span> {{ucfirst($user->job3)}} <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></p>@endif
                         @php $cantComent = 0; $cantPoints = 0; $points = 0; @endphp @foreach($coments as $coment) @if($coment->user_id == $user->id) @php $cantComent ++;$cantPoints += $coment->point;@endphp @endif @endforeach
                         @php if($cantPoints != 0){ $points = $cantPoints / $cantComent; }else{ $points = 4;}@endphp
                         <ul style="margin-bottom: 0px;color: #17a2b8">
@@ -350,72 +352,114 @@ use Carbon\Carbon;
                             </li>
                         </ul>
 
-                        <p>Contacto directo</p>
-                    <ul>
+                        <ul id="ulmetodos" style="width: 100%;">
+                            @if($user->isEfective)
+                                <li  class="limetodos">
+                                    <img src="img/credit-card/moneysi.png" style="height: 30px; float: left;"  title="Efectivo" />
+                                </li>
+                            @else
+                                <li  class="limetodos">
+                                    <img src="img/credit-card/money.png" style="height: 30px; float: left;"  title="Efectivo" />
+                                </li>
+                            @endif
+                            @if($user->isVisa)
+                            <li class="limetodos">
+                                <img src="img/credit-card/visasi.png" style="height: 30px; float: left;" title="Tarjeta de crédito VISA" />
+                            </li>
+                            @else
+                            <li class="limetodos">
+                                <img src="img/credit-card/visa.png" style="height: 30px; float: left;" title="Tarjeta de crédito VISA" />
+                            </li>
+                            @endif
+                            @if($user->isMasterCard)
+                            <li class="limetodos">
+                                 <img src="img/credit-card/mastercardsi.png" style="height: 30px; float: left;" title="Tarjeta de crédito MASTER CARD" />
+                            </li>
+                            @else
+                            <li class="limetodos">
+                                <img src="img/credit-card/mastercard.png" style="height: 30px; float: left;" title="Tarjeta de crédito MASTER CARD" />
+                           </li>
+                            @endif
+                            @if($user->isMercadoPago)
+                            <li class="limetodos">
+                                    <img src="img/credit-card/mercadosi.png" style="height: 30px; float: left;"  title="Mercado Pago"/>
+                            </li>
+                            @else
+                            <li class="limetodos">
+                                <img src="img/credit-card/mercado.png" style="height: 30px; float: left;"  title="Mercado Pago"/>
+                             </li>
+                            @endif
+                            <li class="limetodos">
+                                <img src="img/credit-card/american.png" style="height: 30px; float: left;"  title="American Express"/>
+                             </li>
+                        </ul>
+
+                        <p style="font-size: 14px;">Contacto directo</p>
+                    <ul style="margin-top: -5px">
                             @if($user->whatsapp)
                             <li style="display: inline" class="text-center">
-                                <a href="https://wa.me/{{$user->whatsapp}}" target="_blank"> <img height="40px" class="mr-2" src="img-icons/whatsapp.png" /></a>
+                                <a href="https://wa.me/{{$user->whatsapp}}" target="_blank"> <img height="30px" class="mr-2" src="img-icons/whatsapp.png" /></a>
                             </li>
                             @else
                             <li style="display: inline" class="text-center">
-                                 <img height="40px" class="mr-2" src="img-icons/whatsappno.png" />
+                                 <img height="30px" class="mr-2" src="img-icons/whatsappno.png" />
                             </li>
                             @endif
                             @if($user->facebook)
                             <li style="display: inline">
-                            <a href="{{$user->facebook}}" target="_blank"><img height="40px" class="mr-2" src="img-icons/messenger.png" />
+                            <a href="{{$user->facebook}}" target="_blank"><img height="30px" class="mr-2" src="img-icons/messenger.png" />
                             </li>
                             @else
                             <li style="display: inline" class="text-center">
-                                <img height="40px" class="mr-2" src="img-icons/messengerno.png" />
+                                <img height="30px" class="mr-2" src="img-icons/messengerno.png" />
                             </li>
                             @endif
                             @if($user->phone)
                             <li style="display: inline">
-                            <a href="tel:{{$user->phone}}"><img class="mr-2" height="40px" src="img-icons/phone.png" /></a>
+                            <a href="tel:{{$user->phone}}"><img class="mr-2" height="30px" src="img-icons/phone.png" /></a>
                             </li>
                             @else
                             <li style="display: inline" class="text-center">
-                                <img height="40px" class="mr-2" src="img-icons/phoneno.png" />
+                                <img height="30px" class="mr-2" src="img-icons/phoneno.png" />
                             </li>
                             @endif
                         </ul>
-                        <p>Redes sociales</p>
-                        <ul>
+                        <p style="font-size: 14px;">Redes sociales</p>
+                        <ul style="margin-top: -5px">
                             @if($user->facebook)
                             <li style="display: inline" class="text-center">
-                            <a href="{{$user->facebook}}" target="_blank"><img height="40px" class="mr-2" src="img/facebook.png" /></a>
+                            <a href="{{$user->facebook}}" target="_blank"><img height="30px" class="mr-2" src="img/facebook.png" /></a>
                             </li>
                             @else
                             <li style="display: inline" class="text-center">
-                                <img height="40px" class="mr-2" src="img/facebookno.png" />
+                                <img height="30px" class="mr-2" src="img/facebookno.png" />
                             </li>
                             @endif
                             @if($user->instagram)
                             <li style="display: inline">
-                                <a href="{{$user->instagram}}" target="_blank"><img height="40px" class="mr-2" src="img/instagram.png" /></a>
+                                <a href="{{$user->instagram}}" target="_blank"><img height="30px" class="mr-2" src="img/instagram.png" /></a>
                             </li>
                             @else
                             <li style="display: inline" class="text-center">
-                                <img height="40px" class="mr-2" src="img/instagramno.png" />
+                                <img height="30px" class="mr-2" src="img/instagramno.png" />
                             </li>
                             @endif
                             @if($user->twitter)
                             <li style="display: inline">
-                                <a href="{{$user->twitter}}" target="_blank"><img class="mr-2" height="40px" src="img/twitter.png" /></a>
+                                <a href="{{$user->twitter}}" target="_blank"><img class="mr-2" height="30px" src="img/twitter.png" /></a>
                             </li>
                             @else
                             <li style="display: inline" class="text-center">
-                                    <img height="40px" class="mr-2" src="img/twitterno.png" />
+                                    <img height="30px" class="mr-2" src="img/twitterno.png" />
                                 </li>
                             @endif
                             @if($user->linkedin)
                             <li style="display: inline">
-                                <a href="{{$user->linkedin}}" target="_blank"><img height="40px" class="mr-2" src="img/linkedin.png" /></a>
+                                <a href="{{$user->linkedin}}" target="_blank"><img height="30px" class="mr-2" src="img/linkedin.png" /></a>
                             </li>
                             @else
                             <li style="display: inline" class="text-center">
-                                    <img height="40px" class="mr-2" src="img/linkedinno.png" />
+                                    <img height="30px" class="mr-2" src="img/linkedinno.png" />
                                 </li>
                             @endif
                         </ul>
