@@ -590,7 +590,7 @@ use Carbon\Carbon;
             @if($user->img1 || $user->img2 || $user->img3)
             <div class="container">
             <div class="row" style="margin-left: 10px;">
-                <p class="fwb"><img src="img-icons/imagen.png"> Imágenes del Profesional</p>
+                <h6 style="margin-top: 20px; font-size: 17px;margin-bottom: 20px;">Imágenes del profesional</h6>
             </div>
             <div class="row">
                 <div class="col-lg-4">
