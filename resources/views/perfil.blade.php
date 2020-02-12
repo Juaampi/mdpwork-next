@@ -6,12 +6,12 @@ use Carbon\Carbon;
 <div class="preloader"></div>
 <div class="bgc-lightgray mt-4 mb-4">
 		<div class="container">
-			<div class="row" id="row-text-description" style="margin: 0px;">
+			<div class="row" id="row-text-description">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">Información de Contacto</div>
                         <div class="card-body">
-                            <div class="row" style="margin: 0px;">
+                            <div class="row">
                                 <div class="col-md-3">
                                 <div class="card">
                                     <div class="card-body text-center">
@@ -197,11 +197,11 @@ use Carbon\Carbon;
                                         @endif
                                     @endif
 
-                                        <h4 class="text-secondary"><strong>{{$user->name}}</strong></h4>
+                                        <h5 class="text-black">{{$user->name}}</h5>
                                         <ul class="address_list">
-                                            <li class="list-inline-item" style="font-style: italic;"><img src="img-icons/location.png" /> {{$user->zone}}, Mar del Plata</li>
+                                            <li class="list-inline-item" style="font-style: italic;"><i class="fa fa-location-arrow"></i> {{$user->zone}}, Mar del Plata</li>
                                         </ul>
-                                        <h5><img src="img-icons/experiencia.png"> {{ ucfirst($user->job) }} <img src="img-icons/check.png"></h5>
+                                        <h6> {{ ucfirst($user->job) }} <i class="fa fa-check-circle"></i></h6>
                                         <p>De <strong>{{$user->age}} años</strong></p>
                                         <p class="text-muted"> @php
                                             $cantidadComentarios = 0;
@@ -311,9 +311,9 @@ use Carbon\Carbon;
 
                 </div>
             </div>
-            <div class="row mb-2" id="row-description-responsive" style="margin: 0px;">
+            <div class="row mb-2" id="row-description-responsive">
                 <div class="col-md-12">
-                    <div class="card" style="width:100%">
+                    <div class="card">
                     <div class="card-header">
                         <strong>Información de Contacto</strong>
                     </div>
@@ -345,53 +345,11 @@ use Carbon\Carbon;
                         @if($user->job3)<p style="font-size: 14px;"> - <strong>Alterna:</strong> <span style="color: #bbbbbb"></span> {{ucfirst($user->job3)}} <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></p>@endif
                         @php $cantComent = 0; $cantPoints = 0; $points = 0; @endphp @foreach($coments as $coment) @if($coment->user_id == $user->id) @php $cantComent ++;$cantPoints += $coment->point;@endphp @endif @endforeach
                         @php if($cantPoints != 0){ $points = $cantPoints / $cantComent; }else{ $points = 4;}@endphp
-                        <ul style="margin-bottom: 0px;color: #17a2b8">
+                        <ul style="margin-bottom: 10px;color: #17a2b8">
                             <li style="display: inline"><i class="fa fa-star"></i></li><li style="display: inline"><i class="fa fa-star"></i></li><li style="display: inline"><i class="fa fa-star"></i></li><li style="display: inline"><i class="fa fa-star"></i></li><li style="display: inline"><i class="fa fa-star"></i></li>
                             <li style="display: inline">
                                 <span style="font-size: 12px; margin-bottom: -5px; margin-top: 10px;margin-left: 5px;" class="text-muted">@if($cantComent == 0) Sin opiniones @elseif($cantComent == 1) 1 opinión @elseif($cantComent > 1) {{$cantComent}} opiniones @endif</span>
                             </li>
-                        </ul>
-
-                        <ul id="ulmetodos" style="width: 100%;">
-                            @if($user->isEfective)
-                                <li  class="limetodos">
-                                    <img src="img/credit-card/moneysi.png" style="height: 30px; float: left;"  title="Efectivo" />
-                                </li>
-                            @else
-                                <li  class="limetodos">
-                                    <img src="img/credit-card/money.png" style="height: 30px; float: left;"  title="Efectivo" />
-                                </li>
-                            @endif
-                            @if($user->isVisa)
-                            <li class="limetodos">
-                                <img src="img/credit-card/visasi.png" style="height: 30px; float: left;" title="Tarjeta de crédito VISA" />
-                            </li>
-                            @else
-                            <li class="limetodos">
-                                <img src="img/credit-card/visa.png" style="height: 30px; float: left;" title="Tarjeta de crédito VISA" />
-                            </li>
-                            @endif
-                            @if($user->isMasterCard)
-                            <li class="limetodos">
-                                 <img src="img/credit-card/mastercardsi.png" style="height: 30px; float: left;" title="Tarjeta de crédito MASTER CARD" />
-                            </li>
-                            @else
-                            <li class="limetodos">
-                                <img src="img/credit-card/mastercard.png" style="height: 30px; float: left;" title="Tarjeta de crédito MASTER CARD" />
-                           </li>
-                            @endif
-                            @if($user->isMercadoPago)
-                            <li class="limetodos">
-                                    <img src="img/credit-card/mercadosi.png" style="height: 30px; float: left;"  title="Mercado Pago"/>
-                            </li>
-                            @else
-                            <li class="limetodos">
-                                <img src="img/credit-card/mercado.png" style="height: 30px; float: left;"  title="Mercado Pago"/>
-                             </li>
-                            @endif
-                            <li class="limetodos">
-                                <img src="img/credit-card/american.png" style="height: 30px; float: left;"  title="American Express"/>
-                             </li>
                         </ul>
 
                         <p style="font-size: 14px;">Contacto directo</p>
@@ -477,20 +435,17 @@ use Carbon\Carbon;
             </div>
             </div>
 		</div>
-    <section class="bgc-white pb30">
+    <div class="bgc-white pb30">
             <div class="container">
-                <div class="row" style="margin: 0px;">
+                <div class="row">
                     <div class="col-lg-8 col-xl-8">
-                        <div class="row" style="margin: 0px;">
-                            <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-12 mt10">
                                 <div class="candidate_about_info style2">
-                                    <p class="fwb mb10"><img src="img-icons/descripcion.png"> Descripción del trabajo</p>
-                                    <p>{{$user->description}}</p>
-                                    <div class="alert alert-warning"><small class="text-secondary"><strong>*ACLARACIÓN:</strong> Los medios de pago aceptados están <strong>resaltados en color</strong>.</small></div>
+                                    <h6 class="mb10" style="font-size: 17px;">Descripción del trabajo</h6>
+                                    <p class="text-muted" style="font-size: 15px">{{$user->description}}</p>
+                                    <h6 class="mb10 mt10" style="font-size: 17px;">Medios de pago</h6>
                                     <ul id="ulmetodos">
-                                        <li id="txtmetodos" style="float: left; margin: 7px 10px 24px 0px">
-                                            <img src="img-icons/tarjeta.png" /><strong> Métodos de pago aceptados</strong>
-                                        </li>
                                         @if($user->isEfective)
                                             <li  class="limetodos">
                                                 <img src="img/credit-card/moneysi.png" style="height: 40px; float: left;"  title="Efectivo" />
@@ -532,187 +487,112 @@ use Carbon\Carbon;
                                          </li>
                                     </ul>
                                 <div class="table-responsive">
-
-                                        <p class="fwb"><img src="img-icons/horario.png"> Horarios del Profesional</p>
-                                        <!--Table-->
-                                        <table class="table">
-
-                                          <!--Table head-->
-                                          <thead>
-                                            <tr>
-                                              <th>*</th>
-                                              <th class="th-lg">Mañana</th>
-                                              <th class="th-lg">Tarde-Noche</th>
-                                              <th class="th-lg">Día Completo</th>
-                                            </tr>
-                                          </thead>
-                                          <!--Table head-->
-
-                                          <!--Table body-->
-                                          @php
-                                          $carbon = Carbon::now('America/Argentina/Buenos_Aires');
+                                <h6 class="mb10 mt10" style="font-size: 17px;">Horarios de atención</h6>
+                                        @php
+                                        $carbon = Carbon::now('America/Argentina/Buenos_Aires');
+                                        $day = $carbon->isoFormat('dddd');
+                                        $hour = $carbon->format('H:i:s');
+                                        if($day == 'Monday'){  $day = 'lunes'; } if($day == 'Tuesday'){ $day = 'martes'; } if($day == 'Wednesday'){ $day = 'miercoles';}
+                                        if($day == 'Thursday'){ $day = 'jueves';}if($day == 'Friday'){$day = 'viernes';}if($day == 'Saturday'){$day ='sabado';}if($day == 'Sunday'){$day = 'domingo';}
                                         @endphp
-                                          <tbody>
-                                            <tr @if($carbon->isoFormat('dddd') == 'Monday') style="background: #ececec;" @endif>
-                                              <th scope="row">Lunes</th>
-                                              @if($user->inhourafterlunes)
-                                                        <td>@php echo date('G:i',strtotime($user->inhourlunes))@endphp hs - @php echo date('G:i',strtotime($user->outhourlunes)) @endphp hs</td>
-                                                        <td>@php echo date('G:i',strtotime($user->inhourafterlunes))@endphp hs - @php echo date('G:i',strtotime($user->outhourafterlunes)) @endphp hs</td>
-                                                        <td>-</td>
-                                              @else
-                                                @if($user->inhourlunes && $user->outhourlunes)
-                                                    <td> - </td>
-                                                    <td> - </td>
-                                                    <td>@php echo date('G:i',strtotime($user->inhourlunes))@endphp hs - @php echo date('G:i',strtotime($user->outhourlunes)) @endphp hs</td>
-                                                @else
-                                                <td> - </td>
-                                                <td> - </td>
-                                                <td> - </td>
-                                                @endif
+                                        <p @if($day == 'Lunes') style="font-size: 15px;background: #f7f7f7;border-radius: 20px;padding: 10px;" @else style="font-size: 15px" @endif ><span style="margin-left: 5px; font-weight: 600;margin-right: 10px;">Lunes</span>
+                                        @if($user->inhourafterlunes)@php echo date('G:i',strtotime($user->inhourlunes))@endphp hs - @php echo date('G:i',strtotime($user->outhourlunes)) @endphp hs y de
+                                            @php echo date('G:i',strtotime($user->inhourafterlunes))@endphp - @php echo date('G:i',strtotime($user->outhourafterlunes)) @endphp
 
-                                              @endif
-                                            </tr>
-                                            <tr @if($carbon->isoFormat('dddd') == 'Tuesday') style="background: #ececec;" @endif>
-                                              <th scope="row">Martes</th>
-                                              @if($user->inhouraftermartes)
-                                                <td>@php echo date('G:i',strtotime($user->inhourmartes))@endphp hs - @php echo date('G:i',strtotime($user->outhourmartes)) @endphp hs</td>
-                                                <td>@php echo date('G:i',strtotime($user->inhouraftermartes))@endphp hs - @php echo date('G:i',strtotime($user->outhouraftermartes)) @endphp hs</td>
-                                                <td>-</td>
-                                             @else
-                                            @if($user->inhourmartes && $user->outhourmartes)
-                                            <td> - </td>
-                                            <td> - </td>
-                                            <td>@php echo date('G:i',strtotime($user->inhourmartes))@endphp hs - @php echo date('G:i',strtotime($user->outhourmartes)) @endphp hs</td>
+                                        @elseif($user->inhourlunes && $user->outhourlunes)
+                                            @php echo date('G:i',strtotime($user->inhourlunes))@endphp - @php echo date('G:i',strtotime($user->outhourlunes)) @endphp
+                                        @else
+                                        <span class="text-danger">-- --</span>
+                                        @endif
+                                        </p>
+
+                                        <p @if($day == 'Martes') style="font-size: 15px;background: #f7f7f7;border-radius: 20px;padding: 10px;" @else style="font-size: 15px" @endif><span style="margin-left: 5px; font-weight: 600;margin-right: 10px;">Martes</span>
+                                            @if($user->inhouraftermartes)@php echo date('G:i',strtotime($user->inhourmartes))@endphp - @php echo date('G:i',strtotime($user->outhourmartes)) @endphp hs y de
+                                                @php echo date('G:i',strtotime($user->inhouraftermartes))@endphp - @php echo date('G:i',strtotime($user->outhouraftermartes)) @endphp
+
+                                            @elseif($user->inhourmartes && $user->outhourmartes)
+                                                @php echo date('G:i',strtotime($user->inhourmartes))@endphp - @php echo date('G:i',strtotime($user->outhourmartes)) @endphp
                                             @else
-                                            <td> - </td>
-                                            <td> - </td>
-                                            <td> - </td>
-                                                @endif
+                                            <span class="text-danger">-- --</span>
                                             @endif
-                                            </tr>
-                                            <tr @if($carbon->isoFormat('dddd') == 'Wednesday') style="background: #ececec;" @endif>
-                                              <th scope="row">Miercoles</th>
-                                              @if($user->inhouraftermiercoles)
-                                              <td>@php echo date('G:i',strtotime($user->inhourmiercoles))@endphp hs - @php echo date('G:i',strtotime($user->outhourmiercoles)) @endphp hs</td>
-                                              <td>@php echo date('G:i',strtotime($user->inhouraftermiercoles))@endphp hs - @php echo date('G:i',strtotime($user->outhouraftermiercoles)) @endphp hs</td>
-                                              <td>-</td>
-                                             @else
-                                            @if($user->inhourmiercoles && $user->outhourmiercoles)
-                                            <td> - </td>
-                                            <td> - </td>
-                                            <td>@php echo date('G:i',strtotime($user->inhourmiercoles))@endphp hs - @php echo date('G:i',strtotime($user->outhourmiercoles)) @endphp hs</td>
-                                            @else
-                                            <td> - </td>
-                                            <td> - </td>
-                                            <td> - </td>
-                                            @endif
-                                            @endif
-                                            </tr>
-                                            <tr @if($carbon->isoFormat('dddd') == 'Thursday') style="background: #ececec;" @endif>
-                                              <th scope="row">Jueves</th>
-                                              @if($user->inhourafterjueves)
-                                                        <td>@php echo date('G:i',strtotime($user->inhourjueves))@endphp hs - @php echo date('G:i',strtotime($user->outhourjueves)) @endphp hs</td>
-                                                        <td>@php echo date('G:i',strtotime($user->inhourafterjueves))@endphp hs - @php echo date('G:i',strtotime($user->outhourafterjueves)) @endphp hs</td>
-                                                        <td>-</td>
-                                              @else
-                                                @if($user->inhourjueves && $user->outhourjueves)
-                                                    <td> - </td>
-                                                    <td> - </td>
-                                                    <td>@php echo date('G:i',strtotime($user->inhourjueves))@endphp hs - @php echo date('G:i',strtotime($user->outhourjueves)) @endphp hs</td>
-                                                    @else
-                                                    <td> - </td>
-                                                    <td> - </td>
-                                                    <td> - </td>
-                                                @endif
-                                              @endif
-                                            </tr>
-                                            <tr @if($carbon->isoFormat('dddd') == 'Friday') style="background: #ececec;" @endif>
-                                                    <th scope="row">Viernes</th>
-                                                    @if($user->inhourafterviernes)
-                                                    <td>@php echo date('G:i',strtotime($user->inhourviernes))@endphp hs - @php echo date('G:i',strtotime($user->outhourviernes)) @endphp hs</td>
-                                                    <td>@php echo date('G:i',strtotime($user->inhourafterviernes))@endphp hs - @php echo date('G:i',strtotime($user->outhourafterviernes)) @endphp hs</td>
-                                                    <td>-</td>
-                                          @else
-                                            @if($user->inhourviernes && $user->outhourviernes)
-                                                <td> - </td>
-                                                <td> - </td>
-                                                <td>@php echo date('G:i',strtotime($user->inhourviernes))@endphp hs - @php echo date('G:i',strtotime($user->outhourviernes)) @endphp hs</td>
+                                            </p>
+
+                                            <p @if($day == 'miercoles') style="font-size: 15px;background: #f7f7f7;border-radius: 20px;padding: 10px;" @else style="font-size: 15px;" @endif><span style="margin-left: 5px; font-weight: 600;margin-right: 10px;">Miércoles</span>
+                                                @if($user->inhouraftermiercoles)@php echo date('G:i',strtotime($user->inhourmiercoles))@endphp - @php echo date('G:i',strtotime($user->outhourmiercoles)) @endphp y de
+                                                    @php echo date('G:i',strtotime($user->ihouraftermiercoles))@endphp - @php echo date('G:i',strtotime($user->outhouraftermiercoles)) @endphp
+
+                                                @elseif($user->inhourmiercoles && $user->outhourmiercoles)
+                                                    @php echo date('G:i',strtotime($user->inhourmiercoles))@endphp - @php echo date('G:i',strtotime($user->outhourmiercoles)) @endphp
                                                 @else
-                                                <td> - </td>
-                                                <td> - </td>
-                                                <td> - </td>
-                                            @endif
-                                          @endif
-                                                  </tr>
-                                                  <tr @if($carbon->isoFormat('dddd') == 'Saturday') style="background: #ececec;" @endif>
-                                                        <th scope="row">Sábado</th>
-                                                        @if($user->inhouraftersabado)
-                                                        <td>@php echo date('G:i',strtotime($user->inhoursabado))@endphp hs - @php echo date('G:i',strtotime($user->outhoursabado)) @endphp hs</td>
-                                                        <td>@php echo date('G:i',strtotime($user->inhouraftersabado))@endphp hs - @php echo date('G:i',strtotime($user->outhouraftersabado)) @endphp hs</td>
-                                                        <td>-</td>
-                                              @else
-                                                @if($user->inhoursabado && $user->outhoursabado)
-                                                    <td> - </td>
-                                                    <td> - </td>
-                                                    <td>@php echo date('G:i',strtotime($user->inhoursabado))@endphp hs - @php echo date('G:i',strtotime($user->outhoursabado)) @endphp hs</td>
-                                                    @else
-                                                    <td> - </td>
-                                                    <td> - </td>
-                                                    <td> - </td>
+                                                <span class="text-danger">-- --</span>
                                                 @endif
-                                              @endif
-                                                      </tr>
-                                                      <tr @if($carbon->isoFormat('dddd') == 'Sunday') style="background: #ececec;" @endif>
-                                                            <th scope="row" >Domingo</th>
-                                                            @if($user->inhourafterdomingo)
-                                                            <td>@php echo date('G:i',strtotime($user->inhourdomingo))@endphp hs - @php echo date('G:i',strtotime($user->outhourdomingo)) @endphp hs</td>
-                                                            <td>@php echo date('G:i',strtotime($user->inhourafterdomingo))@endphp hs - @php echo date('G:i',strtotime($user->outhourafterdomingo)) @endphp hs</td>
-                                                            <td>-</td>
-                                                  @else
-                                                    @if($user->inhourdomingo && $user->outhourdomingo)
-                                                        <td> - </td>
-                                                        <td> - </td>
-                                                        <td>@php echo date('G:i',strtotime($user->inhourdomingo))@endphp hs - @php echo date('G:i',strtotime($user->outhourdomingo)) @endphp hs</td>
-                                                        @else
-                                                        <td> - </td>
-                                                        <td> - </td>
-                                                        <td> - </td>
+                                                </p>
+
+                                                <p @if($day == 'Jueves') style="font-size: 15px;background: #f7f7f7;border-radius: 20px;padding: 10px;" @else style="font-size: 15px;" @endif><span style="margin-left: 5px; font-weight: 600;margin-right: 10px;">Jueves</span>
+                                                    @if($user->inhourafterjueves)@php echo date('G:i',strtotime($user->inhourjueves))@endphp - @php echo date('G:i',strtotime($user->outhourjueves)) @endphp y de
+                                                        @php echo date('G:i',strtotime($user->inhourafterjueves))@endphp - @php echo date('G:i',strtotime($user->outhourafterjueves)) @endphp
+
+                                                    @elseif($user->inhourjueves && $user->outhourjueves)
+                                                        @php echo date('G:i',strtotime($user->inhourjueves))@endphp - @php echo date('G:i',strtotime($user->outhourjueves)) @endphp
+                                                    @else
+                                                    <span class="text-danger">-- --</span>
                                                     @endif
-                                                  @endif
-                                                          </tr>
+                                                    </p>
 
-                                          </tbody>
-                                          <!--Table body-->
+                                                    <p @if($day == 'Viernes') style="font-size: 15px;background: #f7f7f7;border-radius: 20px;padding: 10px;" @else style="font-size: 15px;" @endif><span style="margin-left: 5px; font-weight: 600;margin-right: 10px;">Viernes</span>
+                                                        @if($user->inhourafterviernes)@php echo date('G:i',strtotime($user->inhourviernes))@endphp - @php echo date('G:i',strtotime($user->outhourviernes)) @endphp y de
+                                                            @php echo date('G:i',strtotime($user->inhourafterviernes))@endphp - @php echo date('G:i',strtotime($user->outhourafterviernes)) @endphp
 
-                                        </table>
-                                        <!--Table-->
+                                                        @elseif($user->inhourviernes && $user->outhourviernes)
+                                                            @php echo date('G:i',strtotime($user->inhourviernes))@endphp - @php echo date('G:i',strtotime($user->outhourviernes)) @endphp
+                                                        @else
+                                                        <span class="text-danger">-- --</span>
+                                                        @endif
+                                                        </p>
 
+                                                        <p @if($day == 'Sabado') style="font-size: 15px;background: #f7f7f7;border-radius: 20px;padding: 10px;" @else style="font-size: 15px;" @endif><span style="margin-left: 5px; font-weight: 600;margin-right: 10px;">Sábado</span>
+                                                            @if($user->inhouraftersabado)@php echo date('G:i',strtotime($user->inhoursabado))@endphp - @php echo date('G:i',strtotime($user->outhoursabado)) @endphp y de
+                                                                @php echo date('G:i',strtotime($user->inhouraftersabado))@endphp - @php echo date('G:i',strtotime($user->outhouraftersabado)) @endphp
+
+                                                            @elseif($user->inhoursabado && $user->outhoursabado)
+                                                                @php echo date('G:i',strtotime($user->inhoursabado))@endphp - @php echo date('G:i',strtotime($user->outhoursabado)) @endphp
+                                                            @else
+                                                            <span class="text-danger">-- --</span>
+                                                            @endif
+                                                            </p>
+
+                                                            <p @if($day == 'Domingo') style="font-size: 15px;background: #f7f7f7;border-radius: 20px;padding: 10px;" @else style="font-size: 15px;" @endif><span style="margin-left: 5px; font-weight: 600;margin-right: 10px;">Domingo</span>
+                                                                @if($user->inhourafterdomingo)@php echo date('G:i',strtotime($user->inhourdomingo))@endphp - @php echo date('G:i',strtotime($user->outhourdomingo)) @endphp y de
+                                                                    @php echo date('G:i',strtotime($user->inhourafterdomingo))@endphp - @php echo date('G:i',strtotime($user->outhourafterdomingo)) @endphp
+
+                                                                @elseif($user->inhourdomingo && $user->outhourdomingo)
+                                                                    @php echo date('G:i',strtotime($user->inhourdomingo))@endphp - @php echo date('G:i',strtotime($user->outhourdomingo)) @endphp
+                                                                @else
+                                                                <span class="text-danger">-- --</span>
+                                                                @endif
+                                                            </p>
                                       </div>
-                                      <div class="alert alert-danger text-center"><small class="text-danger mb-2" style="display: block;"><strong>*IMPORTANTE:</strong> Si el profesional no se encuentra disponible, no se va a poder comunicar directamente, pero puede optar por las redes sociales. Por eso es importante visualizar el siguiente cuadro y verificar el horario en el que se va a encontrar disponible.</small></div>
-
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-xl-4">
-                        <h4 class="fz20 mb30">Información adicional</h4>
+                        <h6 style="margin-top: 20px; font-size: 17px;margin-bottom: 20px;">Información adicional</h6>
                         <div class="candidate_working_widget style2 bgc-fa">
-                            @if($user->website)<p><img src="img-icons/quienes.png"> <strong>Sitio Web: </strong>  {{$user->website}}</p>@endif<hr>
-                            @if($user->job)<p><img src="img-icons/register.png"> <strong>Profesión: </strong>  {{ ucfirst($user->job) }}</p>@endif<hr>
-                            @if($user->experience)<p><img src="img-icons/experiencia.png"> <strong>Experiencia: </strong> @if($user->experience == 0 )Menos de 1 año @elseif($user->experience == 1) 1 Año @elseif($user->experience > 1)  {{$user->experience}} años @endif  </p>@endif<hr>
-                            @if($user->level)<p><img src="img-icons/titulo.png"> <strong>Titulo / Certificado: </strong>  {{$user->level}}</p>@endif<hr>
+                            @if($user->website)<p style="font-size:15px;"><i class="fa fa-window-restore"></i> <span style="font-weight: 600">Sitio Web:</span>  {{$user->website}}</p>@endif<hr>
+                            @if($user->job)<p style="font-size:15px;"><i class="fa fa-briefcase"></i> <span style="font-weight: 600">Profesión: </span>  {{ ucfirst($user->job) }}</p>@endif<hr>
+                            @if($user->experience)<p style="font-size:15px;"><i class="fa fa-address-card"></i> <span style="font-weight: 600">Experiencia: </span> @if($user->experience == 0 )Menos de 1 año @elseif($user->experience == 1) 1 Año @elseif($user->experience > 1)  {{$user->experience}} años @endif  </p>@endif<hr>
+                            @if($user->level)<p style="font-size:15px;"><i class="fa fa-graduation-cap"></i> <span style="font-weight: 600">Titulo / Certificado: </span>  {{$user->level}}</p>@endif<hr>
                         </div>
                     </div>
-
                 </div>
-                <hr>
             </div>
             @if($user->img1 || $user->img2 || $user->img3)
             <div class="container">
             <div class="row" style="margin-left: 10px;">
                 <p class="fwb"><img src="img-icons/imagen.png"> Imágenes del Profesional</p>
             </div>
-            <div class="row" style="margin: 0px;">
+            <div class="row">
                 <div class="col-lg-4">
                     @if($user->img1)
                     <img src="img-jobs/{{$user->img1}}" />
@@ -732,6 +612,7 @@ use Carbon\Carbon;
             </div>
             @endif
             <div class="container">
+                    <div class="row">
                         <div class="col-lg-8 mt-3">
                             @if(Auth::user())
                             @if(Auth::user()->rol == 'usuario')
@@ -766,54 +647,54 @@ use Carbon\Carbon;
                                     @else
                                     <input value="Enviar puntuación" type="submit"  class="btn btn-info">
                                     @endif
-
-                            <hr>
                                 </form>
                             </div>
                             @endif
                             @endif
                             @if(!empty($coments))
-                            <h4 class="text-secondary"> Comentarios y puntuaciones: </h4>
+                            <h6 style="margin-top: 20px; font-size: 17px;margin-bottom: 20px;">Opiniones de usuarios</h6>
                             @if(!auth::user())
-                                <div class="alert alert-info">Debes iniciar sesion como usuario para comentar. <a class="mt-2" href="/register" style="color: #3483fa;font-size: 14px;text-decoration: none;font-weight: 600">¡Quiero Registrarme!</a></div>
+                            <p class="alert alert-info">Para comentar debes iniciar sesión como un usuario.</p>
+                            <p>Si tenés cuenta <a class="mt-2" href="/login" style="color: #3483fa;font-size: 14px;text-decoration: none;font-weight: 600">Ingresá</a>. Si todavía no tenés cuenta <a class="mt-2" href="/register" style="color: #c51928;font-size: 14px;text-decoration: none;font-weight: 600">Registrate</a>.</p>
+
                             @endif
                             @foreach($coments as $coment)
-                            <div class="row" style="margin: 0px;">
-                                    <div class="col-3">
+                            <div class="container">
+                            <div class="row">
                                     @foreach ( $users as $guest )
                                         @if($guest->id == $coment->guest_id)
-                                            <img class="img-fluid rounded" style="height: 80px; border-radius: " src="img-perfil/{{$guest->img}}" alt="{{$guest->name}}.jpg"><br><br>
+                                            <img class="img-fluid" style="height: 35px; border-radius: 35px" src="img-perfil/{{$guest->img}}" alt="{{$guest->name}}.jpg">
+                                            <h6 style="margin-top: 8px; margin-left: 10px;font-size: 14px; font-weight: 600">{{$guest->name}}
+                                            @if($coment->point <=2)
+                                                <span class="text-danger"> +{{$coment->point}}</span></h6>
+                                            @elseif($coment->point > 2 && $coment->point <= 3)
+                                                <span class="text-warning"> +{{$coment->point}}</span></h6>
+                                            @elseif($coment->point > 3 && $coment->point <= 4)
+                                                <span class="text-info"> +{{$coment->point}}</span></h6>
+                                            @elseif($coment->point > 4 && $coment->point <= 5)
+                                                <span class="text-success"> +{{$coment->point}}</span></h6>
+                                            @endif
                                         @endif
                                     @endforeach
-                                    </div>
-                                    <div class="col-9">
-                                    <span class="text-info"><strong>Puntuación:
-                                        @if($coment->point <= 2)
-                                            <span class="badge badge-danger">{{$coment->point}}</span>
-                                        @endif
-                                        @if($coment->point > 2 && $coment->point <= 4)
-                                            <span class="badge badge-info">{{$coment->point}}</span>
-                                        @endif
-                                        @if($coment->point == 5)
-                                            <span class="badge badge-warning">{{$coment->point}}</span>
-                                        @endif
-                                    </strong></span>
-                                    @foreach($users as $guest)
-                                        @if($guest->id == $coment->guest_id)
-                                        <h5><strong>{{$guest->name}}</strong> - <small class="text-secondary">{{$coment->created_at}}</small></h5>
-                                        @endif
-                                    @endforeach
-                                        <ul class="address_list">
-                                        <li class="list-item"><img src="img-icons/coment.png" /> {{$coment->coment}}</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <hr>
-                                @endforeach
+                            </div>
+                            <div class="row">
+                                <ul style="margin-bottom: 7px;margin-top: 7px;color: #17a2b8">
+                                    <li style="display: inline"><i class="fa fa-star"></i></li><li style="display: inline"><i class="fa fa-star"></i></li><li style="display: inline"><i class="fa fa-star"></i></li><li style="display: inline"><i class="fa fa-star"></i></li><li style="display: inline"><i class="fa fa-star"></i></li>
+                                    <li style="display: inline">
+                                        <span style="font-size: 12px; margin-bottom: -5px; margin-top: 10px;margin-left: 5px;" class="text-muted">@php echo date("d/m/Y",strtotime($coment->created_at))@endphp</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row">
+                               <h6 style="font-size: 15px" class="text-muted"> {{$coment->coment}}</h6>
+                            </div>
+                            </div>
+                            <hr>
+                            @endforeach
                             @endif
                         </div>
-
+            </div>
                     </div>
                 </div>
-        </section>
+            </div>
 @endsection

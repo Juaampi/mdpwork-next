@@ -302,7 +302,7 @@
                   let fromIdx = arr[i].toUpperCase().indexOf(val.toUpperCase());
 let toIdx = fromIdx + val.length;
 b.innerHTML = arr[i].substring(0, fromIdx);
-b.innerHTML += "<strong>" + arr[i].substring(fromIdx, toIdx) + "</strong>";
+b.innerHTML += "<span style='color: black'>" + arr[i].substring(fromIdx, toIdx) + "</span>";
 b.innerHTML += arr[i].substring(toIdx);
                   /*insert a input field that will hold the current array item's value:*/
                   b.innerHTML += "<i style='float: left;height: 18px;margin-top: 4px;margin-right: 15px;' class='fa fa-search'>";

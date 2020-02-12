@@ -307,117 +307,10 @@ if (event.keyCode === 13) {
 
 							<div class="thumb fn-smd">
 							<img class="img-fluid" style="height: 120px; width: 140px;" src="img-perfil/{{$last->img}}" alt="1.jpg">
-                            @php
-                            $cantComent = 0;
-                            $cantPoints = 0;
-                            $points = 0;
-                        @endphp
-                        @foreach($coments as $coment)
-                            @if($coment->user_id == $last->id)
-                                @php
-                                    $cantComent ++;
-                                    $cantPoints += $coment->point;
-                                @endphp
-                            @endif
-                        @endforeach
-                        @php
-                        if($cantPoints != 0){
-                         $points = $cantPoints / $cantComent;
-                        }else{
-                         $points = 4;
-                        }
-                        @endphp
-                                <ul style="margin-bottom: 0px;">
-                                    @if($points <= 1)
-									<li style="display: inline">
-										<img height="18px;" src="img-icons/llena.png">
-                                    </li>
-                                    <li style="display: inline">
-                                        <img height="18px;" src="img-icons/vacia.png">
-                                    </li>
-                                    <li style="display: inline">
-                                        <img height="18px;" src="img-icons/vacia.png">
-                                    </li>
-                                    <li style="display: inline">
-                                        <img height="18px;" src="img-icons/vacia.png">
-                                    </li>
-                                    <li style="display: inline">
-                                        <img height="18px;" src="img-icons/vacia.png">
-                                    </li>
-                                    @endif
-                                    @if($points > 1 && $points <= 2)
-									<li style="display: inline">
-										<img height="18px;" src="img-icons/llena.png">
-									</li>
-									<li style="display: inline">
-										<img height="18px;" src="img-icons/llena.png">
-                                    </li>
-                                    <li style="display: inline">
-                                        <img height="18px;" src="img-icons/vacia.png">
-                                    </li>
-                                    <li style="display: inline">
-                                        <img height="18px;" src="img-icons/vacia.png">
-                                    </li>
-                                    <li style="display: inline">
-                                        <img height="18px;" src="img-icons/vacia.png">
-                                    </li>
-                                    @endif
-                                    @if($points > 2 && $points <= 3)
-									<li style="display: inline">
-										<img height="18px;" src="img-icons/llena.png">
-                                    </li>
-                                    <li style="display: inline">
-										<img height="18px;" src="img-icons/llena.png">
-                                    </li>
-                                    <li style="display: inline">
-										<img height="18px;" src="img-icons/llena.png">
-                                    </li>
-                                    <li style="display: inline">
-                                        <img height="18px;" src="img-icons/vacia.png">
-                                    </li>
-                                    <li style="display: inline">
-                                        <img height="18px;" src="img-icons/vacia.png">
-                                    </li>
-                                    @endif
-                                    @if($points > 3 && $points <= 4)
-									<li style="display: inline">
-										<img height="18px;" src="img-icons/llena.png">
-                                    </li>
-                                    <li style="display: inline">
-										<img height="18px;" src="img-icons/llena.png">
-                                    </li>
-                                    <li style="display: inline">
-										<img height="18px;" src="img-icons/llena.png">
-                                    </li>
-                                    <li style="display: inline">
-										<img height="18px;" src="img-icons/llena.png">
-                                    </li>
-                                    <li style="display: inline">
-                                        <img height="18px;" src="img-icons/vacia.png">
-                                    </li>
-                                    @endif
-                                    @if($points > 4 && $points <= 5)
-                                    <li style="display: inline">
-										<img height="18px;" src="img-icons/llena.png">
-                                    </li>
-                                    <li style="display: inline">
-										<img height="18px;" src="img-icons/llena.png">
-                                    </li>
-                                    <li style="display: inline">
-										<img height="18px;" src="img-icons/llena.png">
-                                    </li>
-                                    <li style="display: inline">
-										<img height="18px;" src="img-icons/llena.png">
-                                    </li>
-                                    <li style="display: inline">
-										<img height="18px;" src="img-icons/llena.png">
-                                    </li>
-                                    @endif
-                                </ul>
-
-									<span class="badge badge-warning"><strong>{{$points}}</strong></span>
+                            @php $cantComent = 0;$cantPoints = 0;$points = 0;@endphp
+                                @foreach($coments as $coment) @if($coment->user_id == $last->id) @php $cantComent ++; $cantPoints += $coment->point; @endphp @endif @endforeach
+                            @php if($cantPoints != 0){ $points = $cantPoints / $cantComent; }else{ $points = 4; } @endphp
 							</div>
-
                             <div class="row" id="perfil-responsive-div">
                                 <div class="col-md-4">
 							        <h5>{{$last->name}}</h5>
@@ -449,68 +342,15 @@ if (event.keyCode === 13) {
 													@endif
 												@endif
                                         </p>
-                                        <p>
-                                            @php
-                                            $cantidadComentarios = 0;
-                                            @endphp
-                                                @foreach($coments as $coment)
-                                                @if($coment->user_id == $last->id)
-                                                    @php
-                                                        $cantidadComentarios ++;
-                                                    @endphp
-                                                @endif
-                                            @endforeach
-                                        <img src="img-icons/coments.png" /> Comentarios: <span class="badge badge-secondary">{{$cantidadComentarios}}</span>
+                                        <p><ul style="margin-bottom: 0px;color: #17a2b8">
+                                            <li style="display: inline"><i class="fa fa-star"></i></li><li style="display: inline"><i class="fa fa-star"></i></li><li style="display: inline"><i class="fa fa-star"></i></li><li style="display: inline"><i class="fa fa-star"></i></li><li style="display: inline"><i class="fa fa-star"></i></li>
+                                            <li style="display: inline">
+                                                <span style="margin-left: 5px;" class="text-muted">@if($cantComent == 0) Sin opiniones @elseif($cantComent == 1) 1 opinión @elseif($cantComent > 1) {{$cantComent}} opiniones @endif</span>
+                                            </li>
+                                        </ul>
                                         </p>
+
                                 </div>
-
-                        </div>
-                        <div class="row row-responsive">
-
-                                <ul id="ulmetodos">
-                                    <li id="txtmetodos" style="float: left; margin: 7px 12px 2px 90px">
-                                        <img src="img-icons/tarjeta.png" /> <span style="font-style: italic;">Métodos de pago aceptados</span>
-                                    </li>
-                                    @if($last->isEfective)
-                                        <li  class="limetodos">
-                                            <img src="img/credit-card/moneysi.png" style="height: 40px; float: left;"  title="Efectivo" />
-                                        </li>
-                                    @else
-                                        <li  class="limetodos">
-                                            <img src="img/credit-card/money.png" style="height: 40px; float: left;"  title="Efectivo" />
-                                        </li>
-                                    @endif
-                                    @if($last->isVisa)
-                                    <li class="limetodos">
-                                        <img src="img/credit-card/visasi.png" style="height: 40px; float: left;" title="Tarjeta de crédito VISA" />
-                                    </li>
-                                    @else
-                                    <li class="limetodos">
-                                        <img src="img/credit-card/visa.png" style="height: 40px; float: left;" title="Tarjeta de crédito VISA" />
-                                    </li>
-                                    @endif
-                                    @if($last->isMasterCard)
-                                    <li class="limetodos">
-                                         <img src="img/credit-card/mastercardsi.png" style="height: 40px; float: left;" title="Tarjeta de crédito MASTER CARD" />
-                                    </li>
-                                    @else
-                                    <li class="limetodos">
-                                        <img src="img/credit-card/mastercard.png" style="height: 40px; float: left;" title="Tarjeta de crédito MASTER CARD" />
-                                   </li>
-                                    @endif
-                                    @if($last->isMercadoPago)
-                                    <li class="limetodos">
-                                            <img src="img/credit-card/mercadosi.png" style="height: 40px; float: left;"  title="Mercado Pago"/>
-                                    </li>
-                                    @else
-                                    <li class="limetodos">
-                                        <img src="img/credit-card/mercado.png" style="height: 40px; float: left;"  title="Mercado Pago"/>
-                                     </li>
-                                    @endif
-                                    <li class="limetodos">
-                                        <img src="img/credit-card/american.png" style="height: 40px; float: left;"  title="American Express"/>
-                                     </li>
-                                </ul>
 
                         </div>
                         </div>
@@ -567,10 +407,7 @@ if (event.keyCode === 13) {
                                             @endif
                                         @endif
                                         </p>
-                                        <form action="{{route('User.perfil')}}" method="GET">
-                                            <input type="hidden" value="{{$last->id}}" name="user_id">
-                                            <input type="submit" style="text-decoration: none;  color: #3db39e;background: none;border: none;font-size: 12px;" value="Ver/Contactar" />
-                                        </form>
+                                        <a class="stretched-link" style="text-decoration: none;  color: #3db39e;background: none;border: none;font-size: 12px;" href="{{Route('User.perfil', ['user_id' => $last->id])}}" >Ver / Contactar </a>
                             <hr>
                         </div>
                         <div class="col-2" style="padding: 0px;">

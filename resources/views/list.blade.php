@@ -20,7 +20,7 @@ use Carbon\Carbon;
         <div class="row">
             <div class="col-lg-12">
                 <p class="text-center mb2 text-no-responsive"><strong>MDP WORK INC.</strong> - Utilizá el buscador y los filtros para encontrar lo que necesitas.</p>
-                <div class="home-job-search-box mt20 mb90">
+                <div class="home-job-search-box mt20">
                 <form class="form-inline" method="GET" action="{{route('User.search')}}" >
                          <div class="search_option_one">
                             <div class="form-group">
@@ -220,220 +220,53 @@ use Carbon\Carbon;
 
                                     <!-- ACA FINALIZA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
 
-                                        <div class="thumb fn-smd">
+                                    <div class="thumb fn-smd">
                                         <img class="img-fluid" style="height: 120px; width: 140px;" src="img-perfil/{{$last->img}}" alt="1.jpg">
-                                        @php
-                                        $cantComent = 0;
-                                        $cantPoints = 0;
-                                        $points = 0;
-                                    @endphp
-                                    @foreach($coments as $coment)
-                                        @if($coment->user_id == $last->id)
-                                            @php
-                                                $cantComent ++;
-                                                $cantPoints += $coment->point;
-                                            @endphp
-                                        @endif
-                                    @endforeach
-                                    @php
-                                    if($cantPoints != 0){
-                                     $points = $cantPoints / $cantComent;
-                                    }else{
-                                     $points = 4;
-                                    }
-                                    @endphp
-                                            <ul style="margin-bottom: 0px;">
-                                                @if($points <= 1)
-                                                <li style="display: inline">
-                                                    <img height="18px;" src="img-icons/llena.png">
-                                                </li>
-                                                <li style="display: inline">
-                                                    <img height="18px;" src="img-icons/vacia.png">
-                                                </li>
-                                                <li style="display: inline">
-                                                    <img height="18px;" src="img-icons/vacia.png">
-                                                </li>
-                                                <li style="display: inline">
-                                                    <img height="18px;" src="img-icons/vacia.png">
-                                                </li>
-                                                <li style="display: inline">
-                                                    <img height="18px;" src="img-icons/vacia.png">
-                                                </li>
-                                                @endif
-                                                @if($points > 1 && $points <= 2)
-                                                <li style="display: inline">
-                                                    <img height="18px;" src="img-icons/llena.png">
-                                                </li>
-                                                <li style="display: inline">
-                                                    <img height="18px;" src="img-icons/llena.png">
-                                                </li>
-                                                <li style="display: inline">
-                                                    <img height="18px;" src="img-icons/vacia.png">
-                                                </li>
-                                                <li style="display: inline">
-                                                    <img height="18px;" src="img-icons/vacia.png">
-                                                </li>
-                                                <li style="display: inline">
-                                                    <img height="18px;" src="img-icons/vacia.png">
-                                                </li>
-                                                @endif
-                                                @if($points > 2 && $points <= 3)
-                                                <li style="display: inline">
-                                                    <img height="18px;" src="img-icons/llena.png">
-                                                </li>
-                                                <li style="display: inline">
-                                                    <img height="18px;" src="img-icons/llena.png">
-                                                </li>
-                                                <li style="display: inline">
-                                                    <img height="18px;" src="img-icons/llena.png">
-                                                </li>
-                                                <li style="display: inline">
-                                                    <img height="18px;" src="img-icons/vacia.png">
-                                                </li>
-                                                <li style="display: inline">
-                                                    <img height="18px;" src="img-icons/vacia.png">
-                                                </li>
-                                                @endif
-                                                @if($points > 3 && $points <= 4)
-                                                <li style="display: inline">
-                                                    <img height="18px;" src="img-icons/llena.png">
-                                                </li>
-                                                <li style="display: inline">
-                                                    <img height="18px;" src="img-icons/llena.png">
-                                                </li>
-                                                <li style="display: inline">
-                                                    <img height="18px;" src="img-icons/llena.png">
-                                                </li>
-                                                <li style="display: inline">
-                                                    <img height="18px;" src="img-icons/llena.png">
-                                                </li>
-                                                <li style="display: inline">
-                                                    <img height="18px;" src="img-icons/vacia.png">
-                                                </li>
-                                                @endif
-                                                @if($points > 4 && $points <= 5)
-                                                <li style="display: inline">
-                                                    <img height="18px;" src="img-icons/llena.png">
-                                                </li>
-                                                <li style="display: inline">
-                                                    <img height="18px;" src="img-icons/llena.png">
-                                                </li>
-                                                <li style="display: inline">
-                                                    <img height="18px;" src="img-icons/llena.png">
-                                                </li>
-                                                <li style="display: inline">
-                                                    <img height="18px;" src="img-icons/llena.png">
-                                                </li>
-                                                <li style="display: inline">
-                                                    <img height="18px;" src="img-icons/llena.png">
-                                                </li>
-                                                @endif
-                                            </ul>
-
-                                                <span class="badge badge-warning"><strong>{{$points}}</strong></span>
-
+                                        @php $cantComent = 0;$cantPoints = 0;$points = 0;@endphp
+                                            @foreach($coments as $coment) @if($coment->user_id == $last->id) @php $cantComent ++; $cantPoints += $coment->point; @endphp @endif @endforeach
+                                        @php if($cantPoints != 0){ $points = $cantPoints / $cantComent; }else{ $points = 4; } @endphp
                                         </div>
-
                                         <div class="row" id="perfil-responsive-div">
                                             <div class="col-md-4">
-                                                <h4 style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{$last->name}}</h4>
-                                                <p style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><i class="fa fa-location-arrow"></i>  {{$last->zone}}, Mar del Plata</p>
-                                            <p class="font-style-italic" style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
-                                                <img src="img-icons/experiencia.png"> <a href="/busqueda?search={{$last->job}}"><strong>{{ ucfirst($last->job) }}</strong> <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a>
-                                            </p>
+                                                <h5>{{$last->name}}</h5>
+                                                <p style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><span style="color:gray;"><i class="fa fa-location-arrow"></i></span> {{$last->zone}}, Mar del Plata</p>
+                                                <p style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><i class="fa fa-user-md"></i> <a href="/busqueda?search={{$last->job}}"><strong>{{ ucfirst($last->job) }}</strong> <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a></p>
                                             </div>
                                             <div class="col-md-6">
-                                                    <p>
+                                                    <p id="horario">
                                                         <img src="img-icons/horario.png" />
-
-                                    <!-- HORARIOS: -->
-                                                        <strong>Hoy: </strong>
-                                                        @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
-                                                            @if($hour >= $last->{'inhourafter'.$day} && $hour <= $last->{'outhourafter'.$day})
-                                                                <span style="font-size: 14px">@php echo date('G:i',strtotime($last->{'inhour'.$day}))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day})) @endphp hs</span>
-                                                            @elseif($hour >= $last->{'inhourafter'.$day} && $hour <= $last->{'outhourafter'.$day})
-                                                                <span style="font-size: 14px">@php echo date('G:i',strtotime($last->{'inhourafter'.$day}))@endphp hs - @php echo date('G:i',strtotime($last->{'outhourafter'.$day})) @endphp hs</span>
-                                                            @else
-                                                                <span style="font-size: 14px; font-style: italic;" class="text-danger font-weight-bold">No disponible por hoy</span>
-                                                            @endif
-                                                        @else
-                                                            @if($hour >= $last->{'inhour'.$day} && $hour <= $last->{'outhour'.$day})
-                                                                <span style="font-size: 14px">@php echo date('G:i',strtotime($last->{'inhour'.$day}))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day})) @endphp hs</span>
-                                                            @else
-                                                                <span style="font-size: 14px; font-style: italic;" class="text-danger font-weight-bold">No disponible por hoy</span>
-                                                            @endif
-                                                        @endif
-
-                                    <!-- CIERRE HORARIOS -->
-
-
-                                                    </p>
-                                                    <p>
-                                                            @php
-                                                            $cantidadComentarios = 0;
-                                                            @endphp
-                                                                @foreach($coments as $coment)
-                                                                @if($coment->user_id == $last->id)
-                                                                    @php
-                                                                        $cantidadComentarios ++;
-                                                                    @endphp
+                                                        <!-- TODOS  HORARIOS: -->
+                                                            <strong>Hoy: </strong>
+                                                            @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
+                                                                @if($hour <= $last->{'outhour'.$day} && $hour >= $last->{'inhour'.$day})
+                                                                    <span style="font-size: 14px">@php echo date('G:i',strtotime($last->{'inhour'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day} )) @endphp hs</span>
+                                                                @elseif($hour >= $last->{'inhourafter'.$day} && $hour <= $last->{'outhourafter'.$day} )
+                                                                    <span style="font-size: 14px">@php echo date('G:i',strtotime($last->{'inhourafter'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhourafter'.$day} )) @endphp hs</span>
+                                                                @else
+                                                                    <span style="font-size: 14px; font-style: italic;" class="text-danger font-weight-bold">No disponible hoy</span>
                                                                 @endif
-                                                            @endforeach
-                                                        <img src="img-icons/coments.png" /> Comentarios: <span class="badge badge-secondary">{{$cantidadComentarios}}</span>
-                                                        </p>
-                                                        <p class="text-secondary text-sm" style="font-style: italic;">@if($last->job2)({{ ucfirst($last->job2) }}) @endif</p>
+                                                            @else
+                                                                @if($last->{'inhour'.$day} && $last->{'outhour'.$day})
+                                                                    @if($hour <= $last->{'outhour'.$day} && $hour >= $last->{'inhour'.$day})
+                                                                        <span style="font-size: 14px">@php echo date('G:i',strtotime($last->{'inhour'.$day}))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day} )) @endphp hs</span>
+                                                                    @else
+                                                                        <span style="font-size: 14px" class="text-danger font-weight-bold">@php echo date('G:i',strtotime($last->{'inhour'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day} )) @endphp hs</span>
+                                                                    @endif
+                                                                @else
+                                                                    <span style="font-size: 14px; font-style: italic;" class="text-danger font-weight-bold">No disponible hoy</span>
+                                                                @endif
+                                                            @endif
+                                                    </p>
+                                                    <p><ul style="margin-bottom: 0px;color: #17a2b8">
+                                                        <li style="display: inline"><i class="fa fa-star"></i></li><li style="display: inline"><i class="fa fa-star"></i></li><li style="display: inline"><i class="fa fa-star"></i></li><li style="display: inline"><i class="fa fa-star"></i></li><li style="display: inline"><i class="fa fa-star"></i></li>
+                                                        <li style="display: inline">
+                                                            <span style="margin-left: 5px;" class="text-muted">@if($cantComent == 0) Sin opiniones @elseif($cantComent == 1) 1 opinión @elseif($cantComent > 1) {{$cantComent}} opiniones @endif</span>
+                                                        </li>
+                                                    </ul>
+                                                    </p>
 
                                             </div>
-                                            <div class="row row-responsive">
-                                                <ul id="ulmetodos">
-                                                    <li id="txtmetodos" style="float: left; margin: 7px 12px 2px 90px">
-                                                        <img src="img-icons/tarjeta.png" /> <span style="font-style: italic;">Métodos de pago aceptados</span>
-                                                    </li>
-                                                    @if($last->isEfective)
-                                                        <li  class="limetodos">
-                                                            <img src="img/credit-card/moneysi.png" style="height: 40px; float: left;"  title="Efectivo" />
-                                                        </li>
-                                                    @else
-                                                        <li  class="limetodos">
-                                                            <img src="img/credit-card/money.png" style="height: 40px; float: left;"  title="Efectivo" />
-                                                        </li>
-                                                    @endif
-                                                    @if($last->isVisa)
-                                                    <li class="limetodos">
-                                                        <img src="img/credit-card/visasi.png" style="height: 40px; float: left;" title="Tarjeta de crédito VISA" />
-                                                    </li>
-                                                    @else
-                                                    <li class="limetodos">
-                                                        <img src="img/credit-card/visa.png" style="height: 40px; float: left;" title="Tarjeta de crédito VISA" />
-                                                    </li>
-                                                    @endif
-                                                    @if($last->isMasterCard)
-                                                    <li class="limetodos">
-                                                         <img src="img/credit-card/mastercardsi.png" style="height: 40px; float: left;" title="Tarjeta de crédito MASTER CARD" />
-                                                    </li>
-                                                    @else
-                                                    <li class="limetodos">
-                                                        <img src="img/credit-card/mastercard.png" style="height: 40px; float: left;" title="Tarjeta de crédito MASTER CARD" />
-                                                   </li>
-                                                    @endif
-                                                    @if($last->isMercadoPago)
-                                                    <li class="limetodos">
-                                                            <img src="img/credit-card/mercadosi.png" style="height: 40px; float: left;"  title="Mercado Pago"/>
-                                                    </li>
-                                                    @else
-                                                    <li class="limetodos">
-                                                        <img src="img/credit-card/mercado.png" style="height: 40px; float: left;"  title="Mercado Pago"/>
-                                                     </li>
-                                                    @endif
-                                                    <li class="limetodos">
-                                                        <img src="img/credit-card/american.png" style="height: 40px; float: left;"  title="American Express"/>
-                                                     </li>
-                                                </ul>
-                                            </div>
-
                                     </div>
-
-
                                     </div>
                                     <form action="{{route('User.perfil')}}" method="GET" class="text-center">
                                         <input type="hidden" value="{{$last->id}}" name="user_id">
@@ -441,8 +274,6 @@ use Carbon\Carbon;
                                     </form>
                                 </div>
                             </div>
-
-
                             <div id="list-responsive" class="container">
                                 <div class="row bg-white" style="padding: 5px;">
                                     <div class="col-3">
@@ -487,33 +318,10 @@ use Carbon\Carbon;
                                                         @endif
                                                     @endif
                                                     </p>
-                                                    <form action="{{route('User.perfil')}}" method="GET">
-                                                        <input type="hidden" value="{{$last->id}}" name="user_id">
-                                                        <input type="submit" style="text-decoration: none;  color: #3db39e;background: none;border: none;font-size: 12px;" value="Ver/Contactar" />
-                                                    </form>
+                                                    <a class="stretched-link" style="text-decoration: none;  color: #3db39e;background: none;border: none;font-size: 12px;" href="{{Route('User.perfil', ['user_id' => $last->id])}}" >Ver / Contactar </a>
                                         <hr>
                                     </div>
                                     <div class="col-2" style="padding: 0;">
-                                        @php
-                                        $cantComent = 0;
-                                        $cantPoints = 0;
-                                        $points = 0;
-                                    @endphp
-                                    @foreach($coments as $coment)
-                                        @if($coment->user_id == $last->id)
-                                            @php
-                                                $cantComent ++;
-                                                $cantPoints += $coment->point;
-                                            @endphp
-                                        @endif
-                                    @endforeach
-                                    @php
-                                    if($cantPoints != 0){
-                                     $points = $cantPoints / $cantComent;
-                                    }else{
-                                     $points = 4;
-                                    }
-                                    @endphp
                                         @if($points < 2)
                                         <p style="font-size: 12px;"><span style="color: #d84747;"><i class="fa fa-star"></i></span>
                                         <span style="color: #d84747;"><strong>{{$points}}</strong></span></p>
@@ -531,9 +339,6 @@ use Carbon\Carbon;
 
                                 </div>
                                 </div>
-
-
-
                             @endif
                             @endforeach
                         </div>

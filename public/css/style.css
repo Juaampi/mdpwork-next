@@ -18,7 +18,7 @@
 #img-perfil{margin-left:110px;}
 #bar-mobile{display:none;}
 #img-perfil-panel{margin-left:30px;}
-#showUpdateImg{margin-top:20px;margin-left:31px;}
+#showUpdateImg{margin-top:10px;margin-left:20px;}
 #formUpdateImg{margin-top:15px;margin-left:30px;}
 #filter-mobile-none{display:none;}
 .ml4{position:relative;font-weight:900;font-size:29px;}
@@ -49,7 +49,7 @@
 #filtros-btn{display:block;}
 .ayudadorlistaporuno{margin-top: 10px;margin-bottom: 10px;font-family: 'roboto', sans-serif;}
 .nav-search{position:absolute;left: 70px; right: 90px;margin-top: -19px;}
-.autocomplete-items{background: white;z-index: 9999;position: absolute;background: white;width: 100%;padding: 14px; }
+.autocomplete-items{background: white;z-index: 9999;position: absolute;background: white;width: 100%;padding: 14px; color: #000000a3;}
 .home-job-search-box{display:none}
 }
 @media only screen and (min-width:600px) and (max-width:900px) and (orientation:landscape){#metodos-responsive{margin-left:20px;}
@@ -94,6 +94,7 @@
 #filtros-btn{display:none;}
 .ayudadorlistaporuno{margin-top: 10px;margin-bottom: 10px;font-family: 'roboto', sans-serif;}
 .responsive-search{display:none}
+#showUpdateImg{margin-top:20px;margin-left:10px;}
 }
 @media only screen and (min-width:900px) and (max-width:1600px){#row-description-responsive{display:none;}
 #txtmetodos{float:left;margin:0 10px 0 0;}
@@ -153,4 +154,5 @@ input{border:1px solid transparent;background-color:#f1f1f1;padding:10px;font-si
 #filtros-btn{display:none;}
 .ayudadorlistaporuno{font-family: 'roboto', sans-serif;font-size: 18px}
 .responsive-search{display:none}
+#showUpdateImg{margin-top:20px;margin-left:10px;}
 }

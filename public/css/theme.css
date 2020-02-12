@@ -111,7 +111,7 @@ address,blockquote,dd,dl,dt,ol,p,ul{margin:0 0 10px}
 .footer_bottom_area{background-color:#1a1a1a}
 .our-dashbord{margin-top:20px;position:relative}
 .our-dashbord:before{background-color:#fafafa;bottom:0;content:"";left:0;position:absolute;height:100vh;min-height:100%;top:0;width:23%}
-.user_profile{background-color:#fff;border-radius:4px;height:150px;margin-bottom:30px;padding:30px;-webkit-box-shadow:1px 2px 5px 0 rgba(0,0,0,.1);-moz-box-shadow:1px 2px 5px 0 rgba(0,0,0,.1);box-shadow:1px 2px 5px 0 rgba(0,0,0,.1);width:280px}
+.user_profile{background-color:#fff;border-radius:4px;margin-bottom:30px;padding:15px;-webkit-box-shadow:1px 2px 5px 0 rgba(0,0,0,.1);-moz-box-shadow:1px 2px 5px 0 rgba(0,0,0,.1);box-shadow:1px 2px 5px 0 rgba(0,0,0,.1);width:100%;}
 .user_profile .media .media-body h5,.user_profile .media .media-body p{margin-bottom:0}
 .user_profile .media img{width:65px}
 .dashbord_nav_list{margin-left:20px}

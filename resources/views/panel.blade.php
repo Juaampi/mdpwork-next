@@ -55,8 +55,8 @@ filter: brightness(50%);
 }
 </style>
 
-<section class="our-dashbord dashbord" style="background: #ffffff">
-		<div class="container">
+<section style="background: #fafafa">
+		<div class="container" style="max-width: 1200px;">
 			<div class="row">
 				<div class="col-sm-12 col-lg-4 col-xl-3 dn-smd">
 					<div id="user_profile" class="user_profile">
@@ -74,12 +74,12 @@ filter: brightness(50%);
                                 @endif
                             </div>
                         </div>
-                        <div id="showUpdateImg" style="font-size: 11px;" class="text-secondary">Editar imagen</div>
+                        <div id="showUpdateImg" style="font-size: 11px;" class="btn btn-sm btn-secondary">Cambiar imagen de perfil</div>
                         <form id="formUpdateImg" style="display:none;margin-top:5px;" method="POST" action="{{ route('User.updateImg') }}" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" value="{{ Auth::user()->id }}" name="user_id">
                             <input data-multiple-caption="{count} files selected" multiple id="file" type="file" name="img-perfil" class="inputfile">
-                            <label id="labelImg" style="font-size:11px;" class="text-secondary" for="file">Elegir archivo</label>
+                            <label id="labelImg" style="font-size:11px;" class="btn btn-info" for="file">Elegir archivo</label>
                             <button style="font-size:12px;" type="submit" class="btn b">Guardar</button>
                             <label style="font-size:12px;" id="cancelUpdateImg" class="text-danger font-weight-bold">Cancelar</label>
                          </form>
@@ -87,29 +87,17 @@ filter: brightness(50%);
 					<div class="dashbord_nav_list">
 						<ul>
 							<li class="active">
-                                <a href="page-candidates-profile.html"><img src="img-icons/perfil.png" class="mr-1" /> Información</a>
+                                <a href="/panel"><i class="fa fa-user-circle mr-1"></i> Información</a>
                             </li>
                             <li>
-                                <a href="/contraseña"><img src="img-icons/password.png" class="mr-1" /> Cambiar Contraseña</a></li>
+                                <a href="/contraseña"><i class="fa fa-key mr-1"></i> Cambiar Contraseña</a></li>
                             <li>
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
-                                <img src="img-icons/logout.png" class="mr-1" /> Cerrar Sesion</a>
-                            </li>
-							<li>
-                                <a href="#" class="text-danger font-weight-bold"><img src="img-icons/delete.png" class="mr-1" /> Eliminar Perfil</a>
+                                <i class="fa fa-arrow-left mr-1"></i> Salir</a>
                             </li>
 						</ul>
                     </div>
-                    @if(Auth::user()->rol == 'profesional')
-					<div class="skill_sidebar_widget" id="bar-mobile">
-						<h4>Perfil Completado un <span class="float-right font-weight-bold">85%</span></h4>
-						<p>Mandá tu perfil a verficicación para aumentar un 15%</p>
-				        <ul class="skills">
-				            <div class="sonny_progressbar animate" data-width="85"><p class="title"></p><div class="bar-container " style="background-color:#E0E0E0;height:30px;"><span class="backgroundBar"></span><span class="targetBar loader" style="width:85%;background-color:#CCC;"></span><span class="bar" style="background-color:#79b530;"></span></div></div>
-				        </ul>
-                    </div>
-                    @endif
 				</div>
 				<div class="col-sm-12 col-lg-8 col-xl-9">
 					<div class="my_profile_form_area">
@@ -307,14 +295,14 @@ filter: brightness(50%);
 
 							<div class="col-md-6 col-lg-6">
 								<div class="my_profile_input form-group">
-                                    <label for="exampleFormControlInput5">Experience</label>
+                                    <label for="exampleFormControlInput5">Experiencia</label>
                                    <select name="experience" class="form-control" >
                                         <option value="{{Auth::user()->experience}}">{{Auth::user()->experience}} Año/s</option>
 										<option value="2">2-3 Año/s</option>
 										<option value="4" >4-5 Año/s</option>
 										<option value="6" >6-7 Año/s</option>
 										<option value="10" >8-10 Año/s</option>
-										<option value="1">None</option>
+										<option value="0">Menos de 1 año</option>
                                     </select>
                                 </div>
 							</div>
@@ -369,25 +357,25 @@ filter: brightness(50%);
                             <div class="col-lg-12">
 								<h4>Métodos de Pago</h4>
 									<div class="row text-center">
-										<div class="col-md-2">
+										<div class="col-md-2 col-4">
                                     		<div class="custom-control custom-switch mt-1">
                                         		<input type="checkbox" name="isEfective" class="custom-control-input" id="switch1" @if(Auth::user()->isEfective) checked @endif>
                                         		<label class="custom-control-label" for="switch1"><span style="height: 25px;" class="payment">Efectivo</span></label>
 											</div>
 										</div>
-										<div class="col-md-2">
+										<div class="col-md-2 col-4">
 											<div class="custom-control custom-switch mt-1">
 												<input type="checkbox" name="isVisa" class="custom-control-input" id="switch2" @if(Auth::user()->isVisa) checked @endif>
 												<label class="custom-control-label" for="switch2"> <span style="height: 25px;" class="payment"><img src="img/credit-card/visa.png" /></span></label>
 											</div>
 										</div>
-										<div class="col-md-2">
+										<div class="col-md-2 col-4">
 												<div class="custom-control custom-switch mt-1">
 													<input type="checkbox" name="isMercadoPago" class="custom-control-input" id="switch3" @if(Auth::user()->isMercadoPago) checked @endif>
 													<label class="custom-control-label" for="switch3"> <span style="height: 25px;" class="payment"><img src="img/credit-card/mercado.png"/></span></label>
 												</div>
 											</div>
-										<div class="col-md-2">
+										<div class="col-md-2 col-4">
 											<div class="custom-control custom-switch mt-1">
 												<input type="checkbox" name="isMasterCard" class="custom-control-input" id="switch4" @if(Auth::user()->isMasterCard) checked @endif>
 												<label class="custom-control-label" for="switch4"> <span style="height: 25px;" class="payment"><img src="img/credit-card/mastercard.png"></span></label>
@@ -678,7 +666,10 @@ filter: brightness(50%);
                         </form>
                         </div>
 
-					</div>
+                    </div>
+                    <div style="margin-top: 40px;">
+                        <a href="#" class="text-danger font-weight-bold"><img src="img-icons/delete.png" class="mr-1" /> Eliminar Perfil</a>
+                    </div>
 				</div>
 			</div>
 		</div>
