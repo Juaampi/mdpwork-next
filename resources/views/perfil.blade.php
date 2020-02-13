@@ -618,7 +618,7 @@ use Carbon\Carbon;
                             @if(Auth::user()->rol == 'usuario')
                             <div id="comentario">
                                 <form action="{{route('Coment.add')}}" method="GET">
-                                <h4 class="text-secondary">Comentá y puntuá a <strong>{{$user->name}}</strong></h4>
+                                    <h6 style="margin-top: 20px; font-size: 17px;margin-bottom: 20px;">Comentá y puntuá</h6>
                                 @if(session()->has('response'))
                                 <div class="alert alert-success text-center">El profesional fue puntuado correctamente.</div>
                                 @endif

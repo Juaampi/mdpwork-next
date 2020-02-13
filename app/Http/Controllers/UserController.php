@@ -21,7 +21,7 @@ class UserController extends Controller
     }
 
     public function showlist(){
-        $users = User::where('rol', '=', 'profesional')->orderBy('created_at', 'desc')->paginate(10);
+        $users = User::where('rol', '=', 'profesional')->orderBy('created_at', 'desc')->paginate(30);
         $categories = Category::all();
         $subcategories = Subcategory::all();
         $coments = Coment::all();
@@ -94,25 +94,25 @@ class UserController extends Controller
         }
 
         if(!empty($request['search']) && !empty($request['zone'])){
-            $user = User::where('job', 'like', '%' . $request['search'] . '%')->orWhere('zone', 'like', '%'. $request['zone'] . '%')->paginate(10);
+            $user = User::where('job', 'like', '%' . $request['search'] . '%')->orWhere('zone', 'like', '%'. $request['zone'] . '%')->paginate(30);
                 if(count($user) == 0){
-                    $user = User::paginate(10);
+                    $user = User::paginate(30);
                     return view('list', ['cantidadesarray' => $cantidades, 'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
                 }else{
                     return view('list', ['cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
                 }
         }else if(!empty($request['search']) && empty($request['zone'])){
-           $user = User::where('job', 'like', '%' . $request['search'] . '%')->paginate(10);
+           $user = User::where('job', 'like', '%' . $request['search'] . '%')->paginate(30);
                 if(count($user) == 0){
-                    $user = User::paginate(10);
+                    $user = User::paginate(30);
                     return view('list', ['cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
                 }else{
                     return view('list', ['cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
                 }
        }else if(!empty($request['zone']) && empty($request['search'])){
-            $user = User::where('zone', 'like', '%' . $request['zone'] . '%')->paginate(10);
+            $user = User::where('zone', 'like', '%' . $request['zone'] . '%')->paginate(30);
                 if(count($user) == 0){
-                    $user = User::paginate(10);
+                    $user = User::paginate(30);
                     return view('list', ['cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
                 }else{
                     return view('list', ['cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
