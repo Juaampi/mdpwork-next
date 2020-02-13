@@ -47,7 +47,7 @@
 #registroUsuarioCard{margin-top:15px;}
 .text-no-responsive{display:none;}
 #filtros-btn{display:block;}
-.ayudadorlistaporuno{margin-top: 10px;margin-bottom: 10px;font-family: 'roboto', sans-serif;}
+.ayudadorlistaporuno{margin-top: 10px;margin-bottom: 10px;font-family: 'roboto', sans-serif;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
 .nav-search{position:absolute;left: 70px; right: 90px;margin-top: -19px;}
 .autocomplete-items{background: white;z-index: 9999;position: absolute;background: white;width: 100%;padding: 14px; color: #000000a3;}
 .home-job-search-box{display:none}
