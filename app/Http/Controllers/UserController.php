@@ -7,6 +7,9 @@ use App\User;
 use App\Subcategory;
 use App\Category;
 use App\Coment;
+use App\View;
+use App\Search;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection as Collection;
 use PhpParser\Node\Expr\AssignOp\Concat;
 
@@ -21,12 +24,16 @@ class UserController extends Controller
     }
 
     public function showlist(){
+
+        $masvistos = DB::table('views')->selectRaw("users.id, users.name, users.img, users.job,  COUNT('views.*') as views")->join('users', 'users.id', '=', 'views.user_id')->groupBy('users.name')->orderBy('views', 'desc')->take(1)->get();
+        $mascomentados = DB::table('coments')->selectRaw("users.id, users.name, users.img, users.job,  COUNT('coments.*') as coments")->join('users', 'users.id', '=', 'coments.user_id')->groupBy('users.name')->orderBy('coments', 'desc')->take(1)->get();
         $users = User::where('rol', '=', 'profesional')->orderBy('created_at', 'desc')->paginate(10);
         $categories = Category::all();
         $subcategories = Subcategory::all();
         $coments = Coment::all();
         $array = [];
         $cantidades = [];
+        $relacionadas = '';
         foreach($subcategories as $subcategory){
             $cuenta = User::where('job', '=', $subcategory->name)->count();
             array_add($subcategory, 'cantidad', $cuenta);
@@ -44,6 +51,8 @@ class UserController extends Controller
                 $array[$o] = $users[$u]->job;
                 $o++;
             }
+
+
         }
        foreach($subcategories as $subcategory){
            $array[$o] = $subcategory->name;
@@ -55,14 +64,26 @@ class UserController extends Controller
         $u++;
     }
 
-        return view('list', ['cantidadesarray' => $cantidades, 'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $users, 'subcategories' => $subcategories, 'coments' => $coments]);
+        return view('list', ['relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos' => $masvistos, 'cantidadesarray' => $cantidades, 'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $users, 'subcategories' => $subcategories, 'coments' => $coments]);
     }
 
     public function search(Request $request){
+        $masvistos = DB::table('views')->selectRaw("users.id, users.name, users.img, users.job,  COUNT('views.*') as views")->join('users', 'users.id', '=', 'views.user_id')->groupBy('users.name')->orderBy('views', 'desc')->take(1)->get();
+        $mascomentados = DB::table('coments')->selectRaw("users.id, users.name, users.img, users.job,  COUNT('coments.*') as coments")->join('users', 'users.id', '=', 'coments.user_id')->groupBy('users.name')->orderBy('coments', 'desc')->take(1)->get();
         $categories = Category::all();
         $users = User::all();
         $subcategories = Subcategory::all();
         $coments = Coment::all();
+        $relacionadas = '';
+        if(!empty($request['search'])){
+            $busqueda = new Search;
+            $busqueda->ip = $request->ip();
+            $busqueda->search = $request['search'];
+            $busqueda->save();
+            $cadena =str_replace(' ', '', $request['search']);
+            $relacionadas2 = Search::where('search', 'like', $cadena . '%')->orWhere('search', 'like', '%' . $cadena)->get();
+            $relacionadas = $relacionadas2->unique('search');
+        }
         $array = [];
         $cantidades = [];
         foreach($subcategories as $subcategory){
@@ -97,25 +118,25 @@ class UserController extends Controller
             $user = User::where('job', 'like', '%' . $request['search'] . '%')->orWhere('zone', 'like', '%'. $request['zone'] . '%')->paginate(10);
                 if(count($user) == 0){
                     $user = User::paginate(10);
-                    return view('list', ['cantidadesarray' => $cantidades, 'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
+                    return view('list', ['busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades, 'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
                 }else{
-                    return view('list', ['cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
+                    return view('list', ['busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
                 }
         }else if(!empty($request['search']) && empty($request['zone'])){
            $user = User::where('job', 'like', '%' . $request['search'] . '%')->paginate(10);
                 if(count($user) == 0){
                     $user = User::paginate(10);
-                    return view('list', ['cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
+                    return view('list', ['busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
                 }else{
-                    return view('list', ['cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
+                    return view('list', ['busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
                 }
        }else if(!empty($request['zone']) && empty($request['search'])){
             $user = User::where('zone', 'like', '%' . $request['zone'] . '%')->paginate(10);
                 if(count($user) == 0){
                     $user = User::paginate(10);
-                    return view('list', ['cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
+                    return view('list', ['relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
                 }else{
-                    return view('list', ['cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
+                    return view('list', ['relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
                 }
        }
        if(empty($request['search']) && empty($request['zone'])){
@@ -124,9 +145,24 @@ class UserController extends Controller
     }
 
     public function showperfil(Request $request){
+
         $user = User::find($request['user_id']);
         $coments = User::find($request['user_id'])->coments;
         $users = User::all();
+        $clientIP = request()->ip();
+        $views = $user->views()->get();
+        $visto = false;
+        foreach ($views as $view) {
+            if($view->ip == $clientIP){
+                $visto = true;
+            }
+        }
+        if(!$visto){
+            $view = new View;
+            $view->ip = $clientIP;
+            $view->user_id = $user->id;
+            $view->save();
+        }
         return view('perfil', ['user' => $user, 'coments' => $coments, 'users' => $users]);
     }
 
@@ -144,6 +180,14 @@ class UserController extends Controller
         }
 
     }
+
+    public function getIp(){
+         foreach (array('HTTP_CLIENT_IP', 'HTTP_X_FORWARDED_FOR', 'HTTP_X_FORWARDED', 'HTTP_X_CLUSTER_CLIENT_IP', 'HTTP_FORWARDED_FOR', 'HTTP_FORWARDED', 'REMOTE_ADDR') as $key){ if (array_key_exists($key, $_SERVER) === true){ foreach (explode(',', $_SERVER[$key]) as $ip)
+         { $ip = trim($ip); }
+    return $ip;}}}
+
+            // just to be safe if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) !== false){ return $ip; } } } } }
+
 
     public function edit(Request $request){
 
@@ -524,6 +568,7 @@ class UserController extends Controller
 
 
     public function welcome(){
+
         $subcategories = Subcategory::all();
         $users = User::all();
         $array = [];

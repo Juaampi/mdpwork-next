@@ -13,6 +13,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Coment');
     }
 
+    public function views()
+    {
+        return $this->hasMany('App\View');
+    }
+
     use Notifiable;
 
     /**

@@ -130,7 +130,7 @@ use Carbon\Carbon;
     </div>
 </section>
 
-<section class="our-faq">
+<section class="our-faq" style="margin-top:-20px">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-xl-12">
@@ -166,6 +166,11 @@ use Carbon\Carbon;
                     </div>
                     <div class="container">
                     <div class="row bg-white">
+
+                                     <!-- LOS MÁS VISTOS, TAMBIÉN VAN A IR LOS DESTACADOS ACÁ  -->
+
+
+
                         <p id="text-list-responsive" style="padding: 10px;"><strong>{{$lastest->total()}}</strong> Profesionales encontrados.</p>
                                 <hr>
                             @foreach($lastest as $last)
@@ -221,7 +226,7 @@ use Carbon\Carbon;
                                     <!-- ACA FINALIZA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
 
                                     <div class="thumb fn-smd">
-                                        <img class="img-fluid" style="height: 120px; width: 140px;" src="img-perfil/{{$last->img}}" alt="1.jpg">
+                                        <img class="img-fluid" style="height: 120px; width: 140px;" src="images/large/{{$last->img}}" alt="1.jpg">
                                         @php $cantComent = 0;$cantPoints = 0;$points = 0;@endphp
                                             @foreach($coments as $coment) @if($coment->user_id == $last->id) @php $cantComent ++; $cantPoints += $coment->point; @endphp @endif @endforeach
                                         @php if($cantPoints != 0){ $points = $cantPoints / $cantComent; }else{ $points = 4; } @endphp
@@ -277,7 +282,7 @@ use Carbon\Carbon;
                             <div id="list-responsive" class="container">
                                 <div class="row bg-white" style="padding: 5px;">
                                     <div class="col-3">
-                                        <img style="border-radius: 10px;" class="img-fluid" src="img-perfil/{{$last->img}}" alt="1.jpg">
+                                        <img style="border-radius: 10px;" class="img-fluid" src="images/large/{{$last->img}}" alt="1.jpg">
                                     </div>
                                     <div class="col-7">
                                         @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
@@ -349,8 +354,103 @@ use Carbon\Carbon;
                         </div>
                     </div>
                 </div>
+                <p id="text-list-responsive" style="padding: 10px;"><strong>Destacados</strong> en Mdp Work Inc.</p>
+                @if($masvistos)
+                @foreach($masvistos as $masvisto)
+       <div id="list-responsive" class="container">
+           <div class="row bg-white">
+               <div class="col-3">
+                   <img style="border-radius: 10px;" class="img-fluid" src="images/large/{{$masvisto->img}}" alt="1.jpg">
+               </div>
+               <div class="col-7">
+               <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-info">Más visitado</p>
+                   <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{$masvisto->name}}</h4>
+                   <p style="font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$masvisto->job}}">{{ ucfirst($masvisto->job) }} <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a></p>
+                               <a class="stretched-link" style="text-decoration: none;  color: #3db39e;background: none;border: none;font-size: 12px;" href="{{Route('User.perfil', ['user_id' => $masvisto->id])}}" ></a>
+                   <hr>
+               </div>
+               @php $cantComent = 0;$cantPoints = 0;$points = 0;@endphp
+                       @foreach($coments as $coment) @if($coment->user_id == $masvisto->id) @php $cantComent ++; $cantPoints += $coment->point; @endphp @endif @endforeach
+                   @php if($cantPoints != 0){ $points = $cantPoints / $cantComent; }else{ $points = 4; } @endphp
+               <div class="col-2" style="padding: 0;">
+                   @if($points < 2)
+                   <p style="font-size: 12px;"><span style="color: #d84747;"><i class="fa fa-star"></i></span>
+                   <span style="color: #d84747;"><strong>{{$points}}</strong></span></p>
+                   @elseif($points >= 3 && $points < 4)
+                   <p style="font-size: 12px;"><span style="color: #d66514;"><i class="fa fa-star"></i></span>
+                   <span style="color: #d66514;"><strong>{{$points}}</strong></span></p>
+                   @elseif($points >= 4 && $points < 5)
+                   <p style="font-size: 12px;"><span style="color: #28af77"><i class="fa fa-star"></i></span>
+                   <span style="color: #28af77"><strong>{{$points}}</strong></span></p>
+                   @elseif($points == 5)
+                   <p style="font-size: 12px;"><span style="color: #ffc107"><i class="fa fa-star"></i></span>
+                   <span style="color: #ffc107"><strong>{{$points}}</strong></span></p>
+                   @endif
+               </div>
+
+           </div>
+           </div>
+           @endforeach
+           @endif
+
+
+<!-- LOS MÁS COMENTADOS, TAMBIÉN VAN A IR LOS DESTACADOS ACÁ  -->
+@if($mascomentados)
+@foreach($mascomentados as $mascomentado)
+<div id="list-responsive" class="container">
+<div class="row bg-white">
+<div class="col-3">
+<img style="border-radius: 10px;" class="img-fluid" src="images/large/{{$mascomentado->img}}" alt="1.jpg">
+</div>
+<div class="col-7">
+<p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-info">Más comentado</p>
+<h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{$mascomentado->name}}</h4>
+<p style="font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$mascomentado->job}}">{{ ucfirst($mascomentado->job) }} <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a></p>
+      <a class="stretched-link" style="text-decoration: none;  color: #3db39e;background: none;border: none;font-size: 12px;" href="{{Route('User.perfil', ['user_id' => $mascomentado->id])}}" ></a>
+<hr>
+</div>
+@php $cantComent = 0;$cantPoints = 0;$points = 0;@endphp
+@foreach($coments as $coment) @if($coment->user_id == $mascomentado->id) @php $cantComent ++; $cantPoints += $coment->point; @endphp @endif @endforeach
+@php if($cantPoints != 0){ $points = $cantPoints / $cantComent; }else{ $points = 4; } @endphp
+<div class="col-2" style="padding: 0;">
+@if($points < 2)
+<p style="font-size: 12px;"><span style="color: #d84747;"><i class="fa fa-star"></i></span>
+<span style="color: #d84747;"><strong>{{$points}}</strong></span></p>
+@elseif($points >= 3 && $points < 4)
+<p style="font-size: 12px;"><span style="color: #d66514;"><i class="fa fa-star"></i></span>
+<span style="color: #d66514;"><strong>{{$points}}</strong></span></p>
+@elseif($points >= 4 && $points < 5)
+<p style="font-size: 12px;"><span style="color: #28af77"><i class="fa fa-star"></i></span>
+<span style="color: #28af77"><strong>{{$points}}</strong></span></p>
+@elseif($points == 5)
+<p style="font-size: 12px;"><span style="color: #ffc107"><i class="fa fa-star"></i></span>
+<span style="color: #ffc107"><strong>{{$points}}</strong></span></p>
+@endif
+</div>
+
+</div>
+</div>
+@endforeach
+@endif
             </div>
         </div>
+
+@if(!empty($relacionadas) && $busqueda)
+<p id="text-list-responsive" style="padding: 10px;">Búsquedas <strong>relacionadas</strong></p>
+        <div id="list-responsive" class="container">
+        <div class="row">
+            <div class="col-md-12">
+                @foreach($relacionadas as $relacionada)
+                    @if($relacionada->search != $busqueda)
+            <a href="/busqueda?search={{$relacionada->search}}"><p style="font-size: 14px">{{$relacionada->search}} <i class="fa fa-arrow-right" style="float: right; "></i></p></a>
+                    <hr>
+                    @endif
+                @endforeach
+            </div>
+        </div>
+    </div>
+@endif
+
     </div>
 </section>
 
