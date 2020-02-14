@@ -528,7 +528,7 @@ use Carbon\Carbon;
                                                 @endif
                                                 </p>
 
-                                                <p @if($day == 'Jueves') style="font-size: 15px;background: #f7f7f7;border-radius: 20px;padding: 10px;" @else style="font-size: 15px;" @endif><span style="margin-left: 5px; font-weight: 600;margin-right: 10px;">Jueves</span>
+                                                <p @if($day == 'jueves') style="font-size: 15px;background: #f7f7f7;border-radius: 20px;padding: 10px;" @else style="font-size: 15px;" @endif><span style="margin-left: 5px; font-weight: 600;margin-right: 10px;">Jueves</span>
                                                     @if($user->inhourafterjueves)@php echo date('G:i',strtotime($user->inhourjueves))@endphp - @php echo date('G:i',strtotime($user->outhourjueves)) @endphp y de
                                                         @php echo date('G:i',strtotime($user->inhourafterjueves))@endphp - @php echo date('G:i',strtotime($user->outhourafterjueves)) @endphp
 
@@ -539,7 +539,7 @@ use Carbon\Carbon;
                                                     @endif
                                                     </p>
 
-                                                    <p @if($day == 'Viernes') style="font-size: 15px;background: #f7f7f7;border-radius: 20px;padding: 10px;" @else style="font-size: 15px;" @endif><span style="margin-left: 5px; font-weight: 600;margin-right: 10px;">Viernes</span>
+                                                    <p @if($day == 'viernes') style="font-size: 15px;background: #f7f7f7;border-radius: 20px;padding: 10px;" @else style="font-size: 15px;" @endif><span style="margin-left: 5px; font-weight: 600;margin-right: 10px;">Viernes</span>
                                                         @if($user->inhourafterviernes)@php echo date('G:i',strtotime($user->inhourviernes))@endphp - @php echo date('G:i',strtotime($user->outhourviernes)) @endphp y de
                                                             @php echo date('G:i',strtotime($user->inhourafterviernes))@endphp - @php echo date('G:i',strtotime($user->outhourafterviernes)) @endphp
 
@@ -550,7 +550,7 @@ use Carbon\Carbon;
                                                         @endif
                                                         </p>
 
-                                                        <p @if($day == 'Sabado') style="font-size: 15px;background: #f7f7f7;border-radius: 20px;padding: 10px;" @else style="font-size: 15px;" @endif><span style="margin-left: 5px; font-weight: 600;margin-right: 10px;">Sábado</span>
+                                                        <p @if($day == 'sabado') style="font-size: 15px;background: #f7f7f7;border-radius: 20px;padding: 10px;" @else style="font-size: 15px;" @endif><span style="margin-left: 5px; font-weight: 600;margin-right: 10px;">Sábado</span>
                                                             @if($user->inhouraftersabado)@php echo date('G:i',strtotime($user->inhoursabado))@endphp - @php echo date('G:i',strtotime($user->outhoursabado)) @endphp y de
                                                                 @php echo date('G:i',strtotime($user->inhouraftersabado))@endphp - @php echo date('G:i',strtotime($user->outhouraftersabado)) @endphp
 
@@ -561,7 +561,7 @@ use Carbon\Carbon;
                                                             @endif
                                                             </p>
 
-                                                            <p @if($day == 'Domingo') style="font-size: 15px;background: #f7f7f7;border-radius: 20px;padding: 10px;" @else style="font-size: 15px;" @endif><span style="margin-left: 5px; font-weight: 600;margin-right: 10px;">Domingo</span>
+                                                            <p @if($day == 'domingo') style="font-size: 15px;background: #f7f7f7;border-radius: 20px;padding: 10px;" @else style="font-size: 15px;" @endif><span style="margin-left: 5px; font-weight: 600;margin-right: 10px;">Domingo</span>
                                                                 @if($user->inhourafterdomingo)@php echo date('G:i',strtotime($user->inhourdomingo))@endphp - @php echo date('G:i',strtotime($user->outhourdomingo)) @endphp y de
                                                                     @php echo date('G:i',strtotime($user->inhourafterdomingo))@endphp - @php echo date('G:i',strtotime($user->outhourafterdomingo)) @endphp
 
@@ -618,7 +618,7 @@ use Carbon\Carbon;
                             @if(Auth::user()->rol == 'usuario')
                             <div id="comentario">
                                 <form action="{{route('Coment.add')}}" method="GET">
-                                <h4 class="text-secondary">Comentá y puntuá a <strong>{{$user->name}}</strong></h4>
+                                    <h6 style="margin-top: 20px; font-size: 17px;margin-bottom: 20px;">Comentá y puntuá</h6>
                                 @if(session()->has('response'))
                                 <div class="alert alert-success text-center">El profesional fue puntuado correctamente.</div>
                                 @endif

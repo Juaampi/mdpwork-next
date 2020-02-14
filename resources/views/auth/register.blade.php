@@ -113,8 +113,8 @@
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                             <div class="my_profile_input form-group">
-                                                <label>Categoría principal <span class="text-danger">*</span><span class="text-secondary">(Busque su sección)</span></label>
-                                                <select id="category" name="category_id" class="form-control">
+                                                <label>Buscá tu profesión <span class="text-danger">*</span><small class="text-secondary">(Si no está, poné "otros servicios")</small></label>
+                                                <select id="category" name="category_id" class="form-control" required>
                                                         <option selected class="alert alert-danger" value="">Seleccione Categoría</option>
                                                     @foreach($categories as $category)
                                                         <option value="{{$category->id}}">{{$category->name}}</option>

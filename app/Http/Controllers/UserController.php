@@ -115,7 +115,7 @@ class UserController extends Controller
         }
 
         if(!empty($request['search']) && !empty($request['zone'])){
-            $user = User::where('job', 'like', '%' . $request['search'] . '%')->orWhere('zone', 'like', '%'. $request['zone'] . '%')->paginate(10);
+            $user = User::where('job', 'like', '%' . $request['search'] . '%')->orWhere('zone', 'like', '%'. $request['zone'] . '%')->paginate(30);
                 if(count($user) == 0){
                     $user = User::paginate(10);
                     return view('list', ['busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades, 'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
@@ -123,7 +123,7 @@ class UserController extends Controller
                     return view('list', ['busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
                 }
         }else if(!empty($request['search']) && empty($request['zone'])){
-           $user = User::where('job', 'like', '%' . $request['search'] . '%')->paginate(10);
+           $user = User::where('job', 'like', '%' . $request['search'] . '%')->paginate(30);
                 if(count($user) == 0){
                     $user = User::paginate(10);
                     return view('list', ['busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
@@ -131,7 +131,7 @@ class UserController extends Controller
                     return view('list', ['busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
                 }
        }else if(!empty($request['zone']) && empty($request['search'])){
-            $user = User::where('zone', 'like', '%' . $request['zone'] . '%')->paginate(10);
+            $user = User::where('zone', 'like', '%' . $request['zone'] . '%')->paginate(30);
                 if(count($user) == 0){
                     $user = User::paginate(10);
                     return view('list', ['relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');

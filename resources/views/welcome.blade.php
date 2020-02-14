@@ -315,7 +315,7 @@ if (event.keyCode === 13) {
                                 <div class="col-md-4">
 							        <h5>{{$last->name}}</h5>
                                     <p style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><span style="color:gray;"><i class="fa fa-location-arrow"></i></span> {{$last->zone}}, Mar del Plata</p>
-                                    <p style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><i class="fa fa-user-md"></i> <a href="/busqueda?search={{$last->job}}"><strong>{{ ucfirst($last->job) }}</strong> <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a></p>
+                                    <p style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"> <a href="/busqueda?search={{$last->job}}"><strong>{{ ucfirst($last->job) }}</strong> <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a></p>
                                 </div>
                                 <div class="col-md-6">
                                         <p id="horario">
