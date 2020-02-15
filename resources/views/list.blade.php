@@ -227,7 +227,7 @@ use Carbon\Carbon;
                                     <!-- ACA FINALIZA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
 
                                     <div class="thumb fn-smd">
-                                        <img class="img-fluid" style="height: 120px; width: 140px;" src="images/large/{{$last->img}}" alt="1.jpg">
+                                        <img class="img-fluid" style="height: 120px; width: 140px;" src="img-perfil/{{$last->img}}" alt="1.jpg">
                                         @php $cantComent = 0;$cantPoints = 0;$points = 0;@endphp
                                             @foreach($coments as $coment) @if($coment->user_id == $last->id) @php $cantComent ++; $cantPoints += $coment->point; @endphp @endif @endforeach
                                         @php if($cantPoints != 0){ $points = $cantPoints / $cantComent; }else{ $points = 4; } @endphp
@@ -283,7 +283,7 @@ use Carbon\Carbon;
                             <div id="list-responsive" class="container">
                                 <div class="row bg-white" style="padding: 5px;">
                                     <div class="col-3">
-                                        <img style="border-radius: 10px;" class="img-fluid" src="images/large/{{$last->img}}" alt="1.jpg">
+                                        <img style="border-radius: 10px;" class="img-fluid" src="img-perfil/{{$last->img}}" alt="1.jpg">
                                     </div>
                                     <div class="col-7">
                                         @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
@@ -361,7 +361,7 @@ use Carbon\Carbon;
        <div id="list-responsive" class="container">
            <div class="row bg-white">
                <div class="col-3">
-                   <img style="border-radius: 10px;" class="img-fluid" src="images/large/{{$masvisto->img}}" alt="1.jpg">
+                   <img style="border-radius: 10px;" class="img-fluid" src="img-perfil/{{$masvisto->img}}" alt="1.jpg">
                </div>
                <div class="col-7">
                <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-info">Más visitado</p>
@@ -401,7 +401,7 @@ use Carbon\Carbon;
 <div id="list-responsive" class="container">
 <div class="row bg-white">
 <div class="col-3">
-<img style="border-radius: 10px;" class="img-fluid" src="images/large/{{$mascomentado->img}}" alt="1.jpg">
+<img style="border-radius: 10px;" class="img-fluid" src="img-perfil/{{$mascomentado->img}}" alt="1.jpg">
 </div>
 <div class="col-7">
 <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-info">Más comentado</p>
