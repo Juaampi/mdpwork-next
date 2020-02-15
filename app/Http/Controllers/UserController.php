@@ -27,7 +27,7 @@ class UserController extends Controller
 
         $masvistos = DB::table('views')->selectRaw("users.id, users.name, users.img, users.job,  COUNT('views.*') as views")->join('users', 'users.id', '=', 'views.user_id')->groupBy('users.name')->orderBy('views', 'desc')->take(1)->get();
         $mascomentados = DB::table('coments')->selectRaw("users.id, users.name, users.img, users.job,  COUNT('coments.*') as coments")->join('users', 'users.id', '=', 'coments.user_id')->groupBy('users.name')->orderBy('coments', 'desc')->take(1)->get();
-        $users = User::where('rol', '=', 'profesional')->orderBy('created_at', 'desc')->paginate(10);
+        $users = User::where('rol', '=', 'profesional')->orderBy('created_at', 'desc')->paginate(30);
         $categories = Category::all();
         $subcategories = Subcategory::all();
         $coments = Coment::all();
@@ -81,7 +81,7 @@ class UserController extends Controller
             $busqueda->search = $request['search'];
             $busqueda->save();
             $cadena =str_replace(' ', '', $request['search']);
-            $relacionadas2 = Search::where('search', 'like', $cadena . '%')->orWhere('search', 'like', '%' . $cadena)->get();
+            $relacionadas2 = Search::where('search', 'like', $cadena . '%')->orWhere('search', 'like', '%' . $cadena)->take(5)->get();
             $relacionadas = $relacionadas2->unique('search');
         }
         $array = [];
@@ -117,7 +117,7 @@ class UserController extends Controller
         if(!empty($request['search']) && !empty($request['zone'])){
             $user = User::where('job', 'like', '%' . $request['search'] . '%')->orWhere('zone', 'like', '%'. $request['zone'] . '%')->paginate(30);
                 if(count($user) == 0){
-                    $user = User::paginate(10);
+                    $user = User::paginate(30);
                     return view('list', ['busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades, 'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
                 }else{
                     return view('list', ['busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
@@ -125,7 +125,7 @@ class UserController extends Controller
         }else if(!empty($request['search']) && empty($request['zone'])){
            $user = User::where('job', 'like', '%' . $request['search'] . '%')->paginate(30);
                 if(count($user) == 0){
-                    $user = User::paginate(10);
+                    $user = User::paginate(30);
                     return view('list', ['busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
                 }else{
                     return view('list', ['busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
@@ -133,7 +133,7 @@ class UserController extends Controller
        }else if(!empty($request['zone']) && empty($request['search'])){
             $user = User::where('zone', 'like', '%' . $request['zone'] . '%')->paginate(30);
                 if(count($user) == 0){
-                    $user = User::paginate(10);
+                    $user = User::paginate(30);
                     return view('list', ['relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
                 }else{
                     return view('list', ['relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);

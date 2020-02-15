@@ -136,7 +136,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link btn btn-outline-secondary" href="{{ route('register') }}"><img src="img-icons/register.png" /> Registrate! </a>
+                                <a class="nav-link btn btn-outline-secondary" href="{{ route('register') }}"><img src="img-icons/register.png" /> Registrate </a>
                             </li>
                         @endguest
                             <li class="nav-item">

@@ -134,10 +134,11 @@ use Carbon\Carbon;
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-xl-12">
-                <div class="row" >
+                <div class="row" ><div class="container">
                     @if(!empty($empty))
                         <div class="alert alert-danger text-center" style="width: 100%">Lamentablemente no pudimos encontrar lo que busca, por favor intente nuevamente.</div>
                     @endif
+                </div>
                     <div class="col-sm-12 col-lg-6" >
                         <div class="content_details">
                             <div class="details">
@@ -442,7 +443,7 @@ use Carbon\Carbon;
             <div class="col-md-12">
                 @foreach($relacionadas as $relacionada)
                     @if($relacionada->search != $busqueda)
-            <a href="/busqueda?search={{$relacionada->search}}"><p style="font-size: 14px">{{$relacionada->search}} <i class="fa fa-arrow-right" style="float: right; "></i></p></a>
+                         <a href="/busqueda?search={{$relacionada->search}}"><p style="font-size: 14px"><i class="fa fa-search"></i> {{$relacionada->search}} <i class="fa fa-arrow-right" style="float: right; "></i></p></a>
                     <hr>
                     @endif
                 @endforeach

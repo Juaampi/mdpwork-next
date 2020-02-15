@@ -17,7 +17,7 @@ use Carbon\Carbon;
 						<p class="ml4" style="color: #6f6f6f">
                             <span class="letters letters-1">¿Buscás un profesional?</span>
                             <span class="letters letters-2">¿Necesitas un electricista?</span>
-                            <span class="letters letters-3">¿Tenes un evento importante?</span>
+                            <span class="letters letters-3">¿Tenés un evento importante?</span>
                             <span class="letters letters-4">¿Se te rompió el auto? </span>
                             <span class="letters letters-5">¿Te estás mudando y buscas un flete?</span>
                             <span class="letters letters-6">¡Tu solución está en Mdp Work Inc!</span>
@@ -26,7 +26,7 @@ use Carbon\Carbon;
                     </div>
 				</div>
                 <div class="col-lg-12" style="margin-top: 60px;">
-                    <p style="color: #999;font-size: 15px;line-height: 1.2">Encontrá a la persona que necesitas utilizando el <strong>buscador de Mar del Plata</strong>. Filtra por palabras clave, el buscador te ayudará.</p>
+                    <p style="color: #999;font-size: 15px;line-height: 1.2">Encontrá a la persona que necesitás utilizando el <strong>buscador de Mar del Plata</strong>. Filtrá por palabras clave, el buscador te ayudará.</p>
                     <p style="color: #999;font-size: 15px;line-height: 1.2">¿Querés postularte gratis en el sitio? <a style="color: #007bff;text-decoration: none;font-weight: 600;" href="/register">¡Registrarme! </a></p>
 					<div class="home-job-search-box mt20 mb20">
 
@@ -66,7 +66,7 @@ use Carbon\Carbon;
                     <div class="card-body text-center">
                         <img src="img/slider1.png">
                         <h4 style="font-size: 20px;font-weight: 500;line-height: 1.4;color: #4b4b4b;margin: 16px 0 0;">Utilizá el buscador</h4>
-                        <p style="color: #999;font-size: 15px;line-height: 1.2;">Si estás necesitando de alguien para solucionar un problema específico, ¡Acá lo vas a encontrar!</p>
+                        <p style="color: #999;font-size: 15px;line-height: 1.2;">Si estás necesitando de alguien para solucionar un problema específico, ¡acá lo vas a encontrar!</p>
                         <a href="/lista" style="font-size: 14px;text-decoration: none;color: #3483fa" >Quiero utilizar el buscador</a>
                     </div>
                     </div>
@@ -77,7 +77,7 @@ use Carbon\Carbon;
                     <div class="card-body text-center">
                         <img src="img/slider2.png">
                         <h4 style="font-size: 20px;font-weight: 500;line-height: 1.4;color: #4b4b4b;margin: 16px 0 0;">Contactá rápidamente</h4>
-                        <p style="color: #999;font-size: 15px;line-height: 1.2;">Ponete en contacto directo con la persona que necesitas de manera fácil, rápida, segura y gratuita!</p>
+                        <p style="color: #999;font-size: 15px;line-height: 1.2;">Ponete en contacto directo con la persona que necesitás de manera fácil, rápida, segura y gratuita!</p>
                         <a href="/lista" style="font-size: 14px;text-decoration: none;color: #3483fa" >Quiero encontrar lo que necesito</a>
                     </div>
                     </div>
@@ -87,8 +87,8 @@ use Carbon\Carbon;
                     <div class="card" style="border: none;">
                         <div class="card-body text-center">
                             <img src="img/slider3.png">
-                            <h4 style="font-size: 20px;font-weight: 500;line-height: 1.4;color: #4b4b4b;margin: 16px 0 0;">¿Realizas alguna actividad?</h4>
-                            <p style="color: #999;font-size: 15px;line-height: 1.2;">Si tenes algún tipo de profesión, practicás un oficio o trabajas de manera autónoma, registrate!</p>
+                            <h4 style="font-size: 20px;font-weight: 500;line-height: 1.4;color: #4b4b4b;margin: 16px 0 0;">¿Realizás alguna actividad?</h4>
+                            <p style="color: #999;font-size: 15px;line-height: 1.2;">Si tenes algún tipo de profesión, practicás un oficio o trabajas de manera autónoma, ¡registrate!</p>
                             <a href="/register" style="font-size: 14px;text-decoration: none;color: #3483fa" >Quiero participar del sitio</a>
                         </div>
                         </div>
