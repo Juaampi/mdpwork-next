@@ -199,7 +199,7 @@ use Carbon\Carbon;
 
                                         <h5 class="text-black">{{$user->name}}</h5>
                                         <ul class="address_list">
-                                            <li class="list-inline-item" style="font-style: italic;"><i class="fa fa-location-arrow"></i> {{$user->zone}}, Mar del Plata</li>
+                                            <li class="list-inline-item" style="font-style: italic;"><i class="fa fa-location-arrow"></i> @if($last->zone){{$last->zone}},@endif Mar del Plata</li>
                                         </ul>
                                         <h6> {{ ucfirst($user->job) }} <i class="fa fa-check-circle"></i></h6>
                                         <p>De <strong>{{$user->age}} años</strong></p>
@@ -339,7 +339,7 @@ use Carbon\Carbon;
                             @endif
                         @endif
                         <h5 class="card-title mt-1" style="margin-bottom: -2px;font-family: 'Roboto', sans-serif;font-weight: bold;">{{$user->name}}</h5>
-                        <p style="font-size: 12px;">En <span class="text-info"> {{$user->zone}}, Mar del Plata </span></p>
+                        <p style="font-size: 12px;">En <span class="text-info"> @if($user->zone){{$user->zone}},@endif Mar del Plata </span></p>
                         <p style="font-size: 14px;"><span style="color: #bbbbbb"></span> {{ucfirst($user->job)}} <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></p>
                         @if($user->job2)<p style="font-size: 14px;"> - <strong>Secundaria:</strong> <span style="color: #bbbbbb"></span> {{ucfirst($user->job2)}} <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></p>@endif
                         @if($user->job3)<p style="font-size: 14px;"> - <strong>Alterna:</strong> <span style="color: #bbbbbb"></span> {{ucfirst($user->job3)}} <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></p>@endif
