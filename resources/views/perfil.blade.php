@@ -199,7 +199,7 @@ use Carbon\Carbon;
 
                                         <h5 class="text-black">{{$user->name}}</h5>
                                         <ul class="address_list">
-                                            <li class="list-inline-item" style="font-style: italic;"><i class="fa fa-location-arrow"></i> @if($last->zone){{$last->zone}},@endif Mar del Plata</li>
+                                            <li class="list-inline-item" style="font-style: italic;"><i class="fa fa-location-arrow"></i> @if($user->zone){{$user->zone}},@endif Mar del Plata</li>
                                         </ul>
                                         <h6> {{ ucfirst($user->job) }} <i class="fa fa-check-circle"></i></h6>
                                         <p>De <strong>{{$user->age}} años</strong></p>
@@ -495,7 +495,7 @@ use Carbon\Carbon;
                                         if($day == 'Monday'){  $day = 'lunes'; } if($day == 'Tuesday'){ $day = 'martes'; } if($day == 'Wednesday'){ $day = 'miercoles';}
                                         if($day == 'Thursday'){ $day = 'jueves';}if($day == 'Friday'){$day = 'viernes';}if($day == 'Saturday'){$day ='sabado';}if($day == 'Sunday'){$day = 'domingo';}
                                         @endphp
-                                        <p @if($day == 'Lunes') style="font-size: 15px;background: #f7f7f7;border-radius: 20px;padding: 10px;" @else style="font-size: 15px" @endif ><span style="margin-left: 5px; font-weight: 600;margin-right: 10px;">Lunes</span>
+                                        <p @if($day == 'lunes') style="font-size: 15px;background: #f7f7f7;border-radius: 20px;padding: 10px;" @else style="font-size: 15px" @endif ><span style="margin-left: 5px; font-weight: 600;margin-right: 10px;">Lunes</span>
                                         @if($user->inhourafterlunes)@php echo date('G:i',strtotime($user->inhourlunes))@endphp hs - @php echo date('G:i',strtotime($user->outhourlunes)) @endphp hs y de
                                             @php echo date('G:i',strtotime($user->inhourafterlunes))@endphp - @php echo date('G:i',strtotime($user->outhourafterlunes)) @endphp
 
@@ -506,7 +506,7 @@ use Carbon\Carbon;
                                         @endif
                                         </p>
 
-                                        <p @if($day == 'Martes') style="font-size: 15px;background: #f7f7f7;border-radius: 20px;padding: 10px;" @else style="font-size: 15px" @endif><span style="margin-left: 5px; font-weight: 600;margin-right: 10px;">Martes</span>
+                                        <p @if($day == 'martes') style="font-size: 15px;background: #f7f7f7;border-radius: 20px;padding: 10px;" @else style="font-size: 15px" @endif><span style="margin-left: 5px; font-weight: 600;margin-right: 10px;">Martes</span>
                                             @if($user->inhouraftermartes)@php echo date('G:i',strtotime($user->inhourmartes))@endphp - @php echo date('G:i',strtotime($user->outhourmartes)) @endphp hs y de
                                                 @php echo date('G:i',strtotime($user->inhouraftermartes))@endphp - @php echo date('G:i',strtotime($user->outhouraftermartes)) @endphp
 

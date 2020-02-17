@@ -232,7 +232,6 @@ section{padding:60px 0;position:relative}
 .ulockd-main-title{position:relative;margin-bottom:20px}
 .ulockd-main-title h3{display:inline-block;font-family:Nunito,sans-serif;font-weight:600;margin-top:0}
 .ulockd-main-title p{margin-bottom:0}
-.preloader{background-color:#fff;background-image:url(../img/preloader.gif);background-position:center center;background-repeat:no-repeat;height:100%;left:0;position:fixed;top:0;width:100%;z-index:99999}
 .scrollToHome:hover{background-color:transparent;color:#fff}
 .scrollToHome{bottom:15px;display:none;font-size:30px;line-height:1.5em;padding:3px 10px;position:fixed;right:20px;color:#5082f0;text-align:center;z-index:99999;-webkit-transition:all .3s ease-in-out;-o-transition:all .3s ease-in-out;transition:all .3s ease-in-out}
 .bgc-overlay-white3:before{background-color:rgba(255,255,255,.3);bottom:0;content:"";left:0;position:absolute;right:0;top:0}
