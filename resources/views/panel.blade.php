@@ -67,7 +67,7 @@ filter: brightness(50%);
 						  	<div class="media-body">
 						    	<h5 class="mt-0" style="font-size: 13px;">{{ Auth::user()->name }}</h5>
                                 @if(Auth::user()->rol == 'profesional')
-                                <p style="font-size: 11px;color: #949494;"><img style="width: 16px;" src="img-icons/location.png">{{ Auth::user()->zone}} </p>
+                                <p style="font-size: 11px;color: #949494;"><img style="width: 16px;" src="img-icons/location.png">@if(!Auth::user()->zone) Mar del Plata @else {{ Auth::user()->zone}} @endif</p>
                                        <p style="font-style: italic;font-size: 13px;"><img src="img-icons/profesion.png" style="width:16px;"> {{ Auth::user()->job }}</p>
                                 @else
                                     <p style="font-style: italic;font-size: 13px;"> Usuario MDP </p>
