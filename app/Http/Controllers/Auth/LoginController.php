@@ -66,7 +66,7 @@ class LoginController extends Controller
             $newUser->name            = $user->name;
             $newUser->email           = $user->email;
             $newUser->provider_id       = $user->id;
-            $newUser->img          = $user->avatar;
+            $newUser->avatar          = $user->avatar;
             $newUser->rol = 'usuario';
             $newUser->save();
             auth()->login($newUser, true);
