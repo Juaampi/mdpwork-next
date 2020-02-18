@@ -37,3 +37,8 @@ Auth::routes();
 Route::get('/panel', 'HomeController@index')->name('panel');
 
 Route::get('/actualizarContraseña','HomeController@changePassword')->name('User.updatePassword');
+
+Route::group(['prefix' => 'auth'], function () {
+    Route::get('/{provider}', 'Auth\LoginController@redirectToProvider');
+    Route::get('/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+});
