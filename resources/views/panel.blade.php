@@ -62,7 +62,7 @@ filter: brightness(50%);
 					<div id="user_profile" class="user_profile">
 						<div class="media" id="contenedor-img">
 						<div id="img-contenedor">
-                        <img id="img-perfil-panel" src="img-perfil/{{ Auth::user()->img }}" class="align-self-start mr-3 rounded-circle" alt="8.jpg">
+                        <img id="img-perfil-panel" @if(Auth::user()->avatar) src="{{Auth::user()->avatar}}" @else src="img-perfil/{{ Auth::user()->img }}" @endif class="align-self-start mr-3 rounded-circle" alt="8.jpg">
 						</div>
 						  	<div class="media-body">
 						    	<h5 class="mt-0" style="font-size: 13px;">{{ Auth::user()->name }}</h5>
