@@ -663,7 +663,7 @@ use Carbon\Carbon;
                             <div class="row">
                                     @foreach ( $users as $guest )
                                         @if($guest->id == $coment->guest_id)
-                                            <img class="img-fluid" style="height: 35px; border-radius: 35px" src="img-perfil/{{$guest->img}}" alt="{{$guest->name}}.jpg">
+                                            <img class="img-fluid" style="height: 35px; border-radius: 35px" @if($guest->avatar) src="{{$guest->avatar}}" @else src="img-perfil/{{ $guest->img }}" @endif alt="{{$guest->name}}.jpg">
                                             <h6 style="margin-top: 8px; margin-left: 10px;font-size: 14px; font-weight: 600">{{$guest->name}}
                                             @if($coment->point <=2)
                                                 <span class="text-danger"> +{{$coment->point}}</span></h6>
