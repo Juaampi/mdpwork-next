@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container" style="margin-top: 100px; margin-bottom: 280px;">
+<div class="container login-container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><img src="img/logo.png" style="border-radius: 5px; height: 40px;"/> Iniciar sesion en <strong>MDP WORK INC.</strong></div>
+                <div class="card-header">Iniciar sesion en <strong>MDP WORK INC.</strong></div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -51,15 +51,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-md-7 col-md-offset-4">
-                              <a href="{{ url('/auth/google') }}" class="btn btn-google"><i class="fa fa-google"></i> Google</a>
-                              <a href="{{ url('/auth/github') }}" class="btn btn-github"><i class="fa fa-github"></i> Github</a>
-                              <a href="{{ url('/auth/twitter') }}" class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
-                              <a href="{{ url('/auth/facebook') }}" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
-                            </div>
-                         </div>
-
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -67,12 +58,19 @@
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <a class="text-primary" href="{{ route('password.request') }}">
                                         Olvidé mi contraseña
                                     </a>
                                 @endif
                             </div>
                         </div>
+
+                        <div class="form-group row mb-0 mt-3">
+                            <div class="col-md-7 col-md-offset-4">
+                              <p>Ingresar con <a href="{{ url('/auth/google') }}" class="btn btn-google btn-danger"><i class="fa fa-google"></i> Google</a></p>
+                              <p>La cuenta de <span class="text-danger">google</span> es sólo para usuarios, si sos un profesional debes <a href="/register" class="text-info">registrarte</a></p>
+                            </div>
+                         </div>
                     </form>
                 </div>
             </div>

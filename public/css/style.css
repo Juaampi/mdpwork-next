@@ -52,6 +52,7 @@
 .autocomplete-items{background: white;z-index: 9999;position: absolute;background: white;width: 100%;padding: 14px; color: #000000a3;}
 .home-job-search-box{display:none}
 .preloader{background-color:#1686d4;background-image:url(../img/preresponsive.gif);background-position:center;background-repeat:no-repeat;height: 100%;left:0;position:absolute;top:0;width:100%;z-index:99999}
+.login-container{margin-top: 20px; margin-bottom: 20px;}
 }
 @media only screen and (min-width:600px) and (max-width:900px) and (orientation:landscape){
 #metodos-responsive{margin-left:20px;}
@@ -98,6 +99,7 @@
 .ayudadorlistaporuno{margin-top: 10px;margin-bottom: 10px;font-family: 'roboto', sans-serif;}
 .responsive-search{display:none}
 #showUpdateImg{margin-top:20px;margin-left:10px;}
+.login-container{margin-top: 20px; margin-bottom: 20px;}
 }
 @media only screen and (min-width:900px) and (max-width:1600px){#row-description-responsive{display:none;}
 #txtmetodos{float:left;margin:0 10px 0 0;}
@@ -159,4 +161,5 @@ input{border:1px solid transparent;background-color:#f1f1f1;padding:10px;font-si
 .responsive-search{display:none}
 #showUpdateImg{margin-top:20px;margin-left:10px;}
 .preloader{background-color:#fff;background-image:url(../img/preloader.gif);background-position:center center;background-repeat:no-repeat;height:100%;left:0;position:fixed;top:0;width:100%;z-index:99999}
+.login-container{margin-top: 100px; margin-bottom: 280px;}
 }

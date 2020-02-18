@@ -655,7 +655,7 @@ use Carbon\Carbon;
                             <h6 style="margin-top: 20px; font-size: 17px;margin-bottom: 20px;">Opiniones de usuarios</h6>
                             @if(!auth::user())
                             <p class="alert alert-info">Para comentar debes iniciar sesión como un usuario.</p>
-                            <p>Si tenés cuenta <a class="mt-2" href="/login" style="color: #3483fa;font-size: 14px;text-decoration: none;font-weight: 600">Ingresá</a>. Si todavía no tenés cuenta <a class="mt-2" href="/register" style="color: #c51928;font-size: 14px;text-decoration: none;font-weight: 600">Registrate</a>.</p>
+                            <p>Si tenés cuenta <a class="mt-2" href="/login" style="color: #3483fa;font-size: 14px;text-decoration: none;font-weight: 600">Ingresá</a>. Si todavía no tenés cuenta <a class="mt-2" href="/register" style="color: #3483fa;font-size: 14px;text-decoration: none;font-weight: 600">Registrate</a>.</p>
 
                             @endif
                             @foreach($coments as $coment)
