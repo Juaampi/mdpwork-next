@@ -610,7 +610,7 @@
                                         <div class="form-group row mb-0 mt-2">
                                                 <div class="col-md-12 offset-md-4">
                                                     <button type="submit" class="btn btn-info">
-                                                        Confirmar registro
+                                                        Confirmar
                                                     </button>
                                                     <div id="btncancelregistroprofesional" type="submit" class="btn btn-danger">
                                                             Cancelar
@@ -629,24 +629,22 @@
                 <div id="registroUsuario" style="display:none;" class="row justify-content-center mb-5">
                     <div class="col-md-12">
                         <div class="card mt-4">
-                            <div class="card-header text-center" style="background:#00b7ff; color:white;"><p>Formulario de registro para <strong>Mdp Work</strong>.</p>
-                                <p>Por favor evite el mal uso de su cuenta de usuario. </p><p>Recuerde que el equipo de <strong>Mdp Work</strong> revisa diariamente los perfiles y verifica la infirmación solicitada. Una vez registrado va a poder comentar y puntuar los profesionales de <strong>Mdp Work</strong>.</p>
-
+                            <div class="card-header text-center" style="background:#00b7ff; color:white;"><p>Formulario de registro de usuario para <strong>Mdp Work Inc</strong>.</p>
+                                <p>Por favor evite el mal uso de su cuenta de usuario. </p>
                             </div>
-
                             <div class="card-body">
                                 <form method="POST" action="{{ route('register') }}">
                                     @csrf
                                     <input type="hidden" value="usuario" name="rol"/>
-                                    <div class="col-sm-12 col-lg-12 col-xl-12">
                                             <div class="my_profile_form_area">
                                                     <div class="row">
-
-                                                    <div class="col-lg-12">
-                                                        <div class="my_profile_thumb_edit"></div>
-                                                    </div>
+                                                    <div class="col-lg-12 bs-callout bs-callout-danger">
+                                                        <p>Ahora <strong>Mdp Work Inc.</strong> te deja sincronizar tu cuenta con <span class="text-danger"> google </span></p>
+                                                        <p>Registrarme con <a href="{{ url('/auth/google') }}" class="btn btn-google btn-danger"><i class="fa fa-google"></i> Google</a></p>
+                                                     </div>
+                                                     <hr>
                                                     <div class="col-md-12">
-                                                            <p class="text-secondary"><img src="img-icons/login.png"/> Ingresa tus datos personales para inicio de sesion. Una vez registrado va a poder puntuar y comentar a los profesionales.</p>
+                                                            <p class="text-secondary"><img src="img-icons/login.png"/> Ingresá tus datos personales para inicio de sesion. Una vez registrado va a poder puntuar y comentar a los profesionales.</p>
                                                     </div>
                                                     <div class="col-md-6 col-lg-6">
                                                         <div class="my_profile_input form-group">
@@ -701,14 +699,14 @@
                                                     <div class="form-group row mb-0 mt-2">
                                                             <div class="col-md-12 offset-md-4">
                                                                 <button type="submit" class="btn btn-info">
-                                                                    Confirmar registro
+                                                                    Confirmar
                                                                 </button>
                                                                 <div id="btncancelregistrousuario" type="submit" class="btn btn-danger">
                                                                         Cancelar
                                                                 </div>
                                                             </div>
                                                         </div>
-                                            </div>
+
                                 </form>
                             </div>
                         </div></div></div></div>
