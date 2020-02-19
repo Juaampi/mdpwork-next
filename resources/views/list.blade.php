@@ -3,7 +3,6 @@
 use Carbon\Carbon;
 @endphp
 @section('content')
-<div class="preloader"></div>
 <style>
     #btn-filter-active{
     cursor: pointer;

@@ -4,7 +4,7 @@ use Carbon\Carbon;
 @endphp
 @section('content')
 <div class="wrapper">
-	<div class="preloader"></div>
+                       
 
 	<!-- Home Design -->
 	<section class="home-one style2" style="background-size: cover; height: 100%;background: #fafafa">
@@ -13,7 +13,7 @@ use Carbon\Carbon;
 
 				<div class="col-lg-12">
 					<div class="home-text">
-                        <h3 class="title-mdpwork">Mdp Work Inc<span style="font-size: 15px;">©</span></h3>
+                        <h3 class="title-mdpwork-responsive">Mdp Work Inc<span style="font-size: 15px;">©</span></h3>
 						<p class="ml4" style="color: #6f6f6f">
                             <span class="letters letters-1">¿Buscás un profesional?</span>
                             <span class="letters letters-2">¿Necesitas un electricista?</span>

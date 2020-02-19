@@ -162,7 +162,7 @@ class RegisterController extends Controller
             $data['outhourjueves'] = $data['outhourlunesasabado'];
             $data['inhourviernes'] = $data['inhourlunesasabado'];
             $data['outhourviernes'] = $data['outhourlunesasabado'];
-            $data['inhoursabado'] = $data['outhourlunesasabado'];
+            $data['inhoursabado'] = $data['inhourlunesasabado'];
             $data['outhoursabado'] = $data['outhourlunesasabado'];
             $data['inhourdomingo'] = null;
             $data['outhourdomingo'] = null;
@@ -196,9 +196,9 @@ class RegisterController extends Controller
             $data['outhourjueves'] = $data['outhourlunesadomingo'];
             $data['inhourviernes'] = $data['inhourlunesadomingo'];
             $data['outhourviernes'] = $data['outhourlunesadomingo'];
-            $data['inhoursabado'] = $data['outhourlunesadomingo'];
+            $data['inhoursabado'] = $data['inhourlunesadomingo'];
             $data['outhoursabado'] = $data['outhourlunesadomingo'];
-            $data['inhourdomingo'] = $data['outhourlunesadomingo'];
+            $data['inhourdomingo'] = $data['inhourlunesadomingo'];
             $data['outhourdomingo'] = $data['outhourlunesadomingo'];
 
             if(empty($data['inhourafterlunesadomingo']) || empty($data['outhourafterlunesadomingo'])){

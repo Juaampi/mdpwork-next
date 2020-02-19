@@ -20,6 +20,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/loader.css">
 
     <!-- template integrations -->
     <meta name="keywords" content="Profesionales, Mar del Plata, Mar, del, Plata, La feliz, Profesional, carpintero, empleos mar del plata, empleos, profesiones, techista mar del plata, psicólogo mar del plata, trabajo en mar del plata, mardel, profesional en mardel, profesiones en mardel, buscador de profesionales, buscar profesionales, electricista mar del plata, buscador de personas con trabajos en mar del plata, plomero mar del plata, plomeria mar del plata">
@@ -70,6 +71,31 @@
 <body class="bgc-lightgray">
 
     <div id="app">
+        
+            <style>
+                    .loader-container {
+                    position: fixed;              
+                    width: 100%;
+                    height: 100%;
+                    z-index: 9999;
+                    background: white; 
+                    justify-content: center;
+                    align-items: center;
+                    display: flex;                   
+                }
+                </style>         
+                <div class="loader-container">
+                        <div class="container-loader-1">
+                                <div class="loader"></div>
+                                <div class="loader"></div>
+                                <div class="loader"></div>
+                                <div class="loader"></div>
+                                <div class="loader"></div>
+                            </div>            
+                </div>
+                
+          
+    
         <style>
 
 .modal.show {
@@ -270,6 +296,12 @@
       });
 
    </script>
+
+<script type="text/javascript">
+    $(window).load(function() {
+        $(".loader-container").hide();
+    });
+    </script>
 
        <script>
         function autocomplete(inp, arr) {

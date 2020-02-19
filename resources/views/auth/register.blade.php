@@ -2,7 +2,6 @@
 
 @section('content')
 
-<div class="preloader"></div>
 <style>
 #btnprofesional {
 	cursor: pointer; /* "hand" cursor */

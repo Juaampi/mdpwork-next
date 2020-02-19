@@ -331,3 +331,5 @@ label{margin-bottom:0}
 .dropdown-item.active,.dropdown-item:active{color:#5082f0!important;background-color:transparent!important}
 .bootstrap-select .dropdown-menu{-webkit-box-shadow:0 1px 4px 0 rgba(0,0,0,.09);-moz-box-shadow:0 1px 4px 0 rgba(0,0,0,.09);box-shadow:0 1px 4px 0 rgba(0,0,0,.09);border:1px solid #ddd}
 button.btn.my-2.my-sm-0{box-shadow:none}
+.icon-google{background: url(../img-icons/sign-in-with-google.svg) 0 50% no-repeat;width: 18px;height: 18px; position: absolute;}
+

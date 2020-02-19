@@ -3,19 +3,14 @@
 @section('content')
 <div class="container login-container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Iniciar sesion en <strong>MDP WORK INC.</strong></div>
-
-                <div class="card-body">
+        <div class="col-md-8">   
+                <p class="text-center" style="font-family:'Bowlby One SC', cursive;color:#00b7ff;font-size:30px;text-shadow:2px 2px #616161">Mdp Work Inc<span style="font-size: 10px;">©</span></p>
+                <p class="text-muted text-center" style="font-size: 15px; font-family: 'roboto', sans-serif">Iniciar sesion en MdpWorkInc.</p>                
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">Correo Electrónico</label>
-
+                        <div class="form-group row justify-content-center">                            
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="email" type="email" class="input-responsive-login form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Introduzca el correo electrónico" autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -25,11 +20,9 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">Contraseña</label>
-
+                        <div class="form-group row justify-content-center">                            
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input id="password" type="password" class="input-responsive-login form-control @error('password') is-invalid @enderror" name="password" required placeholer="Introduzca la contraseña" autocomplete="current-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -39,38 +32,32 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                      Recordarme
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                        <div class="form-group row justify-content-center"> 
+                            <div class="col-md-6">
+                                <button type="submit" class="btn btn-info input-responsive-login">
                                    Ingresar
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="text-primary" href="{{ route('password.request') }}">
-                                        Olvidé mi contraseña
-                                    </a>
-                                @endif
+                                </button>                               
                             </div>
                         </div>
+                        <div class="form-group row justify-content-center" style="margin: 0px;"> 
+                                <div class="col-md-6">
+                                    <p class="text-center"> O </p>                               </div>
+                            </div>
 
-                        <div class="form-group row mb-0 mt-3">
-                            <div class="col-md-7 col-md-offset-4">
-                              <p>Ingresar con <a href="{{ url('/auth/google') }}" class="btn btn-google btn-danger"><i class="fa fa-google"></i> Google</a></p>
-                              <p>La cuenta de <span class="text-danger">google</span> es sólo para usuarios, si sos un profesional debes <a href="/register" class="text-info">registrarte</a></p>
+                        <div class="form-group row justify-content-center">
+                            <div class="col-md-6">
+                              <p><a href="{{ url('/auth/google') }}" class="btn btn-white input-responsive-login"><span class="icon-google"></span> <span style="margin-left: 30px;">Acceder con Google</span></a></p>
+                              <p style="font-size: 15px; text-align: center;margin-top: 30px;">La cuenta de <span class="text-danger">google</span> es sólo para usuarios, si sos un profesional debes <a href="/register" class="text-info">registrarte</a> o iniciar sesión con tu cuenta de Mdp Work Inc.</p>
                             </div>
                          </div>
+
+                         @if (Route::has('password.request'))
+                         <div class="form-group row justify-content-center">
+                            <a class="text-primary text-center" href="{{ route('password.request') }}">
+                                 ¿Olvidaste tu contraseña?
+                            </a>
+                         </div>
+                     @endif
                     </form>
                 </div>
             </div>
