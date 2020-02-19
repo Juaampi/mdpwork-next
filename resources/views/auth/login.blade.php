@@ -22,7 +22,7 @@
 
                         <div class="form-group row justify-content-center">                            
                             <div class="col-md-6">
-                                <input id="password" type="password" class="input-responsive-login form-control @error('password') is-invalid @enderror" name="password" required placeholer="Introduzca la contraseña" autocomplete="current-password">
+                                <input id="password" type="password" class="input-responsive-login form-control @error('password') is-invalid @enderror" name="password" required placeholder="Introduzca la contraseña" autocomplete="current-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
