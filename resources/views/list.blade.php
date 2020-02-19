@@ -169,10 +169,12 @@ use Carbon\Carbon;
                     </div>
                     <div class="container">
                     <div class="row bg-white">
+                        <div class="container">
+                                <p id="text-list-responsive" style="padding: 10px;"><strong>{{$lastest->total()}}</strong> Profesionales encontrados.</p>
+                        </div>
 
                                      <!-- LOS MÁS VISTOS, TAMBIÉN VAN A IR LOS DESTACADOS ACÁ  -->
-                       
-                        <p id="text-list-responsive" style="padding: 10px;"><strong>{{$lastest->total()}}</strong> Profesionales encontrados.</p>
+                                              
                                 <hr>
                             @foreach($lastest as $last)
                             @if($last->rol == 'profesional')
@@ -280,7 +282,7 @@ use Carbon\Carbon;
                                     </form>
                                 </div>
                             </div>
-                            <div id="list-responsive" class="container">
+                            <div id="list-responsive" class="container">                                    
                                 <div class="row bg-white" style="padding: 5px;">
                                     <div class="col-3">
                                         <img style="border-radius: 10px;" class="img-fluid" src="images/large/{{$last->img}}" alt="1.jpg">
