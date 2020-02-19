@@ -134,7 +134,7 @@ use Carbon\Carbon;
         <div class="row">
             <div class="col-lg-12 col-xl-12">
                 <div class="row" ><div class="container">
-                    @if($busqueda)
+                    @if(isset($busqueda))
                         <h1 style="font-size: 17px;font-weight: normal;margin-top: 10px; margin-bottom: 10px;"><strong>{{$busqueda}}</strong> en Mar del Plata </h1>
                     @endif
                     @if(!empty($empty))
