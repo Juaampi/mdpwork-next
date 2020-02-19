@@ -134,6 +134,9 @@ use Carbon\Carbon;
         <div class="row">
             <div class="col-lg-12 col-xl-12">
                 <div class="row" ><div class="container">
+                    @if($busqueda)
+                        <h1 style="font-size: 17px;font-weight: normal;margin-top: 10px; margin-bottom: 10px;"><strong>{{$busqueda}}</strong> en Mar del Plata </h1>
+                    @endif
                     @if(!empty($empty))
                         <div class="alert alert-danger text-center" style="width: 100%">Lamentablemente no pudimos encontrar lo que busca, por favor intente nuevamente.</div>
                     @endif
@@ -168,9 +171,7 @@ use Carbon\Carbon;
                     <div class="row bg-white">
 
                                      <!-- LOS MÁS VISTOS, TAMBIÉN VAN A IR LOS DESTACADOS ACÁ  -->
-
-
-
+                       
                         <p id="text-list-responsive" style="padding: 10px;"><strong>{{$lastest->total()}}</strong> Profesionales encontrados.</p>
                                 <hr>
                             @foreach($lastest as $last)
