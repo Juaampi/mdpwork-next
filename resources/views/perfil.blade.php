@@ -593,17 +593,17 @@ use Carbon\Carbon;
                 <h6 style="margin-top: 20px; font-size: 17px;margin-bottom: 20px;">Imágenes del profesional</h6>
             </div>
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-4 mt-2 mb-2">
                     @if($user->img1)
                     <img src="img-jobs/{{$user->img1}}" />
                     @endif
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4 mt-2 mb-2">
                     @if($user->img2)
                     <img src="img-jobs/{{$user->img2}}" />
                     @endif
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4 mt-2 mb-2">
                     @if($user->img3)
                     <img src="img-jobs/{{$user->img3}}" />
                     @endif
