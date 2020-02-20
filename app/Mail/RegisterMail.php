@@ -30,6 +30,6 @@ class RegisterMail extends Mailable
      */
     public function build()
     {
-        return $this->view('registermail');
+        return $this->subject('Bienvenido a Mdp Work Inc')->view('registermail');
     }
 }

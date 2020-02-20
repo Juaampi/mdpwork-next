@@ -2,7 +2,7 @@
 @php
 use Carbon\Carbon;
 @endphp
-@section('content') 
+@section('content')
 
 <div class="bgc-lightgray mt-4 mb-4">
 		<div class="container">
@@ -422,7 +422,7 @@ use Carbon\Carbon;
                             @endif
                         </ul>
                         @php $namemail = str_replace(" ","%20",$user->name); @endphp
-                        <a href="mailto:reclamar@mdpworkinc.com?Subject=Quiero20%reclamar20el%20perfil20%{{$namemail}}" style="font-size: 13px;"><span style="color: #bbbbbb"><i class="fa fa-shield"></i> Reclamar éste perfil</span></a>
+                        <a href="mailto:soporte@mdpworkinc.com?Subject=Quiero20%reclamar20el%20perfil20%{{$namemail}}" style="font-size: 13px;"><span style="color: #bbbbbb"><i class="fa fa-shield"></i> Reclamar éste perfil</span></a>
 
                         </div>
 
