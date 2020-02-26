@@ -17,6 +17,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://cdn-i.starofservice.com/static/bundles/explore-0db05f8231bb1d613d864127f769df4f.css" rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
@@ -71,19 +72,19 @@
 <body class="bgc-lightgray">
 
     <div id="app">
-        
+
             <style>
                     .loader-container {
-                    position: fixed;              
+                    position: fixed;
                     width: 100%;
                     height: 100%;
                     z-index: 9999;
-                    background: white; 
+                    background: white;
                     justify-content: center;
                     align-items: center;
-                    display: flex;                   
+                    display: flex;
                 }
-                </style>         
+                </style>
                 <div class="loader-container">
                         <div class="container-loader-1">
                                 <div class="loader"></div>
@@ -91,11 +92,11 @@
                                 <div class="loader"></div>
                                 <div class="loader"></div>
                                 <div class="loader"></div>
-                            </div>            
+                            </div>
                 </div>
-                
-          
-    
+
+
+
         <style>
 
 .modal.show {

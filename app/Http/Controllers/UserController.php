@@ -139,9 +139,15 @@ class UserController extends Controller
                     return view('list', ['relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
                 }
        }
-       if(empty($request['search']) && empty($request['zone'])){
-            return redirect()->back()->with('response', 'error');
+       if(!empty($request['category'])){
+        $categoria = Category::where('name', 'like', '%' . $request['category'] . '%')->firstOrFail();
+        $user = User::Where('category', '=', $categoria->id)->paginate(30);
+        return view('list', ['relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
        }
+
+       //if(empty($request['search']) && empty($request['zone'])){
+         //   return redirect()->back()->with('response', 'error');
+       //}
     }
 
     public function showperfil(Request $request){

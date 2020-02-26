@@ -313,11 +313,6 @@ use Carbon\Carbon;
             </div>
             <div class="row mb-2" id="row-description-responsive">
                 <div class="col-md-12">
-                    <div class="card">
-                    <div class="card-header">
-                        <strong>Información de Contacto</strong>
-                    </div>
-                    <div class="card-body">
                         <div class="text-center">
                             <img class="img-fluid rounded" style="height: 150px" src="img-perfil/{{$user->img}}" alt="cl1.jpg">
                             <hr>
@@ -422,18 +417,13 @@ use Carbon\Carbon;
                             @endif
                         </ul>
                         @php $namemail = str_replace(" ","%20",$user->name); @endphp
-                        <a href="mailto:soporte@mdpworkinc.com?Subject=Quiero20%reclamar20el%20perfil20%{{$namemail}}" style="font-size: 13px;"><span style="color: #bbbbbb"><i class="fa fa-shield"></i> Reclamar éste perfil</span></a>
+                        <a href="mailto:soporte@mdpworkinc.com?Subject=Quiero%20reclamar%20el%20perfil%20{{$namemail}}" style="font-size: 13px;"><span style="color: #bbbbbb"><i class="fa fa-shield"></i> Reclamar éste perfil</span></a>
 
                         </div>
 
 
                     </div>
-                    <div class="card-footer text-muted">
-                        Fecha de Ingreso: {{$user->created_at}}
-                    </div>
                   </div>
-            </div>
-            </div>
 		</div>
     <div class="bgc-white pb30">
             <div class="container">
@@ -442,8 +432,9 @@ use Carbon\Carbon;
                         <div class="row">
                             <div class="col-lg-12 mt10">
                                 <div class="candidate_about_info style2">
-                                    <h6 class="mb10" style="font-size: 17px;">Descripción del trabajo</h6>
+                                    @if($user->description)<h6 class="mb10" style="font-size: 17px;">Descripción del trabajo</h6>
                                     <p class="text-muted" style="font-size: 15px">{{$user->description}}</p>
+                                    @endif
                                     <h6 class="mb10 mt10" style="font-size: 17px;">Medios de pago</h6>
                                     <ul id="ulmetodos">
                                         @if($user->isEfective)
