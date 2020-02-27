@@ -37,6 +37,7 @@
    <!-- end template integration css -->
    <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
 
 
 </head>
@@ -271,6 +272,7 @@
 <script type="text/javascript" src="js/timepicker.js"></script>
  <script type="text/javascript" src="js/autocomplete.js"></script>
  <script type="text/javascript" src="js/barrios.js"></script>
+ <script src="https://unpkg.com/swiper/js/swiper.js"></script>
 <!-- Custom script for all pages -->
 <script type="text/javascript" src="js/script.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -435,5 +437,40 @@ if (event.keyCode === 13) {
 
 
  </script>
+
+<script>
+    var mySwiper = new Swiper ('.swiper-container', {
+      // Optional parameters
+      direction: 'horizontal',
+      loop: true,
+
+      // If we need pagination
+      pagination: {
+        el: '.swiper-pagination',
+      },
+
+
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+
+      // And if we need scrollbar
+      scrollbar: {
+        el: '.swiper-scrollbar',
+        draggable: false,
+      },
+    })
+    </script>
+
+<style>
+
+    .swiper-pagination{
+        opacity: 0;
+    }
+    </style>
+
+
 </body>
 </html>

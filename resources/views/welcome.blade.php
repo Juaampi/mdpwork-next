@@ -15,8 +15,8 @@ use Carbon\Carbon;
 					<div class="home-text">
                         <h3 class="title-mdpwork">Mdp Work Inc<span style="font-size: 15px;">©</span></h3>
 						<p class="ml4" style="color: #6f6f6f">
-                            <span class="letters letters-1">¿Buscás un profesional?</span>
-                            <span class="letters letters-2">¿Necesitas un electricista?</span>
+                            <span class="letters letters-1">¿Necesitás un profesional?</span>
+                            <span class="letters letters-2">¿Necesitás un electricista?</span>
                             <span class="letters letters-3">¿Tenés un evento importante?</span>
                             <span class="letters letters-4">¿Se te rompió el auto? </span>
                             <span class="letters letters-5">¿Te estás mudando y buscas un flete?</span>
@@ -55,89 +55,106 @@ use Carbon\Carbon;
 			</div>
 		</div>
     </section>
-<style>
 
-    </style>
-    <section class="bg-white">
+<section id="slider-swiper">
+    <div class="container ulockd-main-title">
 
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 info-slide">
-                    <div class="card" style="border: none;">
-                    <div class="card-body text-center">
-                        <img src="img/slider1.png">
-                        <h4 style="font-size: 20px;font-weight: 500;line-height: 1.4;color: #4b4b4b;margin: 16px 0 0;">Utilizá el buscador</h4>
-                        <p style="color: #999;font-size: 15px;line-height: 1.2;">Si estás necesitando de alguien para solucionar un problema específico, ¡acá lo vas a encontrar!</p>
-                        <a href="/lista" style="font-size: 14px;text-decoration: none;color: #3483fa" >Quiero utilizar el buscador</a>
-                    </div>
-                    </div>
-                    <hr class="responsive" style="width: 50%; text-align: center;">
-                </div>
-                <div class="col-md-4 info-slide">
-                    <div class="card" style="border: none;">
-                    <div class="card-body text-center">
-                        <img src="img/slider2.png">
-                        <h4 style="font-size: 20px;font-weight: 500;line-height: 1.4;color: #4b4b4b;margin: 16px 0 0;">Contactá rápidamente</h4>
-                        <p style="color: #999;font-size: 15px;line-height: 1.2;">Ponete en contacto directo con la persona que necesitás de manera fácil, rápida, segura y gratuita!</p>
-                        <a href="/lista" style="font-size: 14px;text-decoration: none;color: #3483fa" >Quiero encontrar lo que necesito</a>
-                    </div>
-                    </div>
-                    <hr class="responsive" style="width: 50%; text-align: center;">
-                </div>
-                <div class="col-md-4">
-                    <div class="card" style="border: none;">
-                        <div class="card-body text-center">
-                            <img src="img/slider3.png">
-                            <h4 style="font-size: 20px;font-weight: 500;line-height: 1.4;color: #4b4b4b;margin: 16px 0 0;">¿Realizás alguna actividad?</h4>
-                            <p style="color: #999;font-size: 15px;line-height: 1.2;">Si tenes algún tipo de profesión, practicás un oficio o trabajas de manera autónoma, ¡registrate!</p>
-                            <a href="/register" style="font-size: 14px;text-decoration: none;color: #3483fa" >Quiero participar del sitio</a>
-                        </div>
-                        </div>
+    <div class="swiper-container">
+        <h4 style="margin-bottom: 20px; margin-top: 20px;"><strong>Hogar</strong> en Mar del Plata</h4>
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide" style="widht: 100%">
+                <div class="card">
+                    <img class="card-img-top" src="https://americasvoiceespanol.com/wp-content/uploads/2018/12/contratar-un-electricista-en-casa-620x420.jpg"/>
+                    <div class="card-body">
+                        <a href="/busqueda?search=Electricista"><h5 class="card-title">Electricistas</h5></a>
+                        <p class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>8</strong> Encontrados en Mar del Plata</p>
+                      </div>
                 </div>
             </div>
+            <div class="swiper-slide" style="widht: 100%">
+                <div class="card">
+                    <img class="card-img-top" src="https://www.reformas.net/storage/uploads/img/content_article/q/2/5aeac67e60c1d2.05305431-md.jpg"/>
+                    <div class="card-body">
+                        <a href="/busqueda?search=Albañil"><h5 class="card-title">Albañiles</h5></a>
+                        <p class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>12</strong> Encontrados en Mar del Plata</p>
+                      </div>
+                </div>
+            </div>
+            <div class="swiper-slide" style="widht: 100%">
+                <div class="card">
+                    <img class="card-img-top" src="https://ecohabitar.org/wp-content/uploads/original.jpg"/>
+                    <div class="card-body">
+                        <a href="/busqueda?search=Carpintero"><h5 class="card-title">Carpinteros</h5></a>
+                        <p class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>4</strong> Encontrados en Mar del Plata</p>
+                      </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide" style="widht: 100%">
+                <div class="card">
+                    <img class="card-img-top" src="https://techistareparaciones.com.ar/img/placeholder/techista_zona_norte_3.jpg"/>
+                    <div class="card-body">
+                        <a href="/busqueda?search=Techista"><h5 class="card-title">Techistas</h5></a>
+                        <p class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>6</strong> Encontrados en Mar del Plata</p>
+                      </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide" style="widht: 100%">
+                <div class="card">
+                    <img class="card-img-top" src="https://atencioncliente.com/wp-content/uploads/2019/08/fontaneros-2.jpg"/>
+                    <div class="card-body">
+                        <a href="/busqueda?search=Plomero"><h5 class="card-title">Plomeros</h5></a>
+                        <p class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>4</strong> Encontrados en Mar del Plata</p>
+                      </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide" style="widht: 100%">
+                <div class="card">
+                    <img class="card-img-top" src="https://www.laprida.gov.ar/pwadmin//files/imagenes/noticias/5d778de6d22433e6ebefbc42eeb59831.jpg"/>
+                    <div class="card-body">
+                        <a href="/busqueda?search=Gasista"><h5 class="card-title">Gasista</h5></a>
+                        <p class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>2</strong> Encontrados en Mar del Plata</p>
+                      </div>
+                </div>
+            </div>
+
+
         </div>
-    </section>
 
-    <script>
-       // Get the input field
-var input = document.getElementById("zoneinput");
-
-// Execute a function when the user releases a key on the keyboard
-input.addEventListener("keyup", function(event) {
-  // Number 13 is the "Enter" key on the keyboard
-  if (event.keyCode === 13) {
-    // Cancel the default action, if needed
-    event.preventDefault();
-    // Trigger the button element with a click
-    document.getElementById("submit-busqueda").click();
-  }
-});
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
 
 
-    </script>
+    </div>
+    </div>
+</section>
 
-<script>
-    // Get the input field
-var input = document.getElementById("searchinput1");
+<section>
+    <div class="container">
+    <h4 class="mt0"><strong>¿Quienés</strong> somos?</h4>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="https://cdn-aurora-saopaulo.starofservice.com/static/media/world_map.ed752429.png">
+        </div>
+        <div class="col-md-6" style="margin-top: 30px;">
+            <p><strong>MDPWORK INC.</strong> es una guía para la búsqueda de profesionales dedicados a brindar soluciones para el hogar y servicio técnico. </p>
+            <p> Pensado para todo el partido de General Pueyrredón y alrededores y con fuerte presencia local inicia sus actividades en la Ciudad Mar del Plata, Provincia de Buenos Aires, Argentina. </p>
+            <p>En <strong>www.mdpworkinc.com</strong> los usuarios tienen acceso a datos de contacto; información, fotos y comentarios de los trabajos realizados por profesionales independientes y por empresas: para así poder elegir a quien consideren más adecuado. La seguridad es un punto clave, todas las empresas tienen sus datos, credenciales, documentos y fotos verificadas, brindándole al cliente mayor confianza a la hora de contratar servicios para su hogar.</p>
+            <p>Si estás buscando un plomero o un electricista para solucionar un problema: o si te quedaste encerrado afuera de tu casa y necesitás un cerrajero urgente, si querés que un pintor te ayude a pintar las paredes de tu casa: este es el lugar para encontrarlo!</p>
+        </div>
+    </div>
+    </div>
+</section>
 
-// Execute a function when the user releases a key on the keyboard
-input.addEventListener("keyup", function(event) {
-// Number 13 is the "Enter" key on the keyboard
-if (event.keyCode === 13) {
- // Cancel the default action, if needed
- event.preventDefault();
- // Trigger the button element with a click
- document.getElementById("submit-busqueda").click();
-}
-});
-
-
- </script>
 
 	<!-- Popular Job Categories -->
 	<section class="popular-job" style="background: #fafafa">
         <div class="styles__allServicesSection___26l-K">
-            <h2 class="styles__title___jwtTo">Todos los servicios.</h2>
+            <h4 class="mt0"><strong>Todos</strong> los servicios</h4>
             <div class="styles__list___1uJCs">
                <div class="styles__item___2pefo">
                   <a href="/busqueda?category=Hogar" class="styles__link___1Zdpv" data-test="service_item.redirect_to_Hogar">
@@ -173,18 +190,18 @@ if (event.keyCode === 13) {
                   </a>
                </div>
                <div class="styles__item___2pefo">
-                  <a href="//busqueda?category=Otros" class="styles__link___1Zdpv" data-test="service_item.redirect_to_Clases">
+                  <a href="/busqueda?category=Otros" class="styles__link___1Zdpv" data-test="service_item.redirect_to_Clases">
                      <svg width="32px" height="32px" xmlns="http://www.w3.org/2000/svg" class="" style="fill: currentcolor;">
                         <g fill="currentColor">
                            <path d="M9.714 4.8C8.334 4.8 7.2 5.91 7.2 7.262v17.23c0 1.351 1.134 2.462 2.514 2.462h11.817a.762.762 0 0 0 .54-.213.728.728 0 0 0 0-1.052.762.762 0 0 0-.54-.212H9.714c-.57 0-1.005-.426-1.005-.985V9.5c.31.135.647.223 1.005.223h5.532v5.662c.002.274.159.525.408.65a.768.768 0 0 0 .778-.05l2.082-1.431 2.082 1.43c.23.157.53.178.778.052a.737.737 0 0 0 .409-.651V9.723h1.508v16.492a.73.73 0 0 0 .217.53.76.76 0 0 0 .538.22.76.76 0 0 0 .537-.22.73.73 0 0 0 .217-.53V8.985a.747.747 0 0 0-.754-.739c-.57 0-1.006-.426-1.006-.984 0-.559.435-.985 1.006-.985a.746.746 0 0 0 .743-.738.746.746 0 0 0-.743-.739H9.714zm0 1.477h12.037c-.137.304-.22.634-.22.985s.083.68.22.984H9.714a.989.989 0 0 1-1.005-.915v-.07c0-.558.435-.984 1.005-.984zm7.04 3.446h3.52v4.239l-1.328-.908a.767.767 0 0 0-.864 0l-1.328.908V9.723zm-3.85 8.37a.763.763 0 0 0-.521.243.728.728 0 0 0 .055 1.044c.15.132.345.2.545.19h8.046a.762.762 0 0 0 .54-.213.728.728 0 0 0 0-1.052.762.762 0 0 0-.54-.213h-8.046a1.07 1.07 0 0 0-.079 0zm0 3.445a.763.763 0 0 0-.521.244.728.728 0 0 0 .055 1.044c.15.132.345.2.545.19h8.046a.762.762 0 0 0 .54-.213.728.728 0 0 0 0-1.052.762.762 0 0 0-.54-.213h-8.046a1.07 1.07 0 0 0-.079 0z"></path>
                         </g>
                      </svg>
-                     <span class="styles__service___3GVMR">Clases</span>
+                     <span class="styles__service___3GVMR">Otros servicios</span>
                      <div class="styles__nextIcon___2r-Lb show-sm icon-next"></div>
                   </a>
                </div>
                <div class="styles__item___2pefo">
-                  <a href="//busqueda?category=Asesoramiento" class="styles__link___1Zdpv" data-test="service_item.redirect_to_Negocios">
+                  <a href="/busqueda?category=Asesoramiento" class="styles__link___1Zdpv" data-test="service_item.redirect_to_Negocios">
                      <svg width="32px" height="32px" xmlns="http://www.w3.org/2000/svg" class="" style="fill: currentcolor;">
                         <g fill="currentColor">
                            <path d="M26.759 8.235h-5.27V7.061c0-.504-.336-1.03-.798-1.253l-1.123-.539A3.12 3.12 0 0 0 18.38 5l-3.773.001c-.361 0-.861.114-1.187.27l-1.12.537c-.462.222-.797.75-.797 1.253v1.174H6.234C5.554 8.235 5 8.78 5 9.448v7.637c0 .423.218.8.55 1.025v6.679c0 .7.556 1.288 1.266 1.341.038.003 3.903.285 9.68.285 5.775 0 9.64-.282 9.68-.285a1.361 1.361 0 0 0 1.265-1.341v-6.678c.334-.226.552-.603.552-1.026V9.448c0-.67-.555-1.213-1.234-1.213zM12.833 7.071a.225.225 0 0 1 .059-.092l1.114-.534c.14-.068.444-.137.602-.137h3.776c.158 0 .461.068.602.137l1.116.534c.02.017.05.065.058.092v1.164h-7.327V7.071zM10.65 9.653h11.692v7.462c-1.149.038-2.47.07-3.914.086a1.189 1.189 0 0 0-1.19-1.07h-1.485c-.623 0-1.136.47-1.19 1.07a186.19 186.19 0 0 1-3.914-.086V9.653zm6.662 7.652v1.234a.077.077 0 0 1-.074.073h-1.485c-.039 0-.076-.035-.076-.073v-1.234c0-.04.036-.073.076-.073h1.485c.04 0 .074.034.074.073zm-10.87-.38V9.653h2.804v7.412a134.966 134.966 0 0 1-2.804-.14zM26 24.72c-.543.037-4.202.275-9.503.275-5.296 0-8.96-.239-9.502-.275v-6.342c.528.03 1.298.068 2.254.106v1.276c0 .38.313.689.702.689a.696.696 0 0 0 .7-.689v-1.225c1.152.037 2.474.07 3.914.087.042.61.56 1.093 1.19 1.093h1.485c.631 0 1.148-.483 1.192-1.093 1.44-.016 2.761-.049 3.913-.087v1.225c0 .38.313.689.7.689a.696.696 0 0 0 .702-.689v-1.276c.955-.037 1.726-.077 2.253-.106v6.342zm.552-7.794c-.373.024-1.372.082-2.806.14V9.653h2.806v7.272z"></path>
@@ -279,9 +296,51 @@ if (event.keyCode === 13) {
                   </a>
                </div>
             </div>
-            <a class="styles__seeMore___25UMR hide-sm" href="/extra-services" data-test="service_item.redirect_to_/extra-services">Ver todos</a>
          </div>
-	</section>
+    </section>
+
+
+
+
+    <script>
+       // Get the input field
+var input = document.getElementById("zoneinput");
+
+// Execute a function when the user releases a key on the keyboard
+input.addEventListener("keyup", function(event) {
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("submit-busqueda").click();
+  }
+});
+
+
+    </script>
+
+<script>
+    // Get the input field
+var input = document.getElementById("searchinput1");
+
+// Execute a function when the user releases a key on the keyboard
+input.addEventListener("keyup", function(event) {
+// Number 13 is the "Enter" key on the keyboard
+if (event.keyCode === 13) {
+ // Cancel the default action, if needed
+ event.preventDefault();
+ // Trigger the button element with a click
+ document.getElementById("submit-busqueda").click();
+}
+});
+
+
+ </script>
+
+
+
+
 
 	<!-- Features Job List Design -->
 	<section class="popular-job bg-white pb30">
@@ -289,7 +348,7 @@ if (event.keyCode === 13) {
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="ulockd-main-title">
-                        <h3 class="mt0">Últimos profesionales</h3>
+                        <h4 class="mt0"><strong>Últimos</strong> profesionales</h4>
                         <h6 class="text-muted">Le damos la bienvenida a todos los nuevos ingresantes del sitio!</h6>
 						<a class="text-thm" href="/lista">Ver todos<i class="flaticon-right-arrow pl15"></i></a>
 					</div>
@@ -496,9 +555,48 @@ if (event.keyCode === 13) {
                 @endif
                 @endforeach
             </div>
-            <a class="btn btn-thm bg-secondary text-white text-center" href="/lista">Ver todos los profesionales</a>
 		</div>
-	</section>
+    </section>
+
+    <section class="bg-white">
+        <div class="container">
+            <h4><strong>MdpWorkInc.</strong> adicional</h4>
+            <div class="row">
+                <div class="col-md-4 info-slide">
+                    <div class="card" style="border: none;">
+                    <div class="card-body text-center">
+                        <img src="img/slider1.png">
+                        <h4 style="font-size: 20px;font-weight: 500;line-height: 1.4;color: #4b4b4b;margin: 16px 0 0;">Utilizá el buscador</h4>
+                        <p style="color: #999;font-size: 15px;line-height: 1.2;">Si estás necesitando de alguien para solucionar un problema específico, ¡acá lo vas a encontrar!</p>
+                        <a href="/lista" style="font-size: 14px;text-decoration: none;color: #3483fa" >Quiero utilizar el buscador</a>
+                    </div>
+                    </div>
+                    <hr class="responsive" style="width: 50%; text-align: center;">
+                </div>
+                <div class="col-md-4 info-slide">
+                    <div class="card" style="border: none;">
+                    <div class="card-body text-center">
+                        <img src="img/slider2.png">
+                        <h4 style="font-size: 20px;font-weight: 500;line-height: 1.4;color: #4b4b4b;margin: 16px 0 0;">Contactá rápidamente</h4>
+                        <p style="color: #999;font-size: 15px;line-height: 1.2;">Ponete en contacto directo con la persona que necesitás de manera fácil, rápida, segura y gratuita!</p>
+                        <a href="/lista" style="font-size: 14px;text-decoration: none;color: #3483fa" >Quiero encontrar lo que necesito</a>
+                    </div>
+                    </div>
+                    <hr class="responsive" style="width: 50%; text-align: center;">
+                </div>
+                <div class="col-md-4">
+                    <div class="card" style="border: none;">
+                        <div class="card-body text-center">
+                            <img src="img/slider3.png">
+                            <h4 style="font-size: 20px;font-weight: 500;line-height: 1.4;color: #4b4b4b;margin: 16px 0 0;">¿Realizás alguna actividad?</h4>
+                            <p style="color: #999;font-size: 15px;line-height: 1.2;">Si tenes algún tipo de profesión, practicás un oficio o trabajas de manera autónoma, ¡registrate!</p>
+                            <a href="/register" style="font-size: 14px;text-decoration: none;color: #3483fa" >Quiero participar del sitio</a>
+                        </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 	<!-- Our Footer Bottom Area -->
@@ -621,6 +719,7 @@ if (event.keyCode === 13) {
 </script>
 
 
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
         <script type="text/javascript">
             var ml4 = {};
@@ -712,8 +811,5 @@ anime.timeline({loop: true})
     delay: 300
   });
         </script>
-
-
-
 
 @endsection
