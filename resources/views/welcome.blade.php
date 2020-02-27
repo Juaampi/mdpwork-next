@@ -78,7 +78,7 @@ use Carbon\Carbon;
                     <img class="card-img-top" src="https://www.reformas.net/storage/uploads/img/content_article/q/2/5aeac67e60c1d2.05305431-md.jpg"/>
                     <div class="card-body">
                         <a href="/busqueda?search=Albañil"><h5 class="card-title">Albañiles</h5></a>
-                        <p class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>12</strong> Encontrados en Mar del Plata</p>
+                        <p class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>9</strong> Encontrados en Mar del Plata</p>
                       </div>
                 </div>
             </div>
@@ -135,7 +135,7 @@ use Carbon\Carbon;
 
 <section>
     <div class="container">
-    <h4 class="mt0"><strong>¿Quienés</strong> somos?</h4>
+    <h4 class="mt0"><strong>¿Quiénes</strong> somos?</h4>
     <div class="row">
         <div class="col-md-6">
             <img src="https://cdn-aurora-saopaulo.starofservice.com/static/media/world_map.ed752429.png">
