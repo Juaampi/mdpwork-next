@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
 use App\User;
 use App\Subcategory;
 use App\Category;
@@ -16,6 +17,11 @@ use PhpParser\Node\Expr\AssignOp\Concat;
 class UserController extends Controller
 
 {
+    public function opciones(){
+        $categories = Category::all();
+        $subcategories = Subcategory::all();
+        return view("auth.options", ['categories' => $categories, 'subcategories' => $subcategories]);
+    }
     public function terms(){
         return view("legales.terms");
     }

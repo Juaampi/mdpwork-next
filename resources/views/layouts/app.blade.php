@@ -164,22 +164,22 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link btn btn-outline-secondary" href="{{ route('register') }}"><img src="img-icons/register.png" /> Registrate </a>
+                                <a class="nav-link btn btn-outline-secondary" href="{{ route('register') }}"><i class="fa fa-id-badge"></i> Postularse </a>
                             </li>
                         @endguest
                             <li class="nav-item">
-                                <a class="nav-link" id="btn-quienes-top" data-toggle="modal" data-target="#exampleModal"><img src="img-icons/quienes.png" /> ¿Quiénes Somos?</a>
+                                <a class="nav-link" id="btn-quienes-top" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-life-ring"></i> ¿Quiénes Somos?</a>
                             </li>
                          @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}"><img src="img-icons/auth.png" /> Ingresar</a>
+                                <a class="nav-link" href="{{ route('login') }}"><i class="fa fa-sign-in-alt"></i> Ingresar</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}"><img src="img/fb.png" /></a>
+                                <a class="nav-link" href="{{ route('login') }}"><i class="fa fa-facebook-square"></i></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}"><img src="img/insta.png" /></a>
+                                <a class="nav-link" href="{{ route('login') }}"><i class="fa fa-instagram"></i></a>
                             </li>
                             @else
                             <li class="nav-item dropdown">

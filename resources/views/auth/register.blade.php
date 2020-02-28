@@ -2,51 +2,11 @@
 
 @section('content')
 
-<style>
-#btnprofesional {
-	cursor: pointer; /* "hand" cursor */
-}
-#btnusuario {
-	cursor: pointer; /* "hand" cursor */
-}
-</style>
-<div class="container" id="registroOpciones">
-        <div class="row justify-content-center">
-            <div class="col-md-4">
-                <div class="card text-center">
-                    <div class="card-header">
-                        Quiero ser un <strong>Profesional</strong>
-                    </div>
-                    <div class="card-body" >
-                            <img src="img/profesional.png" />
-                            <p style="color: #999;font-size: 15px;line-height: 1.2;">Si queres aparecer en la lista de profesionales del sitio, éste es el registro que estás buscando ! </p>
-                            <div id="btnprofesional" class="mt-2" style="color: #3483fa;font-size: 14px;text-decoration: none;font-weight: 600">¡Quiero ofrecer un servicio!</div>
-                     </div>
-                </div>
-             </div>
-        <div class="col-md-4">
-            <div id="registroUsuarioCard" class="card text-center mb-5">
-                <div class="card-header">
-                    Quiero ser un <strong>Usuario</strong>
-                </div>
-                <div class="card-body">
-                    <img src="img/usuario.png" />
-                    <p style="color: #999;font-size: 15px;line-height: 1.2;">Si querés registrarte como un usuario, puntuar y dejar tu opinión sobre un profesional, éste es el registro que buscas!</p>
-                    <div id="btnusuario" style="color: #3483fa;font-size: 14px;text-decoration: none;font-weight: 600">¡Quiero ser un usuario!</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
 <div class="container">
-    <div  id="registroProfesional"  style="display: none;" class="row justify-content-center">
+    <div  id="registroProfesional" class="row justify-content-center">
         <div class="col-md-12">
             <div class="card mt-4">
                 <div class="card-header text-center" style="background:#00b7ff; color:white;"><p>Formulario de registro para <strong>Mdp Work Inc.</strong>.</p>
-                    <p>Por favor para el correcto funcionamiento de su perfil, complete todos los datos con información real de contacto. </p><p>Recuerde que el equipo de <strong>Mdp Work Inc.</strong> revisa diariamente los perfiles y verifica la información solicitada. Una vez completado el perfil aparecerá automáticamente en el sitio. Gracias por participar en <strong>Mdp Work Inc.</strong>.</p>
 
                 </div>
 
@@ -131,7 +91,6 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12">
-                                            <p class="text-secondary">La categoría es el campo más importante, ya que es lo que utiliza el buscador para encontrar resultados. Por lo tanto, deberá prestar mucha atención a la hora de elegir su categoría y su profesión. Si desea, puede agregar más de una profesión, haciendo click en el siguiente botón.
                                                 <a id="btn-show-job2" class="text-info btn btn-outline-info btn-small btn-sm">Agregar Profesión Secundaria</a>
                                         </div>
 
@@ -624,92 +583,6 @@
         </div>
 </div>
 </div>
- <div  class="container" >
-                <div id="registroUsuario" style="display:none;" class="row justify-content-center mb-5">
-                    <div class="col-md-12">
-                        <div class="card mt-4">
-                            <div class="card-header text-center" style="background:#00b7ff; color:white;"><p>Formulario de registro de usuario para <strong>Mdp Work Inc</strong>.</p>
-                                <p>Por favor evite el mal uso de su cuenta de usuario. </p>
-                            </div>
-                            <div class="card-body">
-                                <form method="POST" action="{{ route('register') }}">
-                                    @csrf
-                                    <input type="hidden" value="usuario" name="rol"/>
-                                            <div class="my_profile_form_area">
-                                                    <div class="row">
-                                                    <div class="col-lg-12 bs-callout bs-callout-danger">
-                                                        <p>Ahora <strong>Mdp Work Inc.</strong> te deja sincronizar tu cuenta con <span class="text-danger"> google </span></p>
-                                                        <p>Registrarme con <a href="{{ url('/auth/google') }}" class="btn btn-google btn-danger"><i class="fa fa-google"></i> Google</a></p>
-                                                     </div>
-                                                     <hr>
-                                                    <div class="col-md-12">
-                                                            <p class="text-secondary"><img src="img-icons/login.png"/> Ingresá tus datos personales para inicio de sesion. Una vez registrado va a poder puntuar y comentar a los profesionales.</p>
-                                                    </div>
-                                                    <div class="col-md-6 col-lg-6">
-                                                        <div class="my_profile_input form-group">
-                                                            <label for="formGroupExampleInput1">Nombre Completo</label>
-                                                        <input type="text" name="name" class="form-control" id="formGroupExampleInput1"  @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Ej: Juan Perez">
-                                                        @error('name')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                        @enderror
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 col-lg-6">
-                                                            <div class="my_profile_input form-group">
-                                                                <label for="exampleFormControlInput3">Email <span class="text-secondary font-style-italic">(Para iniciar sesion)</span></label>
-                                                                <input type="email" name="email" class="form-control" id="exampleFormControlInput3" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Ej: mdpwork@gmail.com">
-                                                                @error('email')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-                                                            @enderror
-                                                            </div>
-                                                        </div>
-
-                                                    <div class="col-md-6 col-lg-6">
-                                                            <div class="my_profile_input form-group">
-                                                                <label>Contraseña</label>
-                                                                <input id="password1" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-                                                                @error('password')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-                                                            @enderror
-                                                            </div>
-                                                        </div>
-                                                    <div class="col-md-6 col-lg-6">
-                                                        <div class="my_profile_input form-group">
-                                                            <label for="password-confirm1">Confirmar Contraseña</label>
-                                                            <input id="password-confirm1" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 col-lg-6 mt-2">
-                                                            <div class="my_profile_input form-group text-center">
-                                                                <div class="custom-control custom-checkbox">
-                                                                    <input type="checkbox" class="custom-control-input" id="customCheck2" required oninvalid="this.setCustomValidity('Debes aceptar los términos y condiciones de MDPWORK INC.')"
-                                                                    oninput="this.setCustomValidity('')">
-                                                                    <label class="custom-control-label" for="customCheck2">Acepto los <strong><a href="/legales/terms">Términos y Condiciones de MDPWORK INC.</a></strong></label>
-                                                                </div>
-                                                            </div>
-                                                    </div>
-                                                    </div>
-                                                    <div class="form-group row mb-0 mt-2">
-                                                            <div class="col-md-12 offset-md-4">
-                                                                <button type="submit" class="btn btn-info">
-                                                                    Confirmar
-                                                                </button>
-                                                                <div id="btncancelregistrousuario" type="submit" class="btn btn-danger">
-                                                                        Cancelar
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                </form>
-                            </div>
-                        </div></div></div></div>
-
 
 
 <script>

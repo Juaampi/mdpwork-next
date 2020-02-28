@@ -27,12 +27,15 @@ Route::get('/coment', 'ComentController@addcoment')->name('Coment.add');
 
 Route::get('/legales/terms', 'UserController@terms');
 Route::get('/legales/privacy', 'UserController@privacy');
+Route::get('/opciones', 'UserController@opciones');
 
 Route::get('/intro', function(){
     return view('intro');
 });
 
 Auth::routes();
+
+Route::get('/registro', 'RegisterUsers@showRegistrationForm');
 
 Route::get('/panel', 'HomeController@index')->name('panel');
 
