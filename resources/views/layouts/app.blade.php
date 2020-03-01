@@ -449,7 +449,9 @@ if (event.keyCode === 13) {
         el: '.swiper-pagination',
       },
 
-
+        autoplay: {
+        delay: 2000,
+        },
       // Navigation arrows
       navigation: {
         nextEl: '.swiper-button-next',

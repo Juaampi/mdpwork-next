@@ -11,8 +11,8 @@ use Carbon\Carbon;
             <!-- Slides -->
             <div class="swiper-slide"><img src="img/swiper1.jpg"/></div>
             <div class="swiper-slide"><img src="img/swiper2.jpg"/></div>
-            <div class="swiper-slide"><a style="margin-top: 112px; position: absolute; margin-left: 45px;" href="/busqueda?search=carpintero" class="btn btn-sm btn-warning">Buscalo acá</a><img src="img/swiper3.jpg"/></div>
-            <div class="swiper-slide"><a style="margin-top: 120px; position: absolute; margin-left: 72px;" href="/busqueda?search=veterinaria" class="btn btn-sm btn-success">Encontralo acá</a><img src="img/swiper4.jpg"/></div>
+            <div class="swiper-slide"><a style="margin-top: 90px; position: absolute; margin-left: 30px;" href="/busqueda?search=carpintero" class="btn btn-sm btn-warning">Buscalo acá</a><img src="img/swiper3.jpg"/></div>
+            <div class="swiper-slide"><a style="margin-top: 100px; position: absolute; margin-left: 50px;" href="/busqueda?search=veterinaria" class="btn btn-sm btn-success">Encontralo acá</a><img src="img/swiper4.jpg"/></div>
         </div>
         <!-- If we need pagination -->
         <div class="swiper-pagination"></div>
@@ -384,9 +384,9 @@ use Carbon\Carbon;
             <!-- Slides -->
                   <div class="swiper-slide" style="widht: 100%">
                         <div class="card">
-                            <img class="card-img-top" src="https://microjurisar.files.wordpress.com/2018/03/chofer-micro.jpg?w=1024"/>
+                            <img class="card-img-top" src="https://trabajosyempleosargentina.com.ar/wp-content/uploads/2018/12/CHOFERES.jpg"/>
                             <div class="card-body">
-                            <a href="/busqueda?search=Electricista"><h6 class="card-title">Choferes profesionales</h6></a>
+                            <a href="/busqueda?search=Chofer"><h6 class="card-title">Choferes profesionales</h6></a>
                             <h6 style="font-size: 13px;" class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>3</strong> Encontrados en Mar del Plata</h6>
                         </div>
                     </div>
@@ -395,7 +395,7 @@ use Carbon\Carbon;
                 <div class="card">
                     <img class="card-img-top" src="https://www.transportesexpress.cl/site/wp-content/uploads/2017/03/camion3.jpg"/>
                     <div class="card-body">
-                        <a href="/busqueda?search=Albañil"><h6 class="card-title">Fletes</h6></a>
+                        <a href="/busqueda?search=Flete"><h6 class="card-title">Fletes</h6></a>
                         <h6 style="font-size: 13px;" class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>9</strong> Encontrados en Mar del Plata</h6>
                       </div>
                 </div>
@@ -404,7 +404,7 @@ use Carbon\Carbon;
                 <div class="card">
                     <img class="card-img-top" src="https://www.fletes-capital.com.ar/wp-content/uploads/2017/01/gfhfgh.jpg"/>
                     <div class="card-body">
-                        <a href="/busqueda?search=Carpintero"><h6 class="card-title">Mini-Fletes</h6></a>
+                        <a href="/busqueda?search=Mini%20Flete"><h6 class="card-title">Mini-Fletes</h6></a>
                         <h6 style="font-size: 13px;" class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>4</strong> Encontrados en Mar del Plata</h6>
                       </div>
                 </div>
@@ -414,7 +414,7 @@ use Carbon\Carbon;
                 <div class="card">
                     <img class="card-img-top" src="https://http2.mlstatic.com/transporte-y-mudanza-D_NQ_NP_765461-MLV31195523223_062019-F.jpg"/>
                     <div class="card-body">
-                        <a href="/busqueda?search=Techista"><h6 class="card-title">Mudanzas</h6></a>
+                        <a href="/busqueda?search=Mudanza"><h6 class="card-title">Mudanzas</h6></a>
                         <h6 style="font-size: 13px;" class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>6</strong> Encontrados en Mar del Plata</h6>
                       </div>
                 </div>
