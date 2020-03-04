@@ -71,6 +71,19 @@
 
 @endphp
 <body class="bgc-lightgray">
+    <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/5e5e64d0f2eb411bb5724141/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
 
     <div id="app">
 
@@ -143,8 +156,8 @@
                       <!-- Actual search box -->
                         <div class="has-search responsive-search">
                             <form action="{{route('User.search')}}" id="form-search" method="GET" class="nav-search">
-                                <span class="btn-back" id="back-icon"><img class="back-icon" src="img-icons/back.png"> </span>
-                                <span class="form-control-feedback"><i class="fa fa-search"></i></span>
+                                <span class="btn-back" id="back-icon"><i class="fa fa-arrow-left"></i> </span>
+                                <span style="margin-top: 1px;" class="form-control-feedback"><i class="fa fa-search"></i></span>
                                 <input style="font-size: 15px;" name="search" id="searchinput" type="text" autocomplete="off" spellcheck="false" class="form-control input-search" placeholder="Estoy buscando...">
                             </form>
                         </div>
@@ -152,8 +165,83 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <div class="collapse navbar-collapse menu-responsive" id="navbarSupportedContent">
+                    <div class="container">
+                    <div class="row">
+                        <div class="col-3">
+                        <img @guest src="img/logo.png" @else src="img-perfil/{{Auth::user()->img}}" @endguest style="margin-top: 20px; border-radius: 30px;" />
+                        </div>
+                        <div class="col-9">
+                            <h5 style="margin-top: 20px; margin-bottom: 0px;font-weight: 600;">Bienvenido</h5>
+                            @guest
+                            <h6 class="text-muted">Ingresá para optimizar tu perfil o dejar tu reseña.</h6>
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-6" style="padding: 1px;">
+                                    <a href="/login" class="btn btn-info" style="width: 100%; color: white;">Ingresá</a>
+                                </div>
+                                <div class="col-6" style="padding: 1px;">
+                                    <a class="btn btn-outline-info" href="/register" style="width: 100%; color: #17a2b8">Creá tu cuenta</a>
+                                </div>
+                            </div>
+                            @else
+                            <div class="nav-item dropdown">
+                                <a id="navbarDropdown" class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/panel">Panel</a>
+                                    <hr>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                      Cerrar sesion
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-6" style="padding: 1px;">
+                                    <a href="/panel" class="btn btn-info" style="width: 100%; color: white;">Panel</a>
+                                </div>
+                                <div class="col-6" style="padding: 1px;">
+                                <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="btn btn-outline-info" href="/register" style="width: 100%; color: #17a2b8">Salir</a>
+                                </div>
+                            </div>
+                            @endguest
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </div>
+
+
+                    <ul style="margin-top: 10px;position: relative;background: #fff;list-style: none;margin: 0;padding: 16px 0;border-bottom: solid 1px #e6e6e6;font-size: 14px;">
+                        <a href="/"><li style="display: block;padding: 10px 0;margin: 0;">
+                            <i class="fa fa-home" style="font-size: 20px;width: 20px;height: 20px;display: inline-block;margin-right: 18px;float: left;"></i> Inicio
+                        </li>
+                        </a>
+                        <a  data-toggle="modal" data-target="#exampleModal">
+                            <li style="display: block;padding: 10px 0;margin: 0;">
+                                 <i class="fa fa-life-ring" style="font-size: 20px;width: 20px;height: 20px;display: inline-block;margin-right: 18px;float: left;"></i> ¿Quiénes somos?
+                            </li>
+                        </a>
+                        <a href="/lista">
+                            <li style="display: block;padding: 10px 0;margin: 0;">
+                                 <i class="fa fa-id-card" style="font-size: 20px;width: 20px;height: 20px;display: inline-block;margin-right: 18px;float: left;"></i> Profesionales
+                            </li>
+                        </a>
+                        <a href="/register">
+                            <li class="text-info" style="display: block;padding: 10px 0;margin: 0;">
+                                 <i class="fa fa-fire " style="font-size: 20px;width: 20px;height: 20px;display: inline-block;margin-right: 18px;float: left;"></i> <span style="font-weight: 600">¡Quiero aparecer en la lista!</span>
+                            </li>
+                        </a>
+
+                    </ul>
+
+                    </div>
+                </div>
+
+                <div class="collapse navbar-collapse" id="">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
@@ -286,7 +374,7 @@
             $('.nav-search').css({'left': '0px', 'right': '0px', 'margin-top': '-33px', 'position': 'absolute', 'transition': 'left 0.2s, right 0.2s, margin-top 0.2s'});
             $('.input-search').css({'box-shadow': '', 'height': '66px', 'padding-left': '50px', 'border-radius': '0px','border-top': 'none', 'border-right': 'none', 'border-left': 'none', 'border-bottom': '1px solid #00b7ff', 'transition': 'height 0.2s'});
             $('.form-control-feedback').hide();
-            $('.btn-back').css({'top': '19px','left': '5px','opacity': '1','will-change': 'opacity','display': 'block', 'position': 'absolute', 'margin-left': '10px'});
+            $('.btn-back').css({'color': '#4183fa', 'top': '24px','left': '5px','opacity': '1','will-change': 'opacity','display': 'block', 'position': 'absolute', 'margin-left': '10px'});
             $('.back-icon').css({'height': '16px'});
         });
         $('#back-icon').click(function(){

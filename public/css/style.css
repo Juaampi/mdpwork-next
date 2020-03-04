@@ -107,6 +107,7 @@
 .input-responsive-login{width: 100%;}
 #explorar{display:none;}
 .titulo-cartas{margin-top: -22px; color: black; margin-bottom: -11px;}
+#navbarSupportedContent{display: none !important;}
 }
 @media only screen and (min-width:900px) and (max-width:1600px){#row-description-responsive{display:none;}
 #txtmetodos{float:left;margin:0 10px 0 0;}
@@ -172,4 +173,5 @@ input{border:1px solid transparent;background-color:#f1f1f1;padding:10px;font-si
 .input-responsive-login{width: 100%;}
 #explorar{display:none;}
 .titulo-cartas{margin-top: -22px; color: black; margin-bottom: -11px;}
+#navbarSupportedContent{display: none !important;}
 }

@@ -27,8 +27,8 @@ use Carbon\Carbon;
             <span class="text-success"><i style="margin-top: 15px;" class="fa fa-check-circle"></i></span>
         </div>
         <div class="col-7">
-            <p style="margin-bottom: -5px;">Explorá los profesionales</p>
-            <p><a href="/lista" class="text-primary">Ver lista completa</a></p>
+            <p style="margin-bottom: -5px; font-size: 13px;">Explorá los profesionales</p>
+            <p><a href="/lista" class="text-primary" style="font-size: 12px;">Ver lista completa</a></p>
         </div>
     </div>
 
@@ -402,7 +402,7 @@ use Carbon\Carbon;
             </div>
             <div class="swiper-slide" style="widht: 100%">
                 <div class="card">
-                    <img class="card-img-top" src="https://www.fletes-capital.com.ar/wp-content/uploads/2017/01/gfhfgh.jpg"/>
+                    <img class="card-img-top" style="height: 180px;" src="https://www.fletes-capital.com.ar/wp-content/uploads/2017/01/gfhfgh.jpg"/>
                     <div class="card-body">
                         <a href="/busqueda?search=Mini%20Flete"><h6 class="card-title">Mini-Fletes</h6></a>
                         <h6 style="font-size: 13px;" class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>4</strong> Encontrados en Mar del Plata</h6>

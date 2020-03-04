@@ -29,6 +29,10 @@ Route::get('/legales/terms', 'UserController@terms');
 Route::get('/legales/privacy', 'UserController@privacy');
 Route::get('/opciones', 'UserController@opciones');
 
+Route::get('/ordenarPorNombre', 'UserController@ordenarPorNombre')->name('ordenarPorNombre');
+Route::get('/ordenarPorZona', 'UserController@ordenarPorZona')->name('ordenarPorZona');
+Route::get('/ordenarPorPuntaje', 'UserController@ordenarPorPuntaje')->name('ordenarPorPuntaje');
+
 Route::get('/intro', function(){
     return view('intro');
 });

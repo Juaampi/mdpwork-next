@@ -180,6 +180,8 @@
                                                     <option value="4" >4-5 Año/s</option>
                                                     <option value="6" >6-7 Año/s</option>
                                                     <option value="10" >8-10 Año/s</option>
+                                                    <option value="20" >10-20 Año/s</option>
+                                                    <option value="30" >20-30 Año/s</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -528,31 +530,33 @@
                                                 </div>
                                         </div>
 
-                                        <div class="col-lg-12">
+                                        <div class="col-lg-12" style="margin-bottom: 15px;">
                                             <h4 class="fz18 mb20 mt-4">Redes Sociales</h4>
+                                            <small>El ID de su respectiva cuenta es el texto que se encuentra luego de la dirección de su navegador. Por Ejemplo si cuando ingresa a su perfil de Facebook la URL es: https://facebook.com/ricardoalberto la <strong>URL</strong> es https://facebook.com y su <strong>ID</strong> es <strong>ricardoalberto</strong>.</small>
+<br>
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                                   <div class="my_profile_input form-group">
-                                                    <label for="formGroupExampleInput8">Facebook</label>
-                                                    <input type="text" name="facebook" class="form-control" id="formGroupExampleInput8"  placeholder="Ej: http://facebook.com/mdpwork">
+                                                    <label for="formGroupExampleInput8">https://facebook.com/{El ID de su Facebook}</label>
+                                                    <input type="text" name="facebook" class="form-control" id="formGroupExampleInput8"  placeholder="Ej: mdpworkinc">
                                                 </div>
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                                   <div class="my_profile_input form-group">
-                                                    <label for="formGroupExampleInput2">Twitter</label>
-                                                    <input type="text" name="twitter" class="form-control" id="formGroupExampleInput2" placeholder="Ej: http://twitter.com/mdpwork" >
+                                                    <label for="formGroupExampleInput2">https://twitter.com({El ID de su Twitter}</label>
+                                                    <input type="text" name="twitter" class="form-control" id="formGroupExampleInput2" placeholder="Ej: mdpworkinc" >
                                                 </div>
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                                 <div class="my_profile_input form-group">
-                                                    <label for="formGroupExampleInput3">Linkedin</label>
-                                                    <input type="text" name="linkedin" class="form-control" id="formGroupExampleInput3" placeholder="Ej: http://linkedin.com/mdpwork">
+                                                    <label for="formGroupExampleInput3">https://linkedin.com/{El ID de su Linkedin}</label>
+                                                    <input type="text" name="linkedin" class="form-control" id="formGroupExampleInput3" placeholder="Ej: mdpworkinc">
                                                 </div>
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                                 <div class="my_profile_input form-group">
-                                                    <label for="formGroupExampleInput4">Instagram</label>
-                                                    <input type="text" name="instagram" class="form-control" id="formGroupExampleInput4" placeholder="Ej: http://instagram.com/mdpwork" >
+                                                    <label for="formGroupExampleInput4">https://instagram.com/{El ID de su Instagram}</label>
+                                                    <input type="text" name="instagram" class="form-control" id="formGroupExampleInput4" placeholder="Ej: mdpworkinc" >
                                                 </div>
                                         </div>
                                         <div class="col-md-6 col-lg-6 mt-2">

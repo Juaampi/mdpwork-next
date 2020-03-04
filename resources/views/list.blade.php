@@ -1,6 +1,12 @@
 @extends('layouts.app')
+<script>
+    var countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antártida Argentina","Barrio 180","Lomas del Golf","Bernardino Rivadavia","Belgrano","Belisario Roldán","Bosque Alegre","Bosque Peralta Ramos","Caisamar","Centenario","Cerrito","Cerrito Sur","Cerrito San Salvador","Colina Alegre","Constitución","Coronel Dorrego","Costa Azul","Don Bosco","Don Emilio","Dorrego","El Grosellar","El Martillo","El Progreso","Estrada","Etchepare","Faro","Juramento","Las Américas","Las Avenidas","Colinas de Peralta Ramos","Las Heras","La Florida","La Perla","La Zulema","Libertad","Los Acantilados","Los Pinares","Los Troncos","Malvinas Argentinas","Newbery","Nueva Pompeya","Montemar","Parque Hermoso","Parque La Florida","Parque Luro","Parque Palermo","Parque Peña","Peralta Ramos Oeste","Pinos de Anchorena","Chapadmalal","Playa Grande","Punta Mogotes","San Antonio","San Carlos","San Eduardo","San Geronimo","San Jacinto","San José","San Patricio","San Salvador","Santa Mónica","Sarmiento","Stella Maris","Jardín Stella Maris","Jardín","Alfar","Nuevo Golf","Zacagnini", "Otra zona", "Todo Mar del Plata"];
+
+</script>
+
 @php
 use Carbon\Carbon;
+$countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antártida Argentina","Barrio 180","Lomas del Golf","Bernardino Rivadavia","Belgrano","Belisario Roldán","Bosque Alegre","Bosque Peralta Ramos","Caisamar","Centenario","Cerrito","Cerrito Sur","Cerrito San Salvador","Colina Alegre","Constitución","Coronel Dorrego","Costa Azul","Don Bosco","Don Emilio","Dorrego","El Grosellar","El Martillo","El Progreso","Estrada","Etchepare","Faro","Juramento","Las Américas","Las Avenidas","Colinas de Peralta Ramos","Las Heras","La Florida","La Perla","La Zulema","Libertad","Los Acantilados","Los Pinares","Los Troncos","Malvinas Argentinas","Newbery","Nueva Pompeya","Montemar","Parque Hermoso","Parque La Florida","Parque Luro","Parque Palermo","Parque Peña","Peralta Ramos Oeste","Pinos de Anchorena","Chapadmalal","Playa Grande","Punta Mogotes","San Antonio","San Carlos","San Eduardo","San Geronimo","San Jacinto","San José","San Patricio","San Salvador","Santa Mónica","Sarmiento","Stella Maris","Jardín Stella Maris","Jardín","Alfar","Nuevo Golf","Zacagnini", "Otra zona", "Todo Mar del Plata"];
 @endphp
 @section('content')
 <style>
@@ -13,7 +19,195 @@ use Carbon\Carbon;
     #btnsubmitfilter{
     cursor: pointer;
     }
+    .ui-search-toolbar--border {
+    border-bottom: 1px solid rgba(0,0,0,.07);
+    }
+    .ui-search-toolbar{background: white}
+    .ui-search-toolbar__actions {
+    -webkit-align-content: center;
+    align-content: center;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    padding: 0 4px;
+    width: 100%;}
+
+    .ui-search-toolbar__action {
+    min-width: 33%;
+    position: relative;
+    width: inherit;}
+
+    .ui-search-toolbar__action:after {
+    content: "";
+    position: absolute;
+    bottom: 16px;
+    height: 20px;
+    right: 0;
+    border-right: 1px solid #ddd;}
+
+    .ui-search-toolbar {color: #3483fa;}
+    .ui-search-toolbar .ui-search-modal__link {
+    -webkit-align-items: center;
+    align-items: center;
+    display: -webkit-flex;
+    display: flex;
+    font-size: 14px;
+    height: 52px;
+    -webkit-justify-content: center;
+    justify-content: center;
+    font-weight: 400;}
+
+    .ui-search-toolbar .ui-search-modal__icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 8px;}
+
+    .ui-search-toolbar .ui-search-modal__icon svg {
+    fill: #3483fa;}
+
+    .ui-search-view-change__icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 8px;}
+
+    .ui-search-view-change__icon svg {
+    fill: #3483fa;}
+
+
+
+    .ui-search-modal .andes-list {
+    font-weight: 300;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+    .andes-list {
+    font-family: Proxima Nova,-apple-system,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 0;
+    background-color: #fff;
+    padding: 0;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+}
+.ui-search-modal .andes-list__item {
+    color: rgba(0,0,0,.8);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0,0,0,.1);
+}
+.andes-list__item--selected {
+    position: relative;
+}
+.andes-list__item {
+    padding: 24px 32px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;}
+
+    .ui-search-modal .andes-list__item--selected:before {
+    border-left-width: 6px;
+}
+.andes-list__item--selected:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border-left: .22222em solid #3483fa;}
+    .andes-modal--full .andes-modal-dialog__content {
+    padding: 0!important;
+    }
+
     </style>
+
+<div class="ui-search-toolbar ui-search-toolbar--border">
+    <ul class="ui-search-toolbar__actions" style="margin: 0">
+<li class="ui-search-toolbar__action "><a id="ordenar" data-toggle="modal" data-target="#ordenarModal" class="ui-search-modal__link ui-search-link"><div class="ui-search-modal__icon"><svg style="vertical-align: baseline;" class="ui-search-icon ui-search-icon--order" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M6.857 23.527l-3.705-3.705-1.616 1.616 6.464 6.464 6.464-6.462-1.616-1.616-3.705 3.701v-18.953h-2.286v18.955zM22.857 8.473l-3.705 3.705-1.616-1.616 6.464-6.464 0.809 0.807 5.655 5.657-1.616 1.616-3.705-3.703v18.953h-2.286v-18.955z"></path></svg></div><span style="color: #3483fa;
+        font-weight: 600;">Ordenar</span></a></li>
+        <li class="ui-search-toolbar__action ui-search-toolbar__action--filter"><a data-toggle="modal" data-target="#filtrarModal" class="ui-search-modal__link ui-search-link"><div class="ui-search-modal__icon"><svg style="vertical-align: baseline;" class="ui-search-icon ui-search-icon--filter" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M15.9 22h16.1v2h-16.1c-0.479 2.301-2.491 4.005-4.9 4.005s-4.42-1.704-4.894-3.973l-0.006-0.032h-6.1v-2h6.1c0.479-2.301 2.491-4.005 4.9-4.005s4.421 1.704 4.894 3.973l0.006 0.032zM18.1 8c0.48-2.301 2.491-4.005 4.9-4.005s4.421 1.704 4.894 3.973l0.006 0.032h4.1v2h-4.1c-0.48 2.301-2.491 4.005-4.9 4.005s-4.421-1.704-4.894-3.973l-0.006-0.033h-18.1v-2h18.1zM23 12c1.657 0 3-1.343 3-3s-1.343-3-3-3v0c-1.657 0-3 1.343-3 3s1.343 3 3 3v0zM11 26c1.657 0 3-1.343 3-3s-1.343-3-3-3v0c-1.657 0-3 1.343-3 3s1.343 3 3 3v0z"></path></svg></div><span style="color: #3483fa;
+            font-weight: 600;">Filtrar</span></a></li>
+    </ul></div>
+
+
+
+    <div class="modal fade" id="ordenarModal" tabindex="-1" role="dialog" aria-labelledby="ordenarModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" style="height: 80%" role="document">
+          <div class="modal-content" style="height: 100%">
+            <div class="modal-header" style="border: none;">
+              <button style="position: absolute; float: right;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class="fa fa-arrow-left"></i></span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <h3 style="margin-top: 20px;margin-bottom: 20px;font-family: 'roboto', sans-serif;">Ordenar Por</h3>
+                <div class="andes-modal-dialog__content">
+                <ul class="ui-search-sort andes-list" >
+                    <li style="margin-top: 5px; margin-bottom: 5px;border: 1px solid #d6d6d6;border-radius: 3px;"><a @if(empty($busqueda)) href="/ordenarPorNombre" @else href="/ordenarPorNombre?search={{$busqueda}}" @endif style="font-size: 14px; font-weight: 300;" class="andes-list__item andes-list__item--selected ui-search-link">Abecedario</a></li>
+                    <li style="margin-top: 5px; margin-bottom: 5px;border: 1px solid #d6d6d6;border-radius: 3px;"><a @if(empty($busqueda)) href="/ordenarPorZona" @else href="/ordenarPorZona?search={{$busqueda}}" @endif style="font-size: 14px; font-weight: 300;" class="andes-list__item andes-list__item--selected ui-search-link">Zonas registradas</a></li>
+                </ul>
+                </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="modal fade" id="filtrarModal" tabindex="-1" role="dialog" aria-labelledby="ordenarModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" style="height: 80%" role="document">
+          <div class="modal-content" style="height: 100%">
+            <div class="modal-header" style="border: none;">
+              <button style="position: absolute; float: right;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class="fa fa-arrow-left"></i></span>
+              </button>
+            </div>
+            <div class="modal-body" style="padding-left: 0px; padding-right: 0px;">
+                <h3 style="margin-top: 20px;margin-bottom: 20px;font-family: 'roboto', sans-serif;margin-left: 20px;margin-bottom: 50px;">Filtrar Por</h3>
+                <div class="andes-modal-dialog__content">
+                <ul class="ui-search-sort andes-list"style="line-height: 3">
+                    <li id="btn-select-categories" style="border: 1px solid #dcdcdc;font-size: 16px;">
+                       <a style="margin-left: 40px;font-family: 'roboto', sans-serif"> Categorías <span class="text-primary"><i style="float: right;margin-top: 14px;margin-right: 30px;" class="fa fa-chevron-down"></i></span></a>
+                    </li>
+                    <div id="select-categories" class="container" style="background: #fafafa; display:none;">
+                        @foreach($categories as $category)
+                            <div class="row" style="margin-left: 30px; font-size: 16px;"><a href="/busqueda?category={{$category->name}}" class="text-primary">{{$category->name}}</a></div>
+                        @endforeach
+                    </div>
+
+                    <li id="btn-select-subcategories" style="border: 1px solid #dcdcdc;font-size: 16px;border-top: none;">
+                    <a style="margin-left: 40px;font-family: 'roboto', sans-serif"> Servicios <span class="text-primary"><i style="float: right;margin-top: 14px;margin-right: 30px;" class="fa fa-chevron-down"></i></span></a>
+                     </li>
+                     <div id="select-subcategories" class="container" style="background: #fafafa; display:none;">
+                         @foreach($subcategories as $subcategory)
+                             <div class="row" style="margin-left: 30px; font-size: 16px;"><a  href="/busqueda?search={{$subcategory->name}}" class="text-primary">{{$subcategory->name}}</a></div>
+                         @endforeach
+                     </div>
+
+                     <li id="btn-select-countries" style="border: 1px solid #dcdcdc;font-size: 16px;border-top: none;">
+                        <a  style="margin-left: 40px;font-family: 'roboto', sans-serif"> Ubicación <span class="text-primary"><i style="float: right;margin-top: 14px;margin-right: 30px;" class="fa fa-chevron-down"></i></span></a>
+                     </li>
+                     <div id="select-countries" class="container" style="background: #fafafa; display:none;">
+                         @foreach($countries as $country)
+                             <div class="row" style="margin-left: 30px; font-size: 16px;"><a  @if(empty($busqueda)) href="/busqueda?zone={{$country}}" @else href="/busqueda?search={{$busqueda}}&zone={{$country}}" @endif class="text-primary">{{$country}}</a></div>
+                         @endforeach
+                     </div>
+                </ul>
+                </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
 <section class="text-no-responsive" style="background: #f1f1f1;padding: 10px 0px;">
     <div class="container">
         <div class="row">
@@ -78,53 +272,8 @@ use Carbon\Carbon;
 
 
       </script>
-        <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-            <div id="alerta-informacion" class="bs-callout bs-callout-info bg-white"><img src="img-icons/info.png" /> <small class="text-muted" style="font-style: italic;"> Debajo del buscador aparecerán los resultados de la búsqueda que realizó. Recomendamos utilizar los filtros especiales haciendo <a id="btn-filter-active" class="stretched-link text-danger"><strong> Click aquí</strong></a>. </small>
-            </div>
-            </div>
-        </div>
-        </div>
-        <div class="container" id="filter-container" style="display:none;">
-            <div class="row">
-                <div class="col-lg-12 col-xl-12 dn-smd" id="filter-mobile-none">
-                    <div class="card">
-                        <div class="card-header">Filtros Especiales - <span class="text-muted"> Para que funcionen correctamente debe seleccionar primero <strong>"Categorías Generales"</strong></span></div>
-                        <div class="card-body">
-                        <form action="{{route('User.search')}}" method="GET">
-                            <div class="form-row align-items-center">
-                            <div class="cl_skill_checkbox">
-                                <div class="col-auto">
-                                    <label for="formGroupExampleInput2">Categorías generales</label>
-                                    <select id="category" name="category_id" class="form-control">
-                                         @foreach($categories as $category)
-                                            <option value="{{$category->id}}">{{$category->name}}</option>
-                                         @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="cl_carrer_lever">
-                                        <div class="col-auto">
-                                            <label for="formGroupExampleInput2">Profesion <img id="unselected" style="display:none;" src="img-icons/alert.png"><img id="selected" style="display:none;" src="img-icons/check.png"></label>
-                                            <select id="subcategory" name="search" class="form-control" style="display: inline;width: 100%;" >
-                                            </select>
-                                        </div>
-                                </div>
-                                <div class="form-inline mt-4 mr-3">
-                                    <button id="btnsubmitfilter" disabled type="submit" class="btn btn-primary">Filtrar</button>
-                                </div>
-                                <div class="form-inline mt-4">
-                                    <a id="btn-cancel-filter" class="text-danger"><strong>Cancelar</strong></a>
-                                </div>
-                            </div>
-                        </form>
-                        </div>
-                    </div>
-                    </div>
-                </div>
 
-            </div>
+
         </div>
     </div>
 </section>
@@ -134,8 +283,13 @@ use Carbon\Carbon;
         <div class="row">
             <div class="col-lg-12 col-xl-12">
                 <div class="row" ><div class="container">
-                    @if(isset($busqueda))
-                        <h1 style="font-size: 17px;font-weight: normal;margin-top: 10px; margin-bottom: 10px;"><strong>{{$busqueda}}</strong> en Mar del Plata </h1>
+                    @if(isset($searchcategory))
+                    <h1 style="font-size: 17px;font-weight: normal;margin-top: 10px; margin-bottom: 10px;"><strong>{{ ucfirst($searchcategory)}}</strong> en Mar del Plata </h1>
+                    @endif
+                    @if(isset($busqueda) && isset($zone))
+                        <h1 style="font-size: 17px;font-weight: normal;margin-top: 10px; margin-bottom: 10px;"><strong>{{ ucfirst($busqueda)}}</strong> en <strong>{{$zone}}</strong>, Mar del Plata </h1>
+                    @elseif(isset($busqueda))
+                        <h1 style="font-size: 17px;font-weight: normal;margin-top: 10px; margin-bottom: 10px;"><strong>{{ucfirst($busqueda)}}</strong> en Mar del Plata </h1>
                     @endif
                     @if(!empty($empty))
                         <div class="alert alert-danger text-center" style="width: 100%">Lamentablemente no pudimos encontrar lo que busca, por favor intente nuevamente.</div>
@@ -167,6 +321,7 @@ use Carbon\Carbon;
                             </div>
                         </div>
                     </div>
+
                     <div class="container">
                     <div class="row bg-white">
                         <div class="container">
@@ -174,7 +329,7 @@ use Carbon\Carbon;
                         </div>
 
                                      <!-- LOS MÁS VISTOS, TAMBIÉN VAN A IR LOS DESTACADOS ACÁ  -->
-                                              
+
                                 <hr>
                             @foreach($lastest as $last)
                             @if($last->rol == 'profesional')
@@ -282,7 +437,11 @@ use Carbon\Carbon;
                                     </form>
                                 </div>
                             </div>
-                            <div id="list-responsive" class="container">                                    
+
+
+
+
+                            <div id="list-responsive" class="container">
                                 <div class="row bg-white" style="padding: 5px;">
                                     <div class="col-3">
                                         <img style="border-radius: 10px;" class="img-fluid" src="images/large/{{$last->img}}" alt="1.jpg">
@@ -457,9 +616,6 @@ use Carbon\Carbon;
     </div>
 </section>
 
-<script>
-        var countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antártida Argentina","Barrio 180","Lomas del Golf","Bernardino Rivadavia","Belgrano","Belisario Roldán","Bosque Alegre","Bosque Peralta Ramos","Caisamar","Centenario","Cerrito","Cerrito Sur","Cerrito San Salvador","Colina Alegre","Constitución","Coronel Dorrego","Costa Azul","Don Bosco","Don Emilio","Dorrego","El Grosellar","El Martillo","El Progreso","Estrada","Etchepare","Faro","Juramento","Las Américas","Las Avenidas","Colinas de Peralta Ramos","Las Heras","La Florida","La Perla","La Zulema","Libertad","Los Acantilados","Los Pinares","Los Troncos","Malvinas Argentinas","Newbery","Nueva Pompeya","Montemar","Parque Hermoso","Parque La Florida","Parque Luro","Parque Palermo","Parque Peña","Peralta Ramos Oeste","Pinos de Anchorena","Chapadmalal","Playa Grande","Punta Mogotes","San Antonio","San Carlos","San Eduardo","San Geronimo","San Jacinto","San José","San Patricio","San Salvador","Santa Mónica","Sarmiento","Stella Maris","Jardín Stella Maris","Jardín","Alfar","Nuevo Golf","Zacagnini", "Otra zona", "Todo Mar del Plata"];
-</script>
 
 <script>
         function autocomplete(inp, arr, arr2) {
@@ -574,6 +730,34 @@ use Carbon\Carbon;
 
 <script>
       $(document).ready(function(){
+
+         $('#btn-select-categories').on('click', function(){
+             if($('#select-categories').css('display') == 'none'){
+                $('#select-categories').show('slow');
+             }else{
+                $('#select-categories').hide('slow');
+             }
+
+         });
+
+         $('#btn-select-subcategories').on('click', function(){
+             if($('#select-subcategories').css('display') == 'none'){
+                $('#select-subcategories').show('slow');
+             }else{
+                $('#select-subcategories').hide('slow');
+             }
+
+         });
+
+         $('#btn-select-countries').on('click', function(){
+             if($('#select-countries').css('display') == 'none'){
+                $('#select-countries').show('slow');
+             }else{
+                $('#select-countries').hide('slow');
+             }
+
+         });
+
 
           $('#btn-filter-active').on('click', function(){
             $('#filter-container').show('slow');
