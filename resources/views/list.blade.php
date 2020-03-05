@@ -10,6 +10,9 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
 @endphp
 @section('content')
 <style>
+    .form-control-feedback{
+        margin-top: 8px;
+    }
     #btn-filter-active{
     cursor: pointer;
     }

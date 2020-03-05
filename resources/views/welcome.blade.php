@@ -314,7 +314,7 @@ use Carbon\Carbon;
             <!-- Slides -->
                   <div class="swiper-slide" style="widht: 100%">
                         <div class="card">
-                            <img class="card-img-top" src="https://americasvoiceespanol.com/wp-content/uploads/2018/12/contratar-un-electricista-en-casa-620x420.jpg"/>
+                            <img class="card-img-top" height="200" src="https://americasvoiceespanol.com/wp-content/uploads/2018/12/contratar-un-electricista-en-casa-620x420.jpg"/>
                             <div class="card-body">
                             <a href="/busqueda?search=Electricista"><h6 class="card-title">Electricistas</h6></a>
                             <h6 style="font-size: 13px;" class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>8</strong> Encontrados en Mar del Plata</h6>
@@ -323,7 +323,7 @@ use Carbon\Carbon;
                 </div>
             <div class="swiper-slide" style="widht: 100%">
                 <div class="card">
-                    <img class="card-img-top" src="https://www.reformas.net/storage/uploads/img/content_article/q/2/5aeac67e60c1d2.05305431-md.jpg"/>
+                    <img class="card-img-top" height="200" src="https://www.reformas.net/storage/uploads/img/content_article/q/2/5aeac67e60c1d2.05305431-md.jpg"/>
                     <div class="card-body">
                         <a href="/busqueda?search=Albañil"><h6 class="card-title">Albañiles</h6></a>
                         <h6 style="font-size: 13px;" class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>9</strong> Encontrados en Mar del Plata</h6>
@@ -332,7 +332,7 @@ use Carbon\Carbon;
             </div>
             <div class="swiper-slide" style="widht: 100%">
                 <div class="card">
-                    <img class="card-img-top" src="https://ecohabitar.org/wp-content/uploads/original.jpg"/>
+                    <img class="card-img-top" height="200" src="https://ecohabitar.org/wp-content/uploads/original.jpg"/>
                     <div class="card-body">
                         <a href="/busqueda?search=Carpintero"><h6 class="card-title">Carpinteros</h6></a>
                         <h6 style="font-size: 13px;" class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>4</strong> Encontrados en Mar del Plata</h6>
@@ -342,7 +342,7 @@ use Carbon\Carbon;
 
             <div class="swiper-slide" style="widht: 100%">
                 <div class="card">
-                    <img class="card-img-top" src="https://techistareparaciones.com.ar/img/placeholder/techista_zona_norte_3.jpg"/>
+                    <img class="card-img-top" height="200" src="https://techistareparaciones.com.ar/img/placeholder/techista_zona_norte_3.jpg"/>
                     <div class="card-body">
                         <a href="/busqueda?search=Techista"><h6 class="card-title">Techistas</h6></a>
                         <h6 style="font-size: 13px;" class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>6</strong> Encontrados en Mar del Plata</h6>
@@ -352,7 +352,7 @@ use Carbon\Carbon;
 
             <div class="swiper-slide" style="widht: 100%">
                 <div class="card">
-                    <img class="card-img-top" src="https://atencioncliente.com/wp-content/uploads/2019/08/fontaneros-2.jpg"/>
+                    <img class="card-img-top" height="200" src="https://atencioncliente.com/wp-content/uploads/2019/08/fontaneros-2.jpg"/>
                     <div class="card-body">
                         <a href="/busqueda?search=Plomero"><h6 class="card-title">Plomeros</h6></a>
                         <h6 style="font-size: 13px;" class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>4</strong> Encontrados en Mar del Plata</h6>
@@ -362,7 +362,7 @@ use Carbon\Carbon;
 
             <div class="swiper-slide" style="widht: 100%">
                 <div class="card">
-                    <img class="card-img-top" src="https://www.laprida.gov.ar/pwadmin//files/imagenes/noticias/5d778de6d22433e6ebefbc42eeb59831.jpg"/>
+                    <img class="card-img-top" height="200" src="https://www.laprida.gov.ar/pwadmin//files/imagenes/noticias/5d778de6d22433e6ebefbc42eeb59831.jpg"/>
                     <div class="card-body">
                         <a href="/busqueda?search=Gasista"><h6 class="card-title">Gasista</h6></a>
                         <h6 style="font-size: 13px;" class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>2</strong> Encontrados en Mar del Plata</h6>
@@ -384,7 +384,7 @@ use Carbon\Carbon;
             <!-- Slides -->
                   <div class="swiper-slide" style="widht: 100%">
                         <div class="card">
-                            <img class="card-img-top" src="https://trabajosyempleosargentina.com.ar/wp-content/uploads/2018/12/CHOFERES.jpg"/>
+                            <img class="card-img-top" height="200" src="https://trabajosyempleosargentina.com.ar/wp-content/uploads/2018/12/CHOFERES.jpg"/>
                             <div class="card-body">
                             <a href="/busqueda?search=Chofer"><h6 class="card-title">Choferes profesionales</h6></a>
                             <h6 style="font-size: 13px;" class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>3</strong> Encontrados en Mar del Plata</h6>
@@ -393,7 +393,7 @@ use Carbon\Carbon;
                 </div>
             <div class="swiper-slide" style="widht: 100%">
                 <div class="card">
-                    <img class="card-img-top" src="https://www.transportesexpress.cl/site/wp-content/uploads/2017/03/camion3.jpg"/>
+                    <img class="card-img-top" height="200" src="https://www.transportesexpress.cl/site/wp-content/uploads/2017/03/camion3.jpg"/>
                     <div class="card-body">
                         <a href="/busqueda?search=Flete"><h6 class="card-title">Fletes</h6></a>
                         <h6 style="font-size: 13px;" class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>9</strong> Encontrados en Mar del Plata</h6>
@@ -402,7 +402,7 @@ use Carbon\Carbon;
             </div>
             <div class="swiper-slide" style="widht: 100%">
                 <div class="card">
-                    <img class="card-img-top" style="height: 180px;" src="https://www.fletes-capital.com.ar/wp-content/uploads/2017/01/gfhfgh.jpg"/>
+                    <img class="card-img-top" height="200" src="https://www.fletes-capital.com.ar/wp-content/uploads/2017/01/gfhfgh.jpg"/>
                     <div class="card-body">
                         <a href="/busqueda?search=Mini%20Flete"><h6 class="card-title">Mini-Fletes</h6></a>
                         <h6 style="font-size: 13px;" class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>4</strong> Encontrados en Mar del Plata</h6>
@@ -412,7 +412,7 @@ use Carbon\Carbon;
 
             <div class="swiper-slide" style="widht: 100%">
                 <div class="card">
-                    <img class="card-img-top" src="https://http2.mlstatic.com/transporte-y-mudanza-D_NQ_NP_765461-MLV31195523223_062019-F.jpg"/>
+                    <img class="card-img-top" height="200" src="https://http2.mlstatic.com/transporte-y-mudanza-D_NQ_NP_765461-MLV31195523223_062019-F.jpg"/>
                     <div class="card-body">
                         <a href="/busqueda?search=Mudanza"><h6 class="card-title">Mudanzas</h6></a>
                         <h6 style="font-size: 13px;" class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>6</strong> Encontrados en Mar del Plata</h6>

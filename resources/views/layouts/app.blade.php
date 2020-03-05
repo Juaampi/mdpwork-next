@@ -147,7 +147,7 @@
     display:none;
 }
 
-            </style>
+</style>
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -157,7 +157,7 @@
                         <div class="has-search responsive-search">
                             <form action="{{route('User.search')}}" id="form-search" method="GET" class="nav-search">
                                 <span class="btn-back" id="back-icon"><i class="fa fa-arrow-left"></i> </span>
-                                <span style="margin-top: 1px;" class="form-control-feedback"><i class="fa fa-search"></i></span>
+                                <span class="form-control-feedback"><i class="fa fa-search"></i></span>
                                 <input style="font-size: 15px;" name="search" id="searchinput" type="text" autocomplete="off" spellcheck="false" class="form-control input-search" placeholder="Estoy buscando...">
                             </form>
                         </div>

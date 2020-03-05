@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
 use App\User;
@@ -732,55 +732,6 @@ class UserController extends Controller
 
     public function ordenarPorDisponibilidad(Request $request){
 
-        $masvistos = DB::table('views')->selectRaw("users.id, users.name, users.img, users.job,  COUNT('views.*') as views")->join('users', 'users.id', '=', 'views.user_id')->groupBy('users.name')->orderBy('views', 'desc')->take(1)->get();
-        $mascomentados = DB::table('coments')->selectRaw("users.id, users.name, users.img, users.job,  COUNT('coments.*') as coments")->join('users', 'users.id', '=', 'coments.user_id')->groupBy('users.name')->orderBy('coments', 'desc')->take(1)->get();
-        $users = User::where('rol', '=', 'profesional')->orderBy('created_at', 'desc')->get();
-        $categories = Category::all();
-        $subcategories = Subcategory::all();
-        $coments = Coment::all();
-        $array = [];
-        $cantidades = [];
-        $relacionadas = '';
-        foreach($subcategories as $subcategory){
-            $cuenta = User::where('job', '=', $subcategory->name)->count();
-            array_add($subcategory, 'cantidad', $cuenta);
-        }
-        $o = 0;
-        foreach($users as $user){
-            $bandera = 0;
-            foreach($subcategories as $subcategory)
-            {
-                if($user->job == $subcategory->name){
-                    $bandera = 1;
-                }
-            }
-            if($bandera == 0){
-                $array[$o] = $user->job;
-                $o++;
-            }
-        }
-       foreach($subcategories as $subcategory){
-           $array[$o] = $subcategory->name;
-           $o++;
-       }
-       $u = 0;
-       foreach($subcategories as $subcategory){
-        $cantidades[$u] = $subcategory->cantidad;
-        $u++;
-    }
-
-        if(!empty($request['search'])){
-            $user = User::where('job', 'like', '%' . $request['search'] . '%')->orderBy('zone', 'asc')->paginate(30);
-                 if(count($user) == 0){
-                    $user = User::where('rol', '=', 'profesional')->orderBy('created_at', 'desc')->paginate(30);
-                     return view('list', ['busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
-                 }else{
-                     return view('list', ['busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
-                 }
-        }else{
-            $user = User::where('rol', '=', 'profesional')->orderBy('zone', 'asc')->paginate(30);
-            return view('list', ['busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
-        }
     }
 
     public function ordenarPorPuntaje(Request $request){
