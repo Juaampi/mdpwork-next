@@ -71,20 +71,6 @@
 
 @endphp
 <body class="bgc-lightgray">
-    <!--Start of Tawk.to Script-->
-<script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/5e5e64d0f2eb411bb5724141/default';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-    </script>
-    <!--End of Tawk.to Script-->
-
     <div id="app">
 
             <style>
@@ -177,10 +163,10 @@
                             <h6 class="text-muted">Ingresá para optimizar tu perfil o dejar tu reseña.</h6>
                             <div class="row" style="margin-top: 10px;">
                                 <div class="col-6" style="padding: 1px;">
-                                    <a href="/login" class="btn btn-info" style="width: 100%; color: white;">Ingresá</a>
+                                    <a href="/login" class="btn btn-info" style="width: 100%; color: white;">Ingresar</a>
                                 </div>
                                 <div class="col-6" style="padding: 1px;">
-                                    <a class="btn btn-outline-info" href="/register" style="width: 100%; color: #17a2b8">Creá tu cuenta</a>
+                                    <a class="btn btn-outline-info" href="/register" style="width: 100%; color: #17a2b8">Crear</a>
                                 </div>
                             </div>
                             @else
@@ -330,7 +316,7 @@
       <div class="modal-body text-center">
             <h4 class="text-secondary">MDPWORK INC.</h4>
 
-            <p><strong>MDPWORK INC.</strong> es una guía para la búsqueda de profesionales dedicados a brindar soluciones para el hogar  y servicio técnico. Pensado para todo el partido de General Pueyrredón y alrededores y con fuerte presencia local inicia sus actividades en la Ciudad <strong>Mar del Plata, Provincia de Buenos Aires, Argentina</strong>. En mdpworkinc.com los usuarios tienen acceso a datos de contacto; información,  fotos  y comentarios de los trabajos  realizados por profesionales independientes y por empresas: para así poder elegir a quien consideren más adecuado. La seguridad es un punto clave, todas las empresas tienen sus datos, credenciales, documentos y fotos verificadas, brindándole al cliente mayor confianza a la hora de contratar servicios para su hogar.</p>
+            <p><strong>MDPWORK INC.</strong> es una guía para la búsqueda de profesionales dedicados a brindar soluciones para el hogar  y servicio técnico. Pensado para todo el partido de General Pueyrredón y alrededores y con fuerte presencia local inicia sus actividades en la Ciudad <strong>Mar del Plata, Provincia de Buenos Aires, Argentina</strong>. En mdpworkinc.com los usuarios tienen acceso a datos de contacto; información,  fotos  y comentarios de los trabajos  realizados por profesionales independientes y por empresas: para así poder elegir a quien consideren más adecuado.</p>
 
             <p>Si estás buscando un plomero o un electricista para solucionar un problema: o si te quedaste encerrado afuera de tu casa y necesitás un cerrajero urgente, si querés que un pintor te ayude a pintar las paredes de tu casa: este es el lugar para encontrarlo!</p>
       </div>

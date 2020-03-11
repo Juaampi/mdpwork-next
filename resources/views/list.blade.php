@@ -147,8 +147,8 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                 <h3 style="margin-top: 20px;margin-bottom: 20px;font-family: 'roboto', sans-serif;">Ordenar Por</h3>
                 <div class="andes-modal-dialog__content">
                 <ul class="ui-search-sort andes-list" >
-                    <li style="margin-top: 5px; margin-bottom: 5px;border: 1px solid #d6d6d6;border-radius: 3px;"><a @if(empty($busqueda)) href="/ordenarPorNombre" @else href="/ordenarPorNombre?search={{$busqueda}}" @endif style="font-size: 14px; font-weight: 300;" class="andes-list__item andes-list__item--selected ui-search-link">Abecedario</a></li>
-                    <li style="margin-top: 5px; margin-bottom: 5px;border: 1px solid #d6d6d6;border-radius: 3px;"><a @if(empty($busqueda)) href="/ordenarPorZona" @else href="/ordenarPorZona?search={{$busqueda}}" @endif style="font-size: 14px; font-weight: 300;" class="andes-list__item andes-list__item--selected ui-search-link">Zonas registradas</a></li>
+                    <li style="margin-top: 5px; margin-bottom: 5px;border: 1px solid #d6d6d6;border-radius: 3px;"><a @if(empty($zone)) href="/ordenarPorZona" @else href="/ordenarPorZona?zone={{$zone}}" @endif style="font-size: 14px; font-weight: 300;" class="andes-list__item andes-list__item--selected ui-search-link">Zona</a></li>
+                    <li style="margin-top: 5px; margin-bottom: 5px;border: 1px solid #d6d6d6;border-radius: 3px;"><a @if(empty($busqueda) && empty($searchcategory)) href="/ordenarPorNombre" @elseif(empty($busqueda) && !empty($searchcategory)) href="/ordenarPorNombre?category={{$searchcategory}}" @elseif(empty($searchcategory) && !empty($busqueda)) href="/ordenarPorNombre?search={{$busqueda}}" @endif style="font-size: 14px; font-weight: 300;" class="andes-list__item andes-list__item--selected ui-search-link">Abecedario</a></li>
                 </ul>
                 </div>
             </div>
