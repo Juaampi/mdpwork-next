@@ -6,7 +6,7 @@
     <div  id="registroProfesional" class="row justify-content-center">
         <div class="col-md-12">
             <div class="card mt-4">
-                <div class="card-header text-center" style="background:#00b7ff; color:white;"><p>Formulario de registro para <strong>Mdp Work Inc.</strong>.</p>
+                <div class="card-header text-center" style="background:#00b7ff; color:white;"><p>Formulario de registro para <strong>Mardeltrabaja.com</strong>.</p>
 
                 </div>
 
@@ -38,7 +38,7 @@
                                         <div class="col-md-6 col-lg-6">
                                                 <div class="my_profile_input form-group">
                                                     <label for="exampleFormControlInput1">Email <span class="text-danger">*</span><span class="text-secondary font-style-italic">(Para iniciar sesion)</span></label>
-                                                    <input type="email" name="email" class="form-control" id="exampleFormControlInput1" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Ej: mdpwork@gmail.com">
+                                                    <input type="email" name="email" class="form-control" id="exampleFormControlInput1" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Ej: mardeltrabaja@gmail.com">
                                                     @error('email')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -166,7 +166,7 @@
                                         <div class="col-md-6 <col-lg-6">
                                             <div class="my_profile_input form-group">
                                                 <label for="exampleFormControlInput2">Sitio Web</label>
-                                            <input type="text" name="website" class="form-control" id="exampleFormControlInput2" placeholder="EJ: http://mdpworkinc.com">
+                                            <input type="text" name="website" class="form-control" id="exampleFormControlInput2" placeholder="EJ: http://mardeltrabaja.com">
                                             </div>
                                         </div>
 
@@ -538,33 +538,33 @@
                                         <div class="col-md-6 col-lg-6">
                                                   <div class="my_profile_input form-group">
                                                     <label for="formGroupExampleInput8">https://facebook.com/{El ID de su Facebook}</label>
-                                                    <input type="text" name="facebook" class="form-control" id="formGroupExampleInput8"  placeholder="Ej: mdpworkinc">
+                                                    <input type="text" name="facebook" class="form-control" id="formGroupExampleInput8"  placeholder="Ej: Mardeltrabaja">
                                                 </div>
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                                   <div class="my_profile_input form-group">
                                                     <label for="formGroupExampleInput2">https://twitter.com({El ID de su Twitter}</label>
-                                                    <input type="text" name="twitter" class="form-control" id="formGroupExampleInput2" placeholder="Ej: mdpworkinc" >
+                                                    <input type="text" name="twitter" class="form-control" id="formGroupExampleInput2" placeholder="Ej: Mardeltrabaja" >
                                                 </div>
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                                 <div class="my_profile_input form-group">
                                                     <label for="formGroupExampleInput3">https://linkedin.com/{El ID de su Linkedin}</label>
-                                                    <input type="text" name="linkedin" class="form-control" id="formGroupExampleInput3" placeholder="Ej: mdpworkinc">
+                                                    <input type="text" name="linkedin" class="form-control" id="formGroupExampleInput3" placeholder="Ej: Mardeltrabaja">
                                                 </div>
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                                 <div class="my_profile_input form-group">
                                                     <label for="formGroupExampleInput4">https://instagram.com/{El ID de su Instagram}</label>
-                                                    <input type="text" name="instagram" class="form-control" id="formGroupExampleInput4" placeholder="Ej: mdpworkinc" >
+                                                    <input type="text" name="instagram" class="form-control" id="formGroupExampleInput4" placeholder="Ej: Mardeltrabaja" >
                                                 </div>
                                         </div>
                                         <div class="col-md-6 col-lg-6 mt-2">
                                                 <div class="my_profile_input form-group text-center">
                                                     <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="customCheck1" required oninvalid="this.setCustomValidity('Debes aceptar los términos y condiciones de MDPWORK INC.')"
+                                                        <input type="checkbox" class="custom-control-input" id="customCheck1" required oninvalid="this.setCustomValidity('Debes aceptar los términos y condiciones de Mardeltrabaja.com')"
                                                         oninput="this.setCustomValidity('')">
-                                                        <label class="custom-control-label" for="customCheck1">Acepto los <strong><a href="/legales/terms">Términos y Condiciones de MDPWORK INC.</a></strong></label>
+                                                        <label class="custom-control-label" for="customCheck1">Acepto los <strong><a href="/legales/terms">Términos y Condiciones de Mardeltrabaja.com</a></strong></label>
                                                     </div>
                                                 </div>
                                         </div>

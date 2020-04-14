@@ -3,33 +3,30 @@
 use Carbon\Carbon;
 @endphp
 @section('content')
-<div class="wrapper" style="background: #fafafa">
+<div class="wrapper" style="background: #e7e7e7">
 
-    <div class="swiper-container">
+    <div class="swiper-container responsive">
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
             <!-- Slides -->
             <div class="swiper-slide"><img src="img/swiper1.jpg"/></div>
             <div class="swiper-slide"><img src="img/swiper2.jpg"/></div>
-            <div class="swiper-slide"><a style="margin-top: 90px; position: absolute; margin-left: 30px;" href="/busqueda?search=carpintero" class="btn btn-sm btn-warning">Buscalo acá</a><img src="img/swiper3.jpg"/></div>
-            <div class="swiper-slide"><a style="margin-top: 100px; position: absolute; margin-left: 50px;" href="/busqueda?search=veterinaria" class="btn btn-sm btn-success">Encontralo acá</a><img src="img/swiper4.jpg"/></div>
+            <div class="swiper-slide"><img src="img/swiper3.jpg"/></div>
         </div>
-        <!-- If we need pagination -->
-        <div class="swiper-pagination"></div>
-
-        <!-- If we need navigation buttons -->
-
-        <!-- If we need scrollbar -->
-        <div class="swiper-scrollbar"></div>
     </div>
-    <div id="explorar" class="row justify-content-center" style="margin-top: 30px;margin-bottom: 30px;">
-        <div class="col-1">
-            <span class="text-success"><i style="margin-top: 15px;" class="fa fa-check-circle"></i></span>
-        </div>
-        <div class="col-7">
-            <p style="margin-bottom: -5px; font-size: 13px;">Explorá los profesionales</p>
-            <p><a href="/lista" class="text-primary" style="font-size: 12px;">Ver lista completa</a></p>
-        </div>
+    <div class="responsive bg-white ml-2 mr-2 mt-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
+        <div class="container">
+			<div class="row">
+				<div class="col-8" style="padding: 25px;">
+                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">¡Encontrá tu solución!</h6>
+                        <p class="text-muted" style="font-size: 12px;">Encontrá al profesional que necesitas en <strong>Mardeltrabaja.com</strong></p>
+						<a style="font-size: 12px;font-weight: 600;color: #1886fc;" href="/lista">Buscar<i class="flaticon-right-arrow pl15"></i></a>
+                </div>
+                <div class="col-4">
+                    <img src="img/nuevos.svg" style="margin-top:30px;">
+                </div>
+            </div>
+    </div>
     </div>
 
     <section id="section-questions" class="home-one style2" style="background-size: cover; height: 100%;background: #fafafa">
@@ -39,7 +36,7 @@ use Carbon\Carbon;
 
 				<div class="col-lg-12">
 					<div class="home-text">
-                        <h3 class="title-mdpwork">Mdp Work Inc<span style="font-size: 15px;">©</span></h3>
+                        <h3 class="title-mdpwork">Mardeltrabaja.com<span style="font-size: 15px;">©</span></h3>
 						<p class="ml4" style="color: #6f6f6f">
                             <span class="letters letters-1">¿Necesitás un profesional?</span>
                             <span class="letters letters-2">¿Necesitás un electricista?</span>
@@ -83,17 +80,14 @@ use Carbon\Carbon;
     </section>
 
 
-    <section class="popular-job bg-white pb30" style="margin-left: 10px; margin-right: 10px; border-radius: 10px; border: solid 1px #e4e4e4;">
+    <div class="bg-white ml-2 mr-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-12">
-					<div class="ulockd-main-title">
-                        <h5 class="titulo-cartas" style="margin-bottom: 0px;">Profesionales recientes</h5>
-                        <h6 class="text-muted">Le damos la bienvenida a todos los nuevos ingresantes del sitio!</h6>
-						<a class="text-thm" href="/lista">Ver todos<i class="flaticon-right-arrow pl15"></i></a>
-					</div>
-				</div>
-			</div>
+				<div class="col-12" style="padding: 25px;">
+                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">Profesionales recientes</h6>
+                        <p class="text-muted" style="font-size: 12px;">Le damos la bienvenida a todos los nuevos ingresantes del sitio!</p>
+                </div>
+            </div>
 			<div class="row">
                 @foreach($lastest as $last)
                     @if($last->rol == 'profesional')
@@ -203,7 +197,7 @@ use Carbon\Carbon;
                 </div>
 
 
-                <div id="list-responsive" class="container">
+                <div id="list-responsive" class="container mt-2">
                     <div class="row bg-white" style="padding: 5px;">
                         <div class="col-3">
                             <img style="border-radius: 10px;" class="img-fluid" src="images/large/{{$last->img}}" alt="1.jpg">
@@ -226,7 +220,6 @@ use Carbon\Carbon;
                             @endif
                             <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{$last->name}}</h4>
                             <p style="font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ ucfirst($last->job) }} <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a></p>
-                            <p style="margin-bottom:0px;font-size: 12px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><span style="color:gray;"><i class="fa fa-location-arrow"></i></span> @if($last->zone){{$last->zone}},@endif Mar del Plata</p>
                             <p style="margin-bottom: 0px;font-size: 12px;">
                                         @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
                                             @if($hour <= $last->{'outhour'.$day} && $hour >= $last->{'inhour'.$day})
@@ -296,142 +289,60 @@ use Carbon\Carbon;
                 @endforeach
             </div>
 		</div>
-    </section>
-
-
-
-	<!-- Home Design -->
-
-<section id="slider-swiper" style="background: white;margin-top: 20px; margin-left: 10px; margin-right: 10px; border-radius: 10px; border: solid 1px #e4e4e4;">
-    <div class="container ulockd-main-title" style="margin-bottom: -45px;">
-        <h5 class="titulo-cartas">Categorias populares</h5>
-        <div class="swiper-container">
-            <hr>
-            <h6 class="text-muted"><span class="text-warning"><i class="fa fa-star"></i></span> Hogar y construcción</h6>
-        <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-
-            <!-- Slides -->
-                  <div class="swiper-slide" style="widht: 100%">
-                        <div class="card">
-                            <img class="card-img-top" height="200" src="https://americasvoiceespanol.com/wp-content/uploads/2018/12/contratar-un-electricista-en-casa-620x420.jpg"/>
-                            <div class="card-body">
-                            <a href="/busqueda?search=Electricista"><h6 class="card-title">Electricistas</h6></a>
-                            <h6 style="font-size: 13px;" class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>8</strong> Encontrados en Mar del Plata</h6>
-                        </div>
-                    </div>
-                </div>
-            <div class="swiper-slide" style="widht: 100%">
-                <div class="card">
-                    <img class="card-img-top" height="200" src="https://www.reformas.net/storage/uploads/img/content_article/q/2/5aeac67e60c1d2.05305431-md.jpg"/>
-                    <div class="card-body">
-                        <a href="/busqueda?search=Albañil"><h6 class="card-title">Albañiles</h6></a>
-                        <h6 style="font-size: 13px;" class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>9</strong> Encontrados en Mar del Plata</h6>
-                      </div>
-                </div>
-            </div>
-            <div class="swiper-slide" style="widht: 100%">
-                <div class="card">
-                    <img class="card-img-top" height="200" src="https://ecohabitar.org/wp-content/uploads/original.jpg"/>
-                    <div class="card-body">
-                        <a href="/busqueda?search=Carpintero"><h6 class="card-title">Carpinteros</h6></a>
-                        <h6 style="font-size: 13px;" class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>4</strong> Encontrados en Mar del Plata</h6>
-                      </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide" style="widht: 100%">
-                <div class="card">
-                    <img class="card-img-top" height="200" src="https://techistareparaciones.com.ar/img/placeholder/techista_zona_norte_3.jpg"/>
-                    <div class="card-body">
-                        <a href="/busqueda?search=Techista"><h6 class="card-title">Techistas</h6></a>
-                        <h6 style="font-size: 13px;" class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>6</strong> Encontrados en Mar del Plata</h6>
-                      </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide" style="widht: 100%">
-                <div class="card">
-                    <img class="card-img-top" height="200" src="https://atencioncliente.com/wp-content/uploads/2019/08/fontaneros-2.jpg"/>
-                    <div class="card-body">
-                        <a href="/busqueda?search=Plomero"><h6 class="card-title">Plomeros</h6></a>
-                        <h6 style="font-size: 13px;" class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>4</strong> Encontrados en Mar del Plata</h6>
-                      </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide" style="widht: 100%">
-                <div class="card">
-                    <img class="card-img-top" height="200" src="https://www.laprida.gov.ar/pwadmin//files/imagenes/noticias/5d778de6d22433e6ebefbc42eeb59831.jpg"/>
-                    <div class="card-body">
-                        <a href="/busqueda?search=Gasista"><h6 class="card-title">Gasista</h6></a>
-                        <h6 style="font-size: 13px;" class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>2</strong> Encontrados en Mar del Plata</h6>
-                      </div>
-                </div>
-            </div>
-
-
-        </div>
-
-        <!-- If we need pagination -->
-        <div class="swiper-pagination"></div>
     </div>
 
-        <div class="swiper-container" style="margin-top: 20px;">
-            <h6 class="text-muted"><span class="text-warning"><i class="fa fa-star"></i></span> Transporte</h6>
-        <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-            <!-- Slides -->
-                  <div class="swiper-slide" style="widht: 100%">
-                        <div class="card">
-                            <img class="card-img-top" height="200" src="https://trabajosyempleosargentina.com.ar/wp-content/uploads/2018/12/CHOFERES.jpg"/>
-                            <div class="card-body">
-                            <a href="/busqueda?search=Chofer"><h6 class="card-title">Choferes profesionales</h6></a>
-                            <h6 style="font-size: 13px;" class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>3</strong> Encontrados en Mar del Plata</h6>
-                        </div>
-                    </div>
-                </div>
-            <div class="swiper-slide" style="widht: 100%">
-                <div class="card">
-                    <img class="card-img-top" height="200" src="https://www.transportesexpress.cl/site/wp-content/uploads/2017/03/camion3.jpg"/>
-                    <div class="card-body">
-                        <a href="/busqueda?search=Flete"><h6 class="card-title">Fletes</h6></a>
-                        <h6 style="font-size: 13px;" class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>9</strong> Encontrados en Mar del Plata</h6>
-                      </div>
-                </div>
-            </div>
-            <div class="swiper-slide" style="widht: 100%">
-                <div class="card">
-                    <img class="card-img-top" height="200" src="https://www.fletes-capital.com.ar/wp-content/uploads/2017/01/gfhfgh.jpg"/>
-                    <div class="card-body">
-                        <a href="/busqueda?search=Mini%20Flete"><h6 class="card-title">Mini-Fletes</h6></a>
-                        <h6 style="font-size: 13px;" class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>4</strong> Encontrados en Mar del Plata</h6>
-                      </div>
-                </div>
-            </div>
 
-            <div class="swiper-slide" style="widht: 100%">
-                <div class="card">
-                    <img class="card-img-top" height="200" src="https://http2.mlstatic.com/transporte-y-mudanza-D_NQ_NP_765461-MLV31195523223_062019-F.jpg"/>
-                    <div class="card-body">
-                        <a href="/busqueda?search=Mudanza"><h6 class="card-title">Mudanzas</h6></a>
-                        <h6 style="font-size: 13px;" class="card-text"><span style="color:gray;"><i class="fa fa-location-arrow" aria-hidden="true"></i></span> <strong>6</strong> Encontrados en Mar del Plata</h6>
-                      </div>
+
+    <!-- Home Design -->
+
+    <div class="bg-white ml-2 mr-2 mt-2 mb-2 responsive" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
+        <div class="container">
+			<div class="row">
+				<div class="col-8" style="padding: 25px;">
+                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">Categorías Populares</h6>
+                        <p class="text-muted" style="font-size: 12px;">Éstas son las categorías con más profesionales</strong></p>
+                </div>
+                <div class="col-4">
+                    <img src="img/populares.png" style="margin-top:15px;">
                 </div>
             </div>
-        </div>
-        <!-- If we need pagination -->
-        <div class="swiper-pagination"></div>
     </div>
     </div>
-</section>
+
+    <div class="ml-2 mr-2 mt-2 mb-2 responsive" style="background: #00b6fe;border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
+        <div class="container">
+			<div class="row">
+				<div class="col-8" style="padding: 25px;">
+                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;color: white" class="font-weight-bold">Hogar y Construcción</h6>
+                        <p class="text-white" style="font-size: 12px;">Pintores, Electricistas, Albañiles y mucho más..</strong></p>
+                        <a style="font-size: 12px;font-weight: 600;color: white;" href="/busqueda?category=Hogar">Ver categoría<i class="flaticon-right-arrow pl15"></i></a>
+                </div>
+                <div class="col-4">
+                    <img src="https://pngimage.net/wp-content/uploads/2018/06/pintando-png-1.png" style="margin-top:30px;">
+                </div>
+            </div>
+    </div>
+    </div>
+
+    <div class="ml-2 mr-2 mb-2 responsive" style="background: #ff2e2e;border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
+        <div class="container">
+			<div class="row">
+				<div class="col-8" style="padding: 25px;">
+                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;color: white" class="font-weight-bold">Cuidado Personal</h6>
+                        <p class="text-white" style="font-size: 12px;">Estética en general, Uñas, Peluquería y mucho más..</strong></p>
+                        <a style="font-size: 12px;font-weight: bold;color: white;" href="/lista">Ver categoría<i class="flaticon-right-arrow pl15"></i></a>
+                </div>
+                <div class="col-4">
+                    <img src="img/cuidado.png" style="margin-top:30px;">
+                </div>
+            </div>
+    </div>
+    </div>
 
 
 	<!-- Popular Job Categories -->
-        <div style="padding: 30px 10px; width: 100%">
+        <div class="ml-2 mr-2 mb-2" style="background: white;border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
             <div class="styles__list___1uJCs">
-                <h5 class="titulo-cartas" style="margin-top: 0px; padding: 13px;margin-bottom: -40px;background: white;">Todas las categorías</h5>
-                <hr>
                <div class="styles__item___2pefo">
                   <a href="/busqueda?category=Hogar" class="styles__link___1Zdpv" data-test="service_item.redirect_to_Hogar">
                      <svg width="32px" height="32px" xmlns="http://www.w3.org/2000/svg" class="" style="fill: currentcolor;">
@@ -618,45 +529,62 @@ if (event.keyCode === 13) {
 
 	<!-- Features Job List Design -->
 
-    <section class="bg-white">
+    <div class="ml-2 mr-2 mb-2 responsive" style="background: white;border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
         <div class="swiper-container">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
                 <div class="swiper-slide">
-                    <div class="card" style="border: none;">
-                        <div class="card-body text-center">
-                            <img src="img/slider1.png">
-                            <h4 style="font-size: 20px;font-weight: 500;line-height: 1.4;color: #4b4b4b;margin: 16px 0 0;">Utilizá el buscador</h4>
-                            <p style="color: #999;font-size: 15px;line-height: 1.2;">Si estás necesitando de alguien para solucionar un problema específico, ¡acá lo vas a encontrar!</p>
-                            <a href="/lista" style="font-size: 14px;text-decoration: none;color: #3483fa" >Quiero utilizar el buscador</a>
-                        </div>
-                        </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="card-body text-center">
-                        <img src="img/slider2.png">
-                        <h4 style="font-size: 20px;font-weight: 500;line-height: 1.4;color: #4b4b4b;margin: 16px 0 0;">Contactá rápidamente</h4>
-                        <p style="color: #999;font-size: 15px;line-height: 1.2;">Ponete en contacto directo con la persona que necesitás de manera fácil, rápida, segura y gratuita!</p>
-                        <a href="/lista" style="font-size: 14px;text-decoration: none;color: #3483fa" >Quiero encontrar lo que necesito</a>
+                    <div class="bg-white ml-2 mr-2 mt-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-8" style="padding: 25px;">
+                                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">Utilizá el buscador</h6>
+                                        <p class="text-muted" style="font-size: 12px;">Si estás necesitando de alguien paraun problema específico, ¡acá lo vas a encontrar!</strong></p>
+                                        <a href="/lista" style="font-size: 14px;text-decoration: none;color: #3483fa" >Quiero utilizar el buscador</a>
+                                </div>
+                                <div class="col-4">
+                                    <img src="img/slider1.png" style="margin-top:30px;">
+                                </div>
+                            </div>
+                    </div>
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <div class="card-body text-center">
-                        <img src="img/slider3.png">
-                        <h4 style="font-size: 20px;font-weight: 500;line-height: 1.4;color: #4b4b4b;margin: 16px 0 0;">¿Realizás alguna actividad?</h4>
-                        <p style="color: #999;font-size: 15px;line-height: 1.2;">Si tenes algún tipo de profesión, practicás un oficio o trabajas de manera autónoma, ¡registrate!</p>
-                        <a href="/register" style="font-size: 14px;text-decoration: none;color: #3483fa" >Quiero participar del sitio</a>
+                    <div class="bg-white ml-2 mr-2 mt-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-8" style="padding: 25px;">
+                                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">Contactá rápidamente</h6>
+                                        <p class="text-muted" style="font-size: 12px;">Contacto directo con lo que necesitás de manera fácil y gratis.</strong></p>
+                                        <a href="/lista" style="font-size: 14px;text-decoration: none;color: #3483fa" >Quiero encontrar</a>
+                                </div>
+                                <div class="col-4">
+                                    <img src="img/slider2.png" style="margin-top:30px;">
+                                </div>
+                            </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="bg-white ml-2 mr-2 mt-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-8" style="padding: 25px;">
+                                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">¿Realizás actividad?</h6>
+                                        <p class="text-muted" style="font-size: 12px;">Si practicás un oficio o trabajas de manera autónoma, ¡registrate!</strong></p>
+                                        <a href="/lista" style="font-size: 14px;text-decoration: none;color: #3483fa" >Quiero aparecer</a>
+                                </div>
+                                <div class="col-4">
+                                    <img src="img/slider3.png" style="margin-top:30px;">
+                                </div>
+                            </div>
+                    </div>
                     </div>
                 </div>
             </div>
-            <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
-            <!-- If we need scrollbar -->
-            <div class="swiper-scrollbar"></div>
         </div>
-    </section>
-
+    </div>
 	<!-- Our Footer Bottom Area -->
 </div>
 

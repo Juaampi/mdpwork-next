@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Mdp Work Inc. - Profesionales en Mar del Plata</title>
+    <title>Mardeltrabaja.com - Oficios en Mar del Plata</title>
 
     <!-- ICONO -->
     <link rel="shortcut icon" href="img/logo-ico.ico" alt="Carpintero, Plomero, Abogado, Electricista Mar del plata" />
@@ -38,6 +38,8 @@
    <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap" rel="stylesheet">
+
 
 
 </head>
@@ -290,13 +292,13 @@
                     <div class="row">
                         <div class="col-lg-4 pb10 pt10">
                             <div class="copyright-widget tac-smd mt10">
-                                <p>© 2020 <strong>Mdp Work Inc</strong>. All Rights Reserved.</p>
+                                <p>© 2020 <strong>Mardeltrabaja.com</strong>. Todos los derechos reservados.</p>
                             </div>
                         </div>
                         <div class="col-lg-8 pb10 pt10">
                             <div class="footer_menu text-right mt10">
                                 <ul>
-                                    <li class="list-inline-item"><a id="btn-quienes" data-toggle="modal" data-target="#exampleModal" >Quienes Somos</a></li>
+                                    <li class="list-inline-item"><a id="btn-quienes" data-toggle="modal" data-target="#exampleModal" >¿Quiénes Somos?</a></li>
                                     <li class="list-inline-item"><a href="/legales/privacy">Políticas de Privacidad</a></li>
                                     <li class="list-inline-item"><a href="/legales/terms">Términos y Condiciones</a></li>
                                 </ul>
@@ -308,15 +310,15 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">MDPWORK INC. ¿Quienés Somos?</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Mardeltrabaja.com ¿Quienés Somos?</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body text-center">
-            <h4 class="text-secondary">MDPWORK INC.</h4>
+            <h4 class="text-secondary">Mardeltrabaja.com</h4>
 
-            <p><strong>MDPWORK INC.</strong> es una guía para la búsqueda de profesionales dedicados a brindar soluciones para el hogar  y servicio técnico. Pensado para todo el partido de General Pueyrredón y alrededores y con fuerte presencia local inicia sus actividades en la Ciudad <strong>Mar del Plata, Provincia de Buenos Aires, Argentina</strong>. En mdpworkinc.com los usuarios tienen acceso a datos de contacto; información,  fotos  y comentarios de los trabajos  realizados por profesionales independientes y por empresas: para así poder elegir a quien consideren más adecuado.</p>
+            <p><strong>Mardeltrabaja.com</strong> es una guía para la búsqueda de profesionales dedicados a brindar soluciones para el hogar  y servicio técnico. Pensado para todo el partido de General Pueyrredón y alrededores y con fuerte presencia local inicia sus actividades en la Ciudad <strong>Mar del Plata, Provincia de Buenos Aires, Argentina</strong>. En Mardeltrabaja.com los usuarios tienen acceso a datos de contacto; información,  fotos  y comentarios de los trabajos  realizados por profesionales independientes y por empresas: para así poder elegir a quien consideren más adecuado.</p>
 
             <p>Si estás buscando un plomero o un electricista para solucionar un problema: o si te quedaste encerrado afuera de tu casa y necesitás un cerrajero urgente, si querés que un pintor te ayude a pintar las paredes de tu casa: este es el lugar para encontrarlo!</p>
       </div>
@@ -360,7 +362,7 @@
             $('.nav-search').css({'left': '0px', 'right': '0px', 'margin-top': '-33px', 'position': 'absolute', 'transition': 'left 0.2s, right 0.2s, margin-top 0.2s'});
             $('.input-search').css({'box-shadow': '', 'height': '66px', 'padding-left': '50px', 'border-radius': '0px','border-top': 'none', 'border-right': 'none', 'border-left': 'none', 'border-bottom': '1px solid #00b7ff', 'transition': 'height 0.2s'});
             $('.form-control-feedback').hide();
-            $('.btn-back').css({'color': '#4183fa', 'top': '24px','left': '5px','opacity': '1','will-change': 'opacity','display': 'block', 'position': 'absolute', 'margin-left': '10px'});
+            $('.btn-back').css({'color': '#4183fa', 'top': '20px','left': '5px','opacity': '1','will-change': 'opacity','display': 'block', 'position': 'absolute', 'margin-left': '10px'});
             $('.back-icon').css({'height': '16px'});
         });
         $('#back-icon').click(function(){
