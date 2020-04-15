@@ -19,8 +19,8 @@ use Carbon\Carbon;
 			<div class="row">
 				<div class="col-8" style="padding: 20px;">
                         <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">¡Encontrá tu solución!</h6>
-                        <p class="text-muted" style="font-size: 12px;">Encontrá al profesional que necesitas en <strong>Mardeltrabaja.com</strong></p>
-						<a style="font-size: 12px;font-weight: 600;color: #1886fc;" href="/lista">Buscar<i class="flaticon-right-arrow pl15"></i></a>
+                        <p class="text-muted" style="font-size: 11px;">Encontrá al profesional que necesitas en <strong>Mardeltrabaja.com</strong></p>
+						<a style="font-size: 12px;font-weight: bold;color: #1886fc;" href="/lista">Buscar<i class="flaticon-right-arrow pl15"></i></a>
                 </div>
                 <div class="col-4">
                     <img src="img/nuevos.svg" style="margin-top:30px;">
@@ -43,7 +43,7 @@ use Carbon\Carbon;
                             <span class="letters letters-3">¿Tenés un evento importante?</span>
                             <span class="letters letters-4">¿Se te rompió el auto? </span>
                             <span class="letters letters-5">¿Te estás mudando y buscas un flete?</span>
-                            <span class="letters letters-6">¡Tu solución está en Mdp Work Inc!</span>
+                            <span class="letters letters-6">¡Tu solución está en Mardeltrabaja.com!</span>
                         </p>
 
                     </div>
