@@ -11,16 +11,15 @@ use Carbon\Carbon;
             <!-- Slides -->
             <div class="swiper-slide"><img src="img/swiper1.jpg"/></div>
             <div class="swiper-slide"><img src="img/swiper2.jpg"/></div>
-            <div class="swiper-slide"><img src="img/swiper3.jpg"/></div>
         </div>
     </div>
     <div class="responsive bg-white ml-2 mr-2 mt-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
         <div class="container">
 			<div class="row">
-				<div class="col-8" style="padding: 20px;">
+				<div class="col-8" style="padding: 14px;">
                         <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">¡Encontrá tu solución!</h6>
-                        <p class="text-muted" style="font-size: 11px;">Encontrá al profesional que necesitas en <strong>Mardeltrabaja.com</strong></p>
-						<a style="font-size: 12px;font-weight: bold;color: #1886fc;" href="/lista">Buscar<i class="flaticon-right-arrow pl15"></i></a>
+                        <p class="text-muted" style="font-size: 12px;">Encontrá al profesional que necesitas en <strong>Mardeltrabaja.com</strong></p>
+						<a style="font-size: 12px;font-weight: bold;color: #1886fc;" href="/lista">Ver listado <i class="fa fa-arrow-right" style="padding: 5px;"></i></a>
                 </div>
                 <div class="col-4">
                     <img src="img/nuevos.svg" style="margin-top:30px;">
@@ -83,7 +82,7 @@ use Carbon\Carbon;
     <div class="bg-white ml-2 mr-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
 		<div class="container">
 			<div class="row">
-				<div class="col-12" style="padding: 25px;">
+				<div class="col-12" style="padding: 14px;">
                         <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">Profesionales recientes</h6>
                         <p class="text-muted" style="font-size: 12px;">Le damos la bienvenida a todos los nuevos ingresantes del sitio!</p>
                 </div>
@@ -218,7 +217,7 @@ use Carbon\Carbon;
                                     <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-danger">No Disponible</p>
                                 @endif
                             @endif
-                            <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{$last->name}}</h4>
+                            <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: 600">{{$last->name}}</h4>
                             <p style="font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ ucfirst($last->job) }} <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a></p>
                             <p style="margin-bottom: 0px;font-size: 12px;">
                                         @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
