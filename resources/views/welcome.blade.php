@@ -17,7 +17,7 @@ use Carbon\Carbon;
     <div class="responsive bg-white ml-2 mr-2 mt-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
         <div class="container">
 			<div class="row">
-				<div class="col-8" style="padding: 25px;">
+				<div class="col-8" style="padding: 20px;">
                         <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">¡Encontrá tu solución!</h6>
                         <p class="text-muted" style="font-size: 12px;">Encontrá al profesional que necesitas en <strong>Mardeltrabaja.com</strong></p>
 						<a style="font-size: 12px;font-weight: 600;color: #1886fc;" href="/lista">Buscar<i class="flaticon-right-arrow pl15"></i></a>
@@ -312,7 +312,7 @@ use Carbon\Carbon;
     <div class="ml-2 mr-2 mt-2 mb-2 responsive" style="background: #00b6fe;border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
         <div class="container">
 			<div class="row">
-				<div class="col-8" style="padding: 25px;">
+				<div class="col-8" style="padding: 20px;">
                         <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;color: white" class="font-weight-bold">Hogar y Construcción</h6>
                         <p class="text-white" style="font-size: 12px;">Pintores, Electricistas, Albañiles y mucho más..</strong></p>
                         <a style="font-size: 12px;font-weight: 600;color: white;" href="/busqueda?category=Hogar">Ver categoría<i class="flaticon-right-arrow pl15"></i></a>
@@ -327,7 +327,7 @@ use Carbon\Carbon;
     <div class="ml-2 mr-2 mb-2 responsive" style="background: #ff2e2e;border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
         <div class="container">
 			<div class="row">
-				<div class="col-8" style="padding: 25px;">
+				<div class="col-8" style="padding: 20px;">
                         <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;color: white" class="font-weight-bold">Cuidado Personal</h6>
                         <p class="text-white" style="font-size: 12px;">Estética en general, Uñas, Peluquería y mucho más..</strong></p>
                         <a style="font-size: 12px;font-weight: bold;color: white;" href="/lista">Ver categoría<i class="flaticon-right-arrow pl15"></i></a>
