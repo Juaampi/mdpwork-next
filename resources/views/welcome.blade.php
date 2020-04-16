@@ -11,7 +11,7 @@ use Carbon\Carbon;
             <!-- Slides -->
             <div class="swiper-slide"><img src="img/swiper1.jpg"/></div>
             <div class="swiper-slide"><img src="img/swiper2.jpg"/></div>
-            <div class="swiper-slide"><img src="img/swiper3.jpg"/></div>
+
         </div>
     </div>
     <div class="responsive bg-white ml-2 mr-2 mt-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
@@ -20,10 +20,25 @@ use Carbon\Carbon;
 				<div class="col-8" style="padding: 20px;">
                         <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">¡Encontrá tu solución!</h6>
                         <p class="text-muted" style="font-size: 11px;">Encontrá al profesional que necesitas en <strong>Mardeltrabaja.com</strong></p>
-						<a style="font-size: 12px;font-weight: bold;color: #1886fc;" href="/lista">Buscar<i class="flaticon-right-arrow pl15"></i></a>
+						<a style="font-size: 12px;font-weight: bold;color: #1886fc;" href="/lista">Ver listado<i class="fa fa-arrow-right" style="padding: 10px"></i></a>
                 </div>
                 <div class="col-4">
                     <img src="img/nuevos.svg" style="margin-top:30px;">
+                </div>
+            </div>
+    </div>
+    </div>
+
+
+    <div class="ml-2 mr-2 mt-2 mb-2 responsive" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);background: #5a96c3">
+        <div class="container">
+            <div class="row">
+                <div class="col-8" style="padding: 25px;">
+                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;color:white;" class="font-weight-bold">¡Quedate en casa!</h6>
+                        <p class="text-white" style="font-size: 12px;">Consultá presupuestos desde la comodidad de tu hogar, mientras combatimos el COVID-19</strong></p>
+                </div>
+                <div class="col-4">
+                    <img src="img/covid19.png" style="margin-top:40px;">
                 </div>
             </div>
     </div>
@@ -78,81 +93,78 @@ use Carbon\Carbon;
 			</div>
 		</div>
     </section>
+    @php
+    $carbon = Carbon::now('America/Argentina/Buenos_Aires');
+    $day = $carbon->isoFormat('dddd');
+    $hour = $carbon->format('H:i:s');
+    if($day == 'Monday'){
+        $day = 'lunes';
+    }
+    if($day == 'Tuesday'){
+        $day = 'martes';
+    }
+    if($day == 'Wednesday'){
+        $day = 'miercoles';
+    }
+    if($day == 'Thursday'){
+        $day = 'jueves';
+    }
+    if($day == 'Friday'){
+        $day = 'viernes';
+    }
+    if($day == 'Saturday'){
+        $day ='sabado';
+    }
+    if($day == 'Sunday'){
+        $day = 'domingo';
+    }
 
+@endphp
 
     <div class="bg-white ml-2 mr-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
 		<div class="container">
-			<div class="row">
+			<div class="row responsive">
 				<div class="col-12" style="padding: 25px;">
                         <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">Profesionales recientes</h6>
                         <p class="text-muted" style="font-size: 12px;">Le damos la bienvenida a todos los nuevos ingresantes del sitio!</p>
                 </div>
             </div>
+            <div class="row no-responsive">
+				<div class="col-12" style="padding: 25px;">
+                        <h4 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">Profesionales recientes</h6>
+                        <p class="text-muted">Le damos la bienvenida a todos los nuevos ingresantes del sitio!</p>
+                </div>
+            </div>
 			<div class="row">
                 @foreach($lastest as $last)
                     @if($last->rol == 'profesional')
-				<div class="col-sm-12 col-lg-12" id="list-no-responsive">
-					<div class="fj_post">
-						<div class="details">
-                            @php
-                                $carbon = Carbon::now('America/Argentina/Buenos_Aires');
-                                $day = $carbon->isoFormat('dddd');
-                                $hour = $carbon->format('H:i:s');
-                                if($day == 'Monday'){
-                                    $day = 'lunes';
-                                }
-                                if($day == 'Tuesday'){
-                                    $day = 'martes';
-                                }
-                                if($day == 'Wednesday'){
-                                    $day = 'miercoles';
-                                }
-                                if($day == 'Thursday'){
-                                    $day = 'jueves';
-                                }
-                                if($day == 'Friday'){
-                                    $day = 'viernes';
-                                }
-                                if($day == 'Saturday'){
-                                    $day ='sabado';
-                                }
-                                if($day == 'Sunday'){
-                                    $day = 'domingo';
-                                }
-
-                            @endphp
-                            <!-- OPTIMIZACION DE CODIGO ESTO VA EN LA CONTROLADORA -->
-                            @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
-                                @if($hour >= $last->{'inhourafter'.$day} && $hour <= $last->{'outhourafter'.$day})
-                                     <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
-                                @elseif($hour >= $last->{'inhourafter'.$day} && $hour <= $last->{'outhourafter'.$day})
-                                    <h5 class="job_chedule mt0 badge badge-success text-white"><strong>Disponible</strong></h5>
-                                @else
-                                    <h5 class="job_chedule badge badge-danger text-white mt0"><strong>No disponible</strong></h5>
-                                @endif
-                            @else
-                                @if($hour >= $last->{'inhour'.$day} && $hour <= $last->{'outhour'.$day})
-                                    <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
-                                @else
-                                    <h5 class="job_chedule badge badge-danger text-white mt0"><strong>No disponible</strong></h5>
-                                @endif
-                            @endif
-
+				<div class="col-lg-4 mt-3" id="list-no-responsive">
+					<div class="card"  style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
 						<!-- ACA FINALIZA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
-
-							<div class="thumb fn-smd">
-                            <img class="img-fluid" style="height: 120px; width: 140px;" src="images/large/{{$last->img}}">
+                            <img class="img-fluid" style="height: 200px" src="images/large/{{$last->img}}">
+                            <div class="card-body">
+                                    <!-- OPTIMIZACION DE CODIGO ESTO VA EN LA CONTROLADORA -->
+                            @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
+                            @if($hour >= $last->{'inhourafter'.$day} && $hour <= $last->{'outhourafter'.$day})
+                                 <small class="job_chedule text-success mt0"><strong>Disponible</strong></small>
+                            @elseif($hour >= $last->{'inhourafter'.$day} && $hour <= $last->{'outhourafter'.$day})
+                                <small class="job_chedule mt0 text-success"><strong>Disponible</strong></small>
+                            @else
+                                <small class="job_chedule text-danger mt0"><strong>No disponible</strong></small>
+                            @endif
+                        @else
+                            @if($hour >= $last->{'inhour'.$day} && $hour <= $last->{'outhour'.$day})
+                                <small class="job_chedule text-success  mt0"><strong>Disponible</strong></small>
+                            @else
+                                <small class="job_chedule text-danger mt0"><strong>No disponible</strong></small>
+                            @endif
+                        @endif
                             @php $cantComent = 0;$cantPoints = 0;$points = 0;@endphp
-                                @foreach($coments as $coment) @if($coment->user_id == $last->id) @php $cantComent ++; $cantPoints += $coment->point; @endphp @endif @endforeach
+                            @foreach($coments as $coment) @if($coment->user_id == $last->id) @php $cantComent ++; $cantPoints += $coment->point; @endphp @endif @endforeach
                             @php if($cantPoints != 0){ $points = $cantPoints / $cantComent; }else{ $points = 4; } @endphp
-							</div>
-                            <div class="row" id="perfil-responsive-div">
-                                <div class="col-md-4">
-							        <h5>{{$last->name}}</h5>
-                                    <p style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><span style="color:gray;"><i class="fa fa-location-arrow"></i></span> @if($last->zone){{$last->zone}},@endif Mar del Plata</p>
-                                    <p style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"> <a href="/busqueda?search={{$last->job}}"><strong>{{ ucfirst($last->job) }}</strong> <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a></p>
-                                </div>
-                                <div class="col-md-6">
+
+                            <h6 style="font-weight; bold;">{{$last->name}}</h6>
+                            <p style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"> <a href="/busqueda?search={{$last->job}}"><strong>{{ ucfirst($last->job) }}</strong> <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a></p>
                                         <p id="horario">
 											<img src="img-icons/horario.png" />
                                             <!-- TODOS  HORARIOS: -->
@@ -184,15 +196,15 @@ use Carbon\Carbon;
                                             </li>
                                         </ul>
                                         </p>
-
+                                        <form action="{{route('User.perfil')}}" method="GET">
+                                            <input type="hidden" value="{{$last->id}}" name="user_id">
+                                            <input type="submit" class="text-primary font-weight-bold" value="Ver/Contactar" />
+                                        </form>
                                 </div>
 
-                        </div>
-                        </div>
-                        <form action="{{route('User.perfil')}}" method="GET" class="text-center">
-                            <input type="hidden" value="{{$last->id}}" name="user_id">
-                            <input type="submit" class="btn-ver btn btn-md btn-transparent float-right fn-smd" value="Ver/Contactar" />
-                        </form>
+
+
+
 					</div>
                 </div>
 
@@ -288,6 +300,7 @@ use Carbon\Carbon;
                 @endif
                 @endforeach
             </div>
+            <a style="font-size: 12px;font-weight: bold;color: #1886fc;padding:10px;" href="/lista">Ver todos los profesionales<i class="fa fa-arrow-right" style="padding: 10px"></i></a>
 		</div>
     </div>
 
@@ -341,7 +354,20 @@ use Carbon\Carbon;
 
 
 	<!-- Popular Job Categories -->
-        <div class="ml-2 mr-2 mb-2" style="background: white;border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
+        <div class="ml-2 mr-2 mb-2 padding-no-responsive" style="background: white;border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
+
+    <div class="row responsive">
+        <div class="col-12" style="padding: 25px;">
+                <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">Todas las categorías</h6>
+                <p class="text-muted" style="font-size: 12px;">Encontrá el profesional que necesitas en las categorías de Mardeltrabaja.com</p>
+        </div>
+    </div>
+    <div class="row no-responsive">
+        <div class="col-12" style="padding: 25px;">
+                <h4 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">Todas las categorías</h6>
+                <p class="text-muted">Encontrá el profesional que necesitas en las categorías de Mardeltrabaja.com</p>
+        </div>
+    </div>
             <div class="styles__list___1uJCs">
                <div class="styles__item___2pefo">
                   <a href="/busqueda?category=Hogar" class="styles__link___1Zdpv" data-test="service_item.redirect_to_Hogar">
@@ -487,7 +513,6 @@ use Carbon\Carbon;
 
 
 
-
     <script>
        // Get the input field
 var input = document.getElementById("zoneinput");
@@ -524,9 +549,44 @@ if (event.keyCode === 13) {
 
  </script>
 
-
-
-
+<section class="bg-white no-responsive">
+<div class="container ">
+    <div class="row">
+        <div class="col-md-4 info-slide">
+            <div class="card" style="border: none;">
+            <div class="card-body text-center">
+                <img src="img/slider1.png">
+                <h4 style="font-size: 20px;font-weight: 500;line-height: 1.4;color: #4b4b4b;margin: 16px 0 0;">Utilizá el buscador</h4>
+                <p style="color: #999;font-size: 15px;line-height: 1.2;">Si estás necesitando de alguien para solucionar un problema específico, ¡Acá lo vas a encontrar!</p>
+                <a href="/lista" style="font-size: 14px;text-decoration: none;color: #3483fa" >Quiero utilizar el buscador</a>
+            </div>
+            </div>
+            <hr class="responsive" style="width: 50%; text-align: center;">
+        </div>
+        <div class="col-md-4 info-slide">
+            <div class="card" style="border: none;">
+            <div class="card-body text-center">
+                <img src="img/slider2.png">
+                <h4 style="font-size: 20px;font-weight: 500;line-height: 1.4;color: #4b4b4b;margin: 16px 0 0;">Contactá rápidamente</h4>
+                <p style="color: #999;font-size: 15px;line-height: 1.2;">Ponete en contacto directo con la persona que necesitas de manera fácil, rápida, segura y gratuita!</p>
+                <a href="/lista" style="font-size: 14px;text-decoration: none;color: #3483fa" >Quiero encontrar lo que necesito</a>
+            </div>
+            </div>
+            <hr class="responsive" style="width: 50%; text-align: center;">
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="border: none;">
+                <div class="card-body text-center">
+                    <img src="img/slider3.png">
+                    <h4 style="font-size: 20px;font-weight: 500;line-height: 1.4;color: #4b4b4b;margin: 16px 0 0;">¿Realizas alguna actividad?</h4>
+                    <p style="color: #999;font-size: 15px;line-height: 1.2;">Si tenes algún tipo de profesión, practicás un oficio o trabajas de manera autónoma, registrate!</p>
+                    <a href="/lista" style="font-size: 14px;text-decoration: none;color: #3483fa" >Quiero participar del sitio</a>
+                </div>
+                </div>
+        </div>
+    </div>
+</div>
+</section>
 	<!-- Features Job List Design -->
 
     <div class="ml-2 mr-2 mb-2 responsive" style="background: white;border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">

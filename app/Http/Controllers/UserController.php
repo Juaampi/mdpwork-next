@@ -612,7 +612,7 @@ class UserController extends Controller
         }
 
         $categories = Category::all();
-        $ultimos = User::orderBy('created_at', 'desc')->take(10)->get();
+        $ultimos = User::where('rol', '=', 'profesional')->orderBy('created_at', 'desc')->take(6)->get();
         $coments = Coment::all();
 
         return view('welcome', ['cantidadesarray' => $cantidades, 'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $ultimos, 'subcategories' => $subcategories, 'coments' => $coments]);

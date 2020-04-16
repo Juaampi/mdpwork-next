@@ -57,6 +57,9 @@
 .swiper-container {width: 100%;height: 100%;}
 #section-questions{display:none;}
 .titulo-cartas{margin-top: -22px; color: black; margin-bottom: -11px;}
+.no-responsive{
+    display:none;
+}
 }
 @media only screen and (min-width:600px) and (max-width:900px) and (orientation:landscape){
 #metodos-responsive{margin-left:20px;}
@@ -109,6 +112,9 @@
 .titulo-cartas{margin-top: -22px; color: black; margin-bottom: -11px;}
 #navbarSupportedContent{display: none !important;}
 #slider-principal{display:none}
+.padding-no-responsive{
+    padding: 100px;
+}
 }
 @media only screen and (min-width:900px) and (max-width:1600px){#row-description-responsive{display:none;}
 #txtmetodos{float:left;margin:0 10px 0 0;}
@@ -176,4 +182,9 @@ input{border:1px solid transparent;background-color:#f1f1f1;padding:10px;font-si
 .titulo-cartas{margin-top: -22px; color: black; margin-bottom: -11px;}
 #navbarSupportedContent{display: none !important;}
 #slider-principal{display:none}
+.padding-no-responsive{
+    padding: 190px;
+    margin-top: -120px;
+}
+
 }
