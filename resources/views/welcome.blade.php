@@ -37,7 +37,7 @@ use Carbon\Carbon;
                         <p class="text-white" style="font-size: 12px;">Consultá presupuestos desde la comodidad de tu hogar, mientras combatimos el COVID-19</strong></p>
                 </div>
                 <div class="col-4">
-                    <img src="img/covid19.png" style="margin-top:40px;">
+                    <img src="img/covid19.webp" style="margin-top:40px;">
                 </div>
             </div>
     </div>
@@ -315,7 +315,7 @@ use Carbon\Carbon;
                         <p class="text-muted" style="font-size: 12px;">Éstas son las categorías con más profesionales</strong></p>
                 </div>
                 <div class="col-4">
-                    <img src="img/populares.png" style="margin-top:15px;">
+                    <img src="img/populares.webp" style="margin-top:15px;">
                 </div>
             </div>
     </div>
@@ -345,7 +345,7 @@ use Carbon\Carbon;
                         <a style="font-size: 12px;font-weight: bold;color: white;" href="/lista">Ver categoría<i class="flaticon-right-arrow pl15"></i></a>
                 </div>
                 <div class="col-4">
-                    <img src="img/cuidado.png" style="margin-top:30px;">
+                    <img src="img/cuidado.webp" style="margin-top:30px;">
                 </div>
             </div>
     </div>
