@@ -21,16 +21,11 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/loader.css">
-
     <!-- template integrations -->
     <meta name="keywords" content="Profesionales, Mar del Plata, Mar, del, Plata, La feliz, Profesional, carpintero, empleos mar del plata, empleos, profesiones, techista mar del plata, psicólogo mar del plata, trabajo en mar del plata, mardel, profesional en mardel, profesiones en mardel, buscador de profesionales, buscar profesionales, electricista mar del plata, buscador de personas con trabajos en mar del plata, plomero mar del plata, plomeria mar del plata">
     <meta name="MDP WORK INC." content="ATFN">
     <!-- css file -->
     <link rel="stylesheet" href="css/theme.css">
-    <!-- Responsive stylesheet -->
-    <link rel="stylesheet" href="css/responsive.css">
-
     <!-- font-awesome -->
     <script src="https://use.fontawesome.com/8ee5d67531.js"></script>
 
