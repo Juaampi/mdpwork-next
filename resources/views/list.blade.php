@@ -281,7 +281,7 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
     </div>
 </section>
 
-<section class="our-faq" style="margin-top:-20px">
+<section class="our-faq" style="margin-top:-50px">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-xl-12">
@@ -298,37 +298,10 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                         <div class="alert alert-danger text-center" style="width: 100%">Lamentablemente no pudimos encontrar lo que busca, por favor intente nuevamente.</div>
                     @endif
                 </div>
-                    <div class="col-sm-12 col-lg-6" >
-                        <div class="content_details">
-                            <div class="details">
-                                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><span>Esconder Filtro</span><i>×</i></a>
-                        <form action="{{route('User.search')}}" method="GET">
-                                <div class="my_profile_input form-group text-center">
-                                        <label for="formGroupExampleInput2">Categorías generales</label>
-                                        <select id="categorymobile" name="category_id" class="form-control">
-                                            @foreach($categories as $category)
-                                                <option value="{{$category->id}}">{{$category->name}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                <div class="my_profile_input form-group text-center">
-                                        <label for="formGroupExampleInput2">Profesion <img id="unselectedmobile" style="display:none;" src="img-icons/alert.png"><img id="selectedmobile" style="display:none;" src="img-icons/check.png"></label>
-                                        <select id="subcategorymobile" name="search" class="form-control">
-                                        </select>
-                                </div>
-                                <div class="cl_latest_activity mb30 text-center">
-                                        <button id="btnsubmitfiltermobile" disabled type="submit" class="btn btn-danger btn-secondary">Filtrar</button>
-                                    </div>
-                        </form>
-
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="container">
                     <div class="row bg-white">
                         <div class="container">
-                                <p id="text-list-responsive" style="padding: 10px;"><strong>{{$lastest->total()}}</strong> Profesionales encontrados.</p>
+                                <p id="text-list-responsive" style="padding: 5px;"><strong>{{$lastest->total()}}</strong> Profesionales encontrados.</p>
                         </div>
 
                                      <!-- LOS MÁS VISTOS, TAMBIÉN VAN A IR LOS DESTACADOS ACÁ  -->

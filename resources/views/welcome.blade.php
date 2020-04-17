@@ -299,7 +299,7 @@ use Carbon\Carbon;
                 @endif
                 @endforeach
             </div>
-            <div class="container" style="padding: 17px; margin-top: -25px">
+            <div class="container" style="padding: 17px; margin-top: -25px;padding-left: 0px;">
             <a style="font-size: 13px;font-weight: bold;color: #1886fc;padding:10px;" href="/lista">Ver todos los profesionales<i class="fa fa-arrow-right" style="padding: 10px;float: right;margin-top: -3px;"></i></a>
             </div>
 		</div>
@@ -369,7 +369,7 @@ use Carbon\Carbon;
                 <p class="text-muted">Encontrá el profesional que necesitas en las categorías de Mardeltrabaja.com</p>
         </div>
     </div>
-            <div class="styles__list___1uJCs">
+            <div class="styles__list___1uJCs" style="border-radius: 0px;font-size: 14px">
                <div class="styles__item___2pefo">
                   <a href="/busqueda?category=Hogar" class="styles__link___1Zdpv" data-test="service_item.redirect_to_Hogar">
                      <svg width="32px" height="32px" xmlns="http://www.w3.org/2000/svg" class="" style="fill: currentcolor;">
@@ -509,6 +509,9 @@ use Carbon\Carbon;
                      <div class="styles__nextIcon___2r-Lb show-sm icon-next"></div>
                   </a>
                </div>
+               <div class="container" style="padding: 10px; margin-left:10px;;">
+                <a style="font-size: 13px;font-weight: bold;color: #1886fc;padding:10px;" href="/lista">Ver todas las categorías<i class="fa fa-arrow-right" style="margin-right: 20px;padding: 10px;float: right;margin-top: -3px;"></i></a>
+                </div>
             </div>
          </div>
 
