@@ -488,7 +488,7 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                                                         @endif
                                                     @endif
                                                     </p>
-                                                    <a class="stretched-link" style="text-decoration: none;  color: #3db39e;background: none;border: none;font-size: 12px;" href="{{Route('User.perfil', ['user_id' => $last->id])}}" >Ver / Contactar </a>
+                                                    <a class="stretched-link" style="text-decoration: none;  color: #2e86fc;font-weight: bold;background: none;border: none;font-size: 12px;" href="{{Route('User.perfil', ['user_id' => $last->id])}}" >Ver / Contactar </a>
                                         <hr>
                                     </div>
                                     <div class="col-2" style="padding: 0;">

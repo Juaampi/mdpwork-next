@@ -252,7 +252,7 @@ use Carbon\Carbon;
                                             @endif
                                         @endif
                                         </p>
-                                        <a class="stretched-link" style="text-decoration: none;  color: #3db39e;background: none;border: none;font-size: 12px;" href="{{Route('User.perfil', ['user_id' => $last->id])}}" >Ver / Contactar </a>
+                                        <a class="stretched-link" style="text-decoration: none;  color: #2e86fc;font-weight: bold;background: none;border: none;font-size: 12px;" href="{{Route('User.perfil', ['user_id' => $last->id])}}" >Ver / Contactar </a>
                             <hr>
                         </div>
                         <div class="col-2" style="padding: 0px;">
@@ -299,7 +299,9 @@ use Carbon\Carbon;
                 @endif
                 @endforeach
             </div>
-            <a style="font-size: 12px;font-weight: bold;color: #1886fc;padding:10px;" href="/lista">Ver todos los profesionales<i class="fa fa-arrow-right" style="padding: 10px"></i></a>
+            <div class="container" style="padding: 17px; margin-top: -25px">
+            <a style="font-size: 12px;font-weight: bold;color: #1886fc;padding:10px;" href="/lista">Ver todos los profesionales<i class="fa fa-arrow-right" style="padding: 10px;float: right;margin-top: -3px;"></i></a>
+            </div>
 		</div>
     </div>
 
@@ -327,7 +329,7 @@ use Carbon\Carbon;
 				<div class="col-8" style="padding: 20px;">
                         <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;color: white" class="font-weight-bold">Hogar y Construcción</h6>
                         <p class="text-white" style="font-size: 12px;">Pintores, Electricistas, Albañiles y mucho más..</strong></p>
-                        <a style="font-size: 12px;font-weight: 600;color: white;" href="/busqueda?category=Hogar">Ver categoría<i class="flaticon-right-arrow pl15"></i></a>
+                        <a style="font-size: 12px;font-weight: bold;color: white;" href="/busqueda?category=Hogar">Ver categoría<i class="flaticon-right-arrow pl15"></i></a>
                 </div>
                 <div class="col-4">
                     <img src="img/pintor.webp" style="margin-top:30px;">
