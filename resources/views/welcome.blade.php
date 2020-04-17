@@ -37,7 +37,7 @@ use Carbon\Carbon;
                         <p class="text-white" style="font-size: 12px;">Consultá presupuestos desde tu hogar, mientras combatimos el COVID-19</strong></p>
                 </div>
                 <div class="col-4">
-                    <img src="img/covid19.webp" style="margin-top:40px;">
+                    <img src="img/covid19.webp" style="margin-top:15px;">
                 </div>
             </div>
     </div>
@@ -332,7 +332,7 @@ use Carbon\Carbon;
                         <a style="font-size: 12px;font-weight: bold;color: white;" href="/busqueda?category=Hogar">Ver categoría<i class="flaticon-right-arrow pl15"></i></a>
                 </div>
                 <div class="col-4">
-                    <img src="img/pintor.webp" style="margin-top:30px;">
+                    <img src="img/pintor.webp" style="margin-top:15px;">
                 </div>
             </div>
     </div>
@@ -347,7 +347,7 @@ use Carbon\Carbon;
                         <a style="font-size: 12px;font-weight: bold;color: white;" href="/lista">Ver categoría<i class="flaticon-right-arrow pl15"></i></a>
                 </div>
                 <div class="col-4">
-                    <img src="img/cuidado.webp" style="margin-top:30px;">
+                    <img src="img/cuidado.webp" style="margin-top:12px;">
                 </div>
             </div>
     </div>
