@@ -9,8 +9,8 @@ use Carbon\Carbon;
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
             <!-- Slides -->
-            <div class="swiper-slide"><img src="img/swiper1.jpg"/></div>
-            <div class="swiper-slide"><img src="img/swiper2.jpg"/></div>
+            <div class="swiper-slide"><img src="img/swiper1.webp"/></div>
+            <div class="swiper-slide"><img src="img/swiper2.webp"/></div>
         </div>
     </div>
     <div class="responsive bg-white ml-2 mr-2 mt-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
@@ -330,7 +330,7 @@ use Carbon\Carbon;
                         <a style="font-size: 12px;font-weight: 600;color: white;" href="/busqueda?category=Hogar">Ver categoría<i class="flaticon-right-arrow pl15"></i></a>
                 </div>
                 <div class="col-4">
-                    <img src="https://pngimage.net/wp-content/uploads/2018/06/pintando-png-1.png" style="margin-top:30px;">
+                    <img src="img/pintor.webp" style="margin-top:30px;">
                 </div>
             </div>
     </div>
