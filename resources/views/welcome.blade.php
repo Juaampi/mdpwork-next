@@ -231,7 +231,7 @@ use Carbon\Carbon;
                             @endif
                             <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: 600">{{$last->name}}</h4>
                             <p style="font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ ucfirst($last->job) }} <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a></p>
-                            <p style="margin-bottom: 0px;font-size: 12px;">
+                            <p style="margin-bottom: 2px;font-size: 12px;">
                                         @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
                                             @if($hour <= $last->{'outhour'.$day} && $hour >= $last->{'inhour'.$day})
                                                 <span style="font-size: 12px;">@php echo date('G:i',strtotime($last->{'inhour'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day} )) @endphp hs</span>
@@ -252,7 +252,7 @@ use Carbon\Carbon;
                                             @endif
                                         @endif
                                         </p>
-                                        <a class="stretched-link" style="text-decoration: none;  color: #2e86fc;font-weight: bold;background: none;border: none;font-size: 12px;" href="{{Route('User.perfil', ['user_id' => $last->id])}}" >Ver / Contactar </a>
+                                        <a class="stretched-link" style="text-decoration: none;  color: #2e86fc;font-weight: bold;background: none;border: none;font-size: 11px;font-family: 'roboto', sans-serif;" href="{{Route('User.perfil', ['user_id' => $last->id])}}" >VER / CONTACTAR </a>
                             <hr>
                         </div>
                         <div class="col-2" style="padding: 0px;">
@@ -300,7 +300,7 @@ use Carbon\Carbon;
                 @endforeach
             </div>
             <div class="container" style="padding: 17px; margin-top: -25px">
-            <a style="font-size: 12px;font-weight: bold;color: #1886fc;padding:10px;" href="/lista">Ver todos los profesionales<i class="fa fa-arrow-right" style="padding: 10px;float: right;margin-top: -3px;"></i></a>
+            <a style="font-size: 13px;font-weight: bold;color: #1886fc;padding:10px;" href="/lista">Ver todos los profesionales<i class="fa fa-arrow-right" style="padding: 10px;float: right;margin-top: -3px;"></i></a>
             </div>
 		</div>
     </div>

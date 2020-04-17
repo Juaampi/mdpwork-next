@@ -465,9 +465,9 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                                     <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-danger">No Disponible</p>                                @endif
                                 @endif
                                         <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{$last->name}}</h4>
-                                        <p style="font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ ucfirst($last->job) }} <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a></p>
+                                        <p style="font-family: 'roboto', sans-serif;font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ ucfirst($last->job) }} <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a></p>
                                         <p style="margin-bottom:0px;font-size: 12px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><i class="fa fa-location-arrow"></i> @if($last->zone){{$last->zone}},@endif Mar del Plata</p>
-                                        <p style="margin-bottom: 0px;font-size: 12px;">
+                                        <p style="margin-bottom: 2px;font-size: 12px;">
                                                     @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
                                                         @if($hour <= $last->{'outhour'.$day} && $hour >= $last->{'inhour'.$day})
                                                             <span style="font-size: 12px;">@php echo date('G:i',strtotime($last->{'inhour'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day} )) @endphp hs</span>
@@ -488,7 +488,7 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                                                         @endif
                                                     @endif
                                                     </p>
-                                                    <a class="stretched-link" style="text-decoration: none;  color: #2e86fc;font-weight: bold;background: none;border: none;font-size: 12px;" href="{{Route('User.perfil', ['user_id' => $last->id])}}" >Ver / Contactar </a>
+                                                    <a class="stretched-link" style="text-decoration: none;  color: #2e86fc;font-weight: bold;background: none;border: none;font-size: 11px;font-family: 'roboto', sans-serif;" href="{{Route('User.perfil', ['user_id' => $last->id])}}" >VER / CONTACTAR </a>
                                         <hr>
                                     </div>
                                     <div class="col-2" style="padding: 0;">
@@ -519,7 +519,7 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                         </div>
                     </div>
                 </div>
-                <p id="text-list-responsive" style="padding: 10px;"><strong>Destacados</strong> en Mdp Work Inc.</p>
+                <p id="text-list-responsive" style="padding: 10px;"><strong>Destacados</strong> en Mardeltrabaja.com</p>
                 @if($masvistos)
                 @foreach($masvistos as $masvisto)
        <div id="list-responsive" class="container">
