@@ -34,7 +34,7 @@ use Carbon\Carbon;
             <div class="row">
                 <div class="col-8" style="padding: 25px;">
                         <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;color:white;" class="font-weight-bold">¡Quedate en casa!</h6>
-                        <p class="text-white" style="font-size: 12px;">Consultá presupuestos desde la comodidad de tu hogar, mientras combatimos el COVID-19</strong></p>
+                        <p class="text-white" style="font-size: 12px;">Consultá presupuestos desde tu hogar, mientras combatimos el COVID-19</strong></p>
                 </div>
                 <div class="col-4">
                     <img src="img/covid19.webp" style="margin-top:40px;">
