@@ -281,7 +281,7 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
     </div>
 </section>
 
-<section class="our-faq" style="margin-top:-50px">
+<div class="our-faq" style="margin-top:10px">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-xl-12">
@@ -590,7 +590,7 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
 @endif
 
     </div>
-</section>
+</div>
 
 
 <script>
