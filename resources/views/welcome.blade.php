@@ -121,7 +121,7 @@ use Carbon\Carbon;
     <div class="bg-white ml-2 mr-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
 		<div class="container">
 			<div class="row responsive">
-				<div class="col-12" style="padding: 25px;">
+				<div class="col-12" style="padding: 12px;">
                         <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">Profesionales recientes</h6>
                         <p class="text-muted" style="font-size: 12px;">Le damos la bienvenida a todos los nuevos ingresantes del sitio!</p>
                 </div>
@@ -211,10 +211,10 @@ use Carbon\Carbon;
 
                 @foreach($lastest as $last)
                     @if($last->rol == 'profesional')
-                <div id="list-responsive" class="container mt-2">
-                    <div class="row bg-white" style="padding: 5px;">
+                <div id="list-responsive" class="mt-2">
+                    <div class="row bg-white">
                         <div class="col-3">
-                            <img style="border-radius: 10px;" class="img-fluid" src="images/large/{{$last->img}}" alt="1.jpg">
+                            <img style="border-radius: 4px;" class="img-fluid" src="images/large/{{$last->img}}" alt="1.jpg">
                         </div>
                         <div class="col-7">
                             @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})

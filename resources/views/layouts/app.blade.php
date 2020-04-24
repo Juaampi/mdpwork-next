@@ -132,7 +132,7 @@
                     <div class="container">
                     <div class="row">
                         <div class="col-3">
-                        <img @guest src="img/logo.png" @else src="img-perfil/{{Auth::user()->img}}" @endguest style="margin-top: 20px; border-radius: 30px;" />
+                        <img @if(!Auth::user()) src="img/logo.png" @elseif(Auth::user()->avatar) src="{{Auth::user()->avatar}}" @else src="img-perfil/{{ Auth::user()->img }}" @endguest style="margin-top: 20px; border-radius: 30px;" />
                         </div>
                         <div class="col-9">
                             <h5 style="margin-top: 20px; margin-bottom: 0px;font-weight: 600;">Bienvenido</h5>
