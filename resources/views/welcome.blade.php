@@ -4,7 +4,6 @@ use Carbon\Carbon;
 @endphp
 @section('content')
 <div class="wrapper" style="background: #e7e7e7">
-
     <div class="swiper-container responsive">
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
@@ -27,7 +26,6 @@ use Carbon\Carbon;
             </div>
     </div>
     </div>
-
 
     <div class="ml-2 mr-2 mt-2 mb-2 responsive" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);background: #5a96c3">
         <div class="container">
@@ -135,53 +133,53 @@ use Carbon\Carbon;
                 </div>
             </div>
 			<div class="row">
-                @foreach($lastest as $last)
-                    @if($last->rol == 'profesional')
+                @for($i = 0; $i<3; $i++)
+                    @if($lastest[$i]->rol == 'profesional')
 				<div class="col-lg-4 mt-3" id="list-no-responsive">
 					<div class="card"  style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
 						<!-- ACA FINALIZA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
-                            <img class="img-fluid" style="height: 200px" src="images/large/{{$last->img}}">
+                            <img class="img-fluid" style="height: 200px" src="images/large/{{$lastest[$i]->img}}">
                             <div class="card-body">
                                     <!-- OPTIMIZACION DE CODIGO ESTO VA EN LA CONTROLADORA -->
-                            @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
-                            @if($hour >= $last->{'inhourafter'.$day} && $hour <= $last->{'outhourafter'.$day})
+                            @if($lastest[$i]->{'inhourafter'.$day} && $lastest[$i]->{'outhourafter'.$day})
+                            @if($hour >= $lastest[$i]->{'inhourafter'.$day} && $hour <= $lastest[$i]->{'outhourafter'.$day})
                                  <small class="job_chedule text-success mt0"><strong>Disponible</strong></small>
-                            @elseif($hour >= $last->{'inhourafter'.$day} && $hour <= $last->{'outhourafter'.$day})
+                            @elseif($hour >= $lastest[$i]->{'inhourafter'.$day} && $hour <= $lastest[$i]->{'outhourafter'.$day})
                                 <small class="job_chedule mt0 text-success"><strong>Disponible</strong></small>
                             @else
                                 <small class="job_chedule text-danger mt0"><strong>No disponible</strong></small>
                             @endif
                         @else
-                            @if($hour >= $last->{'inhour'.$day} && $hour <= $last->{'outhour'.$day})
+                            @if($hour >= $lastest[$i]->{'inhour'.$day} && $hour <= $lastest[$i]->{'outhour'.$day})
                                 <small class="job_chedule text-success  mt0"><strong>Disponible</strong></small>
                             @else
                                 <small class="job_chedule text-danger mt0"><strong>No disponible</strong></small>
                             @endif
                         @endif
                             @php $cantComent = 0;$cantPoints = 0;$points = 0;@endphp
-                            @foreach($coments as $coment) @if($coment->user_id == $last->id) @php $cantComent ++; $cantPoints += $coment->point; @endphp @endif @endforeach
+                            @foreach($coments as $coment) @if($coment->user_id == $lastest[$i]->id) @php $cantComent ++; $cantPoints += $coment->point; @endphp @endif @endforeach
                             @php if($cantPoints != 0){ $points = $cantPoints / $cantComent; }else{ $points = 4; } @endphp
 
-                            <h6 style="font-weight; bold;">{{$last->name}}</h6>
-                            <p style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"> <a href="/busqueda?search={{$last->job}}"><strong>{{ ucfirst($last->job) }}</strong> <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a></p>
+                            <h6 style="font-weight; bold;">{{$lastest[$i]->name}}</h6>
+                            <p style="width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"> <a href="/busqueda?search={{$lastest[$i]->job}}"><strong>{{ ucfirst($lastest[$i]->job) }}</strong> <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a></p>
                                         <p id="horario">
 											<img src="img-icons/horario.png" />
                                             <!-- TODOS  HORARIOS: -->
 												<strong>Hoy: </strong>
-												@if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
-													@if($hour <= $last->{'outhour'.$day} && $hour >= $last->{'inhour'.$day})
-														<span style="font-size: 14px">@php echo date('G:i',strtotime($last->{'inhour'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day} )) @endphp hs</span>
-													@elseif($hour >= $last->{'inhourafter'.$day} && $hour <= $last->{'outhourafter'.$day} )
-														<span style="font-size: 14px">@php echo date('G:i',strtotime($last->{'inhourafter'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhourafter'.$day} )) @endphp hs</span>
+												@if($lastest[$i]->{'inhourafter'.$day} && $lastest[$i]->{'outhourafter'.$day})
+													@if($hour <= $lastest[$i]->{'outhour'.$day} && $hour >= $lastest[$i]->{'inhour'.$day})
+														<span style="font-size: 14px">@php echo date('G:i',strtotime($lastest[$i]->{'inhour'.$day} ))@endphp hs - @php echo date('G:i',strtotime($lastest[$i]->{'outhour'.$day} )) @endphp hs</span>
+													@elseif($hour >= $lastest[$i]->{'inhourafter'.$day} && $hour <= $lastest[$i]->{'outhourafter'.$day} )
+														<span style="font-size: 14px">@php echo date('G:i',strtotime($lastest[$i]->{'inhourafter'.$day} ))@endphp hs - @php echo date('G:i',strtotime($lastest[$i]->{'outhourafter'.$day} )) @endphp hs</span>
                                                     @else
                                                         <span style="font-size: 14px; font-style: italic;" class="text-danger font-weight-bold">No disponible hoy</span>
                                                     @endif
 												@else
-													@if($last->{'inhour'.$day} && $last->{'outhour'.$day})
-                                                        @if($hour <= $last->{'outhour'.$day} && $hour >= $last->{'inhour'.$day})
-															<span style="font-size: 14px">@php echo date('G:i',strtotime($last->{'inhour'.$day}))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day} )) @endphp hs</span>
+													@if($lastest[$i]->{'inhour'.$day} && $lastest[$i]->{'outhour'.$day})
+                                                        @if($hour <= $lastest[$i]->{'outhour'.$day} && $hour >= $lastest[$i]->{'inhour'.$day})
+															<span style="font-size: 14px">@php echo date('G:i',strtotime($lastest[$i]->{'inhour'.$day}))@endphp hs - @php echo date('G:i',strtotime($lastest[$i]->{'outhour'.$day} )) @endphp hs</span>
 														@else
-															<span style="font-size: 14px" class="text-danger font-weight-bold">@php echo date('G:i',strtotime($last->{'inhour'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day} )) @endphp hs</span>
+															<span style="font-size: 14px" class="text-danger font-weight-bold">@php echo date('G:i',strtotime($lastest[$i]->{'inhour'.$day} ))@endphp hs - @php echo date('G:i',strtotime($lastest[$i]->{'outhour'.$day} )) @endphp hs</span>
 														@endif
 													@else
 														<span style="font-size: 14px; font-style: italic;" class="text-danger font-weight-bold">No disponible hoy</span>
@@ -196,18 +194,23 @@ use Carbon\Carbon;
                                         </ul>
                                         </p>
                                         <form action="{{route('User.perfil')}}" method="GET">
-                                            <input type="hidden" value="{{$last->id}}" name="user_id">
+                                            <input type="hidden" value="{{$lastest[$i]->id}}" name="user_id">
                                             <input type="submit" class="text-primary font-weight-bold" value="Ver/Contactar" />
                                         </form>
                                 </div>
-
-
-
-
 					</div>
                 </div>
+                    @endif
+                @endfor
+                <div class="container no-responsive" style="padding: 17px; padding-left: 0px;">
+                    <hr>
+                    <a style="font-size: 16px;font-weight: bold;color: #1886fc;padding:10px;" href="/lista">Ver todos los profesionales<i class="fa fa-arrow-right" style="padding: 10px;float: right;margin-top: -3px;"></i></a>
+                </div>
+            </div>
 
 
+                @foreach($lastest as $last)
+                    @if($last->rol == 'profesional')
                 <div id="list-responsive" class="container mt-2">
                     <div class="row bg-white" style="padding: 5px;">
                         <div class="col-3">
@@ -299,11 +302,10 @@ use Carbon\Carbon;
                 @endif
                 @endforeach
             </div>
-            <div class="container" style="padding: 17px; margin-top: -25px;padding-left: 0px;">
+            <div class="container responsive" style="padding: 17px; margin-top: -25px;padding-left: 0px;">
             <a style="font-size: 13px;font-weight: bold;color: #1886fc;padding:10px;" href="/lista">Ver todos los profesionales<i class="fa fa-arrow-right" style="padding: 10px;float: right;margin-top: -3px;"></i></a>
             </div>
 		</div>
-    </div>
 
 
 
@@ -355,7 +357,7 @@ use Carbon\Carbon;
 
 
 	<!-- Popular Job Categories -->
-        <div class="ml-2 mr-2 mb-2 padding-no-responsive" style="background: white;border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
+    <div class="ml-2 mr-2 mb-2 padding-no-responsive todas" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
 
     <div class="row responsive">
         <div class="col-12" style="padding: 25px;">
@@ -363,12 +365,15 @@ use Carbon\Carbon;
                 <p class="text-muted" style="font-size: 12px;">Encontrá el profesional que necesitas en las categorías de Mardeltrabaja.com</p>
         </div>
     </div>
-    <div class="row no-responsive">
-        <div class="col-12" style="padding: 25px;">
+    <div class="container no-responsive">
+        <div class="row">
+            <div class="col-12" style="padding: 25px;">
                 <h4 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">Todas las categorías</h6>
                 <p class="text-muted">Encontrá el profesional que necesitas en las categorías de Mardeltrabaja.com</p>
+            </div>
         </div>
     </div>
+    <div class="todas-container">
             <div class="styles__list___1uJCs" style="border-radius: 0px;font-size: 14px">
                <div class="styles__item___2pefo">
                   <a href="/busqueda?category=Hogar" class="styles__link___1Zdpv" data-test="service_item.redirect_to_Hogar">
@@ -509,12 +514,16 @@ use Carbon\Carbon;
                      <div class="styles__nextIcon___2r-Lb show-sm icon-next"></div>
                   </a>
                </div>
-               <div class="container" style="padding: 10px; margin-left:10px;;">
+               <div class="container responsive" style="padding: 10px; margin-left:10px;;">
                 <a style="font-size: 13px;font-weight: bold;color: #1886fc;padding:10px;" href="/lista">Ver todas las categorías<i class="fa fa-arrow-right" style="margin-right: 20px;padding: 10px;float: right;margin-top: -3px;"></i></a>
+                </div>
+                <div class="container no-responsive" style="padding: 17px; padding-left: 0px;">
+                    <hr>
+                    <a style="font-size: 16px;font-weight: bold;color: #1886fc;padding:10px;" href="/lista">Ver todas las categorías<i class="fa fa-arrow-right" style="padding: 10px;float: right;margin-top: -3px;"></i></a>
                 </div>
             </div>
          </div>
-
+    </div>
 
 
     <script>
@@ -562,7 +571,7 @@ if (event.keyCode === 13) {
                 <img src="img/slider1.png">
                 <h4 style="font-size: 20px;font-weight: 500;line-height: 1.4;color: #4b4b4b;margin: 16px 0 0;">Utilizá el buscador</h4>
                 <p style="color: #999;font-size: 15px;line-height: 1.2;">Si estás necesitando de alguien para solucionar un problema específico, ¡Acá lo vas a encontrar!</p>
-                <a href="/lista" style="font-size: 14px;text-decoration: none;color: #3483fa" >Quiero utilizar el buscador</a>
+                <a href="/lista" class="btn-cards" style="text-decoration: none;color: #3483fa; font-weight: bold;" >Quiero utilizar el buscador</a>
             </div>
             </div>
             <hr class="responsive" style="width: 50%; text-align: center;">
@@ -573,7 +582,7 @@ if (event.keyCode === 13) {
                 <img src="img/slider2.png">
                 <h4 style="font-size: 20px;font-weight: 500;line-height: 1.4;color: #4b4b4b;margin: 16px 0 0;">Contactá rápidamente</h4>
                 <p style="color: #999;font-size: 15px;line-height: 1.2;">Ponete en contacto directo con la persona que necesitas de manera fácil, rápida, segura y gratuita!</p>
-                <a href="/lista" style="font-size: 14px;text-decoration: none;color: #3483fa" >Quiero encontrar lo que necesito</a>
+                <a href="/lista" class="btn-cards" style="text-decoration: none;color: #3483fa;font-weight: bold;" >Quiero encontrar lo que necesito</a>
             </div>
             </div>
             <hr class="responsive" style="width: 50%; text-align: center;">
@@ -584,7 +593,7 @@ if (event.keyCode === 13) {
                     <img src="img/slider3.png">
                     <h4 style="font-size: 20px;font-weight: 500;line-height: 1.4;color: #4b4b4b;margin: 16px 0 0;">¿Realizas alguna actividad?</h4>
                     <p style="color: #999;font-size: 15px;line-height: 1.2;">Si tenes algún tipo de profesión, practicás un oficio o trabajas de manera autónoma, registrate!</p>
-                    <a href="/lista" style="font-size: 14px;text-decoration: none;color: #3483fa" >Quiero participar del sitio</a>
+                    <a href="/lista" class="btn-cards" style="text-decoration: none;color: #3483fa; font-weight: bold;" >Quiero participar del sitio</a>
                 </div>
                 </div>
         </div>
@@ -592,20 +601,18 @@ if (event.keyCode === 13) {
 </div>
 </section>
 	<!-- Features Job List Design -->
-
-    <div class="ml-2 mr-2 mb-2 responsive" style="background: white;border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
-        <div class="swiper-container">
+<div class="ml-2 mr-2 mb-2 responsive bg-white" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
+        <div class="swiper-container" >
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
                 <div class="swiper-slide">
-                    <div class="bg-white ml-2 mr-2 mt-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
                         <div class="container">
                             <div class="row">
                                 <div class="col-8" style="padding: 25px;">
                                         <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">Utilizá el buscador</h6>
                                         <p class="text-muted" style="font-size: 12px;">Si estás necesitando de alguien paraun problema específico, ¡acá lo vas a encontrar!</strong></p>
-                                        <a href="/lista" style="font-size: 14px;text-decoration: none;color: #3483fa" >Quiero utilizar el buscador</a>
+                                        <a href="/lista" class="btn-cards" style="text-decoration: none;color: #3483fa;font-weight: bold;" >Quiero utilizar el buscador</a>
                                 </div>
                                 <div class="col-4">
                                     <img src="img/slider1.png" style="margin-top:30px;">
@@ -613,15 +620,13 @@ if (event.keyCode === 13) {
                             </div>
                     </div>
                     </div>
-                </div>
                 <div class="swiper-slide">
-                    <div class="bg-white ml-2 mr-2 mt-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
                         <div class="container">
                             <div class="row">
                                 <div class="col-8" style="padding: 25px;">
                                         <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">Contactá rápidamente</h6>
                                         <p class="text-muted" style="font-size: 12px;">Contacto directo con lo que necesitás de manera fácil y gratis.</strong></p>
-                                        <a href="/lista" style="font-size: 14px;text-decoration: none;color: #3483fa" >Quiero encontrar</a>
+                                        <a href="/lista" class="btn-cards" style="text-decoration: none;color: #3483fa; font-weight: bold;" >Quiero encontrar</a>
                                 </div>
                                 <div class="col-4">
                                     <img src="img/slider2.png" style="margin-top:30px;">
@@ -629,15 +634,13 @@ if (event.keyCode === 13) {
                             </div>
                     </div>
                     </div>
-                </div>
                 <div class="swiper-slide">
-                    <div class="bg-white ml-2 mr-2 mt-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
                         <div class="container">
                             <div class="row">
                                 <div class="col-8" style="padding: 25px;">
                                         <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">¿Realizás actividad?</h6>
                                         <p class="text-muted" style="font-size: 12px;">Si practicás un oficio o trabajas de manera autónoma, ¡registrate!</strong></p>
-                                        <a href="/lista" style="font-size: 14px;text-decoration: none;color: #3483fa" >Quiero aparecer</a>
+                                        <a href="/lista" class="btn-cards" style="text-decoration: none;color: #3483fa;font-weight: bold;" >Quiero aparecer</a>
                                 </div>
                                 <div class="col-4">
                                     <img src="img/slider3.png" style="margin-top:30px;">
@@ -645,14 +648,11 @@ if (event.keyCode === 13) {
                             </div>
                     </div>
                     </div>
-                </div>
             </div>
         </div>
-    </div>
-	<!-- Our Footer Bottom Area -->
 </div>
 
-
+</div>
 <!-- Wrapper End -->
 
 
@@ -767,99 +767,5 @@ if (event.keyCode === 13) {
     autocomplete(document.getElementById("searchinput1"), subcategoriesArray, cantidadesarray);
     //autocomplete(document.getElementById("zoneinput"), countries);
 </script>
-
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-        <script type="text/javascript">
-            var ml4 = {};
-ml4.opacityIn = [0,1];
-ml4.scaleIn = [0.2, 1];
-ml4.scaleOut = 2;
-ml4.durationIn = 800;
-ml4.durationOut = 800;
-ml4.delay = 800;
-
-anime.timeline({loop: true})
-  .add({
-    targets: '.ml4 .letters-1',
-    opacity: ml4.opacityIn,
-    scale: ml4.scaleIn,
-    duration: ml4.durationIn
-  }).add({
-    targets: '.ml4 .letters-1',
-    opacity: 0,
-    scale: ml4.scaleOut,
-    duration: ml4.durationOut,
-    easing: "easeInExpo",
-    delay: ml4.delay
-  }).add({
-    targets: '.ml4 .letters-2',
-    opacity: ml4.opacityIn,
-    scale: ml4.scaleIn,
-    duration: ml4.durationIn
-  }).add({
-    targets: '.ml4 .letters-2',
-    opacity: 0,
-    scale: ml4.scaleOut,
-    duration: ml4.durationOut,
-    easing: "easeInExpo",
-    delay: ml4.delay
-  }).add({
-    targets: '.ml4 .letters-3',
-    opacity: ml4.opacityIn,
-    scale: ml4.scaleIn,
-    duration: ml4.durationIn
-  }).add({
-    targets: '.ml4 .letters-3',
-    opacity: 0,
-    scale: ml4.scaleOut,
-    duration: ml4.durationOut,
-    easing: "easeInExpo",
-    delay: ml4.delay
-  })
-  .add({
-    targets: '.ml4 .letters-4',
-    opacity: ml4.opacityIn,
-    scale: ml4.scaleIn,
-    duration: ml4.durationIn
-  }).add({
-    targets: '.ml4 .letters-4',
-    opacity: 0,
-    scale: ml4.scaleOut,
-    duration: ml4.durationOut,
-    easing: "easeInExpo",
-    delay: ml4.delay
-   }).add({
-    targets: '.ml4 .letters-5',
-    opacity: ml4.opacityIn,
-    scale: ml4.scaleIn,
-    duration: ml4.durationIn
-  }).add({
-    targets: '.ml4 .letters-5',
-    opacity: 0,
-    scale: ml4.scaleOut,
-    duration: ml4.durationOut,
-    easing: "easeInExpo",
-    delay: ml4.delay
-  }).add({
-    targets: '.ml4 .letters-6',
-    opacity: ml4.opacityIn,
-    scale: ml4.scaleIn,
-    duration: ml4.durationIn
-  }).add({
-    targets: '.ml4 .letters-6',
-    opacity: 0,
-    scale: ml4.scaleOut,
-    duration: ml4.durationOut,
-    easing: "easeInExpo",
-    delay: ml4.delay
-  }).add({
-    targets: '.ml4',
-    opacity: 0,
-    duration: 500,
-    delay: 300
-  });
-        </script>
 
 @endsection

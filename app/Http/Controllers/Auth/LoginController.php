@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Laravel\Socialite\Facades\Socialite;
+use App\User;
 
 class LoginController extends Controller
 {
@@ -54,7 +55,7 @@ class LoginController extends Controller
             $user = Socialite::driver('google')->user();
         } catch (\Exception $e) {
             return redirect('/login');
-        }       
+        }
         // check if they're an existing user
         $existingUser = User::where('email', $user->email)->first();
         if($existingUser){
@@ -71,6 +72,6 @@ class LoginController extends Controller
             $newUser->save();
             auth()->login($newUser, true);
         }
-        return redirect()->to('/');        
+        return redirect()->to('/');
 }
 }

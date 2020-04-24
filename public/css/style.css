@@ -60,6 +60,8 @@
 .no-responsive{
     display:none;
 }
+.todas{background: white;}
+.btn-cards{font-size: 12px;}
 }
 @media only screen and (min-width:600px) and (max-width:900px) and (orientation:landscape){
 #metodos-responsive{margin-left:20px;}
@@ -115,6 +117,8 @@
 .padding-no-responsive{
     padding: 100px;
 }
+.btn-cards{font-size: 15px;}
+.todas{background: white}
 }
 @media only screen and (min-width:900px) and (max-width:1600px){#row-description-responsive{display:none;}
 #txtmetodos{float:left;margin:0 10px 0 0;}
@@ -182,9 +186,7 @@ input{border:1px solid transparent;background-color:#f1f1f1;padding:10px;font-si
 .titulo-cartas{margin-top: -22px; color: black; margin-bottom: -11px;}
 #navbarSupportedContent{display: none !important;}
 #slider-principal{display:none}
-.padding-no-responsive{
-    padding: 190px;
-    margin-top: -120px;
-}
-
+.todas{background: #fafafa;}
+.todas-container{width: 100%;padding-right: 15px;padding-left: 15px;margin-right: auto;margin-left: auto;max-width: 1140px;}
+.btn-cards{font-size: 15px;}
 }

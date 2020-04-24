@@ -537,26 +537,26 @@
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                                   <div class="my_profile_input form-group">
-                                                    <label for="formGroupExampleInput8">https://facebook.com/{El ID de su Facebook}</label>
-                                                    <input type="text" name="facebook" class="form-control" id="formGroupExampleInput8"  placeholder="Ej: Mardeltrabaja">
+                                                    <label for="formGroupExampleInput8"><img src="img/facebookej.png"></label>
+                                                    <input type="text" name="facebook" class="form-control" id="formGroupExampleInput8"  placeholder="Ej: mardeltrabaja" pattern="[A-Za-z0-9]+">
                                                 </div>
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                                   <div class="my_profile_input form-group">
-                                                    <label for="formGroupExampleInput2">https://twitter.com({El ID de su Twitter}</label>
-                                                    <input type="text" name="twitter" class="form-control" id="formGroupExampleInput2" placeholder="Ej: Mardeltrabaja" >
+                                                    <label for="formGroupExampleInput8"><img src="img/twitterej.png"></label>
+                                                    <input type="text" name="twitter" class="form-control" id="formGroupExampleInput2" placeholder="Ej: mardeltrabaja" pattern="[A-Za-z0-9]+">
                                                 </div>
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                                 <div class="my_profile_input form-group">
-                                                    <label for="formGroupExampleInput3">https://linkedin.com/{El ID de su Linkedin}</label>
-                                                    <input type="text" name="linkedin" class="form-control" id="formGroupExampleInput3" placeholder="Ej: Mardeltrabaja">
+                                                    <label for="formGroupExampleInput8"><img src="img/linkedinej.png"></label>
+                                                    <input type="text" name="linkedin" class="form-control" id="formGroupExampleInput3" placeholder="Ej: mardeltrabaja" pattern="[A-Za-z0-9]+">
                                                 </div>
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                                 <div class="my_profile_input form-group">
-                                                    <label for="formGroupExampleInput4">https://instagram.com/{El ID de su Instagram}</label>
-                                                    <input type="text" name="instagram" class="form-control" id="formGroupExampleInput4" placeholder="Ej: Mardeltrabaja" >
+                                                    <label for="formGroupExampleInput8"><img src="img/instagramej.png"></label>
+                                                    <input type="text" name="instagram" class="form-control" id="formGroupExampleInput4" placeholder="Ej: mardeltrabaja" pattern="[A-Za-z0-9]+" >
                                                 </div>
                                         </div>
                                         <div class="col-md-6 col-lg-6 mt-2">

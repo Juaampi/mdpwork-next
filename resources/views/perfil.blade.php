@@ -261,7 +261,7 @@ use Carbon\Carbon;
                                     <ul>
                                         @if($user->facebook)
                                         <li style="display: inline" class="text-center">
-                                        <a href="{{$user->facebook}}" target="_blank"><img height="40px" class="mr-2" src="img/facebook.png" /></a>
+                                        <a href="https://facebook.com/{{$user->facebook}}" target="_blank"><img height="40px" class="mr-2" src="img/facebook.png" /></a>
                                         </li>
                                         @else
                                         <li style="display: inline" class="text-center">
@@ -270,7 +270,7 @@ use Carbon\Carbon;
                                         @endif
                                         @if($user->instagram)
                                         <li style="display: inline">
-                                            <a href="{{$user->instagram}}" target="_blank"><img height="40px" class="mr-2" src="img/instagram.png" /></a>
+                                            <a href="https://instagram.com/{{$user->instagram}}" target="_blank"><img height="40px" class="mr-2" src="img/instagram.png" /></a>
                                         </li>
                                         @else
                                         <li style="display: inline" class="text-center">
@@ -279,7 +279,7 @@ use Carbon\Carbon;
                                         @endif
                                         @if($user->twitter)
                                         <li style="display: inline">
-                                            <a href="{{$user->twitter}}" target="_blank"><img class="mr-2" height="40px" src="img/twitter.png" /></a>
+                                            <a href="https://twitter.com/{{$user->twitter}}" target="_blank"><img class="mr-2" height="40px" src="img/twitter.png" /></a>
                                         </li>
                                         @else
                                         <li style="display: inline" class="text-center">
@@ -288,7 +288,7 @@ use Carbon\Carbon;
                                         @endif
                                         @if($user->linkedin)
                                         <li style="display: inline">
-                                            <a href="{{$user->linkedin}}" target="_blank"><img height="40px" class="mr-2" src="img/linkedin.png" /></a>
+                                            <a href="https://linkedin.com/{{$user->linkedin}}" target="_blank"><img height="40px" class="mr-2" src="img/linkedin.png" /></a>
                                         </li>
                                         @else
                                         <li style="display: inline" class="text-center">
