@@ -5,12 +5,12 @@
 <div class="container">
     <div  id="registroProfesional" class="row justify-content-center">
         <div class="col-md-12">
-            <div class="card mt-4">
+            <div class="card mt-4" style="margin-bottom: 20px;">
                 <div class="card-header text-center" style="background:#00b7ff; color:white;"><p>Formulario de registro para <strong>Mardeltrabaja.com</strong>.</p>
 
                 </div>
 
-                <div class="card-body">
+                <div class="card-body" style="padding: 10px;">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
                         <input type="hidden" value="profesional" name="rol">
@@ -503,25 +503,25 @@
                                         <div class="col-lg-12">
                                             <h4>Métodos de Pago <span class="text-secondary">que le ofreces al cliente</span></h4>
                                                 <div class="row">
-                                                    <div class="col-md-2">
+                                                    <div class="col-4">
                                                         <div class="custom-control custom-switch mt-1">
                                                             <input type="checkbox" name="isEfective" class="custom-control-input" id="switch1">
                                                             <label class="custom-control-label" for="switch1"><span style="height: 25px;" class="payment"><img src="img/credit-card/moneysi.png" height="40px;"></span></label>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-4">
                                                         <div class="custom-control custom-switch mt-1">
                                                             <input type="checkbox" name="isVisa" class="custom-control-input" id="switch2">
                                                             <label class="custom-control-label" for="switch2"> <span style="height: 25px;" class="payment"><img src="img/credit-card/visa.png" height="40px;"/></span></label>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-4">
                                                             <div class="custom-control custom-switch mt-1">
                                                                 <input type="checkbox" name="isMercadoPago" class="custom-control-input" id="switch3">
                                                                 <label class="custom-control-label" for="switch3"> <span style="height: 25px;" class="payment"><img src="img/credit-card/mercado.png" height="40px"/></span></label>
                                                             </div>
                                                         </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-4">
                                                         <div class="custom-control custom-switch mt-1">
                                                             <input type="checkbox" name="isMasterCard" class="custom-control-input" id="switch4">
                                                             <label class="custom-control-label" for="switch4"> <span style="height: 25px;" class="payment"><img src="img/credit-card/mastercard.png" height="40px"></span></label>
@@ -532,7 +532,7 @@
 
                                         <div class="col-lg-12" style="margin-bottom: 15px;">
                                             <h4 class="fz18 mb20 mt-4">Redes Sociales</h4>
-                                            <small>El ID de su respectiva cuenta es el texto que se encuentra luego de la dirección de su navegador. Por Ejemplo si cuando ingresa a su perfil de Facebook la URL es: https://facebook.com/ricardoalberto la <strong>URL</strong> es https://facebook.com y su <strong>ID</strong> es <strong>ricardoalberto</strong>.</small>
+                                            <p>El ID de su respectiva cuenta es el texto que se encuentra luego de la dirección de su navegador. Por Ejemplo si cuando ingresa a su perfil de Facebook la URL es: https://facebook.com/ricardoalberto la <strong>URL</strong> es https://facebook.com y su <strong>ID</strong> es <strong>ricardoalberto</strong>.</p>
 <br>
                                         </div>
                                         <div class="col-md-6 col-lg-6">
@@ -570,14 +570,12 @@
                                         </div>
                                         </div>
                                         <div class="form-group row mb-0 mt-2">
-                                                <div class="col-md-12 offset-md-4">
-                                                    <button type="submit" class="btn btn-info">
-                                                        Confirmar
+                                                    <button type="submit" style="font-size: 14px;font-weight: bold;color: #1886fc;border:none;background: none;font-family: 'roboto', sans-serif">
+                                                        CONFIRMAR REGISTRO
                                                     </button>
-                                                    <div id="btncancelregistroprofesional" type="submit" class="btn btn-danger">
-                                                            Cancelar
-                                                    </div>
-                                                </div>
+                                                    <a href="/" style="margin-left: 40px; font-size: 14px;font-weight: bold;color: red;border:none;background: none;font-family: 'roboto', sans-serif">
+                                                            CANCELAR
+                                                    </a>
                                             </div>
                                         </form>
                                     </div>

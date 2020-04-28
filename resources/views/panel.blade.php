@@ -54,7 +54,18 @@ filter: brightness(50%);
 }
 </style>
 
-<section style="background: #fafafa">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+@if(session()->has('registrado'))
+<script>
+       $(document).ready(function(){
+            $('#modalprueba').modal('toggle');
+        });
+</script>
+@endif
+
+<section style="background: #fafafa;padding: 30px 0;">
 		<div class="container" style="max-width: 1200px;">
 			<div class="row">
 				<div class="col-sm-12 col-lg-4 col-xl-3 dn-smd">
@@ -73,12 +84,12 @@ filter: brightness(50%);
                                 @endif
                             </div>
                         </div>
-                        <div id="showUpdateImg" style="font-size: 11px;" class="btn btn-sm btn-secondary">Cambiar imagen de perfil</div>
+                        <div id="showUpdateImg" style="font-size: 13px;font-weight: bold;color: #1886fc;border:none;background: none;font-family: 'roboto', sans-serif">ACTUALIZAR IMAGEN DE PERFIL</div>
                         <form id="formUpdateImg" style="display:none;margin-top:5px;" method="POST" action="{{ route('User.updateImg') }}" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" value="{{ Auth::user()->id }}" name="user_id">
                             <input data-multiple-caption="{count} files selected" multiple id="file" type="file" name="img-perfil" class="inputfile">
-                            <label id="labelImg" style="font-size:11px;" class="btn btn-info" for="file">Elegir archivo</label>
+                            <label id="labelImg" style="font-size: 13px;font-weight: bold;color: #1886fc;border:none;background: none;font-family: 'roboto', sans-serif" for="file">SUBIR IMAGEN</label>
                             <button style="font-size:12px;" type="submit" class="btn b">Guardar</button>
                             <label style="font-size:12px;" id="cancelUpdateImg" class="text-danger font-weight-bold">Cancelar</label>
                          </form>
@@ -99,6 +110,7 @@ filter: brightness(50%);
                     </div>
 				</div>
 				<div class="col-sm-12 col-lg-8 col-xl-9">
+
 					<div class="my_profile_form_area">
                         <form id="form-user-edit" action="{{route('User.edit')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
@@ -576,26 +588,30 @@ filter: brightness(50%);
 							</div>
 						    <div class="col-md-6 col-lg-6">
 							      	<div class="my_profile_input form-group">
-							    		<label for="formGroupExampleInput1">Facebook</label>
-							    		<input type="text" name="facebook" class="form-control" id="formGroupExampleInput1" @if(Auth::user()->facebook) placeholder="{{Auth::user()->facebook}}" @else placeholder="Ej: http://facebook.com/mdpwork" @endif>
+							    		<label for="formGroupExampleInput8"><img src="img/facebookej.png"></label>
+                                        <input type="text" name="facebook" class="form-control" id="formGroupExampleInput1" @if(Auth::user()->facebook) placeholder="{{Auth::user()->facebook}}" @else placeholder="Ej: mardeltrabaja" @endif>
+                                        @if(Auth::user()->facebook)<a href="https://facebook.com/{{Auth::user()->facebook}}" style="font-size: 13px;font-weight: bold;color: #1886fc;border:none;background: none;font-family: 'roboto', sans-serif" target="blank">PROBAR FACEBOOK</a>@endif
 									</div>
 						    </div>
 						    <div class="col-md-6 col-lg-6">
 							      	<div class="my_profile_input form-group">
-							    		<label for="formGroupExampleInput1">Twitter</label>
-							    		<input type="text" name="twitter" class="form-control" id="formGroupExampleInput1" @if(Auth::user()->twitter) placeholder="{{Auth::user()->twitter}}" @else placeholder="Ej: http://twitter.com/mdpwork" @endif>
+							    		<label for="formGroupExampleInput8"><img src="img/twitterej.png"></label>
+                                        <input type="text" name="twitter" class="form-control" id="formGroupExampleInput1" @if(Auth::user()->twitter) placeholder="{{Auth::user()->twitter}}" @else placeholder="Ej: mardeltrabaja" @endif>
+                                        @if(Auth::user()->twitter)<a href="https://twitter.com/{{Auth::user()->twitter}}" style="font-size: 13px;font-weight: bold;color: #1886fc;border:none;background: none;font-family: 'roboto', sans-serif" target="blank">PROBAR TWITTER</a>@endif
 									</div>
 						    </div>
 						    <div class="col-md-6 col-lg-6">
 						    		<div class="my_profile_input form-group">
-							    		<label for="formGroupExampleInput1">Linkedin</label>
-							    		<input type="text" name="linkedin" class="form-control" id="formGroupExampleInput1" @if(Auth::user()->linkedin) placeholder="{{Auth::user()->linkedin}}" @else placeholder="Ej: http://linkedin.com/mdpwork"@endif>
+							    		<label for="formGroupExampleInput8"><img src="img/linkedinej.png"></label>
+                                        <input type="text" name="linkedin" class="form-control" id="formGroupExampleInput1" @if(Auth::user()->linkedin) placeholder="{{Auth::user()->linkedin}}" @else placeholder="Ej: mardeltrabaja"@endif>
+                                        @if(Auth::user()->linkedin)<a href="https://facebook.com/{{Auth::user()->linkedin}}" style="font-size: 13px;font-weight: bold;color: #1886fc;border:none;background: none;font-family: 'roboto', sans-serif" target="blank">PROBAR LINKEDIN</a>@endif
 									</div>
 						    </div>
 						    <div class="col-md-6 col-lg-6">
 						    		<div class="my_profile_input form-group">
-							    		<label for="formGroupExampleInput1">Instagram</label>
-							    		<input type="text" name="instagram" class="form-control" id="formGroupExampleInput1" @if(Auth::user()->instagram) placeholder="{{Auth::user()->instagram}}" @else placeholder="Ej: http://instagram.com/mdpwork"@endif>
+							    		<label for="formGroupExampleInput8"><img src="img/instagramej.png"></label>
+                                        <input type="text" name="instagram" class="form-control" id="formGroupExampleInput1" @if(Auth::user()->instagram) placeholder="{{Auth::user()->instagram}}" @else placeholder="Ej: mardeltrabaja"@endif>
+                                        @if(Auth::user()->instagram)<a href="https://facebook.com/{{Auth::user()->instagram}}" style="font-size: 13px;font-weight: bold;color: #1886fc;border:none;background: none;font-family: 'roboto', sans-serif" target="blank">PROBAR INSTAGRAM</a>@endif
 									</div>
                             </div>
                             <div class="col-lg-12">
@@ -824,10 +840,73 @@ document.addEventListener("click", function (e) {
 
         autocomplete(document.getElementById("myInput"), countries);
         </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+<div class="modal fade" id="modalprueba" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="border: none;">
+            <button style="position: absolute; float: right;margin-top: 10px;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class="fa fa-arrow-left"></i></span>
+              </button>
+        </div>
+        <div class="modal-body text-center" style="margin-top: 40px;">
+            <img src="img/logo.png" style="height: 50px;border-radius: 10px;margin-bottom: 10px;">
+              <h4 class="text-black">Bienvenido, {{Auth::user()->name}}</h4>
+              <h6 class="text-secondary">Administrá tu información y personalizá tu perfil con las opciones que para vos son más relevantes. </h6>
+              <div class="responsive bg-white" style="margin-top: 20px; border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
+                    <div class="row">
+                        <div class="col-8 text-left" >
+                                <p style="padding: 10px;font-size: 20px;color: black;margin-bottom: -8px;">Completá tu perfil</p>
+                                <p class="text-muted" style="font-size: 14px;padding:  10px;">Personalizá tu experiencia en Mardeltrabaja.com, completando las diferentes configuraciones disponibles.</p>
+                        </div>
+                        <div class="col-4">
+                            <img src="img/personalizar.png" style="margin-top:30px;margin-left: -40px;">
+                        </div>
+                    </div>
+            </div>
+            <div class="no-responsive bg-white" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);margin-top: 20px;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-8" style="padding: 14px;margin-top: 50px;">
+                            <p style="padding: 7px;font-size: 20px;color: black;margin-bottom: -8px;">Completá tu perfil</p>
+                                <p class="text-muted" style="font-size: 15px;">Desde tu panel vas a poder personalizar tu experiencia en Mardeltrabaja.com, completando las diferentes configuraciones disponibles.</p>
+                        </div>
+                        <div class="col-4">
+                            <img src="img/personalizar.png" style="margin-top:80px;">
+                        </div>
+                    </div>
+            </div>
+            </div>
+
+        <div class="responsive" style="margin-top: 10px; border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);background: #0f7778">
+            <div class="container">
+                <div class="row">
+                    <div class="col-8" style="padding: 25px;">
+                            <h6 style="margin-bottom: 0px;color:white;">¡Quedate en casa!</h6>
+                    </div>
+                    <div class="col-4">
+                        <img src="img/covid.jpg" style="margin-top:20px;">
+                    </div>
+                </div>
+        </div>
+        </div>
+        </div>
+
+
+
+
+        <div class="modal-footer" style="border: none">
+          <button style="font-size: 13px;font-weight: bold;color: #1886fc;border:none;background: none;font-family: 'roboto', sans-serif" type="button" data-dismiss="modal">COMPLETAR PERFIL</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
         <script>
 
             $(document).ready(function(){
+
 
                 $("#file").change(function () {
                     $('#img-perfil-panel').hide();

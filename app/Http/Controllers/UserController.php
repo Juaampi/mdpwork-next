@@ -354,8 +354,8 @@ class UserController extends Controller
             $user->linkedin = $request['linkedin'];
             $user->save();
         }
-        if(!empty($request['Instagram'])){
-            $user->Instagram = $request['Instagram'];
+        if(!empty($request['instagram'])){
+            $user->instagram = $request['instagram'];
             $user->save();
         }
 

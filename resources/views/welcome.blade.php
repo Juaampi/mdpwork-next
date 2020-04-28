@@ -60,7 +60,7 @@ use Carbon\Carbon;
 
                     </div>
 				</div>
-                <div class="col-lg-12" style="margin-top: 60px;">
+                <div class="col-lg-12" style="margin-top: 20px;">
                     <p style="color: #999;font-size: 15px;line-height: 1.2">Encontrá a la persona que necesitás utilizando el <strong>buscador de Mar del Plata</strong>. Filtrá por palabras clave, el buscador te ayudará.</p>
                     <p style="color: #999;font-size: 15px;line-height: 1.2">¿Querés postularte gratis en el sitio? <a style="color: #007bff;text-decoration: none;font-weight: 600;" href="/register">¡Registrarme! </a></p>
 					<div class="home-job-search-box mt20 mb20">
