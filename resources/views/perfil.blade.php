@@ -236,7 +236,7 @@ use Carbon\Carbon;
                                 @endif
                                 @if($user->facebook)
                                 <li style="display: inline">
-                                <a href="{{$user->facebook}}" target="_blank"><img height="40px" class="mr-2" src="img-icons/messenger.png" />
+                                <a href="https://wa.me/{{$user->facebook}}" target="_blank"><img height="40px" class="mr-2" src="img-icons/messenger.png" />
                                 </li>
                                 @else
                                 <li style="display: inline" class="text-center">
