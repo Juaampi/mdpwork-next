@@ -360,7 +360,7 @@ use Carbon\Carbon;
                             @endif
                             @if($user->facebook)
                             <li style="display: inline">
-                            <a href="{{$user->facebook}}" target="_blank"><img height="30px" class="mr-2" src="img-icons/messenger.png" />
+                            <a href="http://m.me/{{$user->facebook}}" target="_blank"><img height="30px" class="mr-2" src="img-icons/messenger.png" />
                             </li>
                             @else
                             <li style="display: inline" class="text-center">
@@ -583,7 +583,32 @@ use Carbon\Carbon;
             <div class="row" style="margin-left: 10px;">
                 <h6 style="margin-top: 20px; font-size: 17px;margin-bottom: 20px;">Imágenes del profesional</h6>
             </div>
-            <div class="row">
+            <div class="row responsive">
+                <div class="swiper-container" >
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                            @if($user->img1)
+                                <div class="swiper-slide">
+                                    <img src="img-jobs/{{$user->img1}}" />
+                                </div>
+                            @endif
+                            @if($user->img2)
+                                <div class="swiper-slide">
+                                    <img src="img-jobs/{{$user->img2}}" />
+                                </div>
+                            @endif
+                            @if($user->img3)
+                                <div class="swiper-slide">
+                                    <img src="img-jobs/{{$user->img3}}" />
+                                </div>
+                            @endif
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+            <div class="row no-responsive">
                 <div class="col-lg-4 mt-2 mb-2">
                     @if($user->img1)
                     <img src="img-jobs/{{$user->img1}}" />
