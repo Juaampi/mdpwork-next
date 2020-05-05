@@ -570,10 +570,11 @@ use Carbon\Carbon;
                     <div class="col-lg-4 col-xl-4">
                         <h6 style="margin-top: 20px; font-size: 17px;margin-bottom: 20px;">Información adicional</h6>
                         <div class="candidate_working_widget style2 bgc-fa">
-                            @if($user->website)<p style="font-size:15px;"><i class="fa fa-window-restore"></i> <span style="font-weight: 600">Sitio Web:</span>  {{$user->website}}</p>@endif<hr>
-                            @if($user->job)<p style="font-size:15px;"><i class="fa fa-briefcase"></i> <span style="font-weight: 600">Profesión: </span>  {{ ucfirst($user->job) }}</p>@endif<hr>
-                            @if($user->experience)<p style="font-size:15px;"><i class="fa fa-address-card"></i> <span style="font-weight: 600">Experiencia: </span> @if($user->experience == 0 )Menos de 1 año @elseif($user->experience == 1) 1 Año @elseif($user->experience > 1)  {{$user->experience}} años @endif  </p>@endif<hr>
-                            @if($user->level)<p style="font-size:15px;"><i class="fa fa-graduation-cap"></i> <span style="font-weight: 600">Titulo / Certificado: </span>  {{$user->level}}</p>@endif<hr>
+                            @if($user->website)<p style="font-size:15px;"><i class="fa fa-window-restore"></i> <span style="font-weight: 600">Sitio Web:</span>  {{$user->website}}</p><hr>@endif
+                            @if($user->job)<p style="font-size:15px;"><i class="fa fa-briefcase"></i> <span style="font-weight: 600">Profesión: </span>  {{ ucfirst($user->job) }}</p><hr>@endif
+                            @if($user->experience)<p style="font-size:15px;"><i class="fa fa-address-card"></i> <span style="font-weight: 600">Experiencia: </span> @if($user->experience == 0 )Menos de 1 año @elseif($user->experience == 1) 1 Año @elseif($user->experience > 1)  {{$user->experience}} años @endif  </p><hr>@endif
+                            @if($user->level)<p style="font-size:15px;"><i class="fa fa-graduation-cap"></i> <span style="font-weight: 600">Titulo / Certificado: </span>  {{$user->level}}</p><hr>@endif
+                            @if($user->presupuesto)<p style="font-size: 15px"><i class="fa fa-certificate"></i> <strong>Presupuesto:</strong> Gratis</div><hr>@endif
                         </div>
                     </div>
                 </div>

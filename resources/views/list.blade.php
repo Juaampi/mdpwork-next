@@ -437,6 +437,7 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                                     @else
                                     <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-danger">No Disponible</p>                                @endif
                                 @endif
+                                        @if($last->presupuesto)<div class="badge badge-info">Presupuesto sin Cargo</div><br>@endif
                                         <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: 600">{{$last->name}}</h4>
                                         <p style="font-family: 'roboto', sans-serif;font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ ucfirst($last->job) }} <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a></p>
                                         <p style="margin-bottom:0px;font-size: 12px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><i class="fa fa-location-arrow"></i> @if($last->zone){{$last->zone}},@endif Mar del Plata</p>

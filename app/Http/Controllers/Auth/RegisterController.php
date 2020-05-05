@@ -220,6 +220,11 @@ class RegisterController extends Controller
                 $data['outhourafterdomingo'] = null;
             }
         }
+        if(isset($data['presupuesto'])){
+            $data['presupuesto'] = true;
+        }else{
+            $data['presupuesto'] = false;
+        }
 
         return User::create([
             'name' => $data['name'],
@@ -250,6 +255,7 @@ class RegisterController extends Controller
             'instagram' => $data['instagram'],
             'img' => 'logo.png',
             'rol' => $data['rol'],
+            'presupuesto' => $data['presupuesto'],
             'inhourlunes' => $data['inhourlunes'],
             'outhourlunes' => $data['outhourlunes'],
             'inhourafterlunes' => $data['inhourafterlunes'],

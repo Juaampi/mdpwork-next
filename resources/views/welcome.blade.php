@@ -35,7 +35,21 @@ use Carbon\Carbon;
                         <p class="text-white" style="font-size: 12px;">Consultá presupuestos desde tu hogar, mientras combatimos el COVID-19</strong></p>
                 </div>
                 <div class="col-4">
-                    <img src="img/covid19.webp" style="margin-top:15px;">
+                    <img src="img/covid19.webp" style="margin-top:20px;">
+                </div>
+            </div>
+    </div>
+    </div>
+
+    <div class="ml-2 mr-2 mt-2 mb-2 responsive" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);background: #28af77;">
+        <div class="container">
+            <div class="row">
+                <div class="col-8" style="padding: 25px;">
+                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;color:white;font-size: 14px;" class="font-weight-bold">¡Presupuesto sin cargo!</h6>
+                        <p class="text-white" style="font-size: 12px;">Ahora desde tu panel vas a poder configurar si realizás presupuestos sin cargo.</strong></p>
+                </div>
+                <div class="col-4">
+                    <img src="img/presupuesto.webp" style="margin-top:20px;">
                 </div>
             </div>
     </div>
@@ -232,6 +246,7 @@ use Carbon\Carbon;
                                     <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-danger">No Disponible</p>
                                 @endif
                             @endif
+                            @if($last->presupuesto)<div class="badge badge-info">Presupuesto sin cargo</div><br>@endif
                             <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: 600">{{$last->name}}</h4>
                             <p style="font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ ucfirst($last->job) }} <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a></p>
                             <p style="margin-bottom: 2px;font-size: 12px;">
@@ -254,8 +269,8 @@ use Carbon\Carbon;
                                                 <span style="font-size: 12px; font-style: italic;" class="text-danger font-weight-bold">No disponible hoy</span>
                                             @endif
                                         @endif
-                                        </p>
-                                        <a class="stretched-link" style="text-decoration: none;  color: #2e86fc;font-weight: bold;background: none;border: none;font-size: 11px;font-family: 'roboto', sans-serif;" href="{{Route('User.perfil', ['user_id' => $last->id])}}" >VER / CONTACTAR </a>
+                            </p>
+                            <a class="stretched-link" style="text-decoration: none;  color: #2e86fc;font-weight: bold;background: none;border: none;font-size: 11px;font-family: 'roboto', sans-serif;" href="{{Route('User.perfil', ['user_id' => $last->id])}}" >VER / CONTACTAR </a>
                             <hr>
                         </div>
                         <div class="col-2" style="padding: 0px;">

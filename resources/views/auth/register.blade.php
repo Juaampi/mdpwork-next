@@ -144,6 +144,19 @@
                                                 <a id="btn-hide-job3" class="btn text-danger btn-outline-danger btn-sm">Cancelar profesión (x)</a>
                                         </div>
                                 </div>
+
+                                    <div class="col-md-12 col-12" style="width: 100%;margin-top: 15px;">
+                                        <div class="my_profile_input form-group card">
+                                            <div class="card-body">
+                                            <label style="margin-top: 15px;">Si realizás presupuestos online gratis a través de whatsapp o algún medio de comunicación selecciona ésta opción.</label>
+                                            <div class="custom-control custom-checkbox" style="margin-top: 10px;">
+                                                <input type="checkbox" name="presupuesto"  class="custom-control-input" id="presupuesto" >
+                                                <label class="custom-control-label" for="presupuesto"> Presupuesto Gratis</label>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                         <div class="col-md-6 col-lg-6">
                                             <div class="my_profile_input form-group">
                                             <label >WhatsApp <span class="text-danger">*</span></label>
@@ -162,7 +175,6 @@
                                                         <input type="number" name="phone" class="form-control" id="exampleInputPhone" aria-describedby="phoneNumber" placeholder="EJ: +5492234675858">
                                                     </div>
                                                 </div>
-
                                         <div class="col-md-6 <col-lg-6">
                                             <div class="my_profile_input form-group">
                                                 <label for="exampleFormControlInput2">Sitio Web</label>

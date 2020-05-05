@@ -358,7 +358,13 @@ class UserController extends Controller
             $user->instagram = $request['instagram'];
             $user->save();
         }
-
+        if(($request['presupuesto'])){
+            $user->presupuesto = true;
+            $user->save();
+        }else{
+            $user->presupuesto = false;
+            $user->save();
+        }
 
         if($request['islunes']){
             if(!empty($request['inhourlunes']) && !empty($request['outhourlunes'])){
