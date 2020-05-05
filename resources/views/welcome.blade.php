@@ -236,6 +236,8 @@ use Carbon\Carbon;
                                     <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-success">Disponible</p>
                                 @elseif($hour >= $last->{'inhourafter'.$day} && $hour <= $last->{'outhourafter'.$day})
                                     <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-success">Disponible</p>
+                                @elseif($hour > $last->{'outhour'.$day} && $hour < $last->{'inhourafter'.$day})
+                                    <span style="margin-bottom: 0px;font-size: 10px;font-weight: bold;color: #eb6c0a">Disponible a las @php echo date('G:i',strtotime($last->{'inhourafter'.$day} ))@endphp hs </span>
                                 @else
                                  <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-danger">No Disponible</p>
                                 @endif
@@ -254,8 +256,10 @@ use Carbon\Carbon;
                                                 <span style="font-size: 12px;">@php echo date('G:i',strtotime($last->{'inhour'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day} )) @endphp hs</span>
                                             @elseif($hour >= $last->{'inhourafter'.$day} && $hour <= $last->{'outhourafter'.$day} )
                                                 <span style="font-size: 12px">@php echo date('G:i',strtotime($last->{'inhourafter'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhourafter'.$day} )) @endphp hs</span>
+                                            @elseif($hour > $last->{'outhour'.$day} && $hour < $last->{'inhourafter'.$day})
+
                                             @else
-                                                <span style="font-size: 12px; font-style: italic;" class="text-danger font-weight-bold">No disponible hoy</span>
+                                                <span style="font-size: 12px;" class="text-danger">No disponible hoy {{$day}} </span>
                                             @endif
                                         @else
                                             @if($last->{'inhour'.$day} && $last->{'outhour'.$day})
@@ -265,7 +269,7 @@ use Carbon\Carbon;
                                                     <span style="font-size: 12px" class="text-danger font-weight-bold">@php echo date('G:i',strtotime($last->{'inhour'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day} )) @endphp hs</span>
                                                 @endif
                                             @else
-                                                <span style="font-size: 12px; font-style: italic;" class="text-danger font-weight-bold">No disponible hoy</span>
+                                            <span style="font-size: 12px;" class="text-danger">No disponible hoy {{$day}} </span>
                                             @endif
                                         @endif
                             </p>

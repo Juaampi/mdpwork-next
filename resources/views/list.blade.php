@@ -423,11 +423,13 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                                         <img style="border-radius: 10px;" class="img-fluid" src="images/large/{{$last->img}}" alt="1.jpg">
                                     </div>
                                     <div class="col-7">
-                                        @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
+                                    @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
                                     @if($hour >= $last->{'inhour'.$day} && $hour <= $last->{'outhour'.$day})
                                     <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-success">Disponible</p>
                                     @elseif($hour >= $last->{'inhourafter'.$day} && $hour <= $last->{'outhourafter'.$day})
                                     <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-success">Disponible</p>
+                                    @elseif($hour > $last->{'outhour'.$day} && $hour < $last->{'inhourafter'.$day})
+                                    <span style="margin-bottom: 0px;font-size: 10px;font-weight: bold;color: #eb6c0a">Disponible a las @php echo date('G:i',strtotime($last->{'inhourafter'.$day} ))@endphp hs </span>
                                     @else
                                     <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-danger">No Disponible</p>
                                     @endif
@@ -443,23 +445,23 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                                         <p style="margin-bottom: 0px;font-size: 12px;">
                                                     @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
                                                         @if($hour <= $last->{'outhour'.$day} && $hour >= $last->{'inhour'.$day})
-                                                            <span style="font-size: 12px;">@php echo date('G:i',strtotime($last->{'inhour'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day} )) @endphp hs</span>
+                                                            <span style="font-size: 12px;color: #28af77; font-weight: 600;">@php echo date('G:i',strtotime($last->{'inhour'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day} )) @endphp hs</span>
                                                         @elseif($hour > $last->{'outhour'.$day} && $hour < $last->{'inhourafter'.$day})
-                                                        <span style="font-size: 12px; font-style: italic;color: #eb6c0a;font-weight: 600;">Disponible a las <span style="font-size: 12px">@php echo date('G:i',strtotime($last->{'inhourafter'.$day} ))@endphp hs </span>
+
                                                         @elseif($hour >= $last->{'inhourafter'.$day} && $hour <= $last->{'outhourafter'.$day} )
-                                                            <span style="font-size: 12px">@php echo date('G:i',strtotime($last->{'inhourafter'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhourafter'.$day} )) @endphp hs</span>
+                                                            <span style="font-size: 12px;color: #28af77; font-weight: 600;">@php echo date('G:i',strtotime($last->{'inhourafter'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhourafter'.$day} )) @endphp hs</span>
                                                         @else
-                                                            <span style="font-size: 12px; font-style: italic;" class="text-danger font-weight-bold">No disponible hoy</span>
+                                                        <span style="font-size: 12px;" class="text-danger">No disponible hoy {{$day}} </span>
                                                         @endif
                                                     @else
                                                         @if($last->{'inhour'.$day} && $last->{'outhour'.$day})
                                                             @if($hour <= $last->{'outhour'.$day} && $hour >= $last->{'inhour'.$day})
-                                                                <span style="font-size: 12px">@php echo date('G:i',strtotime($last->{'inhour'.$day}))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day} )) @endphp hs</span>
+                                                                <span style="font-size: 12px;color: #28af77; font-weight: 600;">@php echo date('G:i',strtotime($last->{'inhour'.$day}))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day} )) @endphp hs</span>
                                                             @else
-                                                                <span style="font-size: 12px" class="text-danger font-weight-bold">@php echo date('G:i',strtotime($last->{'inhour'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day} )) @endphp hs</span>
+                                                                <span style="font-size: 12px;" class="text-danger font-weight-bold">@php echo date('G:i',strtotime($last->{'inhour'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day} )) @endphp hs</span>
                                                             @endif
                                                         @else
-                                                            <span style="font-size: 12px; font-style: italic;" class="text-danger font-weight-bold">No disponible hoy</span>
+                                                        <span style="font-size: 12px;" class="text-danger">No disponible hoy {{$day}} </span>
                                                         @endif
                                                     @endif
                                                     </p>

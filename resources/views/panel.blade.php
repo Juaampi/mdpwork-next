@@ -286,7 +286,7 @@ filter: brightness(50%);
                                 <div class="col-md-12 col-12" style="width: 100%;margin-top: 15px;">
                                     <div class="my_profile_input form-group card">
                                         <div class="card-body">
-                                        <label style="margin-top: 15px;">Si realizás presupuestos online sin cargo a través de whatsapp o algún medio de comunicación selecciona ésta opción.</label>
+                                        <label>Si realizás presupuestos online sin cargo a través de whatsapp o algún medio de comunicación selecciona ésta opción.</label>
                                         <div class="custom-control custom-checkbox" style="margin-top: 10px;">
                                             <input type="checkbox" name="presupuesto"  class="custom-control-input" id="presupuesto" @if(Auth::user()->presupuesto) checked @endif >
                                             <label class="custom-control-label" for="presupuesto"> Presupuesto sin Cargo</label>
