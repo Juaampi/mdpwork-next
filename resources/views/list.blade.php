@@ -444,6 +444,8 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                                                     @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
                                                         @if($hour <= $last->{'outhour'.$day} && $hour >= $last->{'inhour'.$day})
                                                             <span style="font-size: 12px;">@php echo date('G:i',strtotime($last->{'inhour'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day} )) @endphp hs</span>
+                                                        @elseif($hour > $last->{'outhour'.$day} && $hour < $last->{'inhourafter'.$day})
+                                                        <span style="font-size: 12px; font-style: italic;color: #eb6c0a;font-weight: 600;">Disponible a las <span style="font-size: 12px">@php echo date('G:i',strtotime($last->{'inhourafter'.$day} ))@endphp hs </span>
                                                         @elseif($hour >= $last->{'inhourafter'.$day} && $hour <= $last->{'outhourafter'.$day} )
                                                             <span style="font-size: 12px">@php echo date('G:i',strtotime($last->{'inhourafter'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhourafter'.$day} )) @endphp hs</span>
                                                         @else
@@ -542,7 +544,7 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
 <img style="border-radius: 10px;" class="img-fluid" src="images/large/{{$mascomentado->img}}" alt="1.jpg">
 </div>
 <div class="col-7">
-<p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-info">Más comentado</p>
+<p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-info">Mejor puntuado</p>
 <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: 600">{{$mascomentado->name}}</h4>
 <p style="font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$mascomentado->job}}">{{ ucfirst($mascomentado->job) }} <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a></p>
       <a class="stretched-link" style="text-decoration: none;  color: #3db39e;background: none;border: none;font-size: 12px;" href="{{Route('User.perfil', ['user_id' => $mascomentado->id])}}" ></a>

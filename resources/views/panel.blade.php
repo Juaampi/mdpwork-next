@@ -142,7 +142,7 @@ filter: brightness(50%);
                             <div class="col-md-6 col-lg-6">
                                 <div class="my_profile_input form-group">
                                     <label for="exampleInputPhone">Teléfono</label>
-                                    <input type="email" name="phone" class="form-control" id="exampleInputPhone" aria-describedby="phoneNumber" placeholder="{{Auth::user()->phone}}">
+                                    <input type="number" name="phone" class="form-control" id="exampleInputPhone" aria-describedby="phoneNumber" placeholder="{{Auth::user()->phone}}">
                                 </div>
                             </div>
 							<div class="col-md-6 col-lg-6">
@@ -297,7 +297,7 @@ filter: brightness(50%);
                             <div class="col-md-6 col-lg-6">
                                     <div class="my_profile_input form-group">
                                         <label for="exampleInputPhone">WhatsApp</label>
-                                        <input type="email" name="whatsapp"  class="form-control" id="exampleInputPhone" aria-describedby="phoneNumber" @if(Auth::user()->whatsapp)placeholder="{{Auth::user()->whatsapp}}"@else placeholder="Ejemplo: 2235646567"@endif>
+                                        <input type="number" name="whatsapp"  class="form-control" id="exampleInputPhone" aria-describedby="phoneNumber" @if(Auth::user()->whatsapp)placeholder="{{Auth::user()->whatsapp}}"@else placeholder="Ejemplo: 2235646567"@endif>
                                     </div>
                                 </div>
                             @endif
