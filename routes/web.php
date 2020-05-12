@@ -49,3 +49,7 @@ Route::group(['prefix' => 'auth'], function () {
     Route::get('/{provider}', 'Auth\LoginController@redirectToProvider');
     Route::get('/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 });
+
+Route::get('/pre', function(){
+    return view('auth.preregister');
+});

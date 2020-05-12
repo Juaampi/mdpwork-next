@@ -16,9 +16,9 @@ use Carbon\Carbon;
         <div class="container">
 			<div class="row">
 				<div class="col-8" style="padding: 14px;">
-                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">¡Encontrá tu solución!</h6>
-                        <p class="text-muted" style="font-size: 11px;">Encontrá al profesional que necesitas en <strong>Mardeltrabaja.com</strong></p>
-						<a style="font-size: 12px;font-weight: bold;color: #1886fc;" href="/lista">Ver listado<i class="fa fa-arrow-right" style="padding: 10px"></i></a>
+                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;font-size: 14px;" class="font-weight-bold">¿Querés aparecer?</h6>
+                        <p class="text-muted" style="font-size: 11px;">Registrate en <strong>Mardeltrabaja.com</strong> y que el trabajo te busque a vos!</p>
+						<a style="font-size: 10px;font-weight: bold;color: #1886fc;border: 1px solid #e5e5e5;padding: 5px;border-radius: 3px;background: #f1f1f1" href="/register">QUIERO REGISTRARME</a>
                 </div>
                 <div class="col-4">
                     <img src="img/nuevos.svg" style="margin-top:30px;">
