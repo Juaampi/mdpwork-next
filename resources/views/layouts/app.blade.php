@@ -150,10 +150,10 @@
                             <h6 class="text-muted">Ingresá para optimizar tu perfil o dejar tu reseña.</h6>
                             <div class="row" style="margin-top: 10px;">
                                 <div class="col-6" style="padding: 1px;">
-                                    <a href="/login" class="btn btn-info" style="width: 100%; color: white;">Ingresar</a>
+                                    <a href="/register" class="btn btn-info" style="width: 100%; color: white;font-size: 12px;">Quiero aparecer</a>
                                 </div>
                                 <div class="col-6" style="padding: 1px;">
-                                    <a class="btn btn-outline-info" href="/register" style="width: 100%; color: #17a2b8">Crear</a>
+                                    <a class="btn btn-outline-info" href="/login" style="width: 100%; color: #17a2b8; font-size: 12px;">Ya me registré</a>
                                 </div>
                             </div>
                             @else
