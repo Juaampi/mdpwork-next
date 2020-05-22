@@ -45,24 +45,24 @@
                 </div>
             <div class="col-md-12" style="margin-top: 15px;">
                 <div class="my_profile_input form-group">
-                    <input type="text" id="name" name="name" class="form-control" required autocomplete="name" value="{{ old('name') }}" autofocus placeholder="Nombre Completo">
+                    <input type="text" id="name" name="name" class="form-control"  autocomplete="name" value="{{ old('name') }}" autofocus placeholder="Nombre Completo">
                 </div>
             </div>
             <div class="col-md-12 mt-2">
                 <div class="my_profile_input form-group">
-                    <input type="email" name="email" class="form-control" id="email" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Ingrese su Email">
+                    <input type="email" name="email" class="form-control" id="email" name="email" value="{{ old('email') }}"  autocomplete="email" placeholder="Ingrese su Email">
                     <small>Debe ser un E-mail real, ya que se utilizará para la activación de la cuenta.</small>
                 </div>
             </div>
             <div class="col-md-12 mt-2">
                 <div class="my_profile_input form-group">
-                    <input id="password" type="password" class="form-control" name="password" value="{{ old('password') }}" required autocomplete="new-password" placeholder="Crear contraseña">
+                    <input id="password" type="password" class="form-control" name="password" value="{{ old('password') }}"  autocomplete="new-password" placeholder="Crear contraseña">
                     <small>Utilice una combinación de 8 o más caracteres entre números, letras y símbolos.</small>
                 </div>
             </div>
             <div class="col-md-12 mt-2">
                 <div class="my_profile_input form-group">
-                    <input id="passwordconfirm" type="password" class="form-control" value="{{ old('password') }}" name="password_confirmation" required autocomplete="new-password" placeholder="Confirmar contraseña">
+                    <input id="passwordconfirm" type="password" class="form-control" value="{{ old('password') }}" name="password_confirmation"  autocomplete="new-password" placeholder="Confirmar contraseña">
                     <small>Sólo repetí la contraseña creada anteriormente.</small>
                 </div>
             </div>
@@ -113,7 +113,7 @@
                             <div class="col-md-6 col-lg-6">
                                 <div class="my_profile_input form-group">
                                     <label>Buscá tu categoría <span class="text-danger">*</span></label>
-                                    <select id="category" name="category_id" class="form-control" required>
+                                    <select id="category" name="category_id" class="form-control" >
                                             <option selected class="alert alert-danger" value="">Seleccione Categoría</option>
                                         @foreach($categories as $category)
                                             <option value="{{$category->id}}">{{$category->name}}</option>
