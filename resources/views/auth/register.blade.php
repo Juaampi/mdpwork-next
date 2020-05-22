@@ -1,8 +1,645 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+#btn-siguiente-1{
+    cursor: pointer;
+}
+#btn-siguiente-2{
+    cursor: pointer;
+}
+#btn-siguiente-3{
+    cursor: pointer;
+}
+#btn-cancel-1{
+    cursor: pointer;
+}
+#btn-cancel-2{
+    cursor: pointer;
+}
+#btn-cancel-3{
+    cursor: pointer;
+}
+</style>
+<form id="form-register" method="POST" action="{{ route('register') }}">
+    @csrf
+<div class="container mt-2">
+    <h4 style="font-family: 'roboto', sans-serif; margin-top: 15px;">Creá tu cuenta de Mardeltrabaja</h4>
+    <div class="progress" style="height: 3px;">
+        <div class="progress-bar" id="progressbar1" role="progressbar" style="width: 33%;background: #00b7ff" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="progress-bar" id="progressbar2" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 33%;background: #f1f1f1;border-right: 1px solid #a5a5a5;border-left: 1px solid #a5a5a5;">
+        </div>
+        <div class="progress-bar" id="progressbar3" role="progressbar" aria-valuenow="25"
+            aria-valuemin="0" aria-valuemax="100" style="width: 34%;background: #f1f1f1">
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body" id="parte-1" @if(session()->has('google')) style="display:none" @endif>
+                <div class="my_profile_input form-group" style="display: none;">
+                    <p style="font-size: 15px; text-align: center;margin-top: 10px;">Al acceder desde tu cuenta de <span class="text-danger">Google</span> sólo nos estarás brindando tu nombre, tu e-mail y tu imagen de perfil. Tus datos están protegidos. <a href="https://support.google.com/accounts/answer/3466521?hl=es" class="text-primary">Más información</a>.</p>
+                    <p><a href="{{ url('/auth/google') }}" class="btn btn-white input-responsive-login"><span class="icon-google"></span> <span style="margin-left: 30px;">Acceder con Google</span></a></p>
+                    <p style="font-size: 15px; text-align: center">En el caso que no quieras utilizar Google, puedes crear una cuenta de Mardeltrabaja.</p>
+                </div>
+                <div class="col-md-12">
+                    Completá el formulario con tus datos.
+                </div>
+            <div class="col-md-12" style="margin-top: 15px;">
+                <div class="my_profile_input form-group">
+                    <input type="text" id="name" name="name" class="form-control" required autocomplete="name" value="{{ old('name') }}" autofocus placeholder="Nombre Completo">
+                </div>
+            </div>
+            <div class="col-md-12 mt-2">
+                <div class="my_profile_input form-group">
+                    <input type="email" name="email" class="form-control" id="email" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Ingrese su Email">
+                    <small>Debe ser un E-mail real, ya que se utilizará para la activación de la cuenta.</small>
+                </div>
+            </div>
+            <div class="col-md-12 mt-2">
+                <div class="my_profile_input form-group">
+                    <input id="password" type="password" class="form-control" name="password" value="{{ old('password') }}" required autocomplete="new-password" placeholder="Crear contraseña">
+                    <small>Utilice una combinación de 8 o más caracteres entre números, letras y símbolos.</small>
+                </div>
+            </div>
+            <div class="col-md-12 mt-2">
+                <div class="my_profile_input form-group">
+                    <input id="passwordconfirm" type="password" class="form-control" value="{{ old('password') }}" name="password_confirmation" required autocomplete="new-password" placeholder="Confirmar contraseña">
+                    <small>Sólo repetí la contraseña creada anteriormente.</small>
+                </div>
+            </div>
 
-<div class="container">
+        </div>
+
+        <div class="card-body" id="parte-2" @if(session()->has('google')) style="display:block" @else style="display: none" @endif>
+            <p style="font-size: 15px; text-align: center">¿Qué tipo de usuario eres?</p>
+        <div class="ml-2 mr-2 mt-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);background: #fafafa;" id="btn-usuario">
+            <div class="container">
+                <div class="row">
+                    <div class="col-4">
+                        <img src="img/usuario.png" style="margin-top:20px;">
+                    </div>
+                    <div class="col-8" style="padding: 25px;">
+                            <h6 id="title-usuario" style="margin-bottom: 0px;font-family: 'Lato', sans-serif;color:black;font-size: 14px;" class="font-weight-bold">¡Usuario!</h6>
+                            <p class="text-black" style="font-size: 12px;">Puedes puntuar y dejar tu reseña sobre algún servicio utilizado.</strong></p>
+                    </div>
+                </div>
+        </div>
+        </div>
+
+        <div class="ml-2 mr-2 mt-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);background: #fafafa;" id="btn-profesional">
+            <div class="container">
+                <div class="row">
+                    <div class="col-8" style="padding: 25px;">
+                            <h6 id="title-profesional" class="text-black" style="margin-bottom: 0px;font-family: 'Lato', sans-serif;font-size: 14px;" class="font-weight-bold">¡Profesional!</h6>
+                            <p class="text-black" style="font-size: 12px;">Aparecerás en la lista de los profesionales de Mar del Plata con algún oficio.</p>
+                    </div>
+                    <div class="col-4">
+                        <img src="img/profesional.png" style="margin-top:20px;">
+                    </div>
+                </div>
+        </div>
+        </div>
+        <input id="rol" type="hidden" name="rol" type="text">
+    </div>
+
+
+    <div class="card-body" style="padding: 10px;display:none;" id="parte-3">
+            <div class="col-sm-12 col-lg-12 col-xl-12">
+                    <div class="my_profile_form_area">
+                            <div class="row">
+
+                        <div class="col-md-12">
+                            <p>Elegiste ser un profesional, por favor completá el último paso del registro con la actividad que realizas y tus datos de contacto.</p>
+                        </div>
+                            <div class="col-md-6 col-lg-6">
+                                <div class="my_profile_input form-group">
+                                    <label>Buscá tu categoría <span class="text-danger">*</span></label>
+                                    <select id="category" name="category_id" class="form-control" required>
+                                            <option selected class="alert alert-danger" value="">Seleccione Categoría</option>
+                                        @foreach($categories as $category)
+                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                        @endforeach
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6" style="display:none;" id="profesionprincipal">
+                                <div class="my_profile_input form-group">
+                                    <label for="formGroupExampleInput2">Profesión Principal <span class="text-danger">*</span><img id="unselected" style="display:none;" src="img-icons/alert.png"> <img id="selected" style="display:none;" src="img-icons/check.png"></label>
+                                    <select id="subcategory" name="subcategory_id" class="form-control">
+                                    </select>
+                                    <input type="text" name="subcategory_id-otro" class="form-control" id="otrosServicios" minlength=6 placeholder="Nombrá tu profesión..." style="display: none;" >
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="my_resume_textarea mt20">
+                                     <div class="form-group">
+                                        <label for="exampleFormControlTextarea1">Descripción</label>
+                                        <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="9">
+                                        </textarea>
+                                      </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12" style="display: none;">
+                                    <a id="btn-show-job2" class="text-info btn btn-outline-info btn-small btn-sm">Agregar Profesión Secundaria</a>
+                            </div>
+
+                     <div id="container-job2" class="row col-md-12" style="display: none;">
+                            <div id="" class="col-md-6 col-lg-6">
+                                <div class="my_profile_input form-group">
+                                    <label for="">Categoría secundaria<span class="text-secondary">(Ésta aparecerá como secundaria)</span></label>
+                                    <select id="category2" name="category_id2" class="form-control">
+                                            <option selected class="alert alert-danger" value="">Seleccione Categoría</option>
+                                        @foreach($categories as $category)
+                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6">
+                                <div class="my_profile_input form-group">
+                                    <label for="formGroupExampleInput2">Profesión alternativa <img id="unselected2" style="display:none;" src="img-icons/alert.png"> <img id="selected2" style="display:none;" src="img-icons/check.png"></label>
+                                    <select id="job2" name="job2" class="form-control">
+                                    </select>
+                                    <input type="text" name="job2-otro" class="form-control" id="otrosServicios2" minlength=6 placeholder="Nombrá tu profesión..." style="display: none;" >
+                                </div>
+
+                            </div>
+                            <div class="row" style="margin-left: 25px;">
+                            <a id="btn-hide-job2" class="btn text-danger btn-outline-danger btn-sm">Cancelar Profesión (x)</a>
+                            <a id="btn-show-job3" class="btn text-white btn-info btn-sm">Agregar Profesión Alterna</a>
+                            </div>
+                    </div>
+                    <div id="container-job3" class="row col-md-12" style="display:none;">
+                            <div class="col-md-6 col-lg-6">
+                                <div class="my_profile_input form-group">
+                                    <label>Tercera categoría<span class="text-secondary">(Con menos visibilidad)</span></label>
+                                    <select id="category3" name="category_id3" class="form-control">
+                                            <option selected class="alert alert-danger" value="">Seleccione Categoría</option>
+                                        @foreach($categories as $category)
+                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6">
+                                <div class="my_profile_input form-group">
+                                    <label>Profesión alternativa adjunta <img id="unselected3" style="display:none;" src="img-icons/alert.png"> <img id="selected3" style="display:none;" src="img-icons/check.png"></label>
+                                    <select id="job3" name="job3" class="form-control">
+                                    </select>
+                                    <input type="text" name="job3-otro" class="form-control" id="otrosServicios3" minlength=6 placeholder="Nombrá tu profesión..." style="display: none;" >
+                                </div>
+                            </div>
+                            <div class="row" style="margin-left: 25px;">
+                                    <a id="btn-hide-job3" class="btn text-danger btn-outline-danger btn-sm">Cancelar profesión (x)</a>
+                            </div>
+                    </div>
+
+                        <div class="col-md-12 col-12" style="width: 100%;margin-top: 15px;">
+                            <div class="my_profile_input form-group card">
+                                <div class="card-body">
+                                <label style="margin-top: 15px;">Si realizás presupuestos online gratis a través de whatsapp o algún medio de comunicación selecciona ésta opción.</label>
+                                <div class="custom-control custom-checkbox" style="margin-top: 10px;">
+                                    <input type="checkbox" name="presupuesto"  class="custom-control-input" id="presupuesto" >
+                                    <label class="custom-control-label" for="presupuesto"> Presupuesto Gratis</label>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+
+                            <div class="col-md-6 col-lg-6">
+                                <div class="my_profile_input form-group">
+                                <label >WhatsApp <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text form-control mb-0" id="basic-addon1"><img height="30px" src="img-icons/whatsapp.png" /></span>
+                                    </div>
+                                    <input type="number" name="whatsapp"  class="form-control mb-0" aria-describedby="phoneNumber" placeholder="Ej: Mdq. 223587851, Cap. 115325253 (Sin el 0 y sin el 15)">
+                                </div>
+                                </div>
+
+                                </div>
+                                <div class="col-md-6 col-lg-6">
+                                        <div class="my_profile_input form-group">
+                                            <label for="exampleInputPhone">Teléfono <span class="text-danger">*</span></label>
+                                            <input type="number" name="phone" class="form-control" id="exampleInputPhone" aria-describedby="phoneNumber" placeholder="EJ: +5492234675858">
+                                        </div>
+                                    </div>
+                            <div class="col-md-6 <col-lg-6">
+                                <div class="my_profile_input form-group">
+                                    <label for="exampleFormControlInput2">Sitio Web</label>
+                                <input type="text" name="website" class="form-control" id="exampleFormControlInput2" placeholder="EJ: http://mardeltrabaja.com">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-6">
+                                <div class="my_profile_input form-group">
+                                    <label for="exampleFormControlInput5">Experiencia <span class="text-secondary">(En su profesión)</span></label>
+                                   <select name="experience" class="form-control" >
+                                        <option value="0"> Menos de 1 año</option>
+                                        <option value="1"> 1 Año</option>
+                                        <option value="2">2-3 Año/s</option>
+                                        <option value="4" >4-5 Año/s</option>
+                                        <option value="6" >6-7 Año/s</option>
+                                        <option value="10" >8-10 Año/s</option>
+                                        <option value="20" >10-20 Año/s</option>
+                                        <option value="30" >20-30 Año/s</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6">
+                                    <div class="my_profile_input form-group">
+                                        <label for="exampleFormControlInput5">Edad</label>
+                                    <input type="number" name="age" class="form-control" id="exampleFormControlInput5" placeholder="24">
+                                    </div>
+                                </div>
+                            <div class="col-md-6 col-lg-6">
+                                <div class="my_profile_input form-group">
+                                    <label for="exampleFormControlInput7">Nivel de Profesion</label><br>
+                                    <select name="level" class="form-control">
+                                        <option value="Bachillerato" selected>Bachillerato</option>
+                                        <option value="Carrera de Grado">Carreras de Grado</option>
+                                        <option value="Doctorado">Doctorado</option>
+                                        <option value="Titulo en Curso">Formación Profesional</option>
+                                        <option value="Maestria">Maestria</option>
+                                        <option value="Tecnicatura">Tecnicatura</option>
+                                        <option value="Titulo en Curso">Título en Curso</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                    <h4 class="fz18 mb20 mt-4">Información Territorial</h4>
+                                </div>
+                                <div class="col-md-6 col-lg-6">
+                                    <div class="my_profile_input form-group">
+                                        <label for="exampleFormControlInput9">Ciudad <span class="text-danger">*</span></label><br>
+                                        <select name="city" class="form-control">
+                                            <option value="Mar del Plata">Mar del Plata</option>
+                                            <option value="Miramar">Miramar</option>
+                                            <option value="Batán">Batán</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-6">
+                                    <div class="my_profile_input form-group">
+                                        <label for="myInput">Barrio - Zona <span class="text-danger">*</span></label><br>
+                                        <input class="form-control" autocomplete="off" spellcheck="false" name="zone" id="myInput" type="text" name="barrio" placeholder="Escriba el  Barrio">
+                                    </div>
+                                </div>
+
+                            <div class="col-lg-12">
+                                    <h4 class="fz18 mb20 mt-4">Horarios de atención <span class="text-secondary">al cliente</span></h4>
+                            </div>
+
+                            <div class="col-md-12 col-lg-12 mt-2">
+                                <div class="my_profile_input form-group">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" name="lunesaviernescheckbox"  class="custom-control-input" id="lunesaviernescheckbox" >
+                                        <label class="custom-control-label" for="lunesaviernescheckbox"> Lunes a Viernes</label>
+                                    </div>
+                                    <div id="horariolunesaviernes" style="display: none;">
+                                        <div id="horalunesaviernes" class="form-group form-inline">
+                                        <input name="inhourlunesaviernes" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input style="width: auto;" name="outhourlunesaviernes" type="time" class="form-control ml-3 text-center">
+                                        </div>
+                                        <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
+                                        <div id="horalunesaviernes2" class="form-group form-inline">
+                                            <input name="inhourafterlunesaviernes" id="inhourafterlunesaviernes" style="width: auto;" disabled type="time" class="form-control mr-3 text-center"> - <input style="width: auto;" name="outhourafterlunesaviernes" id="outhourafterlunesaviernes" disabled type="time" class="form-control ml-3 text-center">
+                                        </div>
+                                        <div class="form-group form-inline">
+                                        <span id="btnagregarhorariolunesaviernes" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
+                                        <span id="btncancelarhorariolunesaviernes" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
+                                        </div>
+                                        <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
+                                    </div>
+                                </div>
+                        </div>
+
+
+                        <div class="col-md-12 col-lg-12 mt-2">
+                            <div class="my_profile_input form-group">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" name="lunesasabadocheckbox"  class="custom-control-input" id="lunesasabadocheckbox" >
+                                    <label class="custom-control-label" for="lunesasabadocheckbox"> Lunes a Sábado</label>
+                                </div>
+                                <div id="horariolunesasabado" style="display: none;">
+                                    <div id="horalunesasabado" class="form-group form-inline">
+                                    <input name="inhourlunesasabado" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input style="width: auto;" name="outhourlunesasabado" type="time" class="form-control ml-3 text-center">
+                                    </div>
+                                    <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
+                                    <div id="horalunesasabado2" class="form-group form-inline">
+                                        <input name="inhourafterlunesasabado" id="inhourafterlunesasabado" style="width: auto;" disabled type="time" class="form-control mr-3 text-center"> - <input style="width: auto;" name="outhourafterlunesasabado" id="outhourafterlunesasabado" disabled type="time" class="form-control ml-3 text-center">
+                                    </div>
+                                    <div class="form-group form-inline">
+                                    <span id="btnagregarhorariolunesasabado" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
+                                    <span id="btncancelarhorariolunesasabado" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
+                                    </div>
+                                    <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="col-md-12 col-lg-12 mt-2">
+                        <div class="my_profile_input form-group">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" name="lunesadomingocheckbox"  class="custom-control-input" id="lunesadomingocheckbox" >
+                                <label class="custom-control-label" for="lunesadomingocheckbox"> Lunes a Domingo</label>
+                            </div>
+                            <div id="horariolunesadomingo" style="display: none;">
+                                <div id="horalunesadomingo" class="form-group form-inline">
+                                <input name="inhourlunesadomingo" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input style="width: auto;" name="outhourlunesadomingo" type="time" class="form-control ml-3 text-center">
+                                </div>
+                                <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
+                                <div id="horalunesadomingo2" class="form-group form-inline">
+                                    <input name="inhourafterlunesadomingo" id="inhourafterlunesadomingo" style="width: auto;" disabled type="time" class="form-control mr-3 text-center"> - <input style="width: auto;" name="outhourafterlunesadomingo" id="outhourafterlunesadomingo" disabled type="time" class="form-control ml-3 text-center">
+                                </div>
+                                <div class="form-group form-inline">
+                                <span id="btnagregarhorariolunesadomingo" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
+                                <span id="btncancelarhorariolunesadomingo" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
+                                </div>
+                                <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
+                            </div>
+                        </div>
+                </div>
+
+
+                             <!-- TODO LO QUE TENGA QUE VER CON EL LUNES -->
+                             <div class="col-lg-12" id="lunesaviernestexto">
+                                <h5 class="mb20 mt-4">Horarios personalizados <span class="text-secondary">para cargar de a un día.</span></h5>
+                             </div>
+
+                <div id="lunes" class="col-lg-12">
+                        <div class="form-check">
+                            <input name="islunes" type="checkbox" class="form-check-input" id="lunescheckbox">
+                            <label class="form-check-label" for="lunescheckbox">Lunes</label>
+                        </div>
+                        <div id="horariolunes" style="display: none;">
+                            <div id="horalunes" class="form-group form-inline">
+                            <input name="inhourlunes" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input style="width: auto;" name="outhourlunes" type="time" class="form-control ml-3 text-center">
+                            </div>
+                            <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
+                            <div id="horalunes2" class="form-group form-inline">
+                                <input name="inhourafterlunes" id="inhourafterlunes" style="width: auto;" disabled type="time" class="form-control mr-3 text-center"> - <input style="width: auto;" name="outhourafterlunes" id="outhourafterlunes" disabled type="time" class="form-control ml-3 text-center">
+                            </div>
+                            <div class="form-group form-inline">
+                            <span id="btnagregarhorariolunes" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
+                            <span id="btncancelarhorariolunes" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
+                            </div>
+                            <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
+                        </div>
+                        <hr>
+                    </div>
+
+                    <!-- FIN DEL QUERIDO LUNES -->
+
+                       <!-- TODO LO QUE TENGA QUE VER CON EL martes -->
+
+                       <div id="martes" class="col-lg-12">
+                            <div class="form-check">
+                                <input name="ismartes" type="checkbox" class="form-check-input" id="martescheckbox">
+                                <label class="form-check-label" for="martescheckbox">Martes</label>
+                            </div>
+                            <div id="horariomartes" style="display: none;">
+                                <div id="horamartes" class="form-group form-inline">
+                                <input name="inhourmartes" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input name="outhourmartes" type="time" class="form-control ml-3 text-center" style="width: auto;">
+                                </div>
+                                <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
+                                <div id="horamartes2" class="form-group form-inline">
+                                    <input name="inhouraftermartes" id="inhouraftermartes" disabled type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input style="width: auto;" name="outhouraftermartes" id="outhouraftermartes" disabled type="time" class="form-control ml-3 text-center">
+                                </div>
+                                <div class="form-group form-inline">
+                                <span id="btnagregarhorariomartes" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
+                                <span id="btncancelarhorariomartes" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
+                                </div>
+                                <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
+                            </div>
+                            <hr>
+                        </div>
+
+                        <!-- FIN DEL QUERIDO LUNES -->
+
+                           <!-- TODO LO QUE TENGA QUE VER CON EL miercoles -->
+
+                    <div id="miercoles" class="col-lg-12">
+                            <div class="form-check">
+                                <input name="ismiercoles" type="checkbox" class="form-check-input" id="miercolescheckbox">
+                                <label class="form-check-label" for="miercolescheckbox">Miércoles</label>
+                            </div>
+                            <div id="horariomiercoles" style="display: none;">
+                                <div id="horamiercoles" class="form-group form-inline">
+                                <input name="inhourmiercoles" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input name="outhourmiercoles" style="width: auto;" type="time" class="form-control ml-3 text-center">
+                                </div>
+                                <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
+                                <div id="horamiercoles2" class="form-group form-inline">
+                                    <input name="inhouraftermiercoles" id="inhouraftermiercoles" disabled type="time" style="width: auto;" class="form-control mr-3 text-center"> - <input name="outhouraftermiercoles" id="outhouraftermiercoles" disabled type="time" class="form-control ml-3 text-center" style="width: auto;">
+                                </div>
+                                <div class="form-group form-inline">
+                                <span id="btnagregarhorariomiercoles" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
+                                <span id="btncancelarhorariomiercoles" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
+                                </div>
+                                <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
+                            </div>
+                            <hr>
+                        </div>
+
+                        <!-- FIN DEL QUERIDO miercoles -->
+
+                           <!-- TODO LO QUE TENGA QUE VER CON EL jueves -->
+
+                    <div id="jueves" class="col-lg-12">
+                            <div class="form-check">
+                                <input name="isjueves" type="checkbox" class="form-check-input" id="juevescheckbox">
+                                <label class="form-check-label" for="juevescheckbox">Jueves</label>
+                            </div>
+                            <div id="horariojueves" style="display: none;">
+                                <div id="horajueves" class="form-group form-inline">
+                                <input name="inhourjueves" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input name="outhourjueves" type="time" class="form-control ml-3 text-center" style="width: auto;">
+                                </div>
+                                <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
+                                <div id="horajueves2" class="form-group form-inline">
+                                    <input name="inhourafterjueves" id="inhourafterjueves" disabled type="time" style="width: auto;" class="form-control mr-3 text-center"> - <input  style="width: auto;" name="outhourafterjueves" id="outhourafterjueves" disabled type="time" class="form-control ml-3 text-center">
+                                </div>
+                                <div class="form-group form-inline">
+                                <span id="btnagregarhorariojueves" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
+                                <span id="btncancelarhorariojueves" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
+                                </div>
+                                <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
+                            </div>
+                            <hr>
+                        </div>
+
+                        <!-- FIN DEL QUERIDO jueves -->
+
+                           <!-- TODO LO QUE TENGA QUE VER CON EL viernes -->
+
+                    <div id="viernes" class="col-lg-12">
+                            <div class="form-check">
+                                <input name="isviernes" type="checkbox" class="form-check-input" id="viernescheckbox">
+                                <label class="form-check-label" for="viernescheckbox">Viernes</label>
+                            </div>
+                            <div id="horarioviernes" style="display: none;">
+                                <div id="horaviernes" class="form-group form-inline">
+                                <input name="inhourviernes" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input name="outhourviernes" type="time" class="form-control ml-3 text-center" style="width: auto;">
+                                </div>
+                                <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
+                                <div id="horaviernes2" class="form-group form-inline">
+                                    <input name="inhourafterviernes" id="inhourafterviernes" disabled type="time" style="width: auto;" class="form-control mr-3 text-center"> - <input name="outhourafterviernes" style="width: auto;" id="outhourafterviernes" disabled type="time" class="form-control ml-3 text-center">
+                                </div>
+                                <div class="form-group form-inline">
+                                <span id="btnagregarhorarioviernes" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
+                                <span id="btncancelarhorarioviernes" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
+                                </div>
+                                <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
+                            </div>
+                            <hr>
+                        </div>
+
+                        <!-- FIN DEL QUERIDO viernes -->
+
+                           <!-- TODO LO QUE TENGA QUE VER CON EL sabado -->
+
+                    <div id="sabado" class="col-lg-12">
+                            <div class="form-check">
+                                <input name="issabado" type="checkbox" class="form-check-input" id="sabadocheckbox">
+                                <label class="form-check-label" for="sabadocheckbox">Sábado</label>
+                            </div>
+                            <div id="horariosabado"style="display: none;">
+                                <div id="horasabado" class="form-group form-inline">
+                                <input name="inhoursabado" style="width: auto;" type="time" class="form-control mr-3 text-center"> - <input name="outhoursabado" type="time" class="form-control ml-3 text-center" style="width: auto;">
+                                </div>
+                                <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
+                                <div id="horasabado2" class="form-group form-inline">
+                                    <input name="inhouraftersabado" id="inhouraftersabado" disabled type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input name="outhouraftersabado" style="width: auto;" id="outhouraftersabado" disabled type="time" class="form-control ml-3 text-center">
+                                </div>
+                                <div class="form-group form-inline">
+                                <span id="btnagregarhorariosabado" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
+                                <span id="btncancelarhorariosabado" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
+                                </div>
+                                <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
+                            </div>
+                            <hr>
+                        </div>
+
+                        <!-- FIN DEL QUERIDO sabado -->
+
+                            <!-- TODO LO QUE TENGA QUE VER CON EL domingo -->
+
+                    <div id="domingo" class="col-lg-12">
+                            <div class="form-check">
+                                <input name="isdomingo" type="checkbox" class="form-check-input" id="domingocheckbox">
+                                <label class="form-check-label" for="domingocheckbox">Domingo</label>
+                            </div>
+                            <div id="horariodomingo" style="display: none;">
+                                <div id="horadomingo" class="form-group form-inline">
+                                <input name="inhourdomingo" type="time" class="form-control mr-3 text-center" style="width: auto;" > - <input name="outhourdomingo" type="time" class="form-control ml-3 text-center" style="width: auto;" >
+                                </div>
+                                <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
+                                <div id="horadomingo2" class="form-group form-inline">
+                                    <input name="inhourafterdomingo" id="inhourafterdomingo" style="width: auto;" disabled type="time" class="form-control mr-3 text-center"> - <input name="outhourafterdomingo" style="width: auto;" id="outhourafterdomingo" disabled type="time" class="form-control ml-3 text-center">
+                                </div>
+                                <div class="form-group form-inline">
+                                <span id="btnagregarhorariodomingo" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
+                                <span id="btncancelarhorariodomingo" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
+                                </div>
+                                <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
+                            </div>
+                            <hr>
+                        </div>
+
+                        <!-- FIN DEL QUERIDO domingo -->
+
+
+
+
+
+
+                            <div class="col-lg-12">
+                                <h4>Métodos de Pago <span class="text-secondary">que le ofreces al cliente</span></h4>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="custom-control custom-switch mt-1">
+                                                <input type="checkbox" name="isEfective" class="custom-control-input" id="switch1">
+                                                <label class="custom-control-label" for="switch1"><span style="height: 25px;" class="payment"><img src="img/credit-card/moneysi.png" height="40px;"></span></label>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="custom-control custom-switch mt-1">
+                                                <input type="checkbox" name="isVisa" class="custom-control-input" id="switch2">
+                                                <label class="custom-control-label" for="switch2"> <span style="height: 25px;" class="payment"><img src="img/credit-card/visa.png" height="40px;"/></span></label>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                                <div class="custom-control custom-switch mt-1">
+                                                    <input type="checkbox" name="isMercadoPago" class="custom-control-input" id="switch3">
+                                                    <label class="custom-control-label" for="switch3"> <span style="height: 25px;" class="payment"><img src="img/credit-card/mercado.png" height="40px"/></span></label>
+                                                </div>
+                                            </div>
+                                        <div class="col-4">
+                                            <div class="custom-control custom-switch mt-1">
+                                                <input type="checkbox" name="isMasterCard" class="custom-control-input" id="switch4">
+                                                <label class="custom-control-label" for="switch4"> <span style="height: 25px;" class="payment"><img src="img/credit-card/mastercard.png" height="40px"></span></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+
+                            <div class="col-lg-12" style="margin-bottom: 15px;">
+                                <h4 class="fz18 mb20 mt-4">Redes Sociales</h4>
+                                <p>El ID de su respectiva cuenta es el texto que se encuentra luego de la dirección de su navegador. Por Ejemplo si cuando ingresa a su perfil de Facebook la URL es: https://facebook.com/ricardoalberto la <strong>URL</strong> es https://facebook.com y su <strong>ID</strong> es <strong>ricardoalberto</strong>.</p>
+<br>
+                            </div>
+                            <div class="col-md-6 col-lg-6">
+                                      <div class="my_profile_input form-group">
+                                        <label for="formGroupExampleInput8"><img src="img/facebookej.png"></label>
+                                        <input type="text" name="facebook" class="form-control" id="formGroupExampleInput8"  placeholder="Ej: mardeltrabaja" pattern="[A-Za-z0-9]+">
+                                    </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6">
+                                      <div class="my_profile_input form-group">
+                                        <label for="formGroupExampleInput8"><img src="img/twitterej.png"></label>
+                                        <input type="text" name="twitter" class="form-control" id="formGroupExampleInput2" placeholder="Ej: mardeltrabaja" pattern="[A-Za-z0-9]+">
+                                    </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6">
+                                    <div class="my_profile_input form-group">
+                                        <label for="formGroupExampleInput8"><img src="img/linkedinej.png"></label>
+                                        <input type="text" name="linkedin" class="form-control" id="formGroupExampleInput3" placeholder="Ej: mardeltrabaja" pattern="[A-Za-z0-9]+">
+                                    </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6">
+                                    <div class="my_profile_input form-group">
+                                        <label for="formGroupExampleInput8"><img src="img/instagramej.png"></label>
+                                        <input type="text" name="instagram" class="form-control" id="formGroupExampleInput4" placeholder="Ej: mardeltrabaja" pattern="[A-Za-z0-9]+" >
+                                    </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6 mt-2">
+                                    <div class="my_profile_input form-group text-center">
+                                        <p>Al registrarte, aceptas los <a class="text-primary" target="_blank" href="/legales/terms">Términos y Condiciones</a> y las <a target="_blank" class="text-primary" href="/legales/privacy">Políticas de Privacidad</a> de Mardeltrabaja. </p>
+                                                                            </div>
+                            </div>
+                            </div>
+
+                        </div>
+
+</div>
+</div>
+    </div>
+
+
+<div class="col-md-12" style="margin-bottom: 20px;margin-top: 20px;">
+    <a id="btn-cancel-1" class="text-secondary font-weight-bold">CANCELAR</a>
+    <a id="btn-siguiente-1" class="text-primary font-weight-bold" style="float: right;">SIGUIENTE</a>
+</div>
+<div class="col-md-12" style="margin-bottom: 20px;margin-top: 20px;">
+    <a id="btn-cancel-2" style="display: none" class="text-secondary font-weight-bold">VOLVER</a>
+    <a id="btn-siguiente-2" class="text-primary font-weight-bold" style="float: right;display:none;">SIGUIENTE</a>
+</div>
+
+<div class="col-md-12" style="margin-bottom: 20px;margin-top: 20px;">
+    <a id="btn-cancel-3" style="display: none" class="text-secondary font-weight-bold">VOLVER</a>
+    <a id="btn-siguiente-3" class="text-primary font-weight-bold" style="float: right;display:none;">FINALIZAR</a>
+</div>
+
+<div class="container" id="parte-3" style="display:none">
     <div  id="registroProfesional" class="row justify-content-center">
         <div class="col-md-12">
             <div class="card mt-4" style="margin-bottom: 20px;">
@@ -10,593 +647,14 @@
 
                 </div>
 
-                <div class="card-body" style="padding: 10px;">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-                        <input type="hidden" value="profesional" name="rol">
-                        <div class="col-sm-12 col-lg-12 col-xl-12">
-                                <div class="my_profile_form_area">
-                                        <div class="row">
 
-                                        <div class="col-lg-12">
-                                            <div class="my_profile_thumb_edit"></div>
-                                        </div>
-                                        <div class="col-md-12">
-                                                <p class="text-secondary"><img src="img-icons/login.png"/> Ingresa tus datos personales para inicio de sesion.</p>
-                                        </div>
-                                        <div class="col-md-6 col-lg-6">
-                                            <div class="my_profile_input form-group">
-                                                <label for="formGroupExampleInput9">Nombre Completo <span class="text-danger">*</span></label>
-                                            <input type="text" name="name" class="form-control" id="formGroupExampleInput9"  @error('name') is-invalid @enderror name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Ej: Juan Perez">
-                                            @error('name')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-6">
-                                                <div class="my_profile_input form-group">
-                                                    <label for="exampleFormControlInput1">Email <span class="text-danger">*</span><span class="text-secondary font-style-italic">(Para iniciar sesion)</span></label>
-                                                    <input type="email" name="email" class="form-control" id="exampleFormControlInput1" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Ej: mardeltrabaja@gmail.com">
-                                                    @error('email')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                                </div>
-                                            </div>
-
-                                        <div class="col-md-6 col-lg-6">
-                                                <div class="my_profile_input form-group">
-                                                    <label>Contraseña</label>
-                                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-                                                    @error('password')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                                </div>
-                                            </div>
-                                        <div class="col-md-6 col-lg-6">
-                                            <div class="my_profile_input form-group">
-                                                <label for="exampleFormControlInput1">Confirmar Contraseña</label>
-                                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 text-center">
-                                            <hr >
-                                        </div>
-                                        <div class="col-md-12">
-                                            <p class="text-secondary"><img src="img-icons/information.png"/> Ingresa tus datos personales para contacto e información para el usuario.</p>
-                                        </div>
-                                        <div class="col-md-6 col-lg-6">
-                                            <div class="my_profile_input form-group">
-                                                <label>Buscá tu profesión <span class="text-danger">*</span><small class="text-secondary">(Si no está, poné "otros servicios")</small></label>
-                                                <select id="category" name="category_id" class="form-control" required>
-                                                        <option selected class="alert alert-danger" value="">Seleccione Categoría</option>
-                                                    @foreach($categories as $category)
-                                                        <option value="{{$category->id}}">{{$category->name}}</option>
-                                                    @endforeach
-                                                </select>
-
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-6">
-                                            <div class="my_profile_input form-group">
-                                                <label for="formGroupExampleInput2">Profesión Principal <span class="text-danger">*</span><img id="unselected" style="display:none;" src="img-icons/alert.png"> <img id="selected" style="display:none;" src="img-icons/check.png"></label>
-                                                <select id="subcategory" name="subcategory_id" class="form-control">
-                                                </select>
-                                                <input type="text" name="subcategory_id-otro" class="form-control" id="otrosServicios" minlength=6 placeholder="Nombrá tu profesión..." style="display: none;" >
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                                <a id="btn-show-job2" class="text-info btn btn-outline-info btn-small btn-sm">Agregar Profesión Secundaria</a>
-                                        </div>
-
-                                 <div id="container-job2" class="row col-md-12" style="display: none;">
-                                        <div id="" class="col-md-6 col-lg-6">
-                                            <div class="my_profile_input form-group">
-                                                <label for="">Categoría secundaria<span class="text-secondary">(Ésta aparecerá como secundaria)</span></label>
-                                                <select id="category2" name="category_id2" class="form-control">
-                                                        <option selected class="alert alert-danger" value="">Seleccione Categoría</option>
-                                                    @foreach($categories as $category)
-                                                        <option value="{{$category->id}}">{{$category->name}}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-6">
-                                            <div class="my_profile_input form-group">
-                                                <label for="formGroupExampleInput2">Profesión alternativa <img id="unselected2" style="display:none;" src="img-icons/alert.png"> <img id="selected2" style="display:none;" src="img-icons/check.png"></label>
-                                                <select id="job2" name="job2" class="form-control">
-                                                </select>
-                                                <input type="text" name="job2-otro" class="form-control" id="otrosServicios2" minlength=6 placeholder="Nombrá tu profesión..." style="display: none;" >
-                                            </div>
-
-                                        </div>
-                                        <div class="row" style="margin-left: 25px;">
-                                        <a id="btn-hide-job2" class="btn text-danger btn-outline-danger btn-sm">Cancelar Profesión (x)</a>
-                                        <a id="btn-show-job3" class="btn text-white btn-info btn-sm">Agregar Profesión Alterna</a>
-                                        </div>
-                                </div>
-                                <div id="container-job3" class="row col-md-12" style="display:none;">
-                                        <div class="col-md-6 col-lg-6">
-                                            <div class="my_profile_input form-group">
-                                                <label>Tercera categoría<span class="text-secondary">(Con menos visibilidad)</span></label>
-                                                <select id="category3" name="category_id3" class="form-control">
-                                                        <option selected class="alert alert-danger" value="">Seleccione Categoría</option>
-                                                    @foreach($categories as $category)
-                                                        <option value="{{$category->id}}">{{$category->name}}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-6">
-                                            <div class="my_profile_input form-group">
-                                                <label>Profesión alternativa adjunta <img id="unselected3" style="display:none;" src="img-icons/alert.png"> <img id="selected3" style="display:none;" src="img-icons/check.png"></label>
-                                                <select id="job3" name="job3" class="form-control">
-                                                </select>
-                                                <input type="text" name="job3-otro" class="form-control" id="otrosServicios3" minlength=6 placeholder="Nombrá tu profesión..." style="display: none;" >
-                                            </div>
-                                        </div>
-                                        <div class="row" style="margin-left: 25px;">
-                                                <a id="btn-hide-job3" class="btn text-danger btn-outline-danger btn-sm">Cancelar profesión (x)</a>
-                                        </div>
-                                </div>
-
-                                    <div class="col-md-12 col-12" style="width: 100%;margin-top: 15px;">
-                                        <div class="my_profile_input form-group card">
-                                            <div class="card-body">
-                                            <label style="margin-top: 15px;">Si realizás presupuestos online gratis a través de whatsapp o algún medio de comunicación selecciona ésta opción.</label>
-                                            <div class="custom-control custom-checkbox" style="margin-top: 10px;">
-                                                <input type="checkbox" name="presupuesto"  class="custom-control-input" id="presupuesto" >
-                                                <label class="custom-control-label" for="presupuesto"> Presupuesto Gratis</label>
-                                            </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                        <div class="col-md-6 col-lg-6">
-                                            <div class="my_profile_input form-group">
-                                            <label >WhatsApp <span class="text-danger">*</span></label>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                  <span class="input-group-text form-control mb-0" id="basic-addon1"><img height="30px" src="img-icons/whatsapp.png" /></span>
-                                                </div>
-                                                <input type="number" name="whatsapp"  class="form-control mb-0" aria-describedby="phoneNumber" placeholder="Ej: Mdq. 223587851, Cap. 115325253 (Sin el 0 y sin el 15)">
-                                            </div>
-                                            </div>
-
-                                            </div>
-                                            <div class="col-md-6 col-lg-6">
-                                                    <div class="my_profile_input form-group">
-                                                        <label for="exampleInputPhone">Teléfono <span class="text-danger">*</span></label>
-                                                        <input type="number" name="phone" class="form-control" id="exampleInputPhone" aria-describedby="phoneNumber" placeholder="EJ: +5492234675858">
-                                                    </div>
-                                                </div>
-                                        <div class="col-md-6 <col-lg-6">
-                                            <div class="my_profile_input form-group">
-                                                <label for="exampleFormControlInput2">Sitio Web</label>
-                                            <input type="text" name="website" class="form-control" id="exampleFormControlInput2" placeholder="EJ: http://mardeltrabaja.com">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6 col-lg-6">
-                                            <div class="my_profile_input form-group">
-                                                <label for="exampleFormControlInput5">Experiencia <span class="text-secondary">(En su profesión)</span></label>
-                                               <select name="experience" class="form-control" >
-                                                    <option value="0"> Menos de 1 año</option>
-                                                    <option value="1"> 1 Año</option>
-                                                    <option value="2">2-3 Año/s</option>
-                                                    <option value="4" >4-5 Año/s</option>
-                                                    <option value="6" >6-7 Año/s</option>
-                                                    <option value="10" >8-10 Año/s</option>
-                                                    <option value="20" >10-20 Año/s</option>
-                                                    <option value="30" >20-30 Año/s</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-6">
-                                                <div class="my_profile_input form-group">
-                                                    <label for="exampleFormControlInput5">Edad</label>
-                                                <input type="number" name="age" class="form-control" id="exampleFormControlInput5" placeholder="años">
-                                                </div>
-                                            </div>
-                                        <div class="col-md-6 col-lg-6">
-                                            <div class="my_profile_input form-group">
-                                                <label for="exampleFormControlInput7">Nivel de Profesion</label><br>
-                                                <select name="level" class="form-control">
-                                                    <option></option>
-                                                    <option value="Bachillerato">Bachillerato</option>
-                                                    <option value="Tecnicatura">Tecnicatura</option>
-                                                    <option value="Carrera de Grado">Carreras de Grado</option>
-                                                    <option value="Maestria">Maestria</option>
-                                                    <option value="Doctorado">Doctorado</option>
-                                                    <option value="Titulo en Curso">Título en Curso</option>
-                                                    <option value="Titulo en Curso">Formación Profesional</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12">
-                                                <h4 class="fz18 mb20 mt-4">Información Territorial</h4>
-                                            </div>
-                                            <div class="col-md-6 col-lg-6">
-                                                <div class="my_profile_input form-group">
-                                                    <label for="exampleFormControlInput9">Ciudad <span class="text-danger">*</span></label><br>
-                                                    <select name="city" class="form-control">
-                                                        <option value="Mar del Plata">Mar del Plata</option>
-                                                        <option value="Miramar">Miramar</option>
-                                                        <option value="Batán">Batán</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-lg-6">
-                                                <div class="my_profile_input form-group">
-                                                    <label for="myInput">Barrio - Zona <span class="text-danger">*</span></label><br>
-                                                    <input class="form-control" autocomplete="off" spellcheck="false" name="zone" id="myInput" type="text" name="barrio" placeholder="Escriba el  Barrio">
-                                                </div>
-                                            </div>
-                                        <div class="col-lg-12">
-                                            <div class="my_resume_textarea mt20">
-                                                 <div class="form-group">
-                                                    <label for="exampleFormControlTextarea1">Descripción</label>
-                                                    <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="9">
-                                                    </textarea>
-                                                  </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-12">
-                                                <h4 class="fz18 mb20 mt-4">Horarios de atención <span class="text-secondary">al cliente</span></h4>
-                                        </div>
-
-                                        <div class="col-md-12 col-lg-12 mt-2">
-                                            <div class="my_profile_input form-group">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input type="checkbox" name="lunesaviernescheckbox"  class="custom-control-input" id="lunesaviernescheckbox" >
-                                                    <label class="custom-control-label" for="lunesaviernescheckbox"> Lunes a Viernes</label>
-                                                </div>
-                                                <div id="horariolunesaviernes" style="display: none;">
-                                                    <div id="horalunesaviernes" class="form-group form-inline">
-                                                    <input name="inhourlunesaviernes" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input style="width: auto;" name="outhourlunesaviernes" type="time" class="form-control ml-3 text-center">
-                                                    </div>
-                                                    <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
-                                                    <div id="horalunesaviernes2" class="form-group form-inline">
-                                                        <input name="inhourafterlunesaviernes" id="inhourafterlunesaviernes" style="width: auto;" disabled type="time" class="form-control mr-3 text-center"> - <input style="width: auto;" name="outhourafterlunesaviernes" id="outhourafterlunesaviernes" disabled type="time" class="form-control ml-3 text-center">
-                                                    </div>
-                                                    <div class="form-group form-inline">
-                                                    <span id="btnagregarhorariolunesaviernes" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
-                                                    <span id="btncancelarhorariolunesaviernes" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
-                                                    </div>
-                                                    <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
-                                                </div>
-                                            </div>
-                                    </div>
-
-
-                                    <div class="col-md-12 col-lg-12 mt-2">
-                                        <div class="my_profile_input form-group">
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" name="lunesasabadocheckbox"  class="custom-control-input" id="lunesasabadocheckbox" >
-                                                <label class="custom-control-label" for="lunesasabadocheckbox"> Lunes a Sábado</label>
-                                            </div>
-                                            <div id="horariolunesasabado" style="display: none;">
-                                                <div id="horalunesasabado" class="form-group form-inline">
-                                                <input name="inhourlunesasabado" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input style="width: auto;" name="outhourlunesasabado" type="time" class="form-control ml-3 text-center">
-                                                </div>
-                                                <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
-                                                <div id="horalunesasabado2" class="form-group form-inline">
-                                                    <input name="inhourafterlunesasabado" id="inhourafterlunesasabado" style="width: auto;" disabled type="time" class="form-control mr-3 text-center"> - <input style="width: auto;" name="outhourafterlunesasabado" id="outhourafterlunesasabado" disabled type="time" class="form-control ml-3 text-center">
-                                                </div>
-                                                <div class="form-group form-inline">
-                                                <span id="btnagregarhorariolunesasabado" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
-                                                <span id="btncancelarhorariolunesasabado" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
-                                                </div>
-                                                <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
-                                            </div>
-                                        </div>
-                                </div>
-
-                                <div class="col-md-12 col-lg-12 mt-2">
-                                    <div class="my_profile_input form-group">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" name="lunesadomingocheckbox"  class="custom-control-input" id="lunesadomingocheckbox" >
-                                            <label class="custom-control-label" for="lunesadomingocheckbox"> Lunes a Domingo</label>
-                                        </div>
-                                        <div id="horariolunesadomingo" style="display: none;">
-                                            <div id="horalunesadomingo" class="form-group form-inline">
-                                            <input name="inhourlunesadomingo" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input style="width: auto;" name="outhourlunesadomingo" type="time" class="form-control ml-3 text-center">
-                                            </div>
-                                            <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
-                                            <div id="horalunesadomingo2" class="form-group form-inline">
-                                                <input name="inhourafterlunesadomingo" id="inhourafterlunesadomingo" style="width: auto;" disabled type="time" class="form-control mr-3 text-center"> - <input style="width: auto;" name="outhourafterlunesadomingo" id="outhourafterlunesadomingo" disabled type="time" class="form-control ml-3 text-center">
-                                            </div>
-                                            <div class="form-group form-inline">
-                                            <span id="btnagregarhorariolunesadomingo" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
-                                            <span id="btncancelarhorariolunesadomingo" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
-                                            </div>
-                                            <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
-                                        </div>
-                                    </div>
-                            </div>
-
-
-                                         <!-- TODO LO QUE TENGA QUE VER CON EL LUNES -->
-                                         <div class="col-lg-12" id="lunesaviernestexto">
-                                            <h5 class="mb20 mt-4">Horarios personalizados <span class="text-secondary">para cargar de a un día.</span></h5>
-                                         </div>
-
-                            <div id="lunes" class="col-lg-12">
-                                    <div class="form-check">
-                                        <input name="islunes" type="checkbox" class="form-check-input" id="lunescheckbox">
-                                        <label class="form-check-label" for="lunescheckbox">Lunes</label>
-                                    </div>
-                                    <div id="horariolunes" style="display: none;">
-                                        <div id="horalunes" class="form-group form-inline">
-                                        <input name="inhourlunes" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input style="width: auto;" name="outhourlunes" type="time" class="form-control ml-3 text-center">
-                                        </div>
-                                        <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
-                                        <div id="horalunes2" class="form-group form-inline">
-                                            <input name="inhourafterlunes" id="inhourafterlunes" style="width: auto;" disabled type="time" class="form-control mr-3 text-center"> - <input style="width: auto;" name="outhourafterlunes" id="outhourafterlunes" disabled type="time" class="form-control ml-3 text-center">
-                                        </div>
-                                        <div class="form-group form-inline">
-                                        <span id="btnagregarhorariolunes" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
-                                        <span id="btncancelarhorariolunes" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
-                                        </div>
-                                        <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
-                                    </div>
-                                    <hr>
-                                </div>
-
-                                <!-- FIN DEL QUERIDO LUNES -->
-
-                                   <!-- TODO LO QUE TENGA QUE VER CON EL martes -->
-
-                                   <div id="martes" class="col-lg-12">
-                                        <div class="form-check">
-                                            <input name="ismartes" type="checkbox" class="form-check-input" id="martescheckbox">
-                                            <label class="form-check-label" for="martescheckbox">martes</label>
-                                        </div>
-                                        <div id="horariomartes" style="display: none;">
-                                            <div id="horamartes" class="form-group form-inline">
-                                            <input name="inhourmartes" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input name="outhourmartes" type="time" class="form-control ml-3 text-center" style="width: auto;">
-                                            </div>
-                                            <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
-                                            <div id="horamartes2" class="form-group form-inline">
-                                                <input name="inhouraftermartes" id="inhouraftermartes" disabled type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input style="width: auto;" name="outhouraftermartes" id="outhouraftermartes" disabled type="time" class="form-control ml-3 text-center">
-                                            </div>
-                                            <div class="form-group form-inline">
-                                            <span id="btnagregarhorariomartes" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
-                                            <span id="btncancelarhorariomartes" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
-                                            </div>
-                                            <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
-                                        </div>
-                                        <hr>
-                                    </div>
-
-                                    <!-- FIN DEL QUERIDO LUNES -->
-
-                                       <!-- TODO LO QUE TENGA QUE VER CON EL miercoles -->
-
-                                <div id="miercoles" class="col-lg-12">
-                                        <div class="form-check">
-                                            <input name="ismiercoles" type="checkbox" class="form-check-input" id="miercolescheckbox">
-                                            <label class="form-check-label" for="miercolescheckbox">miercoles</label>
-                                        </div>
-                                        <div id="horariomiercoles" style="display: none;">
-                                            <div id="horamiercoles" class="form-group form-inline">
-                                            <input name="inhourmiercoles" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input name="outhourmiercoles" style="width: auto;" type="time" class="form-control ml-3 text-center">
-                                            </div>
-                                            <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
-                                            <div id="horamiercoles2" class="form-group form-inline">
-                                                <input name="inhouraftermiercoles" id="inhouraftermiercoles" disabled type="time" style="width: auto;" class="form-control mr-3 text-center"> - <input name="outhouraftermiercoles" id="outhouraftermiercoles" disabled type="time" class="form-control ml-3 text-center" style="width: auto;">
-                                            </div>
-                                            <div class="form-group form-inline">
-                                            <span id="btnagregarhorariomiercoles" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
-                                            <span id="btncancelarhorariomiercoles" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
-                                            </div>
-                                            <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
-                                        </div>
-                                        <hr>
-                                    </div>
-
-                                    <!-- FIN DEL QUERIDO miercoles -->
-
-                                       <!-- TODO LO QUE TENGA QUE VER CON EL jueves -->
-
-                                <div id="jueves" class="col-lg-12">
-                                        <div class="form-check">
-                                            <input name="isjueves" type="checkbox" class="form-check-input" id="juevescheckbox">
-                                            <label class="form-check-label" for="juevescheckbox">jueves</label>
-                                        </div>
-                                        <div id="horariojueves" style="display: none;">
-                                            <div id="horajueves" class="form-group form-inline">
-                                            <input name="inhourjueves" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input name="outhourjueves" type="time" class="form-control ml-3 text-center" style="width: auto;">
-                                            </div>
-                                            <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
-                                            <div id="horajueves2" class="form-group form-inline">
-                                                <input name="inhourafterjueves" id="inhourafterjueves" disabled type="time" style="width: auto;" class="form-control mr-3 text-center"> - <input  style="width: auto;" name="outhourafterjueves" id="outhourafterjueves" disabled type="time" class="form-control ml-3 text-center">
-                                            </div>
-                                            <div class="form-group form-inline">
-                                            <span id="btnagregarhorariojueves" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
-                                            <span id="btncancelarhorariojueves" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
-                                            </div>
-                                            <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
-                                        </div>
-                                        <hr>
-                                    </div>
-
-                                    <!-- FIN DEL QUERIDO jueves -->
-
-                                       <!-- TODO LO QUE TENGA QUE VER CON EL viernes -->
-
-                                <div id="viernes" class="col-lg-12">
-                                        <div class="form-check">
-                                            <input name="isviernes" type="checkbox" class="form-check-input" id="viernescheckbox">
-                                            <label class="form-check-label" for="viernescheckbox">viernes</label>
-                                        </div>
-                                        <div id="horarioviernes" style="display: none;">
-                                            <div id="horaviernes" class="form-group form-inline">
-                                            <input name="inhourviernes" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input name="outhourviernes" type="time" class="form-control ml-3 text-center" style="width: auto;">
-                                            </div>
-                                            <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
-                                            <div id="horaviernes2" class="form-group form-inline">
-                                                <input name="inhourafterviernes" id="inhourafterviernes" disabled type="time" style="width: auto;" class="form-control mr-3 text-center"> - <input name="outhourafterviernes" style="width: auto;" id="outhourafterviernes" disabled type="time" class="form-control ml-3 text-center">
-                                            </div>
-                                            <div class="form-group form-inline">
-                                            <span id="btnagregarhorarioviernes" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
-                                            <span id="btncancelarhorarioviernes" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
-                                            </div>
-                                            <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
-                                        </div>
-                                        <hr>
-                                    </div>
-
-                                    <!-- FIN DEL QUERIDO viernes -->
-
-                                       <!-- TODO LO QUE TENGA QUE VER CON EL sabado -->
-
-                                <div id="sabado" class="col-lg-12">
-                                        <div class="form-check">
-                                            <input name="issabado" type="checkbox" class="form-check-input" id="sabadocheckbox">
-                                            <label class="form-check-label" for="sabadocheckbox">sabado</label>
-                                        </div>
-                                        <div id="horariosabado"style="display: none;">
-                                            <div id="horasabado" class="form-group form-inline">
-                                            <input name="inhoursabado" style="width: auto;" type="time" class="form-control mr-3 text-center"> - <input name="outhoursabado" type="time" class="form-control ml-3 text-center" style="width: auto;">
-                                            </div>
-                                            <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
-                                            <div id="horasabado2" class="form-group form-inline">
-                                                <input name="inhouraftersabado" id="inhouraftersabado" disabled type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input name="outhouraftersabado" style="width: auto;" id="outhouraftersabado" disabled type="time" class="form-control ml-3 text-center">
-                                            </div>
-                                            <div class="form-group form-inline">
-                                            <span id="btnagregarhorariosabado" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
-                                            <span id="btncancelarhorariosabado" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
-                                            </div>
-                                            <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
-                                        </div>
-                                        <hr>
-                                    </div>
-
-                                    <!-- FIN DEL QUERIDO sabado -->
-
-                                        <!-- TODO LO QUE TENGA QUE VER CON EL domingo -->
-
-                                <div id="domingo" class="col-lg-12">
-                                        <div class="form-check">
-                                            <input name="isdomingo" type="checkbox" class="form-check-input" id="domingocheckbox">
-                                            <label class="form-check-label" for="domingocheckbox">domingo</label>
-                                        </div>
-                                        <div id="horariodomingo" style="display: none;">
-                                            <div id="horadomingo" class="form-group form-inline">
-                                            <input name="inhourdomingo" type="time" class="form-control mr-3 text-center" style="width: auto;" > - <input name="outhourdomingo" type="time" class="form-control ml-3 text-center" style="width: auto;" >
-                                            </div>
-                                            <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
-                                            <div id="horadomingo2" class="form-group form-inline">
-                                                <input name="inhourafterdomingo" id="inhourafterdomingo" style="width: auto;" disabled type="time" class="form-control mr-3 text-center"> - <input name="outhourafterdomingo" style="width: auto;" id="outhourafterdomingo" disabled type="time" class="form-control ml-3 text-center">
-                                            </div>
-                                            <div class="form-group form-inline">
-                                            <span id="btnagregarhorariodomingo" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
-                                            <span id="btncancelarhorariodomingo" style="font-size: 12px; font-style: italic; display: none;" class="btn text-danger">Horario corrido</span>
-                                            </div>
-                                            <span class="text-danger" style="font-size: 12px; font-style: italic">Si trabajas de corrido sólo completá el primer horario</span>
-                                        </div>
-                                        <hr>
-                                    </div>
-
-                                    <!-- FIN DEL QUERIDO domingo -->
-
-
-
-
-
-
-                                        <div class="col-lg-12">
-                                            <h4>Métodos de Pago <span class="text-secondary">que le ofreces al cliente</span></h4>
-                                                <div class="row">
-                                                    <div class="col-4">
-                                                        <div class="custom-control custom-switch mt-1">
-                                                            <input type="checkbox" name="isEfective" class="custom-control-input" id="switch1">
-                                                            <label class="custom-control-label" for="switch1"><span style="height: 25px;" class="payment"><img src="img/credit-card/moneysi.png" height="40px;"></span></label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-4">
-                                                        <div class="custom-control custom-switch mt-1">
-                                                            <input type="checkbox" name="isVisa" class="custom-control-input" id="switch2">
-                                                            <label class="custom-control-label" for="switch2"> <span style="height: 25px;" class="payment"><img src="img/credit-card/visa.png" height="40px;"/></span></label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-4">
-                                                            <div class="custom-control custom-switch mt-1">
-                                                                <input type="checkbox" name="isMercadoPago" class="custom-control-input" id="switch3">
-                                                                <label class="custom-control-label" for="switch3"> <span style="height: 25px;" class="payment"><img src="img/credit-card/mercado.png" height="40px"/></span></label>
-                                                            </div>
-                                                        </div>
-                                                    <div class="col-4">
-                                                        <div class="custom-control custom-switch mt-1">
-                                                            <input type="checkbox" name="isMasterCard" class="custom-control-input" id="switch4">
-                                                            <label class="custom-control-label" for="switch4"> <span style="height: 25px;" class="payment"><img src="img/credit-card/mastercard.png" height="40px"></span></label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                        </div>
-
-                                        <div class="col-lg-12" style="margin-bottom: 15px;">
-                                            <h4 class="fz18 mb20 mt-4">Redes Sociales</h4>
-                                            <p>El ID de su respectiva cuenta es el texto que se encuentra luego de la dirección de su navegador. Por Ejemplo si cuando ingresa a su perfil de Facebook la URL es: https://facebook.com/ricardoalberto la <strong>URL</strong> es https://facebook.com y su <strong>ID</strong> es <strong>ricardoalberto</strong>.</p>
-<br>
-                                        </div>
-                                        <div class="col-md-6 col-lg-6">
-                                                  <div class="my_profile_input form-group">
-                                                    <label for="formGroupExampleInput8"><img src="img/facebookej.png"></label>
-                                                    <input type="text" name="facebook" class="form-control" id="formGroupExampleInput8"  placeholder="Ej: mardeltrabaja" pattern="[A-Za-z0-9]+">
-                                                </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-6">
-                                                  <div class="my_profile_input form-group">
-                                                    <label for="formGroupExampleInput8"><img src="img/twitterej.png"></label>
-                                                    <input type="text" name="twitter" class="form-control" id="formGroupExampleInput2" placeholder="Ej: mardeltrabaja" pattern="[A-Za-z0-9]+">
-                                                </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-6">
-                                                <div class="my_profile_input form-group">
-                                                    <label for="formGroupExampleInput8"><img src="img/linkedinej.png"></label>
-                                                    <input type="text" name="linkedin" class="form-control" id="formGroupExampleInput3" placeholder="Ej: mardeltrabaja" pattern="[A-Za-z0-9]+">
-                                                </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-6">
-                                                <div class="my_profile_input form-group">
-                                                    <label for="formGroupExampleInput8"><img src="img/instagramej.png"></label>
-                                                    <input type="text" name="instagram" class="form-control" id="formGroupExampleInput4" placeholder="Ej: mardeltrabaja" pattern="[A-Za-z0-9]+" >
-                                                </div>
-                                        </div>
-                                        <div class="col-md-6 col-lg-6 mt-2">
-                                                <div class="my_profile_input form-group text-center">
-                                                    <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="customCheck1" required oninvalid="this.setCustomValidity('Debes aceptar los términos y condiciones de Mardeltrabaja.com')"
-                                                        oninput="this.setCustomValidity('')">
-                                                        <label class="custom-control-label" for="customCheck1">Acepto los <strong><a href="/legales/terms">Términos y Condiciones de Mardeltrabaja.com</a></strong></label>
-                                                    </div>
-                                                </div>
-                                        </div>
-                                        </div>
-                                        <div class="form-group row mb-0 mt-2">
-                                                    <button type="submit" style="font-size: 14px;font-weight: bold;color: #1886fc;border:none;background: none;font-family: 'roboto', sans-serif">
-                                                        CONFIRMAR REGISTRO
-                                                    </button>
-                                                    <a href="/" style="margin-left: 40px; font-size: 14px;font-weight: bold;color: red;border:none;background: none;font-family: 'roboto', sans-serif">
-                                                            CANCELAR
-                                                    </a>
-                                            </div>
-                                        </form>
-                                    </div>
 
                 </div>
             </div>
         </div>
 </div>
 </div>
+</form>
 
 
 <script>
@@ -708,36 +766,162 @@
                 <script>
 
                     $(document).ready(function(){
-
-                        $("#btnprofesional").click(function () {
-                            $('#registroOpciones').hide('slow');
-                            $('#registroProfesional').show('slow');
+                        $('#btn-cancel-2').click(function(){
+                            $('#parte-1').show('slow');
+                            $('#parte-2').hide('slow');
+                            $('#progressbar2').css('background', '#fafafa');
+                            $('#btn-siguiente-1').show();
+                            $('#btn-cancel-1').show();
+                            $('#btn-siguiente-2').hide();
+                            $('#btn-cancel-2').hide();
                         });
 
-                        $("#btnusuario").click(function () {
-                            $('#registroOpciones').hide('slow');
-                            $('#registroUsuario').show('slow');
+                        $('#btn-cancel-3').click(function(){
+                            $('#parte-2').show('slow');
+                            $('#parte-3').hide('slow');
+                            $('#progressbar3').css('background', '#fafafa');
+                            $('#btn-siguiente-2').show();
+                            $('#btn-cancel-2').show();
+                            $('#btn-siguiente-3').hide();
+                            $('#btn-cancel-3').hide();
                         });
 
-                        $("#btncancelregistroprofesional").click(function () {
-                            $('#registroOpciones').show('slow');
-                            $('#registroProfesional').hide('slow');
+                        $('#btn-profesional').click(function(){
+                            $('#btn-profesional').css('transition: background-color 1.5s ease');
+                            $('#btn-profesional').css('background', '#00b7ff');
+                            $('#btn-profesional').css('color', 'white');
+                            $('#title-profesional').css('color', 'white');
+                            $('#btn-usuario').css('background', '#fafafa');
+                            $('#btn-usuario').css('color', 'gray');
+                            $('#title-usuario').css('color', 'black');
+                            $('#rol').val('profesional');
                         });
-                        $("#btncancelregistrousuario").click(function () {
-                            $('#registroOpciones').show('slow');
-                            $('#registroUsuario').hide('slow');
+
+                        $('#btn-usuario').click(function(){
+                            $('#btn-usuario').css('transition: background-color 1.5s ease');
+                            $('#btn-usuario').css('background', '#00b7ff');
+                            $('#btn-usuario').css('color', 'white');
+                            $('#title-usuario').css('color', 'white');
+                            $('#btn-profesional').css('background', '#fafafa');
+                            $('#btn-profesional').css('color', 'gray');
+                            $('#title-profesional').css('color', 'black');
+                            $('#rol').val('usuario');
+                        });
+
+                        $('#btn-siguiente-1').click(function (){
+                            var username = true;
+                            var email = true;
+                            var password = true;
+                            if($('#password').val().length != 0){
+                                if($('#password').val() != $('#passwordconfirm').val()){
+                                    $("#password").css('border', '1px solid #ff8e8e');
+                                    $("#passwordconfirm").css('border', '1px solid #ff8e8e');
+                                    password = false;
+                                }else{
+                                    $("#password").css('border', '1px solid #e7e7e7');
+                                    $("#passwordconfirm").css('border', '1px solid #e7e7e7');
+                                    password = true;
+                                }
+                            }else{
+                                $("#password").css('border', '1px solid #ff8e8e');
+                                $("#passwordconfirm").css('border', '1px solid #ff8e8e');
+                                password = false;
+                            }
+                            if($('#name').val().length == 0){
+                                $("#name").css('border', '1px solid #ff8e8e');
+                                username = false;
+                            }else{
+                                $("#name").css('border', '1px solid #e7e7e7');
+                                username = true;
+                            }
+                            if($("#email").val().indexOf('@', 0) == -1 || $("#email").val().indexOf('.', 0) == -1) {
+                                $("#email").css('border', '1px solid #ff8e8e');
+                                $("#email-no").show('slow');
+
+                                email = false;
+                            }else{
+                                var consulta = $("#email").val();
+                                $.ajax({
+                                    type: "POST",
+                                    url: "/comprobation.php",
+                                    data: "b="+consulta,
+                                    dataType: "html",
+                                    error: function(){
+                                },
+                                    success: function(data){
+                                    if(data == 'yes'){
+                                        email = false;
+                                        $("#email").css('border', '1px solid #ff8e8e');
+                                    }else{
+                                        email = true;
+                                        if(password === true && username === true && email === true){
+                                            $('#parte-1').hide('slow');
+                                            $('#parte-2').show('slow');
+                                            $("#email").css('border', '1px solid #e7e7e7');
+                                            $('#progressbar2').css('background', '#00b7ff');
+                                            $('#btn-siguiente-1').hide();
+                                            $('#btn-cancel-1').hide();
+                                            $('#btn-siguiente-2').show();
+                                            $('#btn-cancel-2').show();
+                                        }
+                                    }
+                                }
+                            });
+                            }
+                        });
+
+                        $('#btn-siguiente-2').click(function (){
+                            if($('#rol').val() == 'usuario'){
+                                $('#form-register').submit();
+                            }else{
+                                window.scrollTo(0, 0);
+                                $('#parte-2').hide('slow');
+                                $('#parte-3').show('slow');
+                                $('#progressbar3').css('background', '#00b7ff');
+                                $('#btn-siguiente-2').hide();
+                                $('#btn-cancel-2').hide();
+                                $('#btn-siguiente-3').show();
+                                $('#btn-cancel-3').show();
+                            }
+                        });
+
+                        $('#btn-siguiente-3').click(function (){
+                            var subcategory = true;
+                            var otros = true;
+                            if($('#category').val() != ''){
+                            if($('#category') == 16){
+                                if( $('#otrosServicios').val() == ''){
+                                    otros = false;
+                                    $('#otrosServicios').css({"border":"1px solid #e46359"});
+                                }
+                            }else{
+                                if($('#subcategory').val() == ''){
+                                    subcategory = false;
+                                    $('#subcategory').css({"border":"1px solid #e46359"});
+                                }
+                            }
+                            if(otros === true && subcategory === true){
+                                $('#form-register').submit();
+                            }
+                            }else{
+                                $('#category').css({"border":"1px solid #e46359"});
+                            }
+
                         });
 
 
                         $('#category').on('change', function(){
+                            $('#profesionprincipal').show();
                             var category_id = $(this).val();
                             if($.trim(category_id) == 16){
                                 $('#subcategory').hide("slow");
                                 $('#otrosServicios').show('slow');
                                 $('#unselected').show('slow');
                                 $('#otrosServicios').css({"border":"1px solid #e46359"});
-                            }else if($.trim(category_id) != ''){
+                            }else{
                                 $.get('subcategories', {category_id: category_id}, function(subcategories){
+                                    $('#subcategory').show("slow");
+                                    $('#otrosServicios').hide('slow');
                                     $('#subcategory').empty();
                                     $('#subcategory').append("<option value=''>Seleccione Oficio</option>");
                                     $.each(subcategories, function(index, subcategory){
