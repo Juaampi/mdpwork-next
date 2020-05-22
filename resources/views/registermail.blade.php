@@ -74,7 +74,7 @@
             <tr style="background:#f6f6f6">
                 <td>
                     <span style="display:block;text-align:center;padding:30px 0 5px;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#aaaaaa">
-                    Recibiste este email porque te registraste en Mdp Work Inc. con el email <a href="https://mardeltrabaja.com/login" style="color:#1da4cb;text-decoration:none">{{$user->email}}</a>
+                    Recibiste este email porque te registraste en Mardeltrabaja con el email <a href="https://mardeltrabaja.com/login" style="color:#1da4cb;text-decoration:none">{{$user->email}}</a>
                     </span>
                     <span style="display:block;text-align:center;padding:0 0 60px;font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#aaaaaa">
                          Por cualquier consulta puedes escribirnos a <a href="mailto:soporte@mardeltrabaja.com?Subject=Ayuda" style="color:#1da4cb;text-decoration:none"> soporte@mardeltrabaja.com</a>
