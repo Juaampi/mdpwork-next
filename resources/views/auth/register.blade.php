@@ -889,8 +889,8 @@
                             var subcategory = true;
                             var otros = true;
                             if($('#category').val() != ''){
-                            if($('#category') == 16){
-                                if( $('#otrosServicios').val() == ''){
+                            if($('#category').val() == 16){
+                                if($('#otrosServicios').val() == ''){
                                     otros = false;
                                     $('#otrosServicios').css({"border":"1px solid #e46359"});
                                 }
