@@ -214,7 +214,7 @@
                                     <div class="input-group-prepend">
                                       <span class="input-group-text form-control mb-0" id="basic-addon1"><img height="30px" src="img-icons/whatsapp.png" /></span>
                                     </div>
-                                    <input type="number" name="whatsapp"  class="form-control mb-0" aria-describedby="phoneNumber" placeholder="Ej: Mdq. 223587851, Cap. 115325253 (Sin el 0 y sin el 15)">
+                                    <input id="whatsapp" type="number" name="whatsapp"  class="form-control mb-0" aria-describedby="phoneNumber" placeholder="223587851 - 115325253 (Sin el 0 y sin el 15)">
                                 </div>
                                 </div>
 
@@ -888,6 +888,15 @@
                         $('#btn-siguiente-3').click(function (){
                             var subcategory = true;
                             var otros = true;
+                            var whatsapp = true;
+                            if($('#whatsapp').val() != ''){
+                                whatsapp = true;
+                            }else{
+                                whatsapp = false;
+                                var elmnt = document.getElementById("whatsapp");
+                                elmnt.scrollIntoView(true);
+                                $('#whatsapp').css({"border":"1px solid #e46359"});
+                            }
                             if($('#category').val() != ''){
                             if($('#category').val() == 16){
                                 if($('#otrosServicios').val() == ''){
@@ -902,7 +911,7 @@
                                     $('#subcategory').css({"border":"1px solid #e46359"});
                                 }
                             }
-                            if(otros === true && subcategory === true){
+                            if(otros === true && subcategory === true && whatsapp === true){
                                 $('#form-register').submit();
                             }
                             }else{
