@@ -611,7 +611,7 @@
                                         <input type="text" name="instagram" class="form-control" id="formGroupExampleInput4" placeholder="Ej: mardeltrabaja" pattern="[A-Za-z0-9]+" >
                                     </div>
                             </div>
-                            <div class="col-md-6 col-lg-6 mt-2">
+                            <div class="col-md-12 col-lg-12 mt-2">
                                     <div class="my_profile_input form-group text-center">
                                         <p>Al registrarte, aceptas los <a class="text-primary" target="_blank" href="/legales/terms">Términos y Condiciones</a> y las <a target="_blank" class="text-primary" href="/legales/privacy">Políticas de Privacidad</a> de Mardeltrabaja. </p>
                                                                             </div>
