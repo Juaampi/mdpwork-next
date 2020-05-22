@@ -892,11 +892,13 @@
                             if($('#category').val() == 16){
                                 if($('#otrosServicios').val() == ''){
                                     otros = false;
+                                    window.scrollTo(0, 0);
                                     $('#otrosServicios').css({"border":"1px solid #e46359"});
                                 }
                             }else{
                                 if($('#subcategory').val() == ''){
                                     subcategory = false;
+                                    window.scrollTo(0, 0);
                                     $('#subcategory').css({"border":"1px solid #e46359"});
                                 }
                             }
@@ -905,6 +907,7 @@
                             }
                             }else{
                                 $('#category').css({"border":"1px solid #e46359"});
+                                window.scrollTo(0, 0);
                             }
 
                         });
