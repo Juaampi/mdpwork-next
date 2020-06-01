@@ -118,7 +118,8 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
     top: 0;
     bottom: 0;
     left: 0;
-    border-left: .22222em solid #3483fa;}
+    border-left: .22222em solid #3483fa;
+    }
     .andes-modal--full .andes-modal-dialog__content {
     padding: 0!important;
     }
@@ -147,7 +148,7 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                 <h3 style="margin-top: 20px;margin-bottom: 20px;font-family: 'roboto', sans-serif;">Ordenar Por</h3>
                 <div class="andes-modal-dialog__content">
                 <ul class="ui-search-sort andes-list" >
-                    <li style="margin-top: 5px; margin-bottom: 5px;border: 1px solid #d6d6d6;border-radius: 3px;"><a @if(empty($zone)) href="/ordenarPorZona" @else href="/ordenarPorZona?zone={{$zone}}" @endif style="font-size: 14px; font-weight: 300;" class="andes-list__item andes-list__item--selected ui-search-link">Zona</a></li>
+                    <li style="margin-top: 5px; margin-bottom: 5px;border: 1px solid #d6d6d6;border-radius: 3px;"><a @if(empty($busqueda) && empty($searchcategory)) href="/ordenarPorZona" @elseif(empty($busqueda) && !empty($searchcategory)) href="/ordenarPorZona?category={{$searchcategory}}" @elseif(empty($searchcategory) && !empty($busqueda)) href="/ordenarPorZona?search={{$busqueda}}" @endif style="font-size: 14px; font-weight: 300;" class="andes-list__item andes-list__item--selected ui-search-link">Zona</a></li>
                     <li style="margin-top: 5px; margin-bottom: 5px;border: 1px solid #d6d6d6;border-radius: 3px;"><a @if(empty($busqueda) && empty($searchcategory)) href="/ordenarPorNombre" @elseif(empty($busqueda) && !empty($searchcategory)) href="/ordenarPorNombre?category={{$searchcategory}}" @elseif(empty($searchcategory) && !empty($busqueda)) href="/ordenarPorNombre?search={{$busqueda}}" @endif style="font-size: 14px; font-weight: 300;" class="andes-list__item andes-list__item--selected ui-search-link">Abecedario</a></li>
                 </ul>
                 </div>
@@ -171,6 +172,34 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                 <h3 style="margin-top: 20px;margin-bottom: 20px;font-family: 'roboto', sans-serif;margin-left: 20px;margin-bottom: 50px;">Filtrar Por</h3>
                 <div class="andes-modal-dialog__content">
                 <ul class="ui-search-sort andes-list"style="line-height: 3">
+
+                    <li id="btn-select-countries" style="border: 1px solid #dcdcdc;font-size: 16px;border-bottom: none;">
+                        <a  style="margin-left: 40px;font-family: 'roboto', sans-serif"> Ubicación <span class="text-primary"><i style="float: right;margin-top: 14px;margin-right: 30px;" class="fa fa-chevron-down"></i></span></a>
+                     </li>
+                     @php
+                     $zonas = array();
+                     foreach($lastest as $last) {
+                         $zona = $last->zone;
+                         if(!in_array($zona, $zonas))
+                         {
+                             array_push($zonas,$zona);
+                         }
+                     }
+                     @endphp
+                    @if(!empty($busqueda) && empty($searchcategory))
+                     <div id="select-countries" class="container" style="background: #fafafa; display:none;">
+                        @foreach(array_unique($zonas) as $zona)
+                                <div class="row" style="margin-left: 30px; font-size: 16px;"><a href="/busqueda?search={{$busqueda}}&zone={{$zona}}" class="text-primary">{{$zona}}</a></div>
+                        @endforeach
+                    </div>
+                    @elseif(!empty($searchcategory) && empty($busqueda))
+                    <div id="select-countries" class="container" style="background: #fafafa; display:none;">
+                        @foreach(array_unique($zonas) as $zona)
+                                <div class="row" style="margin-left: 30px; font-size: 16px;"><a href="/busqueda?category={{$searchcategory}}" class="text-primary">{{$zona}}</a></div>
+                        @endforeach
+                    </div>
+                    @endif
+
                     <li id="btn-select-categories" style="border: 1px solid #dcdcdc;font-size: 16px;">
                        <a style="margin-left: 40px;font-family: 'roboto', sans-serif"> Categorías <span class="text-primary"><i style="float: right;margin-top: 14px;margin-right: 30px;" class="fa fa-chevron-down"></i></span></a>
                     </li>
@@ -189,14 +218,7 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                          @endforeach
                      </div>
 
-                     <li id="btn-select-countries" style="border: 1px solid #dcdcdc;font-size: 16px;border-top: none;">
-                        <a  style="margin-left: 40px;font-family: 'roboto', sans-serif"> Ubicación <span class="text-primary"><i style="float: right;margin-top: 14px;margin-right: 30px;" class="fa fa-chevron-down"></i></span></a>
-                     </li>
-                     <div id="select-countries" class="container" style="background: #fafafa; display:none;">
-                         @foreach($countries as $country)
-                             <div class="row" style="margin-left: 30px; font-size: 16px;"><a  @if(empty($busqueda)) href="/busqueda?zone={{$country}}" @else href="/busqueda?search={{$busqueda}}&zone={{$country}}" @endif class="text-primary">{{$country}}</a></div>
-                         @endforeach
-                     </div>
+
                 </ul>
                 </div>
             </div>
@@ -419,10 +441,10 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
 
                             <div id="list-responsive" class="container">
                                 <div class="row bg-white" style="padding: 5px;">
-                                    <div class="col-3">
+                                    <div class="col-3" style="padding-left: 5px; padding-right: 5px;">
                                         <img style="border-radius: 10px;" class="img-fluid" src="images/large/{{$last->img}}" alt="1.jpg">
                                     </div>
-                                    <div class="col-7">
+                                    <div class="col-8" style="padding-left: 10px; padding: right: 10px;">
                                     @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
                                     @if($hour >= $last->{'inhour'.$day} && $hour <= $last->{'outhour'.$day})
                                     <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-success">Disponible</p>
@@ -439,8 +461,9 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                                     @else
                                     <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-danger">No Disponible</p>                                @endif
                                 @endif
-                                        <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: 600">{{$last->name}}</h4>
-                                        <p style="font-family: 'roboto', sans-serif;font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ ucfirst($last->job) }} <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a></p>
+
+                                        <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: 600">@if($last->verify == 2)<img height="13px" src="img-icons/verify.webp"/>@endif {{$last->name}}</h4>
+                                        <p style="font-family: 'roboto', sans-serif;font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ ucfirst($last->job) }} </a></p>
                                         <p style="margin-bottom:0px;font-size: 12px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><i class="fa fa-location-arrow"></i> @if($last->zone){{$last->zone}},@endif Mar del Plata</p>
                                         <p style="margin-bottom: 0px;font-size: 12px;">
                                                     @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
@@ -469,7 +492,7 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                                                     <a class="stretched-link" style="text-decoration: none;  color: #2e86fc;font-weight: bold;background: none;border: none;font-size: 11px;font-family: 'roboto', sans-serif;" href="{{Route('User.perfil', ['user_id' => $last->id])}}" >VER / CONTACTAR </a>
                                         <hr>
                                     </div>
-                                    <div class="col-2" style="padding: 0;">
+                                    <div class="col-1" style="padding:0px;">
                                         @if($points < 2)
                                         <p style="font-size: 12px;"><span style="color: #d84747;"><i class="fa fa-star"></i></span>
                                         <span style="color: #d84747;"><strong>{{$points}}</strong></span></p>

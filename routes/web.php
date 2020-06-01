@@ -21,6 +21,7 @@ Route::get('/subcategories', 'CategoryController@subcategories')->name('Category
 Route::post('/save', 'UserController@edit')->name('User.edit');
 Route::get('/contraseña','HomeController@showChangePasswordForm');
 Route::post('/updateImg', 'UserController@updateImg')->name('User.updateImg');
+Route::post('/verify', 'UserController@verifyDni')->name('User.verify');
 Route::get('/busqueda','UserController@search')->name('User.search');
 
 Route::get('/coment', 'ComentController@addcoment')->name('Coment.add');

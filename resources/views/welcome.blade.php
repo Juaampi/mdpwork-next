@@ -248,8 +248,8 @@ use Carbon\Carbon;
                                     <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-danger">No Disponible</p>
                                 @endif
                             @endif
-                            <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: 600">{{$last->name}}</h4>
-                            <p style="font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ ucfirst($last->job) }} <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a></p>
+                            <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: 600">@if($last->verify == 2)<img height="13px" src="img-icons/verify.webp"/>@endif {{$last->name}}</h4>
+                            <p style="font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ ucfirst($last->job) }}</a></p>
                             <p style="margin-bottom: 0px;font-size: 12px;">
                                         @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
                                             @if($hour <= $last->{'outhour'.$day} && $hour >= $last->{'inhour'.$day})

@@ -886,7 +886,9 @@
                         });
 
                         $('#btn-siguiente-3').click(function (){
-                            var subcategory = true;
+                            var r = confirm("¿Estás seguro que completaste todos los datos?");
+                            if (r == true) {
+                                var subcategory = true;
                             var otros = true;
                             var whatsapp = true;
                             if($('#whatsapp').val() != ''){
@@ -918,9 +920,10 @@
                                 $('#category').css({"border":"1px solid #e46359"});
                                 window.scrollTo(0, 0);
                             }
+                     } else {
 
+                    }
                         });
-
 
                         $('#category').on('change', function(){
                             $('#profesionprincipal').show();

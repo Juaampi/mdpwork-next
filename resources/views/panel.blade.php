@@ -108,7 +108,74 @@ filter: brightness(50%);
                             </li>
 						</ul>
                     </div>
-				</div>
+                </div>
+
+                <div class="col-md-12">
+                <div class="ml-2 mr-2 mt-2 mb-2 responsive" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);background: white">
+                    <div class="container">
+                        <div class="row">
+                            @if(Auth::user()->verify)
+                                        @if(Auth::user()->verify == 1)
+                            <div class="col-8" style="padding: 25px;">
+                                    <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;color:black;" class="font-weight-bold">Estado de perfil</h6>
+                                            <p class="text-secondary" style="font-size: 12px;">En verificación..</p>
+                                            <div class="progress" style="height: 3px;">
+                                            <div class="progress-bar" id="progressbar1" role="progressbar" style="width: 33%;background: #00b7ff" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
+                                            <div class="progress-bar" id="progressbar2" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 33%;background: #00b7ff;border-right: 1px solid #a5a5a5;border-left: 1px solid #a5a5a5;">
+                                            </div>
+                                            <div class="progress-bar" id="progressbar3" role="progressbar" aria-valuenow="25"
+                                            aria-valuemin="0" aria-valuemax="100" style="width: 34%;background: #f1f1f1">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <img src="img-icons/verify.webp" style="margin-top: 40px;">
+                                </div>
+                                 @endif
+                                 @if(Auth::user()->verify == 2)
+                                    <div class="col-8" style="padding: 25px;">
+                                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;color:black;" class="font-weight-bold">Estado de perfil</h6>
+                                                <p class="text-secondary" style="font-size: 12px;">Perfil Verificado</p>
+                                                <div class="progress" style="height: 3px;">
+                                                <div class="progress-bar" id="progressbar1" role="progressbar" style="width: 33%;background: #00b7ff" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
+                                                <div class="progress-bar" id="progressbar2" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 33%;background: #00b7ff;border-right: 1px solid #a5a5a5;border-left: 1px solid #a5a5a5;">
+                                                </div>
+                                                <div class="progress-bar" id="progressbar3" role="progressbar" aria-valuenow="25"
+                                                aria-valuemin="0" aria-valuemax="100" style="width: 34%;background: #00b7ff">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <img src="img-icons/verify.webp" style="margin-top: 40px;">
+                                    </div>
+                                 @endif
+                                @else
+                                <div class="col-8" style="padding: 25px;padding-bottom: 10px;">
+                                    <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;color:black;" class="font-weight-bold">Estado de perfil</h6>
+                                    <p class="text-secondary" style="font-size: 12px;">Sin verificar</p>
+                                    <div class="progress" style="height: 3px;">
+                                        <div class="progress-bar" id="progressbar1" role="progressbar" style="width: 33%;background: #00b7ff" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar" id="progressbar2" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 33%;background: #f1f1f1;border-right: 1px solid #a5a5a5;border-left: 1px solid #a5a5a5;">
+                                        </div>
+                                        <div class="progress-bar" id="progressbar3" role="progressbar" aria-valuenow="25"
+                                            aria-valuemin="0" aria-valuemax="100" style="width: 34%;background: #f1f1f1">
+                                        </div>
+                                    </div>
+                                    <p style="margin-top: 20px;"><a id="verificar" style="font-size: 14px;font-weight: bold;color: #1886fc;"  data-toggle="modal" data-target="#modalverify" href="/lista">Verificar perfil<i class="fa fa-arrow-right" style="padding: 5px;float: right;"></i></a></p>
+                                     </div>
+                                <div class="col-4">
+                                    <img src="img/personalizar.png" style="margin-top: 25px;">
+                                </div>
+                                    @endif
+
+
+                        </div>
+                </div>
+                </div>
+                </div>
+
+
+
 				<div class="col-sm-12 col-lg-8 col-xl-9">
 
 					<div class="my_profile_form_area">
@@ -119,6 +186,9 @@ filter: brightness(50%);
 						    <div class="row">
 							    <div class="col-lg-12">
                                     <h4 class="fz20 mb20">Mis datos</h4>
+                                    @if(session()->has('response'))
+                                    <div class="alert alert-success text-center">Haz enviado tu perfil a verificación. Verifica el estado en el panel de "Estado de Perfil".</div>
+                                    @endif
                                     @if(session()->has('lunes'))
                                     <div class="alert alert-danger text-center">Ingresaste de forma incorreta el horario del <strong>LUNES</strong>. Si el día esta activado, debes completar mínimo el horario de corrido.</div>
                                     @endif
@@ -717,6 +787,16 @@ filter: brightness(50%);
             }
         }
 
+        function filePreviewDni(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#img-dni-contenedor').append('<img id="img-dni-preview" src="'+e.target.result+'" class="align-self-start mr-3 rounded-circle" />');
+            }
+            reader.readAsDataURL(input.files[0]);
+            }
+        }
+
         function filePreviewimg1(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
@@ -914,12 +994,115 @@ document.addEventListener("click", function (e) {
     </div>
   </div>
 
-        <script>
+
+
+
+
+
+
+
+
+
+  <div class="modal fade" id="modalverify" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="border: none;">
+            <button style="position: absolute; float: right;margin-top: 10px;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class="fa fa-arrow-left"></i></span>
+              </button>
+        </div>
+        <div class="modal-body text-center" style="margin-top: 40px;">
+            <img src="img-icons/verify.webp" style="height: 50px;border-radius: 10px;margin-bottom: 10px;">
+              <h4 class="text-black">Hola, {{Auth::user()->name}}</h4>
+              <h6 class="text-secondary">Para verificar tu perfil por favor, ingresá tu número de DNI y una foto clara que verifique el mismo. </h6>
+              <div class="responsive bg-white" style="margin-top: 20px; border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="my_profile_input form-group" style="padding: 15px;">
+                                <form id="form-verify" style="margin-top:5px;" method="POST" action="{{ route('User.verify') }}" enctype="multipart/form-data">
+                                    @csrf
+                                    <label for="exampleInputPhone">Ingrese su número de DNI <span class="text-danger">*</span></label>
+                                    <input type="number" name="dni" class="form-control" id="dni" aria-describedby="DNI" placeholder="EJ: 38545324">
+                                    <input type="hidden" value="{{ Auth::user()->id }}" name="user_id">
+                                    <label style="margin-top: 10px;" for="img">Ingrese una imagen clara de su DNI:</label>
+                                    <input type="file" id="img-dni" name="img-dni" accept="image/*">
+                                 </form>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+            <h6 class="text-secondary" style="margin-top: 10px;">En un máximo de 48hs obtendrás la validación de los documentos y podrás disfrutar de tu perfil verificado</h6>
+
+        </div>
+        <div class="modal-footer" style="border: none">
+          <a id="btn-verify-1" style="font-size: 13px;font-weight: bold;color: #1886fc;border:none;background: none;font-family: 'roboto', sans-serif" >ENVIAR PERFIL A VERIFICACIÓN</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+<script>
 
             $(document).ready(function(){
 
+                $('#btn-verify-1').click(function (){
+                    var r = confirm("¿Estás seguro que completaste todos los datos?");
+                        if (r == true) {
+                            var dni = true;
+                            var img = true;
+                            if($('#dni').val().length != 0){
+                                dni = true;
+                                $("#dni").css('border', '1px solid #e7e7e7');
+                            }else{
+                                $("#dni").css('border', '1px solid #ff8e8e');
+                                dni = false;
+                             }
+                            if($('#img-dni').get(0).files.length === 0){
+                                $("#img-dni").css('border', '1px solid #ff8e8e');
+                                img = false;
+                            }else{
+                                img = true;
+                                $("#img-dni").css('border', '1px solid #e7e7e7');
+                            }
 
-                $("#file").change(function () {
+                            var consulta = $("#dni").val();
+                                $.ajax({
+                                    type: "POST",
+                                    url: "/comprobation-dni.php",
+                                    data: "b="+consulta,
+                                    dataType: "html",
+                                    error: function(){
+                                },
+                                    success: function(data){
+                                    if(data == 'yes'){
+                                        dni = false;
+                                        $("#dni").css('border', '1px solid #ff8e8e');
+                                    }else{
+                                        dni = true;
+                                        if(dni === true && img === true){
+                                            $('#form-verify').submit();
+                                        }
+                                    }
+                                }
+                            });
+                        }else{
+
+                        }
+                });
+
+
+            $("#file").change(function () {
                     $('#img-perfil-panel').hide();
                     filePreview(this);
                     $('#labelImg').hide('slow');
