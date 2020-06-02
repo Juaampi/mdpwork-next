@@ -347,6 +347,23 @@ use Carbon\Carbon;
                             </li>
                         </ul>
 
+                        @if($user->verify == 2)
+                        <div class="responsive bg-white ml-2 mr-2 mt-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-10" style="padding: 14px;">
+                                            <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;font-size: 14px;" class="font-weight-bold">Perfil verificado</h6>
+                                            <p class="text-muted" style="font-size: 11px;">El profesional presentó documentación sobre su identidad.</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <img src="img-icons/verify.webp" style="margin-top:30px;">
+                                    </div>
+                                </div>
+                        </div>
+                        </div>
+                        @endif
+
+
                         <p style="font-size: 14px;">Contacto directo</p>
                     <ul style="margin-top: -5px">
                             @if($user->whatsapp)
@@ -417,8 +434,7 @@ use Carbon\Carbon;
                             @endif
                         </ul>
                         @php $namemail = str_replace(" ","%20",$user->name); @endphp
-                        <a href="mailto:soporte@mdpworkinc.com?Subject=Quiero%20reclamar%20el%20perfil%20{{$namemail}}" style="font-size: 13px;"><span style="color: #bbbbbb"><i class="fa fa-shield"></i> Reclamar éste perfil</span></a>
-
+                        <a href="mailto:mardeltrabajaweb@gmail.com?Subject=Quiero%20reclamar%20el%20perfil%20{{$namemail}}" style="font-size: 13px;"><span style="color: #bbbbbb"><i class="fa fa-shield"></i> Reclamar éste perfil</span></a>
                         </div>
 
 
