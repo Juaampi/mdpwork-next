@@ -41,15 +41,15 @@ use Carbon\Carbon;
     </div>
     </div>
 
-    <div class="ml-2 mr-2 mt-2 mb-2 responsive" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);background: #28af77;">
+    <div class="ml-2 mr-2 mt-2 mb-2 responsive" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);background: #ffffff;">
         <div class="container">
             <div class="row">
-                <div class="col-8" style="padding: 25px;">
-                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;color:white;font-size: 14px;" class="font-weight-bold">¡Presupuesto sin cargo!</h6>
-                        <p class="text-white" style="font-size: 12px;">Ahora desde tu panel vas a poder configurar si realizás presupuestos sin cargo.</strong></p>
+                <div class="col-9" style="padding: 25px;">
+                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;color:black;font-size: 14px;" class="font-weight-bold">¡Perfiles Verificados!</h6>
+                        <p class="text-secondary" style="font-size: 12px;">Ahora vas a poder visualizar cuales son los profesionales que presentaron documentación sobre su identidad. </strong></p>
                 </div>
-                <div class="col-4">
-                    <img src="img/presupuesto.webp" style="margin-top:20px;">
+                <div class="col-3">
+                    <img src="img-icons/verify.webp" style="margin-top:50px;">
                 </div>
             </div>
     </div>

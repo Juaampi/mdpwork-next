@@ -494,16 +494,16 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                                     </div>
                                     <div class="col-1" style="padding:0px;">
                                         @if($points < 2)
-                                        <p style="font-size: 12px;"><span style="color: #d84747;"><i class="fa fa-star"></i></span>
+                                        <p style="font-size: 11px;"><span style="color: #d84747;"><i class="fa fa-star"></i></span>
                                         <span style="color: #d84747;"><strong>{{$points}}</strong></span></p>
                                         @elseif($points >= 3 && $points < 4)
-                                        <p style="font-size: 12px;"><span style="color: #d66514;"><i class="fa fa-star"></i></span>
+                                        <p style="font-size: 11px;"><span style="color: #d66514;"><i class="fa fa-star"></i></span>
                                         <span style="color: #d66514;"><strong>{{$points}}</strong></span></p>
                                         @elseif($points >= 4 && $points < 5)
-                                        <p style="font-size: 12px;"><span style="color: #28af77"><i class="fa fa-star"></i></span>
+                                        <p style="font-size: 11px;"><span style="color: #28af77"><i class="fa fa-star"></i></span>
                                         <span style="color: #28af77"><strong>{{$points}}</strong></span></p>
                                         @elseif($points == 5)
-                                        <p style="font-size: 12px;"><span style="color: #ffc107"><i class="fa fa-star"></i></span>
+                                        <p style="font-size: 11px;"><span style="color: #ffc107"><i class="fa fa-star"></i></span>
                                         <span style="color: #ffc107"><strong>{{$points}}</strong></span></p>
                                         @endif
                                     </div>
@@ -521,16 +521,16 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                     </div>
                 </div>
                 <p id="text-list-responsive" style="padding: 10px;"><strong>Destacados</strong> en Mardeltrabaja.com</p>
-                @if($masvistos)
-                @foreach($masvistos as $masvisto)
+        @if($masvistos)
+            @foreach($masvistos as $masvisto)
        <div id="list-responsive" class="container">
            <div class="row bg-white">
-               <div class="col-3">
+                <div class="col-3" style="padding-left: 5px; padding-right: 5px;">
                    <img style="border-radius: 10px;" class="img-fluid" src="images/large/{{$masvisto->img}}" alt="1.jpg">
                </div>
-               <div class="col-7">
+               <div class="col-8">
                <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-info">Más visitado</p>
-                   <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: 600">{{$masvisto->name}}</h4>
+                   <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: 600">@if($masvisto->verify == 2) <img height="13px" src="img-icons/verify.webp"> @endif {{$masvisto->name}}</h4>
                    <p style="font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$masvisto->job}}">{{ ucfirst($masvisto->job) }} <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a></p>
                                <a class="stretched-link" style="text-decoration: none;  color: #3db39e;background: none;border: none;font-size: 12px;" href="{{Route('User.perfil', ['user_id' => $masvisto->id])}}" ></a>
                    <hr>
@@ -538,18 +538,18 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                @php $cantComent = 0;$cantPoints = 0;$points = 0;@endphp
                        @foreach($coments as $coment) @if($coment->user_id == $masvisto->id) @php $cantComent ++; $cantPoints += $coment->point; @endphp @endif @endforeach
                    @php if($cantPoints != 0){ $points = $cantPoints / $cantComent; }else{ $points = 4; } @endphp
-               <div class="col-2" style="padding: 0;">
+               <div class="col-1" style="padding: 0px;">
                    @if($points < 2)
-                   <p style="font-size: 12px;"><span style="color: #d84747;"><i class="fa fa-star"></i></span>
+                   <p style="font-size: 11px;"><span style="color: #d84747;"><i class="fa fa-star"></i></span>
                    <span style="color: #d84747;"><strong>{{$points}}</strong></span></p>
                    @elseif($points >= 3 && $points < 4)
-                   <p style="font-size: 12px;"><span style="color: #d66514;"><i class="fa fa-star"></i></span>
+                   <p style="font-size: 11px;"><span style="color: #d66514;"><i class="fa fa-star"></i></span>
                    <span style="color: #d66514;"><strong>{{$points}}</strong></span></p>
                    @elseif($points >= 4 && $points < 5)
-                   <p style="font-size: 12px;"><span style="color: #28af77"><i class="fa fa-star"></i></span>
+                   <p style="font-size: 11px;"><span style="color: #28af77"><i class="fa fa-star"></i></span>
                    <span style="color: #28af77"><strong>{{$points}}</strong></span></p>
                    @elseif($points == 5)
-                   <p style="font-size: 12px;"><span style="color: #ffc107"><i class="fa fa-star"></i></span>
+                   <p style="font-size: 11px;"><span style="color: #ffc107"><i class="fa fa-star"></i></span>
                    <span style="color: #ffc107"><strong>{{$points}}</strong></span></p>
                    @endif
                </div>
@@ -565,12 +565,12 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
 @foreach($mascomentados as $mascomentado)
 <div id="list-responsive" class="container">
 <div class="row bg-white">
-<div class="col-3">
-<img style="border-radius: 10px;" class="img-fluid" src="images/large/{{$mascomentado->img}}" alt="1.jpg">
-</div>
-<div class="col-7">
+    <div class="col-3" style="padding-left: 5px; padding-right: 5px;">
+        <img style="border-radius: 10px;" class="img-fluid" src="images/large/{{$mascomentado->img}}" alt="1.jpg">
+    </div>
+<div class="col-8">
 <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-info">Mejor puntuado</p>
-<h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: 600">{{$mascomentado->name}}</h4>
+<h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: 600">@if($mascomentado->verify == 2) <img height="13px" src="img-icons/verify.webp">  @endif {{$mascomentado->name}} </h4>
 <p style="font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$mascomentado->job}}">{{ ucfirst($mascomentado->job) }} <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a></p>
       <a class="stretched-link" style="text-decoration: none;  color: #3db39e;background: none;border: none;font-size: 12px;" href="{{Route('User.perfil', ['user_id' => $mascomentado->id])}}" ></a>
 <hr>
@@ -578,18 +578,18 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
 @php $cantComent = 0;$cantPoints = 0;$points = 0;@endphp
 @foreach($coments as $coment) @if($coment->user_id == $mascomentado->id) @php $cantComent ++; $cantPoints += $coment->point; @endphp @endif @endforeach
 @php if($cantPoints != 0){ $points = $cantPoints / $cantComent; }else{ $points = 4; } @endphp
-<div class="col-2" style="padding: 0;">
+<div class="col-1" style="padding: 0px;">
 @if($points < 2)
-<p style="font-size: 12px;"><span style="color: #d84747;"><i class="fa fa-star"></i></span>
+<p style="font-size: 11px;"><span style="color: #d84747;"><i class="fa fa-star"></i></span>
 <span style="color: #d84747;"><strong>{{$points}}</strong></span></p>
 @elseif($points >= 3 && $points < 4)
-<p style="font-size: 12px;"><span style="color: #d66514;"><i class="fa fa-star"></i></span>
+<p style="font-size: 11px;"><span style="color: #d66514;"><i class="fa fa-star"></i></span>
 <span style="color: #d66514;"><strong>{{$points}}</strong></span></p>
 @elseif($points >= 4 && $points < 5)
-<p style="font-size: 12px;"><span style="color: #28af77"><i class="fa fa-star"></i></span>
+<p style="font-size: 11px;"><span style="color: #28af77"><i class="fa fa-star"></i></span>
 <span style="color: #28af77"><strong>{{$points}}</strong></span></p>
 @elseif($points == 5)
-<p style="font-size: 12px;"><span style="color: #ffc107"><i class="fa fa-star"></i></span>
+<p style="font-size: 11px;"><span style="color: #ffc107"><i class="fa fa-star"></i></span>
 <span style="color: #ffc107"><strong>{{$points}}</strong></span></p>
 @endif
 </div>

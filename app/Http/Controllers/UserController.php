@@ -61,8 +61,8 @@ class UserController extends Controller
 
     public function showlist(){
 
-        $masvistos = DB::table('views')->selectRaw("users.id, users.name, users.img, users.job,  COUNT('views.*') as views")->join('users', 'users.id', '=', 'views.user_id')->groupBy('users.name')->orderBy('views', 'desc')->take(1)->get();
-        $mascomentados = DB::table('coments')->selectRaw("users.id, users.name, users.img, users.job,  COUNT('coments.*') as coments")->join('users', 'users.id', '=', 'coments.user_id')->groupBy('users.name')->orderBy('coments', 'desc')->take(1)->get();
+        $masvistos = DB::table('views')->selectRaw("users.id, users.name, users.img, users.job, users.verify, COUNT('views.*') as views")->join('users', 'users.id', '=', 'views.user_id')->groupBy('users.name')->orderBy('views', 'desc')->take(1)->get();
+        $mascomentados = DB::table('coments')->selectRaw("users.id, users.name, users.img, users.job,users.verify, COUNT('coments.*') as coments")->join('users', 'users.id', '=', 'coments.user_id')->groupBy('users.name')->orderBy('coments', 'desc')->take(1)->get();
         $users = User::where('rol', '=', 'profesional')->orderBy('created_at', 'desc')->paginate(80);
         $categories = Category::all();
         $subcategories = Subcategory::all();
@@ -102,8 +102,8 @@ class UserController extends Controller
     }
 
     public function search(Request $request){
-        $masvistos = DB::table('views')->selectRaw("users.id, users.name, users.img, users.job,  COUNT('views.*') as views")->join('users', 'users.id', '=', 'views.user_id')->groupBy('users.name')->orderBy('views', 'desc')->take(1)->get();
-        $mascomentados = DB::table('coments')->selectRaw("users.id, users.name, users.img, users.job,  COUNT('coments.*') as coments")->join('users', 'users.id', '=', 'coments.user_id')->groupBy('users.name')->orderBy('coments', 'desc')->take(1)->get();
+        $masvistos = DB::table('views')->selectRaw("users.id, users.name, users.img, users.job,users.verify,  COUNT('views.*') as views")->join('users', 'users.id', '=', 'views.user_id')->groupBy('users.name')->orderBy('views', 'desc')->take(1)->get();
+        $mascomentados = DB::table('coments')->selectRaw("users.id, users.name, users.img, users.job,users.verify,  COUNT('coments.*') as coments")->join('users', 'users.id', '=', 'coments.user_id')->groupBy('users.name')->orderBy('coments', 'desc')->take(1)->get();
         $categories = Category::all();
         $users = User::all();
         $subcategories = Subcategory::all();
@@ -657,8 +657,8 @@ class UserController extends Controller
 
     public function ordenarPorNombre(Request $request){
 
-        $masvistos = DB::table('views')->selectRaw("users.id, users.name, users.img, users.job,  COUNT('views.*') as views")->join('users', 'users.id', '=', 'views.user_id')->groupBy('users.name')->orderBy('views', 'desc')->take(1)->get();
-        $mascomentados = DB::table('coments')->selectRaw("users.id, users.name, users.img, users.job,  COUNT('coments.*') as coments")->join('users', 'users.id', '=', 'coments.user_id')->groupBy('users.name')->orderBy('coments', 'desc')->take(1)->get();
+        $masvistos = DB::table('views')->selectRaw("users.id, users.name, users.img, users.job, users.verify,  COUNT('views.*') as views")->join('users', 'users.id', '=', 'views.user_id')->groupBy('users.name')->orderBy('views', 'desc')->take(1)->get();
+        $mascomentados = DB::table('coments')->selectRaw("users.id, users.name, users.img, users.job, users.verify,  COUNT('coments.*') as coments")->join('users', 'users.id', '=', 'coments.user_id')->groupBy('users.name')->orderBy('coments', 'desc')->take(1)->get();
         $users = User::where('rol', '=', 'profesional')->orderBy('created_at', 'desc')->get();
         $categories = Category::all();
         $subcategories = Subcategory::all();
@@ -718,8 +718,8 @@ class UserController extends Controller
 
     public function ordenarPorZona(Request $request){
 
-        $masvistos = DB::table('views')->selectRaw("users.id, users.name, users.img, users.job,  COUNT('views.*') as views")->join('users', 'users.id', '=', 'views.user_id')->groupBy('users.name')->orderBy('views', 'desc')->take(1)->get();
-        $mascomentados = DB::table('coments')->selectRaw("users.id, users.name, users.img, users.job,  COUNT('coments.*') as coments")->join('users', 'users.id', '=', 'coments.user_id')->groupBy('users.name')->orderBy('coments', 'desc')->take(1)->get();
+        $masvistos = DB::table('views')->selectRaw("users.id, users.name, users.img, users.job, users.verify,  COUNT('views.*') as views")->join('users', 'users.id', '=', 'views.user_id')->groupBy('users.name')->orderBy('views', 'desc')->take(1)->get();
+        $mascomentados = DB::table('coments')->selectRaw("users.id, users.name, users.img, users.job, users.verify,  COUNT('coments.*') as coments")->join('users', 'users.id', '=', 'coments.user_id')->groupBy('users.name')->orderBy('coments', 'desc')->take(1)->get();
         $users = User::where('rol', '=', 'profesional')->orderBy('created_at', 'desc')->get();
         $categories = Category::all();
         $subcategories = Subcategory::all();
@@ -782,8 +782,8 @@ class UserController extends Controller
 
     public function ordenarPorPuntaje(Request $request){
 
-        $masvistos = DB::table('views')->selectRaw("users.id, users.name, users.img, users.job,  COUNT('views.*') as views")->join('users', 'users.id', '=', 'views.user_id')->groupBy('users.name')->orderBy('views', 'desc')->take(1)->get();
-        $mascomentados = DB::table('coments')->selectRaw("users.id, users.name, users.img, users.job,  COUNT('coments.*') as coments")->join('users', 'users.id', '=', 'coments.user_id')->groupBy('users.name')->orderBy('coments', 'desc')->take(1)->get();
+        $masvistos = DB::table('views')->selectRaw("users.id, users.name, users.img, users.job, users.verify,  COUNT('views.*') as views")->join('users', 'users.id', '=', 'views.user_id')->groupBy('users.name')->orderBy('views', 'desc')->take(1)->get();
+        $mascomentados = DB::table('coments')->selectRaw("users.id, users.name, users.img, users.job, users.verify,  COUNT('coments.*') as coments")->join('users', 'users.id', '=', 'coments.user_id')->groupBy('users.name')->orderBy('coments', 'desc')->take(1)->get();
         $users = User::where('rol', '=', 'profesional')->orderBy('created_at', 'desc')->get();
         $categories = Category::all();
         $subcategories = Subcategory::all();

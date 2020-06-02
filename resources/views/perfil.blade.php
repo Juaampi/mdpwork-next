@@ -353,7 +353,7 @@ use Carbon\Carbon;
                                 <div class="row">
                                     <div class="col-10" style="padding: 14px;">
                                             <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;font-size: 14px;" class="font-weight-bold">Perfil verificado</h6>
-                                            <p class="text-muted" style="font-size: 11px;">El profesional presentó documentación sobre su identidad.</p>
+                                            <p class="text-muted" style="font-size: 13px;">El profesional presentó documentación sobre su identidad.</p>
                                     </div>
                                     <div class="col-2">
                                         <img src="img-icons/verify.webp" style="margin-top:30px;">
