@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection as Collection;
 use PhpParser\Node\Expr\AssignOp\Concat;
 use App\Mail\RegisterMail;
+use App\Mail\VerifyMail;
+use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
@@ -37,7 +39,7 @@ class UserController extends Controller
             $user->dni = $request['dni'];
             $user->verify = 1;
             $user->save();
-            Mail::to('mardeltrabajaweb@gmail.com')->send(new RegisterMail($user));
+            Mail::to('mardeltrabajaweb@gmail.com')->send(new VerifyMail($user));
             return redirect()->back()->with('verify','success');
         }else{
             return redirect()->back()->with('verify', 'error');
