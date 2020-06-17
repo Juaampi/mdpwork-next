@@ -569,7 +569,7 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                           <div class="swiper-slide">
                               <div class="card" style="border-radius: 10px;">
                                 <a class="card-block stretched-link text-decoration-none" href="/perfil?user_id={{$relacionado->id}}"></a>
-                              <img style="height: 100px;width: 100px;border-radius: 10px 10px 0px 0px;" src="img-perfil/{{$relacionado->img}}" >
+                              <img style="height: 100px;width: 100px;border-radius: 10px 10px 0px 0px;" src="images/large/{{$relacionado->img}}" >
                               <div class="card-body" style="padding: 10px;">
                                   <p style="color: black;font-size: 10px;font-weight: bold; margin: 0px;;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">@if($relacionado->verify == 2) <img height="13" src="img-icons/verify.webp"> @endif {{$relacionado->name}}</p>
 

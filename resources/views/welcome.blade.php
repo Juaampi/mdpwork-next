@@ -393,7 +393,7 @@ use Carbon\Carbon;
                                   <div class="swiper-slide">
                                       <div class="card" style="border-radius: 10px;">
                                     <a class="card-block stretched-link text-decoration-none" href="/perfil?user_id={{$cuidado->id}}"></a>
-                                      <img style="height: 100px;width: 100px;border-radius: 10px 10px 0px 0px;" src="img-perfil/{{$cuidado->img}}" >
+                                      <img style="height: 100px;width: 100px;border-radius: 10px 10px 0px 0px;" src="images/large/{{$cuidado->img}}" >
                                       <div class="card-body" style="padding: 10px;">
                                           <p style="color: black;font-size: 10px;font-weight: bold; margin: 0px;;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">@if($cuidado->verify == 2) <img height="13" src="img-icons/verify.webp"> @endif {{$cuidado->name}}</p>
 
@@ -442,7 +442,7 @@ use Carbon\Carbon;
                                   <div class="swiper-slide">
                                       <div class="card" style="border-radius: 10px;">
                                         <a class="card-block stretched-link text-decoration-none" href="/perfil?user_id={{$hogar->id}}"></a>
-                                      <img style="height: 100px;width: 100px;border-radius: 10px 10px 0px 0px;" src="img-perfil/{{$hogar->img}}" >
+                                      <img style="height: 100px;width: 100px;border-radius: 10px 10px 0px 0px;" src="images/large/{{$hogar->img}}" >
                                       <div class="card-body" style="padding: 10px;">
                                           <p style="color: black;font-size: 10px;font-weight: bold; margin: 0px;;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">@if($hogar->verify == 2) <img height="13" src="img-icons/verify.webp"> @endif {{$hogar->name}}</p>
 
