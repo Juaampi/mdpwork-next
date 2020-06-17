@@ -712,6 +712,7 @@ class UserController extends Controller
         }
 
         $categories = Category::all();
+        $ultimosvistos = '';
         $ultimos = User::where('rol', '=', 'profesional')->orderBy('created_at', 'desc')->take(6)->get();
         $hogares = User::where('rol', '=', 'profesional')->where('category', '=', 6)->orderBy('created_at', 'desc')->take(10)->get();
         $cuidados = User::where('rol', '=', 'profesional')->where('category', '=', 2)->orderBy('created_at', 'desc')->take(10)->get();
