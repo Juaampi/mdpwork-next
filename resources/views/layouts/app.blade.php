@@ -204,8 +204,13 @@
                             </li>
                         </a>
                         <a href="/register">
-                            <li class="text-info" style="display: block;padding: 10px 0;margin: 0;">
-                                 <i class="fa fa-fire " style="font-size: 20px;width: 20px;height: 20px;display: inline-block;margin-right: 18px;float: left;"></i> <span style="font-weight: 600">¡Quiero aparecer en la lista!</span>
+                            <li style="display: block;padding: 10px 0;margin: 0;">
+                                 <i class="fa fa-fire " style="font-size: 20px;width: 20px;height: 20px;display: inline-block;margin-right: 18px;float: left;"></i> <span>¡Quiero aparecer en la lista!</span>
+                            </li>
+                        </a>
+                        <a href="/aspirantes">
+                            <li style="display: block;padding: 10px 0;margin: 0;">
+                                 <i class="fa fa-star " style="font-size: 20px;width: 20px;height: 20px;display: inline-block;margin-right: 18px;float: left;"></i> <span style="font-weight: 600">No tengo experiencia laboral <span style="font-size: 9px;" class="badge badge-primary">Nuevo</span> </span>
                             </li>
                         </a>
 
@@ -268,11 +273,33 @@
                 </div>
             </div>
         </nav>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Mardeltrabaja.com ¿Quienés Somos?</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body text-center">
+                      <h4 class="text-secondary">Mardeltrabaja.com</h4>
+
+                      <p><strong>Mardeltrabaja.com</strong> es una guía para la búsqueda de profesionales dedicados a brindar soluciones para el hogar  y servicio técnico. Pensado para todo el partido de General Pueyrredón y alrededores y con fuerte presencia local inicia sus actividades en la Ciudad <strong>Mar del Plata, Provincia de Buenos Aires, Argentina</strong>. En Mardeltrabaja.com los usuarios tienen acceso a datos de contacto; información,  fotos  y comentarios de los trabajos  realizados por profesionales independientes y por empresas: para así poder elegir a quien consideren más adecuado.</p>
+
+                      <p>Si estás buscando un plomero o un electricista para solucionar un problema: o si te quedaste encerrado afuera de tu casa y necesitás un cerrajero urgente, si querés que un pintor te ayude a pintar las paredes de tu casa: este es el lugar para encontrarlo!</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Ahora se, quienes son!</button>
+                </div>
+              </div>
+            </div>
+          </div>
 
         <main class="">
             @yield('content')
         </main>
-        <section class="footer_bottom_area p0">
+        <section class="footer_bottom_area p0" >
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-4 pb10 pt10">
@@ -291,30 +318,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Mardeltrabaja.com ¿Quienés Somos?</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body text-center">
-            <h4 class="text-secondary">Mardeltrabaja.com</h4>
-
-            <p><strong>Mardeltrabaja.com</strong> es una guía para la búsqueda de profesionales dedicados a brindar soluciones para el hogar  y servicio técnico. Pensado para todo el partido de General Pueyrredón y alrededores y con fuerte presencia local inicia sus actividades en la Ciudad <strong>Mar del Plata, Provincia de Buenos Aires, Argentina</strong>. En Mardeltrabaja.com los usuarios tienen acceso a datos de contacto; información,  fotos  y comentarios de los trabajos  realizados por profesionales independientes y por empresas: para así poder elegir a quien consideren más adecuado.</p>
-
-            <p>Si estás buscando un plomero o un electricista para solucionar un problema: o si te quedaste encerrado afuera de tu casa y necesitás un cerrajero urgente, si querés que un pintor te ayude a pintar las paredes de tu casa: este es el lugar para encontrarlo!</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Ahora se, quienes son!</button>
-      </div>
-    </div>
-  </div>
-</div>
             </section>
     </div>
+
 
  <script type="text/javascript" src="js/autocomplete.js"></script>
  <script type="text/javascript" src="js/barrios.js"></script>
@@ -510,12 +516,23 @@ if (event.keyCode === 13) {
     })
     </script>
 
-<style>
+<script>
+    var swiper = new Swiper('.swiper-container2', {
+      slidesPerView: 3.4,
+      direction: 'horizontal',
+      spaceBetween: 10,
+      freeMode: true,
+    });
+  </script>
 
-    .swiper-pagination{
-        opacity: 0;
-    }
-    </style>
+<script>
+    var swiper = new Swiper('.swiper-container3', {
+      slidesPerView: 3.4,
+      direction: 'horizontal',
+      spaceBetween: 10,
+      freeMode: true,
+    });
+  </script>
 
 
 </body>

@@ -70,16 +70,16 @@
         </div>
 
         <div class="card-body" id="parte-2" @if(session()->has('google')) style="display:block" @else style="display: none" @endif>
-            <p style="font-size: 15px; text-align: center">¿Qué tipo de usuario eres?</p>
+            <p style="font-size: 15px; text-align: center">¿Qué tipo de usuario quieres ser?</p>
         <div class="ml-2 mr-2 mt-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);background: #fafafa;" id="btn-usuario">
             <div class="container">
                 <div class="row">
                     <div class="col-4">
-                        <img src="img/usuario.png" style="margin-top:20px;">
+                        <img src="img/usuario.webp" style="margin-top:20px;">
                     </div>
                     <div class="col-8" style="padding: 25px;">
                             <h6 id="title-usuario" style="margin-bottom: 0px;font-family: 'Lato', sans-serif;color:black;font-size: 14px;" class="font-weight-bold">¡Usuario!</h6>
-                            <p class="text-black" style="font-size: 12px;">Puedes puntuar y dejar tu reseña sobre algún servicio utilizado.</strong></p>
+                            <p id="text-usuario" class="text-black" style="font-size: 12px;display:none;">Siendo un usuario vas a poder dejar tu reseña sobre algún profesional contratado <i class="fa fa-star"></i></strong></p>
                     </div>
                 </div>
         </div>
@@ -90,7 +90,7 @@
                 <div class="row">
                     <div class="col-8" style="padding: 25px;">
                             <h6 id="title-profesional" class="text-black" style="margin-bottom: 0px;font-family: 'Lato', sans-serif;font-size: 14px;" class="font-weight-bold">¡Profesional!</h6>
-                            <p class="text-black" style="font-size: 12px;">Aparecerás en la lista de los profesionales de Mar del Plata con algún oficio.</p>
+                            <p id="text-profesional"class="text-black" style="font-size: 12px;display:none;">Siendo un profesional vas a aparecer en la búscador cuando alguien necesite tu oficio</p>
                     </div>
                     <div class="col-4">
                         <img src="img/profesional.png" style="margin-top:20px;">
@@ -98,6 +98,20 @@
                 </div>
         </div>
         </div>
+        <div class="ml-2 mr-2 mt-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);background: #fafafa;" id="btn-aspirante">
+            <div class="container">
+                <div class="row">
+                    <div class="col-4">
+                        <img src="img/aspirantes.png" style="margin-top:20px;">
+                    </div>
+                    <div class="col-8" style="padding: 25px;">
+                            <h6 id="title-aspirante" style="margin-bottom: 0px;font-family: 'Lato', sans-serif;color:black;font-size: 14px;" class="font-weight-bold">¡Aspirante! <span class="badge badge-info">Nuevo</span></h6>
+                            <p id="text-aspirante" class="text-black" style="font-size: 12px;display:none;">Siendo un aspirante vas a poder visualizar la lista de empleos ofrecidos diarios</strong></p>
+                    </div>
+                </div>
+        </div>
+        </div>
+
         <input id="rol" type="hidden" name="rol" type="text">
     </div>
 
@@ -106,6 +120,7 @@
             <div class="col-sm-12 col-lg-12 col-xl-12">
                     <div class="my_profile_form_area">
                             <div class="row">
+
 
                         <div class="col-md-12">
                             <p>Elegiste ser un profesional, por favor completá el último paso del registro con la actividad que realizas y tus datos de contacto.</p>
@@ -791,9 +806,17 @@
                             $('#btn-profesional').css('background', '#00b7ff');
                             $('#btn-profesional').css('color', 'white');
                             $('#title-profesional').css('color', 'white');
+                            $('#text-profesional').hide('slow');
+                            $('#text-profesional').show('slow');
                             $('#btn-usuario').css('background', '#fafafa');
                             $('#btn-usuario').css('color', 'gray');
+                            $('#btn-aspirante').css('background', '#fafafa');
+                            $('#btn-aspirante').css('color', 'gray');
                             $('#title-usuario').css('color', 'black');
+                            $('#title-aspirante').css('color', 'black');
+                            $('#text-usuario').hide('slow');
+                            $('#text-aspirante').hide('slow');
+
                             $('#rol').val('profesional');
                         });
 
@@ -802,10 +825,37 @@
                             $('#btn-usuario').css('background', '#00b7ff');
                             $('#btn-usuario').css('color', 'white');
                             $('#title-usuario').css('color', 'white');
+                            $('#text-usuario').css('color', 'white');
+                            $('#text-usuario').show('slow');
                             $('#btn-profesional').css('background', '#fafafa');
                             $('#btn-profesional').css('color', 'gray');
+                            $('#btn-aspirante').css('background', '#fafafa');
+                            $('#btn-aspirante').css('color', 'gray');
+                            $('#text-profesional').hide('slow');
+                            $('#text-aspirante').hide('slow');
+                            $('#title-aspirante').css('color', 'black');
                             $('#title-profesional').css('color', 'black');
+
                             $('#rol').val('usuario');
+                        });
+
+                        $('#btn-aspirante').click(function(){
+                            $('#btn-aspirante').css('transition: background-color 1.5s ease');
+                            $('#btn-aspirante').css('background', '#00b7ff');
+                            $('#btn-aspirante').css('color', 'white');
+                            $('#title-aspirante').css('color', 'white');
+                            $('#text-aspirante').css('color', 'white');
+                            $('#text-aspirante').show('slow');
+                            $('#btn-profesional').css('background', '#fafafa');
+                            $('#btn-profesional').css('color', 'gray');
+                            $('#btn-usuario').css('background', '#fafafa');
+                            $('#btn-usuario').css('color', 'gray');
+                            $('#text-profesional').hide('slow');
+                            $('#text-usuario').hide('slow');
+                            $('#title-profesional').css('color','black');
+                            $('#title-usuario').css('color', 'black');
+
+                            $('#rol').val('aspirante');
                         });
 
                         $('#btn-siguiente-1').click(function (){
@@ -873,7 +923,10 @@
                         $('#btn-siguiente-2').click(function (){
                             if($('#rol').val() == 'usuario'){
                                 $('#form-register').submit();
-                            }else{
+                            }
+                            if($('#rol').val() == 'aspirante'){
+                                $('#form-register').submit();
+                            }if($('#rol').val() == 'profesional'){
                                 window.scrollTo(0, 0);
                                 $('#parte-2').hide('slow');
                                 $('#parte-3').show('slow');

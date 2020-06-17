@@ -134,8 +134,6 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
             font-weight: 600;">Filtrar</span></a></li>
     </ul></div>
 
-
-
     <div class="modal fade" id="ordenarModal" tabindex="-1" role="dialog" aria-labelledby="ordenarModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" style="height: 80%" role="document">
           <div class="modal-content" style="height: 100%">
@@ -317,9 +315,10 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                         <h1 style="font-size: 17px;font-weight: normal;margin-top: 10px; margin-bottom: 10px;"><strong>{{ucfirst($busqueda)}}</strong> en Mar del Plata </h1>
                     @endif
                     @if(!empty($empty))
-                        <div class="alert alert-danger text-center" style="width: 100%">Lamentablemente no pudimos encontrar lo que busca, por favor intente nuevamente.</div>
+                        <div class="alert alert-danger text-center" style="width: 100%">Búsqueda sin resultados..</div>
                     @endif
                 </div>
+                @if(empty($empty))
                     <div class="container">
                     <div class="row bg-white">
                         <div class="container">
@@ -437,8 +436,6 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                             </div>
 
 
-
-
                             <div id="list-responsive" class="container">
                                 <div class="row bg-white" style="padding: 5px;">
                                     <div class="col-3" style="padding-left: 5px; padding-right: 5px;">
@@ -465,7 +462,7 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                                         <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: 600">@if($last->verify == 2)<img height="13px" src="img-icons/verify.webp"/>@endif {{$last->name}}</h4>
                                         <p style="font-family: 'roboto', sans-serif;font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ ucfirst($last->job) }} </a></p>
                                         <p style="margin-bottom:0px;font-size: 12px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><i class="fa fa-location-arrow"></i> @if($last->zone){{$last->zone}},@endif Mar del Plata</p>
-                                        <p style="margin-bottom: 0px;font-size: 12px;">
+                                        {{-- <p style="margin-bottom: 0px;font-size: 12px;"> ESTO VA EN LA CONTROLADORA PARA SABER SI ESTA DISPONIBLE O NO
                                                     @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
                                                         @if($hour <= $last->{'outhour'.$day} && $hour >= $last->{'inhour'.$day})
                                                             <span style="font-size: 12px;color: #28af77; font-weight: 600;">@php echo date('G:i',strtotime($last->{'inhour'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day} )) @endphp hs</span>
@@ -488,23 +485,24 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                                                         @endif
                                                     @endif
                                                     </p>
+                                        --}}
                                                     @if($last->presupuesto)<div class="text-success" style="font-size: 12px;">Presupuesto sin cargo</div>@endif
                                                     <a class="stretched-link" style="text-decoration: none;  color: #2e86fc;font-weight: bold;background: none;border: none;font-size: 11px;font-family: 'roboto', sans-serif;" href="{{Route('User.perfil', ['user_id' => $last->id])}}" >VER / CONTACTAR </a>
                                         <hr>
                                     </div>
                                     <div class="col-1" style="padding:0px;">
-                                        @if($points < 2)
+                                        @if($last->points < 2)
                                         <p style="font-size: 11px;"><span style="color: #d84747;"><i class="fa fa-star"></i></span>
-                                        <span style="color: #d84747;"><strong>{{$points}}</strong></span></p>
-                                        @elseif($points >= 3 && $points < 4)
+                                        <span style="color: #d84747;"><strong>{{round($last->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                                        @elseif($last->points >= 3 && $last->points < 4)
                                         <p style="font-size: 11px;"><span style="color: #d66514;"><i class="fa fa-star"></i></span>
-                                        <span style="color: #d66514;"><strong>{{$points}}</strong></span></p>
-                                        @elseif($points >= 4 && $points < 5)
+                                        <span style="color: #d66514;"><strong>{{round($last->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                                        @elseif($last->points >= 4 && $last->points < 5)
                                         <p style="font-size: 11px;"><span style="color: #28af77"><i class="fa fa-star"></i></span>
-                                        <span style="color: #28af77"><strong>{{$points}}</strong></span></p>
-                                        @elseif($points == 5)
+                                        <span style="color: #28af77"><strong>{{round($last->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                                        @elseif($last->points == 5)
                                         <p style="font-size: 11px;"><span style="color: #ffc107"><i class="fa fa-star"></i></span>
-                                        <span style="color: #ffc107"><strong>{{$points}}</strong></span></p>
+                                        <span style="color: #ffc107"><strong>{{round($last->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
                                         @endif
                                     </div>
 
@@ -512,6 +510,7 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                                 </div>
                             @endif
                             @endforeach
+
                         </div>
                     </div>
                     <div class="col-lg-12">
@@ -520,7 +519,74 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                         </div>
                     </div>
                 </div>
-                <p id="text-list-responsive" style="padding: 10px;"><strong>Destacados</strong> en Mardeltrabaja.com</p>
+                @endif
+                @if(!empty($empty))<div class="container">@endif
+                @if(isset($aspirantes))
+                @foreach($aspirantes as $aspirante)
+<div class="row">
+                <div id="list-responsive" class="container">
+                    <div class="row bg-white" style="padding: 5px;">
+                        <div class="col-3" style="padding-left: 5px; padding-right: 5px;">
+                            <img style="border-radius: 10px;" class="img-fluid" src="images/large/{{$aspirante->img}}" alt="1.jpg">
+                        </div>
+                        <div class="col-8" style="padding-left: 10px; padding: right: 10px;">
+                        <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-info">Aspirante</p>
+                            <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: 600">@if($aspirante->verify == 2)<img height="13px" src="img-icons/verify.webp"/>@endif {{$aspirante->name}}</h4>
+                            <p style="font-family: 'roboto', sans-serif;font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{ ucfirst($aspirante->experienciaen) }}</p>
+                            <a class="stretched-link" style="text-decoration: none;  color: #2e86fc;font-weight: bold;background: none;border: none;font-size: 11px;font-family: 'roboto', sans-serif;" href="{{Route('User.perfil', ['user_id' => $aspirante->id])}}" >VER / CONTACTAR </a>
+                            <hr>
+                        </div>
+                        <div class="col-1" style="padding:0px;">
+                            @if($aspirante->points < 2)
+                            <p style="font-size: 11px;"><span style="color: #d84747;"><i class="fa fa-star"></i></span>
+                            <span style="color: #d84747;"><strong>{{round($aspirante->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                            @elseif($aspirante->points >= 3 && $aspirante->points < 4)
+                            <p style="font-size: 11px;"><span style="color: #d66514;"><i class="fa fa-star"></i></span>
+                            <span style="color: #d66514;"><strong>{{round($aspirante->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                            @elseif($aspirante->points >= 4 && $aspirante->points < 5)
+                            <p style="font-size: 11px;"><span style="color: #28af77"><i class="fa fa-star"></i></span>
+                            <span style="color: #28af77"><strong>{{round($aspirante->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                            @elseif($aspirante->points == 5)
+                            <p style="font-size: 11px;"><span style="color: #ffc107"><i class="fa fa-star"></i></span>
+                            <span style="color: #ffc107"><strong>{{round($aspirante->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                            @endif
+                        </div>
+
+                    </div>
+                    </div>
+</div>
+                @endforeach
+                @endif
+
+
+                @if(isset($relacionados))
+                <hr>
+                <p id="text-list-responsive">Te puede interesar..</p>
+                <div class="container">
+                    <div class="swiper-container2">
+                        <div class="swiper-wrapper">
+                            @foreach($relacionados as $relacionado)
+                          <div class="swiper-slide">
+                              <div class="card" style="border-radius: 10px;">
+                                <a class="card-block stretched-link text-decoration-none" href="/perfil?user_id={{$relacionado->id}}"></a>
+                              <img style="height: 100px;width: 100px;border-radius: 10px 10px 0px 0px;" src="img-perfil/{{$relacionado->img}}" >
+                              <div class="card-body" style="padding: 10px;">
+                                  <p style="color: black;font-size: 10px;font-weight: bold; margin: 0px;;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">@if($relacionado->verify == 2) <img height="13" src="img-icons/verify.webp"> @endif {{$relacionado->name}}</p>
+
+
+                                <p style="font-size: 10px; font-weight: bold; margin: 0px;;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{ ucfirst($relacionado->job)}}</p>
+                              </div>
+                              </div>
+                          </div>
+                          @endforeach
+                        </div>
+                        <!-- Add Pagination -->
+                      </div>
+                </div>
+                    <hr>
+                @endif
+                @if(!empty($empty))</div>@endif
+                <p id="text-list-responsive"><strong>Destacados</strong> en Mardeltrabaja</p>
         @if($masvistos)
             @foreach($masvistos as $masvisto)
        <div id="list-responsive" class="container">
@@ -535,25 +601,21 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                                <a class="stretched-link" style="text-decoration: none;  color: #3db39e;background: none;border: none;font-size: 12px;" href="{{Route('User.perfil', ['user_id' => $masvisto->id])}}" ></a>
                    <hr>
                </div>
-               @php $cantComent = 0;$cantPoints = 0;$points = 0;@endphp
-                       @foreach($coments as $coment) @if($coment->user_id == $masvisto->id) @php $cantComent ++; $cantPoints += $coment->point; @endphp @endif @endforeach
-                   @php if($cantPoints != 0){ $points = $cantPoints / $cantComent; }else{ $points = 4; } @endphp
-               <div class="col-1" style="padding: 0px;">
-                   @if($points < 2)
-                   <p style="font-size: 11px;"><span style="color: #d84747;"><i class="fa fa-star"></i></span>
-                   <span style="color: #d84747;"><strong>{{$points}}</strong></span></p>
-                   @elseif($points >= 3 && $points < 4)
-                   <p style="font-size: 11px;"><span style="color: #d66514;"><i class="fa fa-star"></i></span>
-                   <span style="color: #d66514;"><strong>{{$points}}</strong></span></p>
-                   @elseif($points >= 4 && $points < 5)
-                   <p style="font-size: 11px;"><span style="color: #28af77"><i class="fa fa-star"></i></span>
-                   <span style="color: #28af77"><strong>{{$points}}</strong></span></p>
-                   @elseif($points == 5)
-                   <p style="font-size: 11px;"><span style="color: #ffc107"><i class="fa fa-star"></i></span>
-                   <span style="color: #ffc107"><strong>{{$points}}</strong></span></p>
-                   @endif
-               </div>
-
+                   <div class="col-1" style="padding:0px;">
+                    @if($masvisto->points < 2)
+                    <p style="font-size: 10px;"><span style="color: #d84747;"><i class="fa fa-star"></i></span>
+                    <span style="color: #d84747;"><strong>{{round($masvisto->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                    @elseif($masvisto->points >= 3 && $masvisto->points < 4)
+                    <p style="font-size: 10px;"><span style="color: #d66514;"><i class="fa fa-star"></i></span>
+                    <span style="color: #d66514;"><strong>{{round($masvisto->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                    @elseif($masvisto->points >= 4 && $masvisto->points < 5)
+                    <p style="font-size: 10px;"><span style="color: #28af77"><i class="fa fa-star"></i></span>
+                    <span style="color: #28af77"><strong>{{round($masvisto->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                    @elseif($masvisto->points == 5)
+                    <p style="font-size: 10px;"><span style="color: #ffc107"><i class="fa fa-star"></i></span>
+                    <span style="color: #ffc107"><strong>{{round($masvisto->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                    @endif
+                </div>
            </div>
            </div>
            @endforeach
@@ -575,23 +637,20 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
       <a class="stretched-link" style="text-decoration: none;  color: #3db39e;background: none;border: none;font-size: 12px;" href="{{Route('User.perfil', ['user_id' => $mascomentado->id])}}" ></a>
 <hr>
 </div>
-@php $cantComent = 0;$cantPoints = 0;$points = 0;@endphp
-@foreach($coments as $coment) @if($coment->user_id == $mascomentado->id) @php $cantComent ++; $cantPoints += $coment->point; @endphp @endif @endforeach
-@php if($cantPoints != 0){ $points = $cantPoints / $cantComent; }else{ $points = 4; } @endphp
-<div class="col-1" style="padding: 0px;">
-@if($points < 2)
-<p style="font-size: 11px;"><span style="color: #d84747;"><i class="fa fa-star"></i></span>
-<span style="color: #d84747;"><strong>{{$points}}</strong></span></p>
-@elseif($points >= 3 && $points < 4)
-<p style="font-size: 11px;"><span style="color: #d66514;"><i class="fa fa-star"></i></span>
-<span style="color: #d66514;"><strong>{{$points}}</strong></span></p>
-@elseif($points >= 4 && $points < 5)
-<p style="font-size: 11px;"><span style="color: #28af77"><i class="fa fa-star"></i></span>
-<span style="color: #28af77"><strong>{{$points}}</strong></span></p>
-@elseif($points == 5)
-<p style="font-size: 11px;"><span style="color: #ffc107"><i class="fa fa-star"></i></span>
-<span style="color: #ffc107"><strong>{{$points}}</strong></span></p>
-@endif
+<div class="col-1" style="padding:0px;">
+    @if($mascomentado->points < 2)
+    <p style="font-size: 10px;"><span style="color: #d84747;"><i class="fa fa-star"></i></span>
+    <span style="color: #d84747;"><strong>{{round($mascomentado->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+    @elseif($mascomentado->points >= 3 && $mascomentado->points < 4)
+    <p style="font-size: 10px;"><span style="color: #d66514;"><i class="fa fa-star"></i></span>
+    <span style="color: #d66514;"><strong>{{round($mascomentado->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+    @elseif($mascomentado->points >= 4 && $mascomentado->points < 5)
+    <p style="font-size: 10px;"><span style="color: #28af77"><i class="fa fa-star"></i></span>
+    <span style="color: #28af77"><strong>{{round($mascomentado->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+    @elseif($mascomentado->points == 5)
+    <p style="font-size: 10px;"><span style="color: #ffc107"><i class="fa fa-star"></i></span>
+    <span style="color: #ffc107"><strong>{{round($mascomentado->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+    @endif
 </div>
 
 </div>
@@ -619,6 +678,7 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
 
     </div>
 </div>
+
 
 
 <script>

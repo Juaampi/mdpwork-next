@@ -181,6 +181,7 @@ use Carbon\Carbon;
                                     <!-- FIN DE ALGORITMO PARA DISPONOBILIDAD -->
 
                                     <!-- OPTIMIZACION DE CODIGO ESTO VA EN LA CONTROLADORA -->
+                                    @if($user->rol == 'profesional')
                                     @if($user->{'inhourafter'.$day} && $user->{'outhourafter'.$day})
                                         @if($hour >= $user->{'inhourafter'.$day} && $hour <= $user->{'outhourafter'.$day})
                                              <h5 class="job_chedule badge badge-success text-white mt0"><strong>Disponible</strong></h5>
@@ -196,13 +197,23 @@ use Carbon\Carbon;
                                             <h5 class="job_chedule badge badge-danger text-white mt0"><strong>No disponible</strong></h5>
                                         @endif
                                     @endif
+                                    @endif
+                                    @if($user->rol == 'aspirante')
+                                    <h5 class="job_chedule badge badge-info text-white mt0"><strong>Aspirante</strong></h5>
+                                    @endif
 
                                         <h5 class="text-black">{{$user->name}}</h5>
                                         <ul class="address_list">
                                             <li class="list-inline-item" style="font-style: italic;"><i class="fa fa-location-arrow"></i> @if($user->zone){{$user->zone}},@endif Mar del Plata</li>
                                         </ul>
+                                        @if($user->rol == 'profesional')
                                         <h6> {{ ucfirst($user->job) }} <i class="fa fa-check-circle"></i></h6>
+                                        @endif
+                                        @if($user->rol == 'aspirante')
+                                        <h6> {{ ucfirst($user->aptitudes) }} <i class="fa fa-check-circle"></i></h6>
+                                        @else
                                         <p>De <strong>{{$user->age}} años</strong></p>
+                                        @endif
                                         <p class="text-muted"> @php
                                             $cantidadComentarios = 0;
                                             @endphp
@@ -213,7 +224,9 @@ use Carbon\Carbon;
                                                     @endphp
                                                 @endif
                                             @endforeach
+                                            @if($user->rol == 'profesional')
                                         <img src="img-icons/coments.png" /> <strong>Comentarios: <span class="badge badge-secondary">{{$cantidadComentarios}}</span> </strong>
+                                        @endif
                                     </p>
                                     </div>
                                 </div>
@@ -234,6 +247,7 @@ use Carbon\Carbon;
                                      <img height="40px" class="mr-2" src="img-icons/whatsappno.png" />
                                 </li>
                                 @endif
+                                @if($user->rol == 'profesional')
                                 @if($user->facebook)
                                 <li style="display: inline">
                                 <a href="http://m.me/{{$user->facebook}}" target="_blank"><img height="40px" class="mr-2" src="img-icons/messenger.png" />
@@ -242,6 +256,7 @@ use Carbon\Carbon;
                                 <li style="display: inline" class="text-center">
                                     <img height="40px" class="mr-2" src="img-icons/messengerno.png" />
                                 </li>
+                                @endif
                                 @endif
                                 @if($user->phone)
                                 <li style="display: inline">
@@ -253,7 +268,7 @@ use Carbon\Carbon;
                                 </li>
                                 @endif
                                 </ul>
-
+                                @if($user->rol == 'profesional')
                                 <div class="row">
                                     <p><strong>Redes sociales</strong></p>
                                 </div>
@@ -298,6 +313,7 @@ use Carbon\Carbon;
                                     </ul>
                                  </div>
                             </div>
+                            @endif
                     </div>
                 </div>
                 <div class="card-footer text-muted text-center">
@@ -317,7 +333,9 @@ use Carbon\Carbon;
                             <img class="img-fluid rounded" style="height: 150px" src="img-perfil/{{$user->img}}" alt="cl1.jpg">
                             <hr>
                         </div>
+
                         <div class="container" style="font-family: 'Roboto', sans-serif;">
+                            @if($user->rol == 'profesional')
                         @if($user->{'inhourafter'.$day} && $user->{'outhourafter'.$day})
                             @if($hour >= $user->{'inhourafter'.$day} && $hour <= $user->{'outhourafter'.$day})
                                 <p style="font-size: 12px; margin-bottom: -5px; margin-top: 10px;" class="text-success">Disponible</p>
@@ -333,19 +351,30 @@ use Carbon\Carbon;
                             <p style="font-size: 12px; margin-bottom: -5px; margin-top: 10px;" class="text-danger">No disponible</p>
                             @endif
                         @endif
+                        @endif
+                        @if($user->rol == 'aspirante')
+                            <p style="font-size: 12px; margin-bottom: -5px; margin-top: 10px;" class="badge badge-info">Aspirante</p>
+                        @endif
                         <h5 class="card-title mt-1" style="margin-bottom: -2px;font-family: 'Roboto', sans-serif;font-weight: bold;">{{$user->name}}</h5>
                         <p style="font-size: 12px;">En <span class="text-info"> @if($user->zone){{$user->zone}},@endif Mar del Plata </span></p>
+                        @if($user->rol == 'profesional')
                         <p style="font-size: 14px;"><span style="color: #bbbbbb"></span> {{ucfirst($user->job)}} <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></p>
                         @if($user->job2)<p style="font-size: 14px;"> - <strong>Secundaria:</strong> <span style="color: #bbbbbb"></span> {{ucfirst($user->job2)}} <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></p>@endif
                         @if($user->job3)<p style="font-size: 14px;"> - <strong>Alterna:</strong> <span style="color: #bbbbbb"></span> {{ucfirst($user->job3)}} <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></p>@endif
-                        @php $cantComent = 0; $cantPoints = 0; $points = 0; @endphp @foreach($coments as $coment) @if($coment->user_id == $user->id) @php $cantComent ++;$cantPoints += $coment->point;@endphp @endif @endforeach
-                        @php if($cantPoints != 0){ $points = $cantPoints / $cantComent; }else{ $points = 4;}@endphp
+                        @endif
+                        @if($user->rol == 'aspirante')
+                        <p style="font-size: 14px;"><span style="color: #bbbbbb"></span><strong>Aptitudes en:</strong> @if($user->aptitudes){{ucfirst($user->aptitudes)}} @else El aspirante aún no completó sus aspiraciones @endif </p>
+                        <p style="font-size: 14px;"><span style="color: #bbbbbb"></span><strong>Experiencia en:</strong> @if($user->experienciaen){{ucfirst($user->experienciaen)}} @else El aspirante aún no completó sus aspiraciones @endif </p>
+                        @endif
+                        @if($user->rol == 'profesional')
                         <ul style="margin-bottom: 10px;color: #17a2b8">
-                            <li style="display: inline"><i class="fa fa-star"></i></li><li style="display: inline"><i class="fa fa-star"></i></li><li style="display: inline"><i class="fa fa-star"></i></li><li style="display: inline"><i class="fa fa-star"></i></li><li style="display: inline"><i class="fa fa-star"></i></li>
+                            <li style="display: inline"><i class="fa fa-star"></i></li><li style="display: inline"><i class="fa fa-star"></i></li><li style="display: inline"><i class="fa fa-star"></i></li><li style="display: inline"><i class="fa fa-star"></i></li><li style="display: inline"><i @if($user->points < 5) class="fa fa-star-half" @else class="fa fa-star" @endif></i></li>
+                            <li style="display: inline; color: gray;font-size: 12px;">({{$user->points}})</li>
                             <li style="display: inline">
                             <span style="font-size: 12px; margin-bottom: -5px; margin-top: 10px;margin-left: 5px;" class="text-muted">@if($cantComent == 0) Sin opiniones @elseif($cantComent == 1) 1 opinión @elseif($cantComent > 1) {{$cantComent}} opiniones @endif - {{$user->views()->count()}} visitas</span>
                             </li>
                         </ul>
+                        @endif
 
                         @if($user->verify == 2)
                         <div class="responsive bg-white ml-2 mr-2 mt-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
@@ -375,6 +404,7 @@ use Carbon\Carbon;
                                  <img height="30px" class="mr-2" src="img-icons/whatsappno.png" />
                             </li>
                             @endif
+                            @if($user->rol == 'profesional')
                             @if($user->facebook)
                             <li style="display: inline">
                             <a href="http://m.me/{{$user->facebook}}" target="_blank"><img height="30px" class="mr-2" src="img-icons/messenger.png" />
@@ -383,6 +413,7 @@ use Carbon\Carbon;
                             <li style="display: inline" class="text-center">
                                 <img height="30px" class="mr-2" src="img-icons/messengerno.png" />
                             </li>
+                            @endif
                             @endif
                             @if($user->phone)
                             <li style="display: inline">
@@ -394,6 +425,7 @@ use Carbon\Carbon;
                             </li>
                             @endif
                         </ul>
+                        @if($user->rol == 'profesional')
                         <p style="font-size: 14px;">Redes sociales</p>
                         <ul style="margin-top: -5px; margin-bottom: 30px;">
                             @if($user->facebook)
@@ -433,6 +465,7 @@ use Carbon\Carbon;
                                 </li>
                             @endif
                         </ul>
+                        @endif
                         @php $namemail = str_replace(" ","%20",$user->name); @endphp
                         <a href="mailto:mardeltrabajaweb@gmail.com?Subject=Quiero%20reclamar%20el%20perfil%20{{$namemail}}" style="font-size: 13px;"><span style="color: #bbbbbb"><i class="fa fa-shield"></i> Reclamar éste perfil</span></a>
                         </div>
@@ -448,9 +481,10 @@ use Carbon\Carbon;
                         <div class="row">
                             <div class="col-lg-12 mt10">
                                 <div class="candidate_about_info style2">
-                                    @if($user->description)<h6 class="mb10" style="font-size: 17px;">Descripción del trabajo</h6>
+                                    @if($user->description)<h6 class="mb10" style="font-size: 17px;">Autodescripción del profesional</h6>
                                     <p class="text-muted" style="font-size: 15px">{{$user->description}}</p>
                                     @endif
+                                    @if($user->rol == 'profesional')
                                     <h6 class="mb10 mt10" style="font-size: 17px;">Medios de pago</h6>
                                     <ul id="ulmetodos">
                                         @if($user->isEfective)
@@ -593,8 +627,10 @@ use Carbon\Carbon;
                             @if($user->presupuesto)<p style="font-size: 15px"><i class="fa fa-certificate"></i> <strong>Presupuesto:</strong> Gratis</div><hr>@endif
                         </div>
                     </div>
+                    @endif
                 </div>
             </div>
+
             @if($user->img1 || $user->img2 || $user->img3)
             <div class="container">
             <div class="row" style="margin-left: 10px;">

@@ -47,6 +47,10 @@ class UserController extends Controller
 
     }
 
+    public function aspirantes(){
+        return view('aspirantes');
+    }
+
     public function opciones(){
         $categories = Category::all();
         $subcategories = Subcategory::all();
@@ -61,8 +65,8 @@ class UserController extends Controller
 
     public function showlist(){
 
-        $masvistos = DB::table('views')->selectRaw("users.id, users.name, users.img, users.job, users.verify, COUNT('views.*') as views")->join('users', 'users.id', '=', 'views.user_id')->groupBy('users.name')->orderBy('views', 'desc')->take(1)->get();
-        $mascomentados = DB::table('coments')->selectRaw("users.id, users.name, users.img, users.job,users.verify, COUNT('coments.*') as coments")->join('users', 'users.id', '=', 'coments.user_id')->groupBy('users.name')->orderBy('coments', 'desc')->take(1)->get();
+        $masvistos = DB::table('views')->selectRaw("users.id, users.name, users.img, users.job, users.verify,users.points, COUNT('views.*') as views")->join('users', 'users.id', '=', 'views.user_id')->groupBy('users.name')->orderBy('views', 'desc')->take(1)->get();
+        $mascomentados = User::orderBy('points', 'desc')->take(1)->get();
         $users = User::where('rol', '=', 'profesional')->orderBy('created_at', 'desc')->paginate(80);
         $categories = Category::all();
         $subcategories = Subcategory::all();
@@ -102,13 +106,15 @@ class UserController extends Controller
     }
 
     public function search(Request $request){
-        $masvistos = DB::table('views')->selectRaw("users.id, users.name, users.img, users.job,users.verify,  COUNT('views.*') as views")->join('users', 'users.id', '=', 'views.user_id')->groupBy('users.name')->orderBy('views', 'desc')->take(1)->get();
-        $mascomentados = DB::table('coments')->selectRaw("users.id, users.name, users.img, users.job,users.verify,  COUNT('coments.*') as coments")->join('users', 'users.id', '=', 'coments.user_id')->groupBy('users.name')->orderBy('coments', 'desc')->take(1)->get();
+        $masvistos = DB::table('views')->selectRaw("users.id, users.name, users.img, users.job,users.verify,users.points, COUNT('views.*') as views")->join('users', 'users.id', '=', 'views.user_id')->groupBy('users.name')->orderBy('views', 'desc')->take(1)->get();
+        $mascomentados = User::orderBy('points', 'desc')->take(1)->get();
         $categories = Category::all();
         $users = User::all();
         $subcategories = Subcategory::all();
         $coments = Coment::all();
         $relacionadas = '';
+
+
         if(!empty($request['search'])){
             $busqueda = new Search;
             $busqueda->ip = $request->ip();
@@ -159,11 +165,42 @@ class UserController extends Controller
         }else if(!empty($request['search']) && empty($request['zone'])){
            $user = User::where('job', 'like', '%' . $request['search'] . '%')->paginate(80);
                 if(count($user) == 0){
+                    $subcategoryRelacionada = Subcategory::where('name', 'LIKE', '%' . $request['search'] . '%')->take(1)->get();
+                    $aspirantes = User::where('aptitudes', 'like', '%' . $request['search'] . '%')->orwhere('experienciaen', 'like', '%' . $request['search'] . '%')->get();
                     $user =  User::where('rol', '=', 'profesional')->orderBy('created_at', 'desc')->paginate(80);
-                    return view('list', ['busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
+                        if(count($subcategoryRelacionada) > 0) {
+                            $relacionados = User::where('category', '=', $subcategoryRelacionada[0]['category_id'])->orderBy('created_at', 'desc')->get();
+                            if(count($aspirantes) > 0){
+                                return view('list', ['aspirantes' => $aspirantes, 'relacionados' => $relacionados, 'busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
+                            }else{
+                                return view('list', ['relacionados' => $relacionados, 'busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
+                            }
+                        }else{
+                            if(count($aspirantes) > 0){
+                                return view('list', ['aspirantes' => $aspirantes, 'busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
+                            }else{
+                                return view('list', ['busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
+                            }
+                        }
                 }else{
-                    return view('list', ['busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
+                    $aspirantes = User::where('aptitudes', 'like', '%' . $request['search'] . '%')->orwhere('experienciaen', 'like', '%' . $request['search'] . '%')->get();
+                    $subcategoryRelacionada = Subcategory::where('name', 'LIKE', '%' . $request['search'] . '%')->take(1)->get();
+                    if(count($subcategoryRelacionada) > 0){
+                        $relacionados = User::where('category', '=', $subcategoryRelacionada[0]['category_id'])->orderBy('created_at', 'desc')->take(10)->get();
+                        if(count($aspirantes) > 0){
+                            return view('list', ['aspirantes' => $aspirantes, 'relacionados' => $relacionados, 'busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
+                        }else{
+                            return view('list', ['relacionados' => $relacionados, 'busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
+                        }
+                    }else{
+                        if(count($aspirantes) > 0){
+                            return view('list', ['aspirantes' => $aspirantes, 'busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
+                        }else{
+                            return view('list', ['busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
+                        }
+                    }
                 }
+
        }else if(!empty($request['zone']) && empty($request['search'])){
             $user = User::where('zone', 'like', '%' . $request['zone'] . '%')->paginate(80);
                 if(count($user) == 0){
@@ -392,6 +429,34 @@ class UserController extends Controller
             $user->save();
         }else{
             $user->presupuesto = false;
+            $user->save();
+        }
+        if(!empty($request['whatsappas'])){
+            $user->whatsapp = $request['whatsappas'];
+            $user->save();
+        }
+        if(!empty($request['telefonoas'])){
+            $user->phone = $request['telefonoas'];
+            $user->save();
+        }
+        if(!empty($request['aptitudes'])){
+            $user->aptitudes = $request['aptitudes'];
+            $user->save();
+        }
+        if(!empty($request['experienciaen'])){
+            $user->experienciaen = $request['experienciaen'];
+            $user->save();
+        }
+        if(!empty($request['zoneas'])){
+            $user->zone = $request['zoneas'];
+            $user->save();
+        }
+        if(!empty($request['cityas'])){
+            $user->city = $request['cityas'];
+            $user->save();
+        }
+        if(!empty($request['descripcionas'])){
+            $user->description = $request['descripcionas'];
             $user->save();
         }
 
@@ -648,17 +713,25 @@ class UserController extends Controller
 
         $categories = Category::all();
         $ultimos = User::where('rol', '=', 'profesional')->orderBy('created_at', 'desc')->take(6)->get();
+        $hogares = User::where('rol', '=', 'profesional')->where('category', '=', 6)->orderBy('created_at', 'desc')->take(10)->get();
+        $cuidados = User::where('rol', '=', 'profesional')->where('category', '=', 2)->orderBy('created_at', 'desc')->take(10)->get();
+        $ip = $this->getIp();
+        $user_id_ultimo = View::where('ip','=', $ip)->orderBy('id', 'desc')->take(1)->get();
+        foreach($user_id_ultimo as $user){
+        $ultimosvistos = User::find($user->user_id);
+        }
         $coments = Coment::all();
 
-        return view('welcome', ['cantidadesarray' => $cantidades, 'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $ultimos, 'subcategories' => $subcategories, 'coments' => $coments]);
+
+        return view('welcome', ['ultimosvistos' => $ultimosvistos, 'cuidados' => $cuidados, 'hogares' => $hogares, 'cantidadesarray' => $cantidades, 'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $ultimos, 'subcategories' => $subcategories, 'coments' => $coments]);
     }
 
 
 
     public function ordenarPorNombre(Request $request){
 
-        $masvistos = DB::table('views')->selectRaw("users.id, users.name, users.img, users.job, users.verify,  COUNT('views.*') as views")->join('users', 'users.id', '=', 'views.user_id')->groupBy('users.name')->orderBy('views', 'desc')->take(1)->get();
-        $mascomentados = DB::table('coments')->selectRaw("users.id, users.name, users.img, users.job, users.verify,  COUNT('coments.*') as coments")->join('users', 'users.id', '=', 'coments.user_id')->groupBy('users.name')->orderBy('coments', 'desc')->take(1)->get();
+        $masvistos = DB::table('views')->selectRaw("users.id, users.name, users.img, users.job, users.verify,users.points,  COUNT('views.*') as views")->join('users', 'users.id', '=', 'views.user_id')->groupBy('users.name')->orderBy('views', 'desc')->take(1)->get();
+        $mascomentados = User::orderBy('points', 'desc')->take(1)->get();
         $users = User::where('rol', '=', 'profesional')->orderBy('created_at', 'desc')->get();
         $categories = Category::all();
         $subcategories = Subcategory::all();
@@ -718,8 +791,8 @@ class UserController extends Controller
 
     public function ordenarPorZona(Request $request){
 
-        $masvistos = DB::table('views')->selectRaw("users.id, users.name, users.img, users.job, users.verify,  COUNT('views.*') as views")->join('users', 'users.id', '=', 'views.user_id')->groupBy('users.name')->orderBy('views', 'desc')->take(1)->get();
-        $mascomentados = DB::table('coments')->selectRaw("users.id, users.name, users.img, users.job, users.verify,  COUNT('coments.*') as coments")->join('users', 'users.id', '=', 'coments.user_id')->groupBy('users.name')->orderBy('coments', 'desc')->take(1)->get();
+        $masvistos = DB::table('views')->selectRaw("users.id, users.name, users.img, users.job, users.verify,users.points,  COUNT('views.*') as views")->join('users', 'users.id', '=', 'views.user_id')->groupBy('users.name')->orderBy('views', 'desc')->take(1)->get();
+        $mascomentados = User::orderBy('points', 'desc')->take(1)->get();
         $users = User::where('rol', '=', 'profesional')->orderBy('created_at', 'desc')->get();
         $categories = Category::all();
         $subcategories = Subcategory::all();
@@ -776,14 +849,41 @@ class UserController extends Controller
 }
 
 
-    public function ordenarPorDisponibilidad(Request $request){
-
+    public function disponible(Request $request){
+        $last = User::find($request['user_id']);
+        $disponible = false;
+        $carbon = Carbon::now('America/Argentina/Buenos_Aires');
+        $day = $carbon->isoFormat('dddd');
+        $hour = $carbon->format('H:i:s');
+            if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day}){
+                if($hour <= $last->{'outhour'.$day} && $hour >= $last->{'inhour'.$day})
+                    $disponible = true;
+                elseif($hour > $last->{'outhour'.$day} && $hour < $last->{'inhourafter'.$day}){
+                    $disponible = false;
+                }
+                elseif($hour >= $last->{'inhourafter'.$day} && $hour <= $last->{'outhourafter'.$day} )
+                    $disponible = true;
+                else{
+                $disponible = false;
+                }
+            }else{
+                if($last->{'inhour'.$day} && $last->{'outhour'.$day}){
+                    if($hour <= $last->{'outhour'.$day} && $hour >= $last->{'inhour'.$day}){
+                        $disponible = true;
+                    }else{
+                        $disponible = false;
+                    }
+                }else{
+                 $disponible = false;
+                }
+        }
+        return $disponible;
     }
 
     public function ordenarPorPuntaje(Request $request){
 
-        $masvistos = DB::table('views')->selectRaw("users.id, users.name, users.img, users.job, users.verify,  COUNT('views.*') as views")->join('users', 'users.id', '=', 'views.user_id')->groupBy('users.name')->orderBy('views', 'desc')->take(1)->get();
-        $mascomentados = DB::table('coments')->selectRaw("users.id, users.name, users.img, users.job, users.verify,  COUNT('coments.*') as coments")->join('users', 'users.id', '=', 'coments.user_id')->groupBy('users.name')->orderBy('coments', 'desc')->take(1)->get();
+        $masvistos = DB::table('views')->selectRaw("users.id, users.name, users.img, users.job, users.verify,users.points,  COUNT('views.*') as views")->join('users', 'users.id', '=', 'views.user_id')->groupBy('users.name')->orderBy('views', 'desc')->take(1)->get();
+        $mascomentados = User::orderBy('points', 'desc')->take(1)->get();
         $users = User::where('rol', '=', 'profesional')->orderBy('created_at', 'desc')->get();
         $categories = Category::all();
         $subcategories = Subcategory::all();

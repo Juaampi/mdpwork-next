@@ -79,11 +79,16 @@ filter: brightness(50%);
                                 @if(Auth::user()->rol == 'profesional')
                                 <p style="font-size: 11px;color: #949494;"><img style="width: 16px;" src="img-icons/location.png">@if(!Auth::user()->zone) Mar del Plata @else {{ Auth::user()->zone}} @endif</p>
                                        <p style="font-style: italic;font-size: 13px;"><img src="img-icons/profesion.png" style="width:16px;"> {{ Auth::user()->job }}</p>
-                                @else
-                                    <p style="font-style: italic;font-size: 13px;"> Usuario MDP </p>
+                                @endif
+                                @if(Auth::user()->rol == 'usuario')
+                                    <p style="font-style: italic;font-size: 13px;"> Usuario </p>
+                                @endif
+                                @if(Auth::user()->rol == 'aspirante')
+                                    <p style="font-style: italic;font-size: 13px;"> Aspirante </p>
                                 @endif
                             </div>
                         </div>
+
                         <div id="showUpdateImg" style="font-size: 13px;font-weight: bold;color: #1886fc;border:none;background: none;font-family: 'roboto', sans-serif">ACTUALIZAR IMAGEN DE PERFIL</div>
                         <form id="formUpdateImg" style="display:none;margin-top:5px;" method="POST" action="{{ route('User.updateImg') }}" enctype="multipart/form-data">
                             @csrf
@@ -93,7 +98,70 @@ filter: brightness(50%);
                             <button style="font-size:12px;" type="submit" class="btn b">Guardar</button>
                             <label style="font-size:12px;" id="cancelUpdateImg" class="text-danger font-weight-bold">Cancelar</label>
                          </form>
-					</div>
+                    </div>
+
+                        <div class=" mt-2 mb-2 responsive" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);background: white">
+                            <div class="container">
+                                <div class="row">
+                                    @if(Auth::user()->verify)
+                                                @if(Auth::user()->verify == 1)
+                                    <div class="col-8" style="padding: 25px;">
+                                            <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;color:black;" class="font-weight-bold">Estado de perfil</h6>
+                                                    <p class="text-secondary" style="font-size: 12px;">En verificación..</p>
+                                                    <div class="progress" style="height: 3px;">
+                                                    <div class="progress-bar" id="progressbar1" role="progressbar" style="width: 33%;background: #00b7ff" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar" id="progressbar2" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 33%;background: #00b7ff;border-right: 1px solid #a5a5a5;border-left: 1px solid #a5a5a5;">
+                                                    </div>
+                                                    <div class="progress-bar" id="progressbar3" role="progressbar" aria-valuenow="25"
+                                                    aria-valuemin="0" aria-valuemax="100" style="width: 34%;background: #f1f1f1">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <img src="img-icons/verify.webp" style="margin-top: 40px;">
+                                        </div>
+                                         @endif
+                                         @if(Auth::user()->verify == 2)
+                                            <div class="col-8" style="padding: 25px;">
+                                                <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;color:black;" class="font-weight-bold">Estado de perfil</h6>
+                                                        <p class="text-secondary" style="font-size: 12px;">Perfil Verificado</p>
+                                                        <div class="progress" style="height: 3px;">
+                                                        <div class="progress-bar" id="progressbar1" role="progressbar" style="width: 33%;background: #00b7ff" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        <div class="progress-bar" id="progressbar2" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 33%;background: #00b7ff;border-right: 1px solid #a5a5a5;border-left: 1px solid #a5a5a5;">
+                                                        </div>
+                                                        <div class="progress-bar" id="progressbar3" role="progressbar" aria-valuenow="25"
+                                                        aria-valuemin="0" aria-valuemax="100" style="width: 34%;background: #00b7ff">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <img src="img-icons/verify.webp" style="margin-top: 40px;">
+                                            </div>
+                                         @endif
+                                        @else
+                                        <div class="col-8" style="padding: 25px;padding-bottom: 10px;">
+                                            <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;color:black;" class="font-weight-bold">Estado de perfil</h6>
+                                            <p class="text-secondary" style="font-size: 12px;">Sin verificar</p>
+                                            <div class="progress" style="height: 3px;">
+                                                <div class="progress-bar" id="progressbar1" role="progressbar" style="width: 33%;background: #00b7ff" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
+                                                <div class="progress-bar" id="progressbar2" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 33%;background: #f1f1f1;border-right: 1px solid #a5a5a5;border-left: 1px solid #a5a5a5;">
+                                                </div>
+                                                <div class="progress-bar" id="progressbar3" role="progressbar" aria-valuenow="25"
+                                                    aria-valuemin="0" aria-valuemax="100" style="width: 34%;background: #f1f1f1">
+                                                </div>
+                                            </div>
+                                            <p style="margin-top: 20px;"><a id="verificar" style="font-size: 14px;font-weight: bold;color: #1886fc;"  data-toggle="modal" data-target="#modalverify" href="/lista">Verificar perfil<i class="fa fa-arrow-right" style="padding: 5px;float: right;"></i></a></p>
+                                             </div>
+                                        <div class="col-4">
+                                            <img src="img/personalizar.png" style="margin-top: 25px;">
+                                        </div>
+                                            @endif
+
+
+                                </div>
+                        </div>
+                        </div>
+
 					<div class="dashbord_nav_list">
 						<ul>
 							<li class="active">
@@ -110,69 +178,7 @@ filter: brightness(50%);
                     </div>
                 </div>
 
-                <div class="col-md-12">
-                <div class="ml-2 mr-2 mt-2 mb-2 responsive" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);background: white">
-                    <div class="container">
-                        <div class="row">
-                            @if(Auth::user()->verify)
-                                        @if(Auth::user()->verify == 1)
-                            <div class="col-8" style="padding: 25px;">
-                                    <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;color:black;" class="font-weight-bold">Estado de perfil</h6>
-                                            <p class="text-secondary" style="font-size: 12px;">En verificación..</p>
-                                            <div class="progress" style="height: 3px;">
-                                            <div class="progress-bar" id="progressbar1" role="progressbar" style="width: 33%;background: #00b7ff" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
-                                            <div class="progress-bar" id="progressbar2" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 33%;background: #00b7ff;border-right: 1px solid #a5a5a5;border-left: 1px solid #a5a5a5;">
-                                            </div>
-                                            <div class="progress-bar" id="progressbar3" role="progressbar" aria-valuenow="25"
-                                            aria-valuemin="0" aria-valuemax="100" style="width: 34%;background: #f1f1f1">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <img src="img-icons/verify.webp" style="margin-top: 40px;">
-                                </div>
-                                 @endif
-                                 @if(Auth::user()->verify == 2)
-                                    <div class="col-8" style="padding: 25px;">
-                                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;color:black;" class="font-weight-bold">Estado de perfil</h6>
-                                                <p class="text-secondary" style="font-size: 12px;">Perfil Verificado</p>
-                                                <div class="progress" style="height: 3px;">
-                                                <div class="progress-bar" id="progressbar1" role="progressbar" style="width: 33%;background: #00b7ff" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
-                                                <div class="progress-bar" id="progressbar2" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 33%;background: #00b7ff;border-right: 1px solid #a5a5a5;border-left: 1px solid #a5a5a5;">
-                                                </div>
-                                                <div class="progress-bar" id="progressbar3" role="progressbar" aria-valuenow="25"
-                                                aria-valuemin="0" aria-valuemax="100" style="width: 34%;background: #00b7ff">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <img src="img-icons/verify.webp" style="margin-top: 40px;">
-                                    </div>
-                                 @endif
-                                @else
-                                <div class="col-8" style="padding: 25px;padding-bottom: 10px;">
-                                    <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;color:black;" class="font-weight-bold">Estado de perfil</h6>
-                                    <p class="text-secondary" style="font-size: 12px;">Sin verificar</p>
-                                    <div class="progress" style="height: 3px;">
-                                        <div class="progress-bar" id="progressbar1" role="progressbar" style="width: 33%;background: #00b7ff" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
-                                        <div class="progress-bar" id="progressbar2" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 33%;background: #f1f1f1;border-right: 1px solid #a5a5a5;border-left: 1px solid #a5a5a5;">
-                                        </div>
-                                        <div class="progress-bar" id="progressbar3" role="progressbar" aria-valuenow="25"
-                                            aria-valuemin="0" aria-valuemax="100" style="width: 34%;background: #f1f1f1">
-                                        </div>
-                                    </div>
-                                    <p style="margin-top: 20px;"><a id="verificar" style="font-size: 14px;font-weight: bold;color: #1886fc;"  data-toggle="modal" data-target="#modalverify" href="/lista">Verificar perfil<i class="fa fa-arrow-right" style="padding: 5px;float: right;"></i></a></p>
-                                     </div>
-                                <div class="col-4">
-                                    <img src="img/personalizar.png" style="margin-top: 25px;">
-                                </div>
-                                    @endif
 
-
-                        </div>
-                </div>
-                </div>
-                </div>
 
 
 
@@ -186,7 +192,7 @@ filter: brightness(50%);
 						    <div class="row">
 							    <div class="col-lg-12">
                                     <h4 class="fz20 mb20">Mis datos</h4>
-                                    @if(session()->has('response'))
+                                    @if(session()->has('verify'))
                                     <div class="alert alert-success text-center">Haz enviado tu perfil a verificación. Verifica el estado en el panel de "Estado de Perfil".</div>
                                     @endif
                                     @if(session()->has('lunes'))
@@ -752,7 +758,65 @@ filter: brightness(50%);
                                 </div>
                                 </div>
                             </div>
-                            @endif <!-- si es profesional es esto -->
+
+
+                            @endif
+                            @if(Auth::user()->rol == 'aspirante')
+                            <div class="col-md-6 col-lg-6">
+                                <div class="my_profile_input form-group">
+                                    <label for="exampleInputPhone">WhatsApp</label>
+                                    <input type="number" name="whatsappas"  class="form-control" id="exampleInputPhone" aria-describedby="phoneNumber" @if(Auth::user()->whatsapp)placeholder="{{Auth::user()->whatsapp}}" @else placeholder="Ejemplo: +5492235646567" @endif>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6">
+                                <div class="my_profile_input form-group">
+                                    <label for="exampleInputPhone">Teléfono</label>
+                                    <input type="number" name="telefonoas"  class="form-control" id="exampleInputPhone" aria-describedby="phoneNumber" @if(Auth::user()->phone)placeholder="{{Auth::user()->whatsapp}}" @else placeholder="Ejemplo: 2235646567" @endif>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <h4 class="fz18 mb20 mt-4">Información personal laboral</h4>
+                            </div>
+                            <div class="col-md-6 col-lg-6">
+								<div class="my_profile_input form-group">
+                                    <label for="formGroupExampleInput1">Aptitudes</label>
+                                <input type="text" name="aptitudes" class="form-control" id="formGroupExampleInput1" @if(Auth::user()->aptitudes) placeholder="{{Auth::user()->aptitudes}}" @else placeholder="cocinero, camarero, panadero, etc" @endif>
+								</div>
+                            </div>
+                            <div class="col-md-6 col-lg-6">
+								<div class="my_profile_input form-group">
+                                    <label for="formGroupExampleInput1">Experiencia en</label>
+                                <input type="text" name="experienciaen" class="form-control" id="formGroupExampleInput1" @if(Auth::user()->experienciaen) placeholder="{{Auth::user()->experienciaen}}" @else placeholder="Limpieza doméstica, armado de muebles" @endif>
+								</div>
+                            </div>
+                            <div class="col-md-6 col-lg-6">
+								<div class="my_profile_input form-group">
+                                    <label for="formGroupExampleInput1">Describete</label>
+                                <textarea type="text" name="descripcionas" class="form-control" id="formGroupExampleInput1" @if(Auth::user()->description) placeholder="{{Auth::user()->description}}" @else placeholder="Explica brevemente que es lo que sabes, como eres y que tienes pensado a futuro." @endif></textarea>
+								</div>
+                            </div>
+                            <div class="col-lg-12">
+                                <h4 class="fz18 mb20 mt-4">Información Territorial</h4>
+                            </div>
+                            <div class="col-md-6 col-lg-6">
+                                <div class="my_profile_input form-group">
+                                    <label for="exampleFormControlInput9">Ciudad</label><br>
+                                    <select name="cityas" class="form-control">
+                                        <option value="Mar del Plata">Mar del Plata</option>
+                                        <option value="Miramar">Miramar</option>
+                                        <option value="Batán">Batán</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6">
+                                <div class="my_profile_input form-group">
+                                    <label for="myInput">Barrio - Zona</label><br>
+                                <input autocomplete="off" spellcheck="false"class="form-control" name="zoneas" id="myInput" type="text" name="barrio" placeholder="{{Auth::user()->zone}}">
+                                </div>
+                            </div>
+
+                            @endif<!-- si es profesional es esto -->
+
                             <div class="col-lg-8 mt-4">
                                     <div class="form-inline mt-2">
                                         <input type="submit" class="btn btn-lg btn-info mr-2" value="Guardar Cambios" />
@@ -763,6 +827,7 @@ filter: brightness(50%);
                         </div>
 
                     </div>
+
                     <div style="margin-top: 40px;">
                         <a href="#" class="text-danger font-weight-bold"><img src="img-icons/delete.png" class="mr-1" /> Eliminar Perfil</a>
                     </div>

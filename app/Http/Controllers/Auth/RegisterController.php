@@ -66,7 +66,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-        if($data['rol'] == 'usuario'){
+    if($data['rol'] == 'usuario'){
             return User::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
@@ -74,7 +74,17 @@ class RegisterController extends Controller
                 'img' => 'logo.png',
                 'rol' => $data['rol']
             ]);
-        }else{
+        }
+    if($data['rol'] == 'aspirante'){
+            return User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+                'img' => 'logo.png',
+                'rol' => $data['rol']
+            ]);
+        }
+    if($data['rol'] == 'profesional'){
 
         if(empty($data['inhourafterlunes']) || empty($data['outhourafterlunes'])){
             $data['inhourafterlunes'] = null;

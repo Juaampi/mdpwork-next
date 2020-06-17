@@ -12,13 +12,52 @@ use Carbon\Carbon;
             <div class="swiper-slide"><img src="img/swiper2.webp"/></div>
         </div>
     </div>
+    @if(isset($ultimosvistos))
+
+    <div class="responsive bg-white ml-2 mr-2 mt-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
+        <div class="container">
+            <div class="row">
+                <h6 style="    font-family: 'Lato', sans-serif; font-size: 14px; padding: 10px 10px 10px 10px;" class="font-weight-bold">Visto recientemente</h6>
+                <div id="list-responsive" class="container">
+                    <div class="row bg-white" style="margin-bottom: 10px;">
+                        <div class="col-3" style="padding-left: 10px; padding-right: 10px;">
+                            <img style="border-radius: 5px;height: 50px;" class="img-fluid" src="images/large/{{$ultimosvistos->img}}" alt="1.jpg">
+                        </div>
+                    <div class="col-8">
+                    <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;white-space: nowrap;overflow: hidden;text-overflow: ellipsis" class="text-info">{{$ultimosvistos->job}}</p>
+                    <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: 600">@if($ultimosvistos->verify == 2) <img height="13px" src="img-icons/verify.webp">  @endif {{$ultimosvistos->name}} </h4>
+                          <a class="stretched-link" style="text-decoration: none;  color: #3db39e;background: none;border: none;font-size: 12px;" href="{{Route('User.perfil', ['user_id' => $ultimosvistos->id])}}" ></a>
+                    </div>
+                    <div class="col-1" style="padding:0px;">
+                        @if($ultimosvistos->points < 2)
+                        <p style="font-size: 10px;"><span style="color: #d84747;"><i class="fa fa-star"></i></span>
+                        <span style="color: #d84747;"><strong>{{round($ultimosvistos->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                        @elseif($ultimosvistos->points >= 3 && $ultimosvistos->points < 4)
+                        <p style="font-size: 10px;"><span style="color: #d66514;"><i class="fa fa-star"></i></span>
+                        <span style="color: #d66514;"><strong>{{round($ultimosvistos->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                        @elseif($ultimosvistos->points >= 4 && $ultimosvistos->points < 5)
+                        <p style="font-size: 10px;"><span style="color: #28af77"><i class="fa fa-star"></i></span>
+                        <span style="color: #28af77"><strong>{{round($ultimosvistos->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                        @elseif($ultimosvistos->points == 5)
+                        <p style="font-size: 10px;"><span style="color: #ffc107"><i class="fa fa-star"></i></span>
+                        <span style="color: #ffc107"><strong>{{round($ultimosvistos->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                        @endif
+                    </div>
+
+                    </div>
+                    </div>
+            </div>
+    </div>
+    </div>
+
+    @endif
     <div class="responsive bg-white ml-2 mr-2 mt-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
         <div class="container">
 			<div class="row">
 				<div class="col-8" style="padding: 14px;">
                         <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;font-size: 14px;" class="font-weight-bold">¿Querés aparecer?</h6>
-                        <p class="text-muted" style="font-size: 11px;">Registrate en <strong>Mardeltrabaja.com</strong> y que el trabajo te busque a vos!</p>
-						<a style="font-size: 10px;font-weight: bold;color: #1886fc;border: 1px solid #e5e5e5;padding: 5px;border-radius: 3px;background: #f1f1f1" href="/register">QUIERO REGISTRARME</a>
+                        <p class="text-muted" style="font-size: 12px;">Registrate como profesional y que el trabajo te busque a vos!</p>
+						<a style="font-size: 10px;font-weight: bold;color: #1886fc;padding: 5px;" href="/register">REGISTRARME COMO PROFESIONAL</a>
                 </div>
                 <div class="col-4">
                     <img src="img/nuevos.svg" style="margin-top:30px;">
@@ -27,33 +66,19 @@ use Carbon\Carbon;
     </div>
     </div>
 
-    <div class="ml-2 mr-2 mt-2 mb-2 responsive" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);background: #5a96c3">
+
+    <div class="bg-white ml-2 mr-2 mt-2 mb-2 responsive" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
         <div class="container">
             <div class="row">
-                <div class="col-8" style="padding: 25px;">
-                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;color:white;" class="font-weight-bold">¡Quedate en casa!</h6>
-                        <p class="text-white" style="font-size: 12px;">Consultá presupuestos desde tu hogar, mientras combatimos el COVID-19</strong></p>
-                </div>
-                <div class="col-4">
-                    <img src="img/covid19.webp" style="margin-top:20px;">
+                <div class="col-12 text-center" style="padding: 14px;">
+                        <h6 style="margin-top: 10px; margin-bottom: 0px;font-family: 'Lato', sans-serif;font-size: 14px;" class="font-weight-bold">¿Todavía no tenés experiencia laboral?</h6>
+                        <p class="text-muted" style="font-size: 12px;">Pensamos en un espacio para que no te quedes afuera de nuestro sitio. Registrate como "Aspirante" y aparecé en la búsqueda de los empleadores de la ciudad o también como recomendación para las búsquedas de profesionales diarias.</p>
+                        <a style="font-size: 10px;font-weight: bold;color: #1886fc;padding: 5px;" href="/register">REGISTRARME COMO ASPIRANTE</a>
                 </div>
             </div>
     </div>
     </div>
 
-    <div class="ml-2 mr-2 mt-2 mb-2 responsive" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);background: #ffffff;">
-        <div class="container">
-            <div class="row">
-                <div class="col-9" style="padding: 25px;">
-                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;color:black;font-size: 14px;" class="font-weight-bold">¡Perfiles Verificados!</h6>
-                        <p class="text-secondary" style="font-size: 12px;">Ahora vas a poder visualizar cuales son los profesionales que presentaron documentación sobre su identidad. </strong></p>
-                </div>
-                <div class="col-3">
-                    <img src="img-icons/verify.webp" style="margin-top:50px;">
-                </div>
-            </div>
-    </div>
-    </div>
 
     <section id="section-questions" class="home-one style2" style="background-size: cover; height: 100%;background: #fafafa">
 
@@ -277,39 +302,19 @@ use Carbon\Carbon;
                             <a class="stretched-link" style="text-decoration: none;  color: #2e86fc;font-weight: bold;background: none;border: none;font-size: 11px;font-family: 'roboto', sans-serif;" href="{{Route('User.perfil', ['user_id' => $last->id])}}" >VER / CONTACTAR </a>
                             <hr>
                         </div>
-                        <div class="col-2" style="padding: 0px;">
-                            @php
-                            $cantComent = 0;
-                            $cantPoints = 0;
-                            $points = 0;
-                        @endphp
-                        @foreach($coments as $coment)
-                            @if($coment->user_id == $last->id)
-                                @php
-                                    $cantComent ++;
-                                    $cantPoints += $coment->point;
-                                @endphp
-                            @endif
-                        @endforeach
-                        @php
-                        if($cantPoints != 0){
-                         $points = $cantPoints / $cantComent;
-                        }else{
-                         $points = 4;
-                        }
-                        @endphp
-                            @if($points < 2)
-                            <p style="font-size: 12px;"><span style="color: #d84747;"><i class="fa fa-star"></i></span>
-                            <span style="color: #d84747;"><strong>{{$points}}</strong></span></p>
-                            @elseif($points >= 3 && $points < 4)
-                            <p style="font-size: 12px;"><span style="color: #d66514;"><i class="fa fa-star"></i></span>
-                            <span style="color: #d66514;"><strong>{{$points}}</strong></span></p>
-                            @elseif($points >= 4 && $points < 5)
-                            <p style="font-size: 12px;"><span style="color: #28af77"><i class="fa fa-star"></i></span>
-                            <span style="color: #28af77"><strong>{{$points}}</strong></span></p>
-                            @elseif($points == 5)
-                            <p style="font-size: 12px;"><span style="color: #ffc107"><i class="fa fa-star"></i></span>
-                            <span style="color: #ffc107"><strong>{{$points}}</strong></span></p>
+                        <div class="col-2" style="padding:0px;">
+                            @if($last->points < 2)
+                            <p style="font-size: 11px;"><span style="color: #d84747;"><i class="fa fa-star"></i></span>
+                            <span style="color: #d84747;"><strong>{{round($last->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                            @elseif($last->points >= 3 && $last->points < 4)
+                            <p style="font-size: 11px;"><span style="color: #d66514;"><i class="fa fa-star"></i></span>
+                            <span style="color: #d66514;"><strong>{{round($last->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                            @elseif($last->points >= 4 && $last->points < 5)
+                            <p style="font-size: 11px;"><span style="color: #28af77"><i class="fa fa-star"></i></span>
+                            <span style="color: #28af77"><strong>{{round($last->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                            @elseif($last->points == 5)
+                            <p style="font-size: 11px;"><span style="color: #ffc107"><i class="fa fa-star"></i></span>
+                            <span style="color: #ffc107"><strong>{{round($last->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
                             @endif
                         </div>
 
@@ -327,6 +332,19 @@ use Carbon\Carbon;
 		</div>
 
 
+        <div class="ml-2 mr-2 mt-2 mb-2 responsive" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);background: #5a96c3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-8" style="padding: 25px;">
+                            <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;color:white;" class="font-weight-bold">¡Quedate en casa!</h6>
+                            <p class="text-white" style="font-size: 12px;">Consultá presupuestos desde tu hogar, mientras combatimos el COVID-19</strong></p>
+                    </div>
+                    <div class="col-4">
+                        <img src="img/covid19.webp" style="margin-top:20px;">
+                    </div>
+                </div>
+        </div>
+        </div>
 
     <!-- Home Design -->
 
@@ -344,6 +362,56 @@ use Carbon\Carbon;
     </div>
     </div>
 
+
+
+    <div class="ml-2 mr-2 mb-2 responsive" style="background: #fc7474;border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
+        <div class="container">
+			<div class="row">
+				<div class="col-8" style="padding: 20px;">
+                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;color: white" class="font-weight-bold">Cuidado Personal</h6>
+                        <p class="text-white" style="font-size: 12px;">Estética en general, Uñas, Peluquería y mucho más..</strong></p>
+                        <a style="font-size: 12px;font-weight: bold;color: white;" href="//busqueda?category=Cuidado">Ver categoría<i class="flaticon-right-arrow pl15"></i></a>
+                </div>
+                <div class="col-4">
+                    <img src="img/cuidado.webp" style="margin-top:12px;">
+                </div>
+            </div>
+
+    </div>
+    </div>
+
+    <div class="bg-white ml-2 mr-2 mb-2"  style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
+		<div class="container">
+			<div class="row responsive">
+				<div class="col-12" style="padding: 12px;">
+                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">Lo último en <strong>cuidado personal</strong></h6>
+                        <div class="container" style="padding: 10px;">
+                            <div class="swiper-container3">
+                                <div class="swiper-wrapper">
+                                    @foreach($cuidados as $cuidado)
+                                  <div class="swiper-slide">
+                                      <div class="card" style="border-radius: 10px;">
+                                    <a class="card-block stretched-link text-decoration-none" href="/perfil?user_id={{$cuidado->id}}"></a>
+                                      <img style="height: 100px;width: 100px;border-radius: 10px 10px 0px 0px;" src="img-perfil/{{$cuidado->img}}" >
+                                      <div class="card-body" style="padding: 10px;">
+                                          <p style="color: black;font-size: 10px;font-weight: bold; margin: 0px;;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">@if($cuidado->verify == 2) <img height="13" src="img-icons/verify.webp"> @endif {{$cuidado->name}}</p>
+
+
+                                        <p style="font-size: 10px; font-weight: bold; margin: 0px;;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{ ucfirst($cuidado->job)}}</p>
+                                      </div>
+                                      </div>
+                                  </div>
+                                  @endforeach
+                                </div>
+                                <!-- Add Pagination -->
+                              </div>
+                        </div>
+                </div>
+            </div>
+		</div>
+    </div>
+
+
     <div class="ml-2 mr-2 mt-2 mb-2 responsive" style="background: #00b6fe;border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
         <div class="container">
 			<div class="row">
@@ -359,23 +427,39 @@ use Carbon\Carbon;
     </div>
     </div>
 
-    <div class="ml-2 mr-2 mb-2 responsive" style="background: #ff2e2e;border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
-        <div class="container">
-			<div class="row">
-				<div class="col-8" style="padding: 20px;">
-                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;color: white" class="font-weight-bold">Cuidado Personal</h6>
-                        <p class="text-white" style="font-size: 12px;">Estética en general, Uñas, Peluquería y mucho más..</strong></p>
-                        <a style="font-size: 12px;font-weight: bold;color: white;" href="/lista">Ver categoría<i class="flaticon-right-arrow pl15"></i></a>
-                </div>
-                <div class="col-4">
-                    <img src="img/cuidado.webp" style="margin-top:12px;">
+    <!-- Popular Job Categories -->
+
+    <div class="bg-white ml-2 mr-2 mb-2"  style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
+		<div class="container">
+			<div class="row responsive">
+				<div class="col-12" style="padding: 12px;">
+                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">Lo último en hogar y construcción</h6>
+                        <div class="container" style="padding: 10px;">
+                            <div class="swiper-container3">
+                                <div class="swiper-wrapper">
+                                    @foreach($hogares as $hogar)
+                                  <div class="swiper-slide">
+                                      <div class="card" style="border-radius: 10px;">
+                                        <a class="card-block stretched-link text-decoration-none" href="/perfil?user_id={{$hogar->id}}"></a>
+                                      <img style="height: 100px;width: 100px;border-radius: 10px 10px 0px 0px;" src="img-perfil/{{$hogar->img}}" >
+                                      <div class="card-body" style="padding: 10px;">
+                                          <p style="color: black;font-size: 10px;font-weight: bold; margin: 0px;;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">@if($hogar->verify == 2) <img height="13" src="img-icons/verify.webp"> @endif {{$hogar->name}}</p>
+
+
+                                        <p style="font-size: 10px; font-weight: bold; margin: 0px;;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{ ucfirst($hogar->job)}}</p>
+                                      </div>
+                                      </div>
+                                  </div>
+                                  @endforeach
+                                </div>
+                                <!-- Add Pagination -->
+                              </div>
+                        </div>
                 </div>
             </div>
-    </div>
+		</div>
     </div>
 
-
-	<!-- Popular Job Categories -->
     <div class="ml-2 mr-2 mb-2 padding-no-responsive todas" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
 
     <div class="row responsive">
@@ -581,6 +665,20 @@ if (event.keyCode === 13) {
 
  </script>
 
+<div class="ml-2 mr-2 mt-2 mb-2 responsive" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);background: #ffffff;">
+    <div class="container">
+        <div class="row">
+            <div class="col-9" style="padding: 25px;">
+                    <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;color:black;font-size: 14px;" class="font-weight-bold">¡Perfiles Verificados!</h6>
+                    <p class="text-secondary" style="font-size: 12px;">Ahora vas a poder visualizar cuales son los profesionales que presentaron documentación sobre su identidad. </strong></p>
+            </div>
+            <div class="col-3">
+                <img src="img-icons/verify.webp" style="margin-top:50px;">
+            </div>
+        </div>
+</div>
+</div>
+
 <section class="bg-white no-responsive">
 <div class="container ">
     <div class="row">
@@ -611,7 +709,7 @@ if (event.keyCode === 13) {
                 <div class="card-body text-center">
                     <img src="img/slider3.png">
                     <h4 style="font-size: 20px;font-weight: 500;line-height: 1.4;color: #4b4b4b;margin: 16px 0 0;">¿Realizas alguna actividad?</h4>
-                    <p style="color: #999;font-size: 15px;line-height: 1.2;">Si tenes algún tipo de profesión, practicás un oficio o trabajas de manera autónoma, registrate!</p>
+                    <p style="color: #999;font-size: 15px;line-height: 1.2;">Si tenés algún tipo de profesión, practicás un oficio o trabajas de manera autónoma, registrate!</p>
                     <a href="/lista" class="btn-cards" style="text-decoration: none;color: #3483fa; font-weight: bold;" >Quiero participar del sitio</a>
                 </div>
                 </div>
@@ -630,7 +728,7 @@ if (event.keyCode === 13) {
                             <div class="row">
                                 <div class="col-8" style="padding: 25px;">
                                         <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">Utilizá el buscador</h6>
-                                        <p class="text-muted" style="font-size: 12px;">Si estás necesitando de alguien paraun problema específico, ¡acá lo vas a encontrar!</strong></p>
+                                        <p class="text-muted" style="font-size: 12px;">Si estás necesitando de alguien para un problema específico, ¡acá lo vas a encontrar!</strong></p>
                                         <a href="/lista" class="btn-cards" style="text-decoration: none;color: #3483fa;font-weight: bold;" >Quiero utilizar el buscador</a>
                                 </div>
                                 <div class="col-4">
