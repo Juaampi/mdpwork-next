@@ -527,7 +527,7 @@ if (event.keyCode === 13) {
 
 <script>
     var swiper = new Swiper('.swiper-container3', {
-      slidesPerView: 3.4,
+      slidesPerView: 2.5,
       direction: 'horizontal',
       spaceBetween: 10,
       freeMode: true,
