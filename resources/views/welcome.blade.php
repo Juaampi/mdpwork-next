@@ -13,6 +13,7 @@ use Carbon\Carbon;
         </div>
     </div>
     @if(isset($ultimosvistos))
+    @if($ultimosvistos != '')
 
     <div class="responsive bg-white ml-2 mr-2 mt-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
         <div class="container">
@@ -49,7 +50,7 @@ use Carbon\Carbon;
             </div>
     </div>
     </div>
-
+@endif
     @endif
     <div class="responsive bg-white ml-2 mr-2 mt-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
         <div class="container">
