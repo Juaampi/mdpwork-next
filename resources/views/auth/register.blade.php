@@ -71,6 +71,7 @@
 
         <div class="card-body" id="parte-2" @if(session()->has('google')) style="display:block" @else style="display: none" @endif>
             <p style="font-size: 15px; text-align: center">¿Qué tipo de usuario quieres ser?</p>
+            <p class="text-danger" style="font-size: 14px;display: none;text-align: center" id="mensaje-rol">Debe completar la información solicitada, seleccionando cual será su rol en el sitio.</p>
         <div class="ml-2 mr-2 mt-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);background: #fafafa;" id="btn-usuario">
             <div class="container">
                 <div class="row">
@@ -936,6 +937,12 @@
                                 $('#btn-siguiente-3').show();
                                 $('#btn-cancel-3').show();
                             }
+                            if($('#rol').val() == ''){
+                                $('#mensaje-rol').show('slow');
+                            }else{
+                                $('#mensaje-rol').hide();
+                            }
+
                         });
 
                         $('#btn-siguiente-3').click(function (){

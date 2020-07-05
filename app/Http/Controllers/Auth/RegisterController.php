@@ -265,6 +265,7 @@ class RegisterController extends Controller
             'instagram' => $data['instagram'],
             'img' => 'logo.png',
             'rol' => $data['rol'],
+            'points' => 4,
             'presupuesto' => $data['presupuesto'],
             'inhourlunes' => $data['inhourlunes'],
             'outhourlunes' => $data['outhourlunes'],

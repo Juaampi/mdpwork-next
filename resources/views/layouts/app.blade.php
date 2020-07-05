@@ -42,7 +42,7 @@
    <!-- end template integration css -->
    <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap" rel="stylesheet">
 
 
@@ -324,7 +324,7 @@
 
  <script type="text/javascript" src="js/autocomplete.js"></script>
  <script type="text/javascript" src="js/barrios.js"></script>
- <script src="https://unpkg.com/swiper/js/swiper.js"></script>
+ <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
 <!-- Custom script for all pages -->
 <script type="text/javascript" src="js/jquery3.3.1.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
