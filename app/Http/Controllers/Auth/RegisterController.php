@@ -81,6 +81,7 @@ class RegisterController extends Controller
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
                 'img' => 'logo.png',
+                'points' => 4,
                 'rol' => $data['rol']
             ]);
         }
