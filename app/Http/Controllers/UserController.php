@@ -432,7 +432,7 @@ class UserController extends Controller
             $user->save();
         }
         if(!empty($request['whatsappas'])){
-            $user->whatsapp = $request['whatsappas'];
+            $user->whatsapp = '+549' . $request['whatsappas'];
             $user->save();
         }
         if(!empty($request['telefonoas'])){

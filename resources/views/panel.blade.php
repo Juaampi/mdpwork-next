@@ -93,7 +93,7 @@ filter: brightness(50%);
                         <form id="formUpdateImg" style="display:none;margin-top:5px;" method="POST" action="{{ route('User.updateImg') }}" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" value="{{ Auth::user()->id }}" name="user_id">
-                            <input data-multiple-caption="{count} files selected" multiple id="file" type="file" name="img-perfil" class="inputfile">
+                            <input data-multiple-caption="{count} files selected" multiple id="file" type="file" name="img-perfil" class="inputfile" accept="image/*">
                             <label id="labelImg" style="font-size: 13px;font-weight: bold;color: #1886fc;border:none;background: none;font-family: 'roboto', sans-serif" for="file">SUBIR IMAGEN</label>
                             <button style="font-size:12px;" type="submit" class="btn b">Guardar</button>
                             <label style="font-size:12px;" id="cancelUpdateImg" class="text-danger font-weight-bold">Cancelar</label>
