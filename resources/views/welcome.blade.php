@@ -52,6 +52,39 @@ use Carbon\Carbon;
     </div>
 @endif
     @endif
+
+    <div>
+		<div class="container">
+			<div class="row responsive">
+				<div class="col-12" style="padding: 12px;">
+                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;">Últimos Destacados</h6>
+                        <div class="container" style="padding: 10px 0px 0px 0px">
+                            <div class="swiper-container3">
+                                <div class="swiper-wrapper">
+                                    @foreach($destacados as $destacado)
+                                  <div class="swiper-slide">
+                                      <div class="card">
+                                    <a class="card-block stretched-link text-decoration-none" href="/perfil?user_id={{$destacado->id}}"></a>
+                                    <img style="height: 100px;width: 100px;margin-left: 10px;@if($destacado->img != 'logo.png') padding: 10px;border-radius: 111px; @else padding: 20px; @endif" src="images/large/{{$destacado->img}}" >
+                                      <div class="card-body" style="padding: 3px;">
+                                        <div class="badge badge-warning" style="font-size: 8px;">DESTACADO</div>
+                                          <p style="color: black;font-size: 10px;font-weight: bold; margin: 0px;;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">@if($destacado->verify == 2) <img height="13" src="img-icons/verify.webp"> @endif {{$destacado->name}}</p>
+                                        <p style="font-size: 10px; font-weight: bold; margin: 0px;;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{ ucfirst($destacado->job)}}</p>
+                                      </div>
+                                      </div>
+                                  </div>
+                                  @endforeach
+                                </div>
+                                <!-- Add Pagination -->
+                              </div>
+                        </div>
+                </div>
+            </div>
+		</div>
+    </div>
+
+
+
     <div class="responsive bg-white ml-2 mr-2 mt-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
         <div class="container">
 			<div class="row">
@@ -274,32 +307,10 @@ use Carbon\Carbon;
                                     <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-danger">No Disponible</p>
                                 @endif
                             @endif
-                            <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: 600">@if($last->verify == 2)<img height="13px" src="img-icons/verify.webp"/>@endif {{$last->name}}</h4>
-                            <p style="font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ ucfirst($last->job) }}</a></p>
-                           {{-- <p style="margin-bottom: 0px;font-size: 12px;">
-                                        @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
-                                            @if($hour <= $last->{'outhour'.$day} && $hour >= $last->{'inhour'.$day})
-                                                <span style="font-size: 12px;">@php echo date('G:i',strtotime($last->{'inhour'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day} )) @endphp hs</span>
-                                            @elseif($hour >= $last->{'inhourafter'.$day} && $hour <= $last->{'outhourafter'.$day} )
-                                                <span style="font-size: 12px">@php echo date('G:i',strtotime($last->{'inhourafter'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhourafter'.$day} )) @endphp hs</span>
-                                            @elseif($hour > $last->{'outhour'.$day} && $hour < $last->{'inhourafter'.$day})
+                            <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: 600">@if($last->verify == 2)<img height="13px" src="img-icons/verify.webp"/>@endif {{ ucfirst($last->job)}}</h4>
+                            <p style="font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ ucfirst($last->name) }}</a></p>
 
-                                            @else
-                                                <span style="font-size: 12px;" class="text-danger">No disponible hoy {{$day}} </span>
-                                            @endif
-                                        @else
-                                            @if($last->{'inhour'.$day} && $last->{'outhour'.$day})
-                                                @if($hour <= $last->{'outhour'.$day} && $hour >= $last->{'inhour'.$day})
-                                                    <span style="font-size: 12px">@php echo date('G:i',strtotime($last->{'inhour'.$day}))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day} )) @endphp hs</span>
-                                                @else
-                                                    <span style="font-size: 12px" class="text-danger font-weight-bold">@php echo date('G:i',strtotime($last->{'inhour'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day} )) @endphp hs</span>
-                                                @endif
-                                            @else
-                                            <span style="font-size: 12px;" class="text-danger">No disponible hoy {{$day}} </span>
-                                            @endif
-                                        @endif
-                            </p>--}}
-                            @if($last->presupuesto)<div class="text-success" style="font-size: 12px;">Presupuesto sin cargo</div>@endif
+                            @if($last->presupuesto)<div class="text-success" style="font-size: 11px;margin-top: -1px;">PRESUPUESTO SIN CARGO</div>@endif
                             <a class="stretched-link" style="text-decoration: none;  color: #2e86fc;font-weight: bold;background: none;border: none;font-size: 11px;font-family: 'roboto', sans-serif;" href="{{Route('User.perfil', ['user_id' => $last->id])}}" >VER / CONTACTAR </a>
                             <hr>
                         </div>
@@ -364,40 +375,21 @@ use Carbon\Carbon;
     </div>
 
 
-
-    <div class="ml-2 mr-2 mb-2 responsive" style="background: #ff3232;border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
-        <div class="container">
-			<div class="row">
-				<div class="col-8" style="padding: 20px;">
-                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;color: white" class="font-weight-bold">Cuidado Personal</h6>
-                        <p class="text-white" style="font-size: 12px;">Estética en general, Uñas, Peluquería y mucho más..</strong></p>
-                        <a style="font-size: 12px;font-weight: bold;color: white;" href="//busqueda?category=Cuidado">Ver categoría<i class="flaticon-right-arrow pl15"></i></a>
-                </div>
-                <div class="col-4">
-                    <img src="img/cuidado.webp" style="margin-top:12px;">
-                </div>
-            </div>
-
-    </div>
-    </div>
-
-    <div class="bg-white ml-2 mr-2 mb-2"  style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
+    <div>
 		<div class="container">
 			<div class="row responsive">
 				<div class="col-12" style="padding: 12px;">
-                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">Lo último en <strong>cuidado personal</strong></h6>
-                        <div class="container" style="padding: 10px;">
+                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">Lo nuevo en <strong>cuidado personal</strong></h6>
+                        <div class="container" style="padding: 10px 0px 0px 0px">
                             <div class="swiper-container3">
                                 <div class="swiper-wrapper">
                                     @foreach($cuidados as $cuidado)
                                   <div class="swiper-slide">
-                                      <div class="card" style="border-radius: 10px;">
+                                      <div class="card">
                                     <a class="card-block stretched-link text-decoration-none" href="/perfil?user_id={{$cuidado->id}}"></a>
-                                      <img style="height: 100px;border-radius: 10px 10px 0px 0px;" src="images/large/{{$cuidado->img}}" >
+                                      <img style="height: 100px;width: 100px;margin-left: 10px;@if($cuidado->img != 'logo.png') padding: 10px;border-radius: 111px; @else padding: 20px; @endif" src="images/large/{{$cuidado->img}}" >
                                       <div class="card-body" style="padding: 10px;">
                                           <p style="color: black;font-size: 10px;font-weight: bold; margin: 0px;;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">@if($cuidado->verify == 2) <img height="13" src="img-icons/verify.webp"> @endif {{$cuidado->name}}</p>
-
-
                                         <p style="font-size: 10px; font-weight: bold; margin: 0px;;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{ ucfirst($cuidado->job)}}</p>
                                       </div>
                                       </div>
@@ -407,13 +399,15 @@ use Carbon\Carbon;
                                 <!-- Add Pagination -->
                               </div>
                         </div>
+                        <a style="font-size: 13px;font-weight: bold;color: #1886fc;padding:10px;" href="/busqueda?category=Cuidado">Ver todo en Cuidado Personal</a>
                 </div>
+
             </div>
 		</div>
     </div>
 
 
-    <div class="ml-2 mr-2 mt-2 mb-2 responsive" style="background: #00b6fe;border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
+   {{--  <div class="ml-2 mr-2 mt-2 mb-2 responsive" style="background: #00b6fe;border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
         <div class="container">
 			<div class="row">
 				<div class="col-8" style="padding: 20px;">
@@ -427,22 +421,23 @@ use Carbon\Carbon;
             </div>
     </div>
     </div>
+    --}}
 
     <!-- Popular Job Categories -->
 
-    <div class="bg-white ml-2 mr-2 mb-2"  style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
+    <div>
 		<div class="container">
 			<div class="row responsive">
 				<div class="col-12" style="padding: 12px;">
-                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">Lo último en hogar y construcción</h6>
-                        <div class="container" style="padding: 10px;">
+                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">Lo nuevo en hogar y construcción</h6>
+                        <div class="container" style="padding: 10px 0px 0px 0px">
                             <div class="swiper-container3">
                                 <div class="swiper-wrapper">
                                     @foreach($hogares as $hogar)
                                   <div class="swiper-slide">
-                                      <div class="card" style="border-radius: 10px;">
+                                      <div class="card">
                                         <a class="card-block stretched-link text-decoration-none" href="/perfil?user_id={{$hogar->id}}"></a>
-                                      <img style="height: 100px;border-radius: 10px 10px 0px 0px;" src="images/large/{{$hogar->img}}" >
+                                        <img style="height: 100px;width: 100px;margin-left: 10px;@if($hogar->img != 'logo.png') padding: 10px;border-radius: 111px; @else padding: 20px; @endif" src="images/large/{{$hogar->img}}" >
                                       <div class="card-body" style="padding: 10px;">
                                           <p style="color: black;font-size: 10px;font-weight: bold; margin: 0px;;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">@if($hogar->verify == 2) <img height="13" src="img-icons/verify.webp"> @endif {{$hogar->name}}</p>
 
@@ -456,6 +451,7 @@ use Carbon\Carbon;
                                 <!-- Add Pagination -->
                               </div>
                         </div>
+                        <a style="font-size: 13px;font-weight: bold;color: #1886fc;padding:10px;" href="/busqueda?category=Hogar">Ver todo en Hogar y Construcción</a>
                 </div>
             </div>
 		</div>

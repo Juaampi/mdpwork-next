@@ -328,12 +328,8 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                                      <!-- LOS MÁS VISTOS, TAMBIÉN VAN A IR LOS DESTACADOS ACÁ  -->
 
                                 <hr>
-                            @foreach($lastest as $last)
-                            @if($last->rol == 'profesional')
-                            <div class="col-sm-12 col-lg-12" id="list-no-responsive" >
-                                <div class="fj_post">
-                                    <div class="details">
-                                         @php
+
+                                @php
                                          $carbon = Carbon::now('America/Argentina/Buenos_Aires');
                                          $day = $carbon->isoFormat('dddd');
                                          $hour = $carbon->format('H:i:s');
@@ -361,6 +357,54 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
 
                                      @endphp
 
+
+
+                            <!-- destacados -->
+
+                            @foreach($destacados as $destacado)
+                            <div id="list-responsive" class="container">
+                                <div class="row bg-white" style="padding: 5px;">
+                                    <div class="col-3" style="padding-left: 5px; padding-right: 5px;">
+                                        <img style="border-radius: 10px;" class="img-fluid" src="images/large/{{$destacado->img}}" alt="1.jpg">
+                                    </div>
+                                    <div class="col-8" style="padding-left: 10px; padding: right: 10px;">
+                                        <div class="badge badge-warning" style="font-size: 8px;">DESTACADO</div>
+                                        <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: 600"> {{ ucfirst($destacado->job)}}</h4>
+                                        <p style="font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">@if($destacado->verify == 2)<img height="13px" src="img-icons/verify.webp"/>@endif <a style="color: #7f7f7f" href="/busqueda?search={{$destacado->job}}">{{ ucfirst($destacado->name) }} </a></p>
+                                        <a class="stretched-link" style="text-decoration: none;  color: #2e86fc;font-weight: bold;background: none;border: none;font-size: 11px;font-family: 'roboto', sans-serif;" href="{{Route('User.perfil', ['user_id' => $destacado->id])}}" >VER / CONTACTAR </a>
+                                        <hr>
+                                    </div>
+                                    <div class="col-1" style="padding:0px;">
+                                        @if($destacado->points < 2)
+                                        <p style="font-size: 11px;"><span style="color: #d84747;"><i class="fa fa-star"></i></span>
+                                        <span style="color: #d84747;"><strong>{{round($destacado->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                                        @elseif($destacado->points >= 3 && $destacado->points < 4)
+                                        <p style="font-size: 11px;"><span style="color: #d66514;"><i class="fa fa-star"></i></span>
+                                        <span style="color: #d66514;"><strong>{{round($destacado->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                                        @elseif($destacado->points >= 4 && $destacado->points < 5)
+                                        <p style="font-size: 11px;"><span style="color: #28af77"><i class="fa fa-star"></i></span>
+                                        <span style="color: #28af77"><strong>{{round($destacado->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                                        @elseif($destacado->points == 5)
+                                        <p style="font-size: 11px;"><span style="color: #ffc107"><i class="fa fa-star"></i></span>
+                                        <span style="color: #ffc107"><strong>{{round($destacado->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                                        @endif
+                                    </div>
+
+                                </div>
+                                </div>
+                                @endforeach
+
+
+
+
+
+                            @foreach($lastest as $last)
+                            @if($last->rol == 'profesional')
+                            <div class="col-sm-12 col-lg-12" id="list-no-responsive" >
+                                <div class="fj_post">
+                                    <div class="details">
+
+
                                      <!-- OPTIMIZACION DE CODIGO ESTO VA EN LA CONTROLADORA -->
                                      @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
                                          @if($hour >= $last->{'inhourafter'.$day} && $hour <= $last->{'outhourafter'.$day})
@@ -381,7 +425,7 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                                     <!-- ACA FINALIZA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
 
                                     <div class="thumb fn-smd">
-                                        <img class="img-fluid" style="height: 120px; width: 140px;" src="images/large/{{$last->img}}" alt="1.jpg">
+                                        <img class="img-fluid" style="height: 120px; width: 140px;" src="images/large/{{$last->img}}" alt="{{$last->name}}">
                                         @php $cantComent = 0;$cantPoints = 0;$points = 0;@endphp
                                             @foreach($coments as $coment) @if($coment->user_id == $last->id) @php $cantComent ++; $cantPoints += $coment->point; @endphp @endif @endforeach
                                         @php if($cantPoints != 0){ $points = $cantPoints / $cantComent; }else{ $points = 4; } @endphp
@@ -438,11 +482,11 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
 
                             <div id="list-responsive" class="container">
                                 <div class="row bg-white" style="padding: 5px;">
-                                    <div class="col-3" style="padding-left: 5px; padding-right: 5px;">
-                                        <img style="border-radius: 10px;" class="img-fluid" src="images/large/{{$last->img}}" alt="1.jpg">
+                                    <div class="col-3" style="padding: 5px;">
+                                        <img style="border-radius: 10px;" class="img-fluid" src="images/large/{{$last->img}}" alt="{{$last->name}}">
                                     </div>
                                     <div class="col-8" style="padding-left: 10px; padding: right: 10px;">
-                                    @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
+                                @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
                                     @if($hour >= $last->{'inhour'.$day} && $hour <= $last->{'outhour'.$day})
                                     <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-success">Disponible</p>
                                     @elseif($hour >= $last->{'inhourafter'.$day} && $hour <= $last->{'outhourafter'.$day})
@@ -459,35 +503,11 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                                     <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-danger">No Disponible</p>                                @endif
                                 @endif
 
-                                        <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: 600">@if($last->verify == 2)<img height="13px" src="img-icons/verify.webp"/>@endif {{$last->name}}</h4>
-                                        <p style="font-family: 'roboto', sans-serif;font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ ucfirst($last->job) }} </a></p>
-                                        <p style="margin-bottom:0px;font-size: 12px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;" class="font-style-italic"><i class="fa fa-location-arrow"></i> @if($last->zone){{$last->zone}},@endif Mar del Plata</p>
-                                        {{-- <p style="margin-bottom: 0px;font-size: 12px;"> ESTO VA EN LA CONTROLADORA PARA SABER SI ESTA DISPONIBLE O NO
-                                                    @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
-                                                        @if($hour <= $last->{'outhour'.$day} && $hour >= $last->{'inhour'.$day})
-                                                            <span style="font-size: 12px;color: #28af77; font-weight: 600;">@php echo date('G:i',strtotime($last->{'inhour'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day} )) @endphp hs</span>
-                                                        @elseif($hour > $last->{'outhour'.$day} && $hour < $last->{'inhourafter'.$day})
-
-                                                        @elseif($hour >= $last->{'inhourafter'.$day} && $hour <= $last->{'outhourafter'.$day} )
-                                                            <span style="font-size: 12px;color: #28af77; font-weight: 600;">@php echo date('G:i',strtotime($last->{'inhourafter'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhourafter'.$day} )) @endphp hs</span>
-                                                        @else
-                                                        <span style="font-size: 12px;" class="text-danger">No disponible hoy {{$day}} </span>
-                                                        @endif
-                                                    @else
-                                                        @if($last->{'inhour'.$day} && $last->{'outhour'.$day})
-                                                            @if($hour <= $last->{'outhour'.$day} && $hour >= $last->{'inhour'.$day})
-                                                                <span style="font-size: 12px;color: #28af77; font-weight: 600;">@php echo date('G:i',strtotime($last->{'inhour'.$day}))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day} )) @endphp hs</span>
-                                                            @else
-                                                                <span style="font-size: 12px;" class="text-danger font-weight-bold">@php echo date('G:i',strtotime($last->{'inhour'.$day} ))@endphp hs - @php echo date('G:i',strtotime($last->{'outhour'.$day} )) @endphp hs</span>
-                                                            @endif
-                                                        @else
-                                                        <span style="font-size: 12px;" class="text-danger">No disponible hoy {{$day}} </span>
-                                                        @endif
-                                                    @endif
-                                                    </p>
-                                        --}}
-                                                    @if($last->presupuesto)<div class="text-success" style="font-size: 12px;">Presupuesto sin cargo</div>@endif
-                                                    <a class="stretched-link" style="text-decoration: none;  color: #2e86fc;font-weight: bold;background: none;border: none;font-size: 11px;font-family: 'roboto', sans-serif;" href="{{Route('User.perfil', ['user_id' => $last->id])}}" >VER / CONTACTAR </a>
+                                        <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: 600"> {{ ucfirst($last->job)}}</h4>
+                                        <p style="font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">@if($last->verify == 2)<img height="13px" src="img-icons/verify.webp"/>@endif <a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ ucfirst($last->name) }} </a></p>
+                                        <p style="margin-top: -3px;margin-bottom:0px;font-size: 12px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><i class="fa fa-location-arrow"></i> <a style="color: #7f7f7f">@if($last->zone){{$last->zone}},@endif Mar del Plata</a></p>
+                                        @if($last->presupuesto)<div class="text-success" style="font-size: 11px;margin-top: -1px;">PRESUPUESTO SIN CARGO </div>@endif
+                                        <a class="stretched-link" style="text-decoration: none;  color: #2e86fc;font-weight: bold;background: none;border: none;font-size: 11px;font-family: 'roboto', sans-serif;" href="{{Route('User.perfil', ['user_id' => $last->id])}}" >VER / CONTACTAR </a>
                                         <hr>
                                     </div>
                                     <div class="col-1" style="padding:0px;">
