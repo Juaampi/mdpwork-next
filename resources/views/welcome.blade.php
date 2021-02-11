@@ -65,8 +65,8 @@ use Carbon\Carbon;
                                   <div class="swiper-slide">
                                       <div class="card">
                                     <a class="card-block stretched-link text-decoration-none" href="/perfil?user_id={{$destacado->id}}"></a>
-                                    <img style="height: 100px;width: 100px;margin-left: 10px;@if($destacado->img != 'logo.png') padding: 10px;border-radius: 111px; @else padding: 20px; @endif" src="images/large/{{$destacado->img}}" >
-                                      <div class="card-body" style="padding: 3px;">
+                                    <img style="height: 70px;width: 70px;margin-left: 20px;@if($destacado->img != 'logo.png') padding: 5px;border-radius: 111px; @else padding: 10px; @endif" @if($destacado->img == 'logo.png') src="img-perfil/user-circle.png" @else src="images/large/{{$destacado->img}}" @endif >
+                                      <div class="card-body" style="padding: 4px;margin-top: -10px;">
                                         <div class="badge badge-warning" style="font-size: 8px;">DESTACADO</div>
                                           <p style="color: black;font-size: 10px;font-weight: bold; margin: 0px;;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">@if($destacado->verify == 2) <img height="13" src="img-icons/verify.webp"> @endif {{$destacado->name}}</p>
                                         <p style="font-size: 10px; font-weight: bold; margin: 0px;;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{ ucfirst($destacado->job)}}</p>
@@ -387,8 +387,8 @@ use Carbon\Carbon;
                                   <div class="swiper-slide">
                                       <div class="card">
                                     <a class="card-block stretched-link text-decoration-none" href="/perfil?user_id={{$cuidado->id}}"></a>
-                                      <img style="height: 100px;width: 100px;margin-left: 10px;@if($cuidado->img != 'logo.png') padding: 10px;border-radius: 111px; @else padding: 20px; @endif" src="images/large/{{$cuidado->img}}" >
-                                      <div class="card-body" style="padding: 10px;">
+                                      <img style="height: 70px;width: 70px;margin-left: 25px;@if($cuidado->img != 'logo.png') padding: 5px;border-radius: 111px; @else padding: 10px; @endif" @if($cuidado->img == 'logo.png') src="img-perfil/user-circle.png" @else src="images/large/{{$cuidado->img}}" @endif>
+                                      <div class="card-body" style="padding: 10px;margin-top: -10px;">
                                           <p style="color: black;font-size: 10px;font-weight: bold; margin: 0px;;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">@if($cuidado->verify == 2) <img height="13" src="img-icons/verify.webp"> @endif {{$cuidado->name}}</p>
                                         <p style="font-size: 10px; font-weight: bold; margin: 0px;;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{ ucfirst($cuidado->job)}}</p>
                                       </div>
@@ -399,7 +399,7 @@ use Carbon\Carbon;
                                 <!-- Add Pagination -->
                               </div>
                         </div>
-                        <a style="font-size: 13px;font-weight: bold;color: #1886fc;padding:10px;" href="/busqueda?category=Cuidado">Ver todo en Cuidado Personal</a>
+                        <a style="font-size: 13px;font-weight: bold;color: #1886fc;" href="/busqueda?category=Cuidado">Ver todo en Cuidado Personal</a>
                 </div>
 
             </div>
@@ -437,8 +437,8 @@ use Carbon\Carbon;
                                   <div class="swiper-slide">
                                       <div class="card">
                                         <a class="card-block stretched-link text-decoration-none" href="/perfil?user_id={{$hogar->id}}"></a>
-                                        <img style="height: 100px;width: 100px;margin-left: 10px;@if($hogar->img != 'logo.png') padding: 10px;border-radius: 111px; @else padding: 20px; @endif" src="images/large/{{$hogar->img}}" >
-                                      <div class="card-body" style="padding: 10px;">
+                                        <img style="height: 70px;width: 70px;margin-left: 20px;@if($hogar->img != 'logo.png') padding: 5px;border-radius: 111px; @else padding: 10px; @endif" @if($hogar->img == 'logo.png') src="img-perfil/user-circle.png" @else src="images/large/{{$hogar->img}}" @endif >
+                                      <div class="card-body" style="padding: 10px;margin-top: -10px;">
                                           <p style="color: black;font-size: 10px;font-weight: bold; margin: 0px;;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">@if($hogar->verify == 2) <img height="13" src="img-icons/verify.webp"> @endif {{$hogar->name}}</p>
 
 
@@ -451,7 +451,7 @@ use Carbon\Carbon;
                                 <!-- Add Pagination -->
                               </div>
                         </div>
-                        <a style="font-size: 13px;font-weight: bold;color: #1886fc;padding:10px;" href="/busqueda?category=Hogar">Ver todo en Hogar y Construcción</a>
+                        <a style="font-size: 13px;font-weight: bold;color: #1886fc;" href="/busqueda?category=Hogar">Ver todo en Hogar y Construcción</a>
                 </div>
             </div>
 		</div>
