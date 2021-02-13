@@ -23,9 +23,9 @@ $payer->email = Auth::user()->email;
 $preference->payer = $payer;
 $preference->items = $items;
 $preference->back_urls = array(
-    "success" => "http://localhost:8081/success",
-    "failure" => "http://localhost:8081/failure",
-    "pending" => "http://localhost:8081/pending"
+    "success" => "https://mardeltrabaja.com/success",
+    "failure" => "https://mardeltrabaja.com/failure",
+    "pending" => "https://mardeltrabaja.com/pending"
 );
 $preference->auto_return = "approved";
 $preference->save();
