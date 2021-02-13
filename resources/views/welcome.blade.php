@@ -14,7 +14,6 @@ use Carbon\Carbon;
     </div>
     @if(isset($ultimosvistos))
     @if($ultimosvistos != '')
-
     <div class="responsive bg-white ml-2 mr-2 mt-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
         <div class="container">
             <div class="row">
@@ -22,7 +21,7 @@ use Carbon\Carbon;
                 <div id="list-responsive" class="container">
                     <div class="row bg-white" style="margin-bottom: 10px;">
                         <div class="col-3" style="padding-left: 10px; padding-right: 10px;">
-                            <img style="border-radius: 5px;height: 50px;" class="img-fluid" src="images/large/{{$ultimosvistos->img}}" alt="1.jpg">
+                            <img style="border-radius: 5px;height: 50px;" class="img-fluid" @if($ultimosvistos->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="images/large/{{$ultimosvistos->img}}" @endif alt="{{$ultimosvistos->name}}">
                         </div>
                     <div class="col-8">
                     <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;white-space: nowrap;overflow: hidden;text-overflow: ellipsis" class="text-info">{{$ultimosvistos->job}}</p>
@@ -57,7 +56,7 @@ use Carbon\Carbon;
 		<div class="container">
 			<div class="row responsive">
 				<div class="col-12" style="padding: 12px;">
-                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;">Últimos Destacados</h6>
+                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;">Destacados</h6>
                         <div class="container" style="padding: 10px 0px 0px 0px">
                             <div class="swiper-container3">
                                 <div class="swiper-wrapper">
@@ -65,9 +64,9 @@ use Carbon\Carbon;
                                   <div class="swiper-slide">
                                       <div class="card">
                                     <a class="card-block stretched-link text-decoration-none" href="/perfil?user_id={{$destacado->id}}"></a>
-                                    <img style="height: 70px;width: 70px;margin-left: 20px;@if($destacado->img != 'logo.png') padding: 5px;border-radius: 111px; @else padding: 10px; @endif" @if($destacado->img == 'logo.png') src="img-perfil/user-circle.png" @else src="images/large/{{$destacado->img}}" @endif >
+                                    <img style="height: 70px;width: 70px;margin-left: 20px;@if($destacado->img != 'logo.png') padding: 5px;border-radius: 111px; @else padding: 10px; @endif" @if($destacado->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="images/large/{{$destacado->img}}" @endif >
                                       <div class="card-body" style="padding: 4px;margin-top: -10px;">
-                                        <div class="badge badge-warning" style="font-size: 8px;">DESTACADO</div>
+                                        <div class="badge badge-warning" style="font-size: 8px; background: gainsboro;padding: 3px;color: #2f2f2f;">DESTACADO</div>
                                           <p style="color: black;font-size: 10px;font-weight: bold; margin: 0px;;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">@if($destacado->verify == 2) <img height="13" src="img-icons/verify.webp"> @endif {{$destacado->name}}</p>
                                         <p style="font-size: 10px; font-weight: bold; margin: 0px;;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{ ucfirst($destacado->job)}}</p>
                                       </div>
@@ -287,7 +286,7 @@ use Carbon\Carbon;
                 <div id="list-responsive" class="mt-2">
                     <div class="row bg-white">
                         <div class="col-3">
-                            <img style="border-radius: 4px;" class="img-fluid" src="images/large/{{$last->img}}" alt="1.jpg">
+                            <img style="border-radius: 4px;" class="img-fluid" @if($last->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="images/large/{{$last->img}}" @endif alt="{{$last->name}}">
                         </div>
                         <div class="col-7">
                             @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})

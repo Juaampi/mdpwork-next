@@ -125,6 +125,16 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
     }
 
     </style>
+     @php
+     $zonas = array();
+     foreach($lastest as $last) {
+         $zona = $last->zone;
+         if(!in_array($zona, $zonas))
+         {
+             array_push($zonas,$zona);
+         }
+     }
+     @endphp
 
 <div class="ui-search-toolbar ui-search-toolbar--border">
     <ul class="ui-search-toolbar__actions" style="margin: 0">
@@ -146,8 +156,8 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                 <h3 style="margin-top: 20px;margin-bottom: 20px;font-family: 'roboto', sans-serif;">Ordenar Por</h3>
                 <div class="andes-modal-dialog__content">
                 <ul class="ui-search-sort andes-list" >
-                    <li style="margin-top: 5px; margin-bottom: 5px;border: 1px solid #d6d6d6;border-radius: 3px;"><a @if(empty($busqueda) && empty($searchcategory)) href="/ordenarPorZona" @elseif(empty($busqueda) && !empty($searchcategory)) href="/ordenarPorZona?category={{$searchcategory}}" @elseif(empty($searchcategory) && !empty($busqueda)) href="/ordenarPorZona?search={{$busqueda}}" @endif style="font-size: 14px; font-weight: 300;" class="andes-list__item andes-list__item--selected ui-search-link">Zona</a></li>
-                    <li style="margin-top: 5px; margin-bottom: 5px;border: 1px solid #d6d6d6;border-radius: 3px;"><a @if(empty($busqueda) && empty($searchcategory)) href="/ordenarPorNombre" @elseif(empty($busqueda) && !empty($searchcategory)) href="/ordenarPorNombre?category={{$searchcategory}}" @elseif(empty($searchcategory) && !empty($busqueda)) href="/ordenarPorNombre?search={{$busqueda}}" @endif style="font-size: 14px; font-weight: 300;" class="andes-list__item andes-list__item--selected ui-search-link">Abecedario</a></li>
+                    {{-- <li style="margin-top: 5px; margin-bottom: 5px;border: 1px solid #d6d6d6;border-radius: 3px;"><a @if(empty($busqueda) && empty($searchcategory)) href="/ordenarPorZona" @elseif(empty($busqueda) && !empty($searchcategory)) href="/ordenarPorZona?category={{$searchcategory}}" @elseif(empty($searchcategory) && !empty($busqueda)) href="/ordenarPorZona?search={{$busqueda}}" @endif style="font-size: 14px; font-weight: 300;" class="andes-list__item andes-list__item--selected ui-search-link">Zona</a></li> --}}
+                    <li style="margin-top: 5px; margin-bottom: 5px;border: 1px solid #d6d6d6;border-radius: 3px;"><a @if(empty($busqueda) && !empty($_GET['category']) && empty($_GET['zone'])) href="/ordenarPorNombre?category={{$_GET['category']}}" @elseif(empty($_GET['category']) && !empty($busqueda) && empty($_GET['zone'])) href="/ordenarPorNombre?search={{$busqueda}}" @elseif(!empty($_GET['category']) && !empty($_GET['zone']) && empty($busqueda)) href="ordenarPorNombre?category={{$_GET['category']}}&zone={{$_GET['zone']}}" @elseif(empty($_GET['category']) && !empty($_GET['zone']) && !empty($busqueda)) href="ordenarPorNombre?search={{$busqueda}}&zone={{$_GET['zone']}}" @endif style="font-size: 14px; font-weight: 300;" class="andes-list__item andes-list__item--selected ui-search-link">Abecedario</a></li>
                 </ul>
                 </div>
             </div>
@@ -174,16 +184,7 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                     <li id="btn-select-countries" style="border: 1px solid #dcdcdc;font-size: 16px;border-bottom: none;">
                         <a  style="margin-left: 40px;font-family: 'roboto', sans-serif"> Ubicación <span class="text-primary"><i style="float: right;margin-top: 14px;margin-right: 30px;" class="fa fa-chevron-down"></i></span></a>
                      </li>
-                     @php
-                     $zonas = array();
-                     foreach($lastest as $last) {
-                         $zona = $last->zone;
-                         if(!in_array($zona, $zonas))
-                         {
-                             array_push($zonas,$zona);
-                         }
-                     }
-                     @endphp
+
                     @if(!empty($busqueda) && empty($searchcategory))
                      <div id="select-countries" class="container" style="background: #fafafa; display:none;">
                         @foreach(array_unique($zonas) as $zona)
@@ -193,7 +194,7 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                     @elseif(!empty($searchcategory) && empty($busqueda))
                     <div id="select-countries" class="container" style="background: #fafafa; display:none;">
                         @foreach(array_unique($zonas) as $zona)
-                                <div class="row" style="margin-left: 30px; font-size: 16px;"><a href="/busqueda?category={{$searchcategory}}" class="text-primary">{{$zona}}</a></div>
+                                <div class="row" style="margin-left: 30px; font-size: 16px;"><a href="/busqueda?category={{$searchcategory}}&zone={{$zona}}" class="text-primary">{{$zona}}</a></div>
                         @endforeach
                     </div>
                     @endif
@@ -361,7 +362,8 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
 
                             <!-- destacados -->
 
-                            @foreach($destacados as $destacado)
+
+{{--                             @foreach($destacados as $destacado)
                             <div id="list-responsive" class="container">
                                 <div class="row bg-white" style="padding: 5px;">
                                     <div class="col-3" style="padding-left: 5px; padding-right: 5px;">
@@ -394,7 +396,7 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                                 </div>
                                 @endforeach
 
-
+--}}
 
 
 
@@ -425,7 +427,7 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                                     <!-- ACA FINALIZA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
 
                                     <div class="thumb fn-smd">
-                                        <img class="img-fluid" style="height: 120px; width: 140px;" src="images/large/{{$last->img}}" alt="{{$last->name}}">
+                                        <img class="img-fluid" style="height: 120px; width: 140px;" @if($last->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="images/large/{{$last->img}}" @endif alt="{{$last->name}}">
                                         @php $cantComent = 0;$cantPoints = 0;$points = 0;@endphp
                                             @foreach($coments as $coment) @if($coment->user_id == $last->id) @php $cantComent ++; $cantPoints += $coment->point; @endphp @endif @endforeach
                                         @php if($cantPoints != 0){ $points = $cantPoints / $cantComent; }else{ $points = 4; } @endphp
@@ -483,7 +485,7 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                             <div id="list-responsive" class="container">
                                 <div class="row bg-white" style="padding: 5px;">
                                     <div class="col-3" style="padding: 5px;">
-                                        <img style="border-radius: 10px;" class="img-fluid" src="images/large/{{$last->img}}" alt="{{$last->name}}">
+                                        <img style="border-radius: 10px;" class="img-fluid" @if($last->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="images/large/{{$last->img}}" @endif alt="{{$last->name}}">
                                     </div>
                                     <div class="col-8" style="padding-left: 10px; padding: right: 10px;">
                                 @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
@@ -498,15 +500,19 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                                     @endif
                                 @else
                                     @if($hour >= $last->{'inhour'.$day} && $hour <= $last->{'outhour'.$day})
-                                    <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-success">Disponible</p>
+                                    <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-success">Disponible </p>
                                     @else
-                                    <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-danger">No Disponible</p>                                @endif
+                                    <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-danger">No Disponible </p>
+                                    @endif
                                 @endif
 
                                         <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: 600"> {{ ucfirst($last->job)}}</h4>
                                         <p style="font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">@if($last->verify == 2)<img height="13px" src="img-icons/verify.webp"/>@endif <a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ ucfirst($last->name) }} </a></p>
                                         <p style="margin-top: -3px;margin-bottom:0px;font-size: 12px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><i class="fa fa-location-arrow"></i> <a style="color: #7f7f7f">@if($last->zone){{$last->zone}},@endif Mar del Plata</a></p>
-                                        @if($last->presupuesto)<div class="text-success" style="font-size: 11px;margin-top: -1px;">PRESUPUESTO SIN CARGO </div>@endif
+                                        @if($last->destacado)<p style="margin-bottom: 5px;"><span class="badge badge-warning" style="font-size: 9px; background: gainsboro;padding: 3px;color: #2f2f2f;">DESTACADO</span></p> @endif
+                                        @if(!$last->destacado)
+                                        @if($last->presupuesto)<div class="text-success" style="font-size: 10px;margin-top: -1px;">PRESUPUESTO SIN CARGO </div>@endif
+                                        @endif
                                         <a class="stretched-link" style="text-decoration: none;  color: #2e86fc;font-weight: bold;background: none;border: none;font-size: 11px;font-family: 'roboto', sans-serif;" href="{{Route('User.perfil', ['user_id' => $last->id])}}" >VER / CONTACTAR </a>
                                         <hr>
                                     </div>
@@ -582,14 +588,17 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                 @if(isset($relacionados))
                 <hr>
                 <p id="text-list-responsive">Te puede interesar..</p>
-                <div class="container">
+                <div class="container" style="height: 130px;">
                     <div class="swiper-container2">
                         <div class="swiper-wrapper">
                             @foreach($relacionados as $relacionado)
                           <div class="swiper-slide">
                               <div class="card" style="border-radius: 10px;">
                                 <a class="card-block stretched-link text-decoration-none" href="/perfil?user_id={{$relacionado->id}}"></a>
-                              <img style="height: 100px;border-radius: 10px 10px 0px 0px;" src="images/large/{{$relacionado->img}}" >
+                                @if($relacionado->destacado == 1)
+                                    <span class="badge badge-warning" style="position: absolute;font-size: 8px; background: gainsboro;padding: 3px;color: #2f2f2f;">DESTACADO</span>
+                                @endif
+                                <img style="height: 70px;width: 70px;margin-left: 15px;@if($relacionado->img != 'logo.png') padding: 5px;border-radius: 111px; @else padding: 10px; @endif" @if($relacionado->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="images/large/{{$relacionado->img}}" @endif >
                               <div class="card-body" style="padding: 10px;">
                                   <p style="color: black;font-size: 10px;font-weight: bold; margin: 0px;;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">@if($relacionado->verify == 2) <img height="13" src="img-icons/verify.webp"> @endif {{$relacionado->name}}</p>
 
@@ -606,7 +615,7 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                     <hr>
                 @endif
                 @if(!empty($empty))</div>@endif
-                <p id="text-list-responsive"><strong>Destacados</strong> en Mardeltrabaja</p>
+                <p id="text-list-responsive"><strong>Principales</strong> en Mardeltrabaja</p>
         @if($masvistos)
             @foreach($masvistos as $masvisto)
        <div id="list-responsive" class="container">
@@ -618,6 +627,7 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-info">Más visitado</p>
                    <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: 600">@if($masvisto->verify == 2) <img height="13px" src="img-icons/verify.webp"> @endif {{$masvisto->name}}</h4>
                    <p style="font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$masvisto->job}}">{{ ucfirst($masvisto->job) }} <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a></p>
+                   @if($masvisto->destacado) <p style="margin-bottom: 5px;"><span class="badge badge-warning" style="font-size: 9px; background: gainsboro;padding: 3px;color: #2f2f2f;">DESTACADO</span></p> @endif
                                <a class="stretched-link" style="text-decoration: none;  color: #3db39e;background: none;border: none;font-size: 12px;" href="{{Route('User.perfil', ['user_id' => $masvisto->id])}}" ></a>
                    <hr>
                </div>
@@ -648,12 +658,13 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
 <div id="list-responsive" class="container">
 <div class="row bg-white">
     <div class="col-3" style="padding-left: 5px; padding-right: 5px;">
-        <img style="border-radius: 10px;" class="img-fluid" src="images/large/{{$mascomentado->img}}" alt="1.jpg">
+        <img style="border-radius: 10px;" class="img-fluid" @if($mascomentado->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="images/large/{{$mascomentado->img}}" @endif alt="1.jpg">
     </div>
 <div class="col-8">
 <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-info">Mejor puntuado</p>
 <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: 600">@if($mascomentado->verify == 2) <img height="13px" src="img-icons/verify.webp">  @endif {{$mascomentado->name}} </h4>
 <p style="font-weight: 600;font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$mascomentado->job}}">{{ ucfirst($mascomentado->job) }} <span style="color: #28af77"><i class="fa fa-check-circle"></i></span></a></p>
+@if($mascomentado->destacado)<p style="margin-bottom: 5px;"><span class="badge badge-warning" style="font-size: 9px; background: gainsboro;padding: 3px;color: #2f2f2f;">DESTACADO</span></p> @endif
       <a class="stretched-link" style="text-decoration: none;  color: #3db39e;background: none;border: none;font-size: 12px;" href="{{Route('User.perfil', ['user_id' => $mascomentado->id])}}" ></a>
 <hr>
 </div>
