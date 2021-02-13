@@ -1,6 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
+<?php use Carbon\Carbon; ?>
+<?php if(session()->has('success')){        ?>
+
+    <script>
+        swal({
+          title: "¡Felicitaciones!",
+          text: "A partir de hoy conocerás los beneficios de la membresía de profesional destacado. Recuerda que la duración es de 15 días comenzando a partir del día siguiente a las 00:00hs. ¡Gracias por confiar en nosotros!",
+          icon: "success",
+          button: "Gracias",
+        });
+    </script>
+<?php } ?>
+<?php session()->forget('success'); ?>
 
 <style>
 .inputfile {
@@ -78,7 +91,8 @@ filter: brightness(50%);
 						    	<h5 class="mt-0" style="font-size: 13px;">{{ Auth::user()->name }}</h5>
                                 @if(Auth::user()->rol == 'profesional')
                                 <p style="font-size: 11px;color: #949494;"><img style="width: 16px;" src="img-icons/location.png">@if(!Auth::user()->zone) Mar del Plata @else {{ Auth::user()->zone}} @endif</p>
-                                       <p style="font-style: italic;font-size: 13px;"><img src="img-icons/profesion.png" style="width:16px;"> {{ Auth::user()->job }}</p>
+                                <p style="font-style: italic;font-size: 13px;"><img src="img-icons/profesion.png" style="width:16px;"> {{ Auth::user()->job }}</p>
+
                                 @endif
                                 @if(Auth::user()->rol == 'usuario')
                                     <p style="font-style: italic;font-size: 13px;"> Usuario </p>
@@ -99,6 +113,21 @@ filter: brightness(50%);
                             <label style="font-size:12px;" id="cancelUpdateImg" class="text-danger font-weight-bold">Cancelar</label>
                          </form>
                     </div>
+
+                    @if(Auth::user()->destacado == 1)
+                    <div class="mt-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);background: white; padding: 25px;">
+
+                        <p style="font-size: 12px;">Membresía destacado activa hasta:
+                            <?php
+                            $date = Auth::user()->created_destacado;
+                            $date = Carbon::createFromFormat('Y-m-d', $date);
+                            $date = $date->addDays(15);
+                            $date = $date->format('Y-m-d');
+                            echo '<span class="text-success" style="font-size: 12px;">' . $date . '</span>';
+                            ?>
+                           </p>
+                    </div>
+                    @endif
 
                         <div class=" mt-2 mb-2 responsive" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);background: white">
                             <div class="container">

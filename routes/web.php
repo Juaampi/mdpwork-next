@@ -13,6 +13,7 @@
 
 use App\Http\Controllers\UserController;
 
+Route::get('/destacado', 'UserController@destacado');
 Route::get('/', 'UserController@welcome');
 Route::get('/lista', 'UserController@showlist') ->name('User.showlist');
 Route::get('/perfil', 'UserController@showperfil')->name('User.perfil');
@@ -57,3 +58,7 @@ Route::group(['prefix' => 'auth'], function () {
 Route::get('/pre', function(){
     return view('auth.preregister');
 });
+
+Route::get('/success', 'UserController@success');
+Route::get('/failure', 'UserController@failure');
+Route::get('/pending', 'UserController@pending');

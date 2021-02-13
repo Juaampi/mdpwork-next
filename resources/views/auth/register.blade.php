@@ -315,11 +315,11 @@
                                     </div>
                                     <div id="horariolunesaviernes" style="display: none;">
                                         <div id="horalunesaviernes" class="form-group form-inline">
-                                        <input name="inhourlunesaviernes" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input style="width: auto;" name="outhourlunesaviernes" type="time" class="form-control ml-3 text-center">
+                                        <input name="inhourlunesaviernes" type="time" class="form-control mr-3 text-center" style="width: 40%;"> - <input style="width: 40%;" name="outhourlunesaviernes" type="time" class="form-control ml-3 text-center">
                                         </div>
                                         <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
                                         <div id="horalunesaviernes2" class="form-group form-inline">
-                                            <input name="inhourafterlunesaviernes" id="inhourafterlunesaviernes" style="width: auto;" disabled type="time" class="form-control mr-3 text-center"> - <input style="width: auto;" name="outhourafterlunesaviernes" id="outhourafterlunesaviernes" disabled type="time" class="form-control ml-3 text-center">
+                                            <input name="inhourafterlunesaviernes" id="inhourafterlunesaviernes" style="width: 40%;" disabled type="time" class="form-control mr-3 text-center"> - <input style="width: 40%;" name="outhourafterlunesaviernes" id="outhourafterlunesaviernes" disabled type="time" class="form-control ml-3 text-center">
                                         </div>
                                         <div class="form-group form-inline">
                                         <span id="btnagregarhorariolunesaviernes" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
@@ -339,11 +339,11 @@
                                 </div>
                                 <div id="horariolunesasabado" style="display: none;">
                                     <div id="horalunesasabado" class="form-group form-inline">
-                                    <input name="inhourlunesasabado" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input style="width: auto;" name="outhourlunesasabado" type="time" class="form-control ml-3 text-center">
+                                    <input name="inhourlunesasabado" type="time" class="form-control mr-3 text-center" style="width: 40%;"> - <input style="width: 40%;" name="outhourlunesasabado" type="time" class="form-control ml-3 text-center">
                                     </div>
                                     <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
                                     <div id="horalunesasabado2" class="form-group form-inline">
-                                        <input name="inhourafterlunesasabado" id="inhourafterlunesasabado" style="width: auto;" disabled type="time" class="form-control mr-3 text-center"> - <input style="width: auto;" name="outhourafterlunesasabado" id="outhourafterlunesasabado" disabled type="time" class="form-control ml-3 text-center">
+                                        <input name="inhourafterlunesasabado" id="inhourafterlunesasabado" style="width: 40%;" disabled type="time" class="form-control mr-3 text-center"> - <input style="width: 40%;" name="outhourafterlunesasabado" id="outhourafterlunesasabado" disabled type="time" class="form-control ml-3 text-center">
                                     </div>
                                     <div class="form-group form-inline">
                                     <span id="btnagregarhorariolunesasabado" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
@@ -362,11 +362,11 @@
                             </div>
                             <div id="horariolunesadomingo" style="display: none;">
                                 <div id="horalunesadomingo" class="form-group form-inline">
-                                <input name="inhourlunesadomingo" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input style="width: auto;" name="outhourlunesadomingo" type="time" class="form-control ml-3 text-center">
+                                <input name="inhourlunesadomingo" type="time" class="form-control mr-3 text-center" style="width: 40%;"> - <input style="width: 40%;" name="outhourlunesadomingo" type="time" class="form-control ml-3 text-center">
                                 </div>
                                 <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
                                 <div id="horalunesadomingo2" class="form-group form-inline">
-                                    <input name="inhourafterlunesadomingo" id="inhourafterlunesadomingo" style="width: auto;" disabled type="time" class="form-control mr-3 text-center"> - <input style="width: auto;" name="outhourafterlunesadomingo" id="outhourafterlunesadomingo" disabled type="time" class="form-control ml-3 text-center">
+                                    <input name="inhourafterlunesadomingo" id="inhourafterlunesadomingo" style="width: 40%;" disabled type="time" class="form-control mr-3 text-center"> - <input style="width: 40%;" name="outhourafterlunesadomingo" id="outhourafterlunesadomingo" disabled type="time" class="form-control ml-3 text-center">
                                 </div>
                                 <div class="form-group form-inline">
                                 <span id="btnagregarhorariolunesadomingo" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
@@ -390,11 +390,11 @@
                         </div>
                         <div id="horariolunes" style="display: none;">
                             <div id="horalunes" class="form-group form-inline">
-                            <input name="inhourlunes" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input style="width: auto;" name="outhourlunes" type="time" class="form-control ml-3 text-center">
+                            <input name="inhourlunes" type="time" class="form-control mr-3 text-center" style="width: 40%;"> - <input style="width: 40%;" name="outhourlunes" type="time" class="form-control ml-3 text-center">
                             </div>
                             <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
                             <div id="horalunes2" class="form-group form-inline">
-                                <input name="inhourafterlunes" id="inhourafterlunes" style="width: auto;" disabled type="time" class="form-control mr-3 text-center"> - <input style="width: auto;" name="outhourafterlunes" id="outhourafterlunes" disabled type="time" class="form-control ml-3 text-center">
+                                <input name="inhourafterlunes" id="inhourafterlunes" style="width: 40%;" disabled type="time" class="form-control mr-3 text-center"> - <input style="width: 40%;" name="outhourafterlunes" id="outhourafterlunes" disabled type="time" class="form-control ml-3 text-center">
                             </div>
                             <div class="form-group form-inline">
                             <span id="btnagregarhorariolunes" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
@@ -416,11 +416,11 @@
                             </div>
                             <div id="horariomartes" style="display: none;">
                                 <div id="horamartes" class="form-group form-inline">
-                                <input name="inhourmartes" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input name="outhourmartes" type="time" class="form-control ml-3 text-center" style="width: auto;">
+                                <input name="inhourmartes" type="time" class="form-control mr-3 text-center" style="width: 40%;"> - <input name="outhourmartes" type="time" class="form-control ml-3 text-center" style="width: 40%;">
                                 </div>
                                 <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
                                 <div id="horamartes2" class="form-group form-inline">
-                                    <input name="inhouraftermartes" id="inhouraftermartes" disabled type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input style="width: auto;" name="outhouraftermartes" id="outhouraftermartes" disabled type="time" class="form-control ml-3 text-center">
+                                    <input name="inhouraftermartes" id="inhouraftermartes" disabled type="time" class="form-control mr-3 text-center" style="width: 40%;"> - <input style="width: 40%;" name="outhouraftermartes" id="outhouraftermartes" disabled type="time" class="form-control ml-3 text-center">
                                 </div>
                                 <div class="form-group form-inline">
                                 <span id="btnagregarhorariomartes" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
@@ -442,11 +442,11 @@
                             </div>
                             <div id="horariomiercoles" style="display: none;">
                                 <div id="horamiercoles" class="form-group form-inline">
-                                <input name="inhourmiercoles" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input name="outhourmiercoles" style="width: auto;" type="time" class="form-control ml-3 text-center">
+                                <input name="inhourmiercoles" type="time" class="form-control mr-3 text-center" style="width: 40%;"> - <input name="outhourmiercoles" style="width: 40%;" type="time" class="form-control ml-3 text-center">
                                 </div>
                                 <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
                                 <div id="horamiercoles2" class="form-group form-inline">
-                                    <input name="inhouraftermiercoles" id="inhouraftermiercoles" disabled type="time" style="width: auto;" class="form-control mr-3 text-center"> - <input name="outhouraftermiercoles" id="outhouraftermiercoles" disabled type="time" class="form-control ml-3 text-center" style="width: auto;">
+                                    <input name="inhouraftermiercoles" id="inhouraftermiercoles" disabled type="time" style="width: 40%;" class="form-control mr-3 text-center"> - <input name="outhouraftermiercoles" id="outhouraftermiercoles" disabled type="time" class="form-control ml-3 text-center" style="width: 40%;">
                                 </div>
                                 <div class="form-group form-inline">
                                 <span id="btnagregarhorariomiercoles" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
@@ -468,11 +468,11 @@
                             </div>
                             <div id="horariojueves" style="display: none;">
                                 <div id="horajueves" class="form-group form-inline">
-                                <input name="inhourjueves" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input name="outhourjueves" type="time" class="form-control ml-3 text-center" style="width: auto;">
+                                <input name="inhourjueves" type="time" class="form-control mr-3 text-center" style="width: 40%;"> - <input name="outhourjueves" type="time" class="form-control ml-3 text-center" style="width: 40%;">
                                 </div>
                                 <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
                                 <div id="horajueves2" class="form-group form-inline">
-                                    <input name="inhourafterjueves" id="inhourafterjueves" disabled type="time" style="width: auto;" class="form-control mr-3 text-center"> - <input  style="width: auto;" name="outhourafterjueves" id="outhourafterjueves" disabled type="time" class="form-control ml-3 text-center">
+                                    <input name="inhourafterjueves" id="inhourafterjueves" disabled type="time" style="width: 40%;" class="form-control mr-3 text-center"> - <input  style="width: 40%;" name="outhourafterjueves" id="outhourafterjueves" disabled type="time" class="form-control ml-3 text-center">
                                 </div>
                                 <div class="form-group form-inline">
                                 <span id="btnagregarhorariojueves" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
@@ -494,11 +494,11 @@
                             </div>
                             <div id="horarioviernes" style="display: none;">
                                 <div id="horaviernes" class="form-group form-inline">
-                                <input name="inhourviernes" type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input name="outhourviernes" type="time" class="form-control ml-3 text-center" style="width: auto;">
+                                <input name="inhourviernes" type="time" class="form-control mr-3 text-center" style="width: 40%;"> - <input name="outhourviernes" type="time" class="form-control ml-3 text-center" style="width: 40%;">
                                 </div>
                                 <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
                                 <div id="horaviernes2" class="form-group form-inline">
-                                    <input name="inhourafterviernes" id="inhourafterviernes" disabled type="time" style="width: auto;" class="form-control mr-3 text-center"> - <input name="outhourafterviernes" style="width: auto;" id="outhourafterviernes" disabled type="time" class="form-control ml-3 text-center">
+                                    <input name="inhourafterviernes" id="inhourafterviernes" disabled type="time" style="width: 40%;" class="form-control mr-3 text-center"> - <input name="outhourafterviernes" style="width: 40%;" id="outhourafterviernes" disabled type="time" class="form-control ml-3 text-center">
                                 </div>
                                 <div class="form-group form-inline">
                                 <span id="btnagregarhorarioviernes" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
@@ -520,11 +520,11 @@
                             </div>
                             <div id="horariosabado"style="display: none;">
                                 <div id="horasabado" class="form-group form-inline">
-                                <input name="inhoursabado" style="width: auto;" type="time" class="form-control mr-3 text-center"> - <input name="outhoursabado" type="time" class="form-control ml-3 text-center" style="width: auto;">
+                                <input name="inhoursabado" style="width: 40%;" type="time" class="form-control mr-3 text-center"> - <input name="outhoursabado" type="time" class="form-control ml-3 text-center" style="width: 40%;">
                                 </div>
                                 <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
                                 <div id="horasabado2" class="form-group form-inline">
-                                    <input name="inhouraftersabado" id="inhouraftersabado" disabled type="time" class="form-control mr-3 text-center" style="width: auto;"> - <input name="outhouraftersabado" style="width: auto;" id="outhouraftersabado" disabled type="time" class="form-control ml-3 text-center">
+                                    <input name="inhouraftersabado" id="inhouraftersabado" disabled type="time" class="form-control mr-3 text-center" style="width: 40%;"> - <input name="outhouraftersabado" style="width: 40%;" id="outhouraftersabado" disabled type="time" class="form-control ml-3 text-center">
                                 </div>
                                 <div class="form-group form-inline">
                                 <span id="btnagregarhorariosabado" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>
@@ -546,11 +546,11 @@
                             </div>
                             <div id="horariodomingo" style="display: none;">
                                 <div id="horadomingo" class="form-group form-inline">
-                                <input name="inhourdomingo" type="time" class="form-control mr-3 text-center" style="width: auto;" > - <input name="outhourdomingo" type="time" class="form-control ml-3 text-center" style="width: auto;" >
+                                <input name="inhourdomingo" type="time" class="form-control mr-3 text-center" style="width: 40%;" > - <input name="outhourdomingo" type="time" class="form-control ml-3 text-center" style="width: 40%;" >
                                 </div>
                                 <div class="badge badge-warning">El siguiente horario es por si haces horario cortado. </div>
                                 <div id="horadomingo2" class="form-group form-inline">
-                                    <input name="inhourafterdomingo" id="inhourafterdomingo" style="width: auto;" disabled type="time" class="form-control mr-3 text-center"> - <input name="outhourafterdomingo" style="width: auto;" id="outhourafterdomingo" disabled type="time" class="form-control ml-3 text-center">
+                                    <input name="inhourafterdomingo" id="inhourafterdomingo" style="width: 40%;" disabled type="time" class="form-control mr-3 text-center"> - <input name="outhourafterdomingo" style="width: 40%;" id="outhourafterdomingo" disabled type="time" class="form-control ml-3 text-center">
                                 </div>
                                 <div class="form-group form-inline">
                                 <span id="btnagregarhorariodomingo" style="font-size: 12px; font-style: italic" class="btn text-primary">Horario cortado</span>

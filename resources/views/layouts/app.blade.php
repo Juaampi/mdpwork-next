@@ -44,6 +44,7 @@
    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap" rel="stylesheet">
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
 
@@ -142,7 +143,7 @@
                     <div class="container">
                     <div class="row">
                         <div class="col-3">
-                        <img @if(!Auth::user()) src="img/logo.png" @elseif(Auth::user()->avatar) src="{{Auth::user()->avatar}}" @else src="img-perfil/{{ Auth::user()->img }}" @endguest style="margin-top: 20px; border-radius: 30px;" />
+                        <img @if(!Auth::user()) src="img-perfil/user-circle-list.png" @elseif(Auth::user()->avatar) src="{{Auth::user()->avatar}}" @elseif(Auth::user()->img) src="img-perfil/{{ Auth::user()->img }}" @elseif(Auth::user()->img == 'logo.png') src="img-perfil/user-circle-list.png" @endif style="margin-top: 20px; border-radius: 30px;" />
                         </div>
                         <div class="col-9">
                             <h5 style="margin-top: 20px; margin-bottom: 0px;font-weight: 600;">Bienvenido</h5>
@@ -150,10 +151,10 @@
                             <h6 class="text-muted">Ingresá para optimizar tu perfil o dejar tu reseña.</h6>
                             <div class="row" style="margin-top: 10px;">
                                 <div class="col-6" style="padding: 1px;">
-                                    <a href="/register" class="btn btn-info" style="width: 100%; color: white;font-size: 12px;">Quiero aparecer</a>
+                                    <a href="/register" class="btn btn-info" style="width: 100%; color: white;font-size: 12px;">Registrarme</a>
                                 </div>
                                 <div class="col-6" style="padding: 1px;">
-                                    <a class="btn btn-outline-info" href="/login" style="width: 100%; color: #17a2b8; font-size: 12px;">Ya me registré</a>
+                                    <a class="btn btn-outline-info" href="/login" style="width: 100%; color: #17a2b8; font-size: 12px;">Iniciar Sesion</a>
                                 </div>
                             </div>
                             @else
@@ -210,7 +211,12 @@
                         </a>
                         <a href="/aspirantes">
                             <li style="display: block;padding: 10px 0;margin: 0;">
-                                 <i class="fa fa-star " style="font-size: 20px;width: 20px;height: 20px;display: inline-block;margin-right: 18px;float: left;"></i> <span style="font-weight: 600">No tengo experiencia laboral <span style="font-size: 9px;" class="badge badge-primary">Nuevo</span> </span>
+                                 <i class="fa fa-star " style="font-size: 20px;width: 20px;height: 20px;display: inline-block;margin-right: 18px;float: left;"></i> <span>No tengo experiencia laboral </span>
+                            </li>
+                        </a>
+                        <a href="/destacado">
+                            <li style="display: block;padding: 10px 0;margin: 0;">
+                                 <i class="fa fa-address-card " style="font-size: 20px;width: 20px;height: 20px;display: inline-block;margin-right: 18px;float: left;"></i> <span style="font-weight: 600">¿Cómo ser un destacado?</span>
                             </li>
                         </a>
 
@@ -518,9 +524,9 @@ if (event.keyCode === 13) {
 
 <script>
     var swiper = new Swiper('.swiper-container2', {
-      slidesPerView: 2.5,
+      slidesPerView: 3,
       direction: 'horizontal',
-      spaceBetween: 10,
+      spaceBetween: 5,
       freeMode: true,
     });
   </script>

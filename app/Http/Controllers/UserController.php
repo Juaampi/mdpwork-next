@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Auth\Events\Registered;
 use App\User;
 use App\Subcategory;
 use App\Category;
@@ -11,16 +10,43 @@ use App\Coment;
 use App\View;
 use App\Search;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Collection as Collection;
-use PhpParser\Node\Expr\AssignOp\Concat;
-use App\Mail\RegisterMail;
 use App\Mail\VerifyMail;
-use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Support\Facades\Mail;
+use MercadoPago\Preference;
+use MercadoPago;
+MercadoPago\SDK::setAccessToken("TEST-997859865585449-062421-23b68fe2a8fb9a9647715b67c79ce110-216363986");
 
 class UserController extends Controller
 
 {
+
+    public function success(){
+
+		if(isset($_GET['preference_id'])){
+
+			    $id = array('id' => $_GET['preference_id']);
+				$preference = Preference::read($id);
+				$payer = $preference->payer;
+                $user = User::find($payer->name);
+                $user->destacado = 1;
+                $date = Carbon::now();
+                $date = $date->format('Y-m-d');
+                $user->created_destacado = $date;
+                $user->save();
+			}
+			session()->put('success', 'true');
+			return redirect('/panel');
+	}
+
+	public function failure(){
+		session()->put('failure', 'true');
+		return view('dashboard');
+	}
+
+	public function pending(){
+		session()->put('failure', 'true');
+		return redirect('/dashboard');
+	}
 
     public function aprobarVerificacion(Request $request){
         $user = User::find($request['user_id']);
@@ -47,6 +73,10 @@ class UserController extends Controller
 
     }
 
+    public function destacado(){
+        return view('destacado');
+    }
+
     public function aspirantes(){
         return view('aspirantes');
     }
@@ -65,9 +95,9 @@ class UserController extends Controller
 
     public function showlist(){
 
-        $masvistos = DB::table('views')->selectRaw("users.id, users.name, users.img, users.job, users.verify,users.points, COUNT('views.*') as views")->join('users', 'users.id', '=', 'views.user_id')->groupBy('users.name')->orderBy('views', 'desc')->take(1)->get();
+        $masvistos = DB::table('views')->selectRaw("users.destacado, users.id, users.name, users.img, users.job, users.verify,users.points, COUNT('views.*') as views")->join('users', 'users.id', '=', 'views.user_id')->groupBy('users.name')->orderBy('views', 'desc')->take(1)->get();
         $mascomentados = User::orderBy('points', 'desc')->take(1)->get();
-        $users = User::where('rol', '=', 'profesional')->orderBy('created_at', 'desc')->paginate(80);
+        $users = User::where('rol', '=', 'profesional')->orderBy('destacado', 'desc')->orderBy('created_at', 'desc')->paginate(80);
         $destacados = User::where('rol', '=', 'profesional')->where('destacado', '=', 1)->get();
         $categories = Category::all();
         $subcategories = Subcategory::all();
@@ -107,7 +137,7 @@ class UserController extends Controller
     }
 
     public function search(Request $request){
-        $masvistos = DB::table('views')->selectRaw("users.id, users.name, users.img, users.job,users.verify,users.points, COUNT('views.*') as views")->join('users', 'users.id', '=', 'views.user_id')->groupBy('users.name')->orderBy('views', 'desc')->take(1)->get();
+        $masvistos = DB::table('views')->selectRaw("users.destacado, users.id, users.name, users.img, users.job,users.verify,users.points, COUNT('views.*') as views")->join('users', 'users.id', '=', 'views.user_id')->groupBy('users.name')->orderBy('views', 'desc')->take(1)->get();
         $mascomentados = User::orderBy('points', 'desc')->take(1)->get();
         $destacados = User::where('rol', '=', 'profesional')->where('destacado', '=', 1)->get();
         $categories = Category::all();
@@ -157,7 +187,7 @@ class UserController extends Controller
         }
 
         if(!empty($request['search']) && !empty($request['zone'])){
-            $user = User::where('job', 'like', '%' . $request['search'] . '%')->where('zone', 'like', '%'. $request['zone'] . '%')->paginate(80);
+            $user = User::where('job', 'like', '%' . $request['search'] . '%')->where('zone', 'like', '%'. $request['zone'] . '%')->orderBy('destacado', 'desc')->paginate(80);
                 if(!$user){
                     $user =  User::where('rol', '=', 'profesional')->orderBy('created_at', 'desc')->paginate(80);
                     return view('list', ['destacados' => $destacados, 'zone' => $request['zone'], 'busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades, 'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
@@ -165,13 +195,13 @@ class UserController extends Controller
                  return view('list', ['destacados' => $destacados, 'zone' => $request['zone'], 'busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
                 }
         }else if(!empty($request['search']) && empty($request['zone'])){
-           $user = User::where('job', 'like', '%' . $request['search'] . '%')->paginate(80);
+           $user = User::where('job', 'like', '%' . $request['search'] . '%')->orderBy('destacado', 'desc')->paginate(80);
                 if(count($user) == 0){
                     $subcategoryRelacionada = Subcategory::where('name', 'LIKE', '%' . $request['search'] . '%')->take(1)->get();
                     $aspirantes = User::where('aptitudes', 'like', '%' . $request['search'] . '%')->orwhere('experienciaen', 'like', '%' . $request['search'] . '%')->get();
                     $user =  User::where('rol', '=', 'profesional')->orderBy('created_at', 'desc')->paginate(80);
                         if(count($subcategoryRelacionada) > 0) {
-                            $relacionados = User::where('category', '=', $subcategoryRelacionada[0]['category_id'])->orderBy('created_at', 'desc')->get();
+                            $relacionados = User::where('category', '=', $subcategoryRelacionada[0]['category_id'])->orderBy('destacado', 'desc')->get();
                             if(count($aspirantes) > 0){
                                 return view('list', ['destacados' => $destacados, 'aspirantes' => $aspirantes, 'relacionados' => $relacionados, 'busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
                             }else{
@@ -188,7 +218,7 @@ class UserController extends Controller
                     $aspirantes = User::where('aptitudes', 'like', '%' . $request['search'] . '%')->orwhere('experienciaen', 'like', '%' . $request['search'] . '%')->get();
                     $subcategoryRelacionada = Subcategory::where('name', 'LIKE', '%' . $request['search'] . '%')->take(1)->get();
                     if(count($subcategoryRelacionada) > 0){
-                        $relacionados = User::where('category', '=', $subcategoryRelacionada[0]['category_id'])->orderBy('created_at', 'desc')->take(10)->get();
+                        $relacionados = User::where('category', '=', $subcategoryRelacionada[0]['category_id'])->orderBy('destacado', 'desc')->take(15)->get();
                         if(count($aspirantes) > 0){
                             return view('list', ['destacados' => $destacados, 'aspirantes' => $aspirantes, 'relacionados' => $relacionados, 'busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
                         }else{
@@ -206,20 +236,23 @@ class UserController extends Controller
        }else if(!empty($request['zone']) && empty($request['search'])){
             $user = User::where('zone', 'like', '%' . $request['zone'] . '%')->paginate(80);
                 if(count($user) == 0){
-                    $user =  User::where('rol', '=', 'profesional')->orderBy('created_at', 'desc')->get();
+                    $user =  User::where('rol', '=', 'profesional')->orderBy('destacado', 'desc')->orderBy('created_at', 'desc')->get();
                     return view('list', ['destacados' => $destacados, 'zone' => $request['zone'],'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
                 }else{
                     return view('list', ['destacados' => $destacados, 'zone' => $request['zone'],'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
                 }
-       }
-       if(!empty($request['category'])){
+       }else if(!empty($request['category']) && empty($request['zone'])){
         $categoria = Category::where('name', 'like', '%' . $request['category'] . '%')->firstOrFail();
-        $user = User::Where('category', '=', $categoria->id)->paginate(80);
+        $user = User::Where('category', '=', $categoria->id)->orderBy('destacado', 'desc')->paginate(80);
+        return view('list', ['destacados' => $destacados, 'searchcategory' => $request['category'], 'zone'=> $request['zone'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
+
+       }else if(!empty($request['category']) && !empty($request['zone'])){
+        $categoria = Category::where('name', 'like', '%' . $request['category'] . '%')->firstOrFail();
+        $user = User::Where('category', '=', $categoria->id)->where('zone', '=', $request['zone'])->orderBy('destacado', 'desc')->paginate(80);
         return view('list', ['destacados' => $destacados, 'searchcategory' => $request['category'], 'zone'=> $request['zone'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
        }
-       //if(empty($request['search']) && empty($request['zone'])){
-         //   return redirect()->back()->with('response', 'error');
-       //}
+
+
     }
 
     public function showperfil(Request $request){
@@ -734,9 +767,10 @@ class UserController extends Controller
 
     public function ordenarPorNombre(Request $request){
 
-        $masvistos = DB::table('views')->selectRaw("users.id, users.name, users.img, users.job, users.verify,users.points,  COUNT('views.*') as views")->join('users', 'users.id', '=', 'views.user_id')->groupBy('users.name')->orderBy('views', 'desc')->take(1)->get();
+        $masvistos = DB::table('views')->selectRaw("users.destacado, users.id, users.name, users.img, users.job, users.verify,users.points,  COUNT('views.*') as views")->join('users', 'users.id', '=', 'views.user_id')->groupBy('users.name')->orderBy('views', 'desc')->take(1)->get();
         $mascomentados = User::orderBy('points', 'desc')->take(1)->get();
         $users = User::where('rol', '=', 'profesional')->orderBy('created_at', 'desc')->get();
+        $destacados = User::where('rol', '=', 'profesional')->where('destacado', '=', 1)->get();
         $categories = Category::all();
         $subcategories = Subcategory::all();
         $coments = Coment::all();
@@ -771,7 +805,17 @@ class UserController extends Controller
         $u++;
     }
 
-        if(!empty($request['search']) && !empty($request['category'])){
+    if(!empty($request['search']) && !empty($request['zone'])){
+        $user = User::where('job', 'like', '%' . $request['search'] . '%')->where('zone', 'like', '%'. $request['zone'] . '%')->orderBy('destacado', 'desc')->orderBy('name', 'desc')->paginate(80);
+            if(!$user){
+                $user =  User::where('rol', '=', 'profesional')->orderBy('created_at', 'desc')->paginate(80);
+                return view('list', ['destacados' => $destacados, 'zone' => $request['zone'], 'busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades, 'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
+            }else{
+             return view('list', ['destacados' => $destacados, 'zone' => $request['zone'], 'busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
+            }
+    }
+
+        elseif(!empty($request['search']) && !empty($request['category'])){
             $categoria = Category::where('name', 'like', '%' . $request['category'] . '%')->firstOrFail();
             $user = User::where('job', 'like', '%' . $request['search'] . '%')->where('category', 'like', '%' . $categoria->id . '%')->orderBy('name', 'asc')->paginate(80);
                  if(count($user) == 0){
@@ -780,14 +824,37 @@ class UserController extends Controller
                  }else{
                      return view('list', ['busqueda' => $request['search'], 'searchcategory' => $categoria->id, 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
                  }
-        }else if(empty($request['search']) && !empty($request['category'])){
-                $categoria = Category::where('name', 'like', '%' . $request['category'] . '%')->firstOrFail();
-                $user = User::Where('category', '=', $categoria->id)->orderBy('name', 'asc')->paginate(80);
-                return view('list', ['searchcategory' => $request['category'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
-        }else if (!empty($request['search']) && (empty($request['category']))){
-            $user = User::where('job', 'like', '%' . $request['search'] . '%')->orderBy('name', 'asc')->paginate(80);
-            return view('list', ['busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
-        }
+                }else if(!empty($request['search']) && empty($request['zone'])){
+           $user = User::where('job', 'like', '%' . $request['search'] . '%')->orderBy('destacado', 'desc')->paginate(80);
+                if(count($user) == 0){
+                    $subcategoryRelacionada = Subcategory::where('name', 'LIKE', '%' . $request['search'] . '%')->take(1)->get();
+                    $aspirantes = User::where('aptitudes', 'like', '%' . $request['search'] . '%')->orwhere('experienciaen', 'like', '%' . $request['search'] . '%')->get();
+                    $user =  User::where('rol', '=', 'profesional')->orderBy('created_at', 'desc')->paginate(80);
+                        if(count($subcategoryRelacionada) > 0) {
+                            $relacionados = User::where('category', '=', $subcategoryRelacionada[0]['category_id'])->orderBy('destacado', 'desc')->get();
+                            if(count($aspirantes) > 0){
+                                return view('list', ['destacados' => $destacados, 'aspirantes' => $aspirantes, 'relacionados' => $relacionados, 'busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
+                            }else{
+                                return view('list', ['destacados' => $destacados, 'relacionados' => $relacionados, 'busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
+                            }
+                        }else{
+                            if(count($aspirantes) > 0){
+                                return view('list', ['destacados' => $destacados, 'aspirantes' => $aspirantes, 'busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
+                            }else{
+                                return view('list', ['destacados' => $destacados, 'busqueda' => $request['search'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments])->with('empty', 'error');
+                            }
+                        }
+                }
+        }else if(!empty($request['category']) && empty($request['zone'])){
+            $categoria = Category::where('name', 'like', '%' . $request['category'] . '%')->firstOrFail();
+            $user = User::Where('category', '=', $categoria->id)->orderBy('destacado', 'desc')->orderBy('name', 'asc')->paginate(80);
+            return view('list', ['destacados' => $destacados, 'searchcategory' => $request['category'], 'zone'=> $request['zone'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
+
+           }else if(!empty($request['category']) && !empty($request['zone'])){
+            $categoria = Category::where('name', 'like', '%' . $request['category'] . '%')->firstOrFail();
+            $user = User::Where('category', '=', $categoria->id)->where('zone', '=', $request['zone'])->orderBy('destacado', 'desc')->orderBy('name', 'asc')->paginate(80);
+            return view('list', ['destacados' => $destacados, 'searchcategory' => $request['category'], 'zone'=> $request['zone'], 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
+           }
     }
 
 
@@ -840,6 +907,7 @@ class UserController extends Controller
              }else{
                  return view('list', ['busqueda' => $request['search'], 'searchcategory' => $categoria->id, 'relacionadas' => $relacionadas, 'mascomentados' => $mascomentados, 'masvistos'=>$masvistos, 'cantidadesarray' => $cantidades,'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $user, 'subcategories' => $subcategories, 'coments' => $coments]);
              }
+
 
     }else if(empty($request['search']) && (!empty($request['category']))){
             $categoria = Category::where('name', 'like', '%' . $request['category'] . '%')->firstOrFail();

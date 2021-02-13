@@ -15,7 +15,7 @@ use Carbon\Carbon;
                                 <div class="col-md-3">
                                 <div class="card">
                                     <div class="card-body text-center">
-                                        <img class="img-fluid rounded" style="height: 150px" src="img-perfil/{{$user->img}}" alt="cl1.jpg">
+                                        <img class="img-fluid rounded" style="height: 150px" @if($user->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="img-perfil/{{$user->img}}" @endif alt="{{$user->name}}">
                                     </div>
                                     <div class="card-footer text-center">
                                         @php
