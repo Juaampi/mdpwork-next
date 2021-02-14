@@ -2,6 +2,34 @@
 @php
 use Carbon\Carbon;
 @endphp
+@php
+$carbon = Carbon::now('America/Argentina/Buenos_Aires');
+$day = $carbon->isoFormat('dddd');
+$hour = $carbon->format('H:i:s');
+if($day == 'Monday'){
+    $day = 'lunes';
+}
+if($day == 'Tuesday'){
+    $day = 'martes';
+}
+if($day == 'Wednesday'){
+    $day = 'miercoles';
+}
+if($day == 'Thursday'){
+    $day = 'jueves';
+}
+if($day == 'Friday'){
+    $day = 'viernes';
+}
+if($day == 'Saturday'){
+    $day ='sabado';
+}
+if($day == 'Sunday'){
+    $day = 'domingo';
+}
+
+@endphp
+
 @section('content')
 <div class="wrapper" style="background: #e7e7e7">
     <div class="swiper-container responsive">
@@ -17,25 +45,29 @@ use Carbon\Carbon;
     <div class="responsive bg-white ml-2 mr-2 mt-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
         <div class="container">
             <div class="row">
-                <h6 style="    font-family: 'Lato', sans-serif; font-size: 14px; padding: 10px 10px 10px 10px;" class="font-weight-bold">Visto recientemente</h6>
+                <div class="col-md-12" style="padding: 12px;">
+                <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">Visto recientemente</h6>
+                </div>
                 <div id="list-responsive" class="container">
                     <div class="row bg-white" style="margin-bottom: 10px;">
                         <div class="col-3" style="padding-left: 10px; padding-right: 10px;">
                             <img style="border-radius: 5px;height: 50px;" class="img-fluid" @if($ultimosvistos->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="images/large/{{$ultimosvistos->img}}" @endif alt="{{$ultimosvistos->name}}">
                         </div>
-                    <div class="col-8">
+                    <div class="col-7">
                     <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;white-space: nowrap;overflow: hidden;text-overflow: ellipsis" class="text-info">{{$ultimosvistos->job}}</p>
                     <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: 600">@if($ultimosvistos->verify == 2) <img height="13px" src="img-icons/verify.webp">  @endif {{$ultimosvistos->name}} </h4>
                           <a class="stretched-link" style="text-decoration: none;  color: #3db39e;background: none;border: none;font-size: 12px;" href="{{Route('User.perfil', ['user_id' => $ultimosvistos->id])}}" ></a>
                     </div>
-                    <div class="col-1" style="padding:0px;">
+                    <div class="col-2" style="padding: 0px 0px 0px 10px;">
                         @if($ultimosvistos->points < 2)
                         <p style="font-size: 10px;"><span style="color: #d84747;"><i class="fa fa-star"></i></span>
                         <span style="color: #d84747;"><strong>{{round($ultimosvistos->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                        @elseif($ultimosvistos->points == 4)
+                        <p style="font-size: 10px;"><span style="color: #838383"><i class="fa fa-star"></i></span></p>
                         @elseif($ultimosvistos->points >= 3 && $ultimosvistos->points < 4)
                         <p style="font-size: 10px;"><span style="color: #d66514;"><i class="fa fa-star"></i></span>
                         <span style="color: #d66514;"><strong>{{round($ultimosvistos->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
-                        @elseif($ultimosvistos->points >= 4 && $ultimosvistos->points < 5)
+                        @elseif($ultimosvistos->points > 4 && $ultimosvistos->points < 5)
                         <p style="font-size: 10px;"><span style="color: #28af77"><i class="fa fa-star"></i></span>
                         <span style="color: #28af77"><strong>{{round($ultimosvistos->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
                         @elseif($ultimosvistos->points == 5)
@@ -52,65 +84,99 @@ use Carbon\Carbon;
 @endif
     @endif
 
-    <div>
-		<div class="container">
-			<div class="row responsive">
-				<div class="col-12" style="padding: 12px;">
-                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;">Destacados</h6>
-                        <div class="container" style="padding: 10px 0px 0px 0px">
-                            <div class="swiper-container3">
-                                <div class="swiper-wrapper">
-                                    @foreach($destacados as $destacado)
-                                  <div class="swiper-slide">
-                                      <div class="card">
-                                    <a class="card-block stretched-link text-decoration-none" href="/perfil?user_id={{$destacado->id}}"></a>
-                                    <img style="height: 70px;width: 70px;margin-left: 20px;@if($destacado->img != 'logo.png') padding: 5px;border-radius: 111px; @else padding: 10px; @endif" @if($destacado->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="images/large/{{$destacado->img}}" @endif >
-                                      <div class="card-body" style="padding: 4px;margin-top: -10px;">
-                                        <div class="badge badge-warning" style="font-size: 8px; background: gainsboro;padding: 3px;color: #2f2f2f;">DESTACADO</div>
-                                          <p style="color: black;font-size: 10px;font-weight: bold; margin: 0px;;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">@if($destacado->verify == 2) <img height="13" src="img-icons/verify.webp"> @endif {{$destacado->name}}</p>
-                                        <p style="font-size: 10px; font-weight: bold; margin: 0px;;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{ ucfirst($destacado->job)}}</p>
-                                      </div>
-                                      </div>
-                                  </div>
-                                  @endforeach
-                                </div>
-                                <!-- Add Pagination -->
-                              </div>
-                        </div>
-                </div>
+    @if(isset($destacados))
+    @if($destacados != '')
+<div class="bg-white ml-2 mr-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
+    <div class="container">
+        <div class="row responsive">
+            <div class="col-12" style="padding: 12px;">
+                    <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">Recomendados de Mardeltrabaja.com</h6>
             </div>
-		</div>
-    </div>
-
-
-
-    <div class="responsive bg-white ml-2 mr-2 mt-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
-        <div class="container">
-			<div class="row">
-				<div class="col-8" style="padding: 14px;">
-                        <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;font-size: 14px;" class="font-weight-bold">¿Querés aparecer?</h6>
-                        <p class="text-muted" style="font-size: 12px;">Registrate como profesional y que el trabajo te busque a vos!</p>
-						<a style="font-size: 10px;font-weight: bold;color: #1886fc;padding: 5px;" href="/register">REGISTRARME COMO PROFESIONAL</a>
-                </div>
-                <div class="col-4">
-                    <img src="img/nuevos.svg" style="margin-top:30px;">
-                </div>
+        </div>
+        @foreach($destacados as $destacado)
+        @if($destacado->rol == 'profesional')
+    <div id="list-responsive" class="mt-2">
+        <div class="row bg-white">
+            <div class="col-3">
+                <img style="border-radius: 4px;" class="img-fluid" @if($destacado->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="images/large/{{$destacado->img}}" @endif alt="{{$destacado->name}}">
             </div>
-    </div>
-    </div>
+            <div class="col-7">
+                @if($destacado->{'inhourafter'.$day} && $destacado->{'outhourafter'.$day})
+                    @if($hour >= $destacado->{'inhour'.$day} && $hour <= $destacado->{'outhour'.$day})
+                        <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-success">Disponible</p>
+                    @elseif($hour >= $destacado->{'inhourafter'.$day} && $hour <= $destacado->{'outhourafter'.$day})
+                        <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-success">Disponible</p>
+                    @elseif($hour > $destacado->{'outhour'.$day} && $hour < $destacado->{'inhourafter'.$day})
+                        <span style="margin-bottom: 0px;font-size: 10px;font-weight: bold;color: #eb6c0a">Disponible a las @php echo date('G:i',strtotime($destacado->{'inhourafter'.$day} ))@endphp hs </span>
+                    @else
+                     <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-danger">No Disponible</p>
+                    @endif
+                 @else
+                    @if($hour >= $destacado->{'inhour'.$day} && $hour <= $destacado->{'outhour'.$day})
+                        <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-success">Disponible</p>
+                    @else
+                        <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-danger">No Disponible</p>
+                    @endif
+                @endif
+                <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: 600"> {{ ucfirst($destacado->job)}}</h4>
+                <p style="font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$destacado->job}}">@if($destacado->verify == 2)<img height="13px" src="img-icons/verify.webp"/>@endif {{ ucfirst($destacado->name) }}</a></p>
 
-
-    <div class="bg-white ml-2 mr-2 mt-2 mb-2 responsive" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center" style="padding: 14px;">
-                        <h6 style="margin-top: 10px; margin-bottom: 0px;font-family: 'Lato', sans-serif;font-size: 14px;" class="font-weight-bold">¿Todavía no tenés experiencia laboral?</h6>
-                        <p class="text-muted" style="font-size: 12px;">Pensamos en un espacio para que no te quedes afuera de nuestro sitio. Registrate como "Aspirante" y aparecé en la búsqueda de los empleadores de la ciudad o también como recomendación para las búsquedas de profesionales diarias.</p>
-                        <a style="font-size: 10px;font-weight: bold;color: #1886fc;padding: 5px;" href="/register">REGISTRARME COMO ASPIRANTE</a>
-                </div>
+                @if($destacado->destacado)<p style="margin-bottom: -7px;margin-top: -7px"><span class="badge badge-warning" style="font-size: 9px; background: gainsboro;padding: 3px;color: #2f2f2f;">DESTACADO</span></p> @endif
+                @if(!$destacado->destacado)
+                @if($destacado->presupuesto)<div class="text-success" style="font-size: 10px;margin-top: -1px;">PRESUPUESTO SIN CARGO </div>@endif
+                @endif
+                <a class="stretched-link" style="text-decoration: none;  color: #2e86fc;font-weight: bold;background: none;border: none;font-size: 11px;font-family: 'roboto', sans-serif;" href="{{Route('User.perfil', ['user_id' => $destacado->id])}}" >VER / CONTACTAR </a>
+                <hr>
             </div>
-    </div>
-    </div>
+            <div class="col-2" style="padding: 0px 0px 0px 10px;">
+                @if($destacado->points < 2)
+                <p style="font-size: 11px;"><span style="color: #d84747;"><i class="fa fa-star"></i></span>
+                <span style="color: #d84747;"><strong>{{round($destacado->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                @elseif($destacado->points == 4)
+                <p style="font-size: 10px;"><span style="color: #838383"><i class="fa fa-star"></i></span></p>
+                @elseif($destacado->points >= 3 && $destacado->points < 4)
+                <p style="font-size: 11px;"><span style="color: #d66514;"><i class="fa fa-star"></i></span>
+                <span style="color: #d66514;"><strong>{{round($destacado->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                @elseif($destacado->points > 4 && $destacado->points < 5)
+                <p style="font-size: 11px;"><span style="color: #28af77"><i class="fa fa-star"></i></span>
+                <span style="color: #28af77"><strong>{{round($destacado->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                @elseif($destacado->points == 5)
+                <p style="font-size: 11px;"><span style="color: #ffc107"><i class="fa fa-star"></i></span>
+                <span style="color: #ffc107"><strong>{{round($destacado->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                @endif
+            </div>
+
+        </div>
+        </div>
+    @endif
+    @endforeach
+</div>
+<div class="container responsive" style="padding: 17px; margin-top: -25px;padding-left: 10px;">
+<a style="font-size: 13px;font-weight: bold;color: #1886fc;padding:10px;" href="/list">Ver todos <i class="fa fa-arrow-right" style="padding: 10px;float: right;margin-top: -3px;"></i></a>
+</div>
+</div>
+    @endif
+@endif
+
+
+
+<div class="responsive bg-white ml-2 mr-2 mt-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
+    <div class="container">
+        <div class="row">
+            <div class="col-8" style="padding: 14px;">
+                    <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;font-size: 14px;" class="font-weight-bold">¿Querés aparecer?</h6>
+                    <p class="text-muted" style="font-size: 12px;">Registrate como profesional y que el trabajo te busque a vos!</p>
+                    <a style="font-size: 10px;font-weight: bold;color: #1886fc;padding: 5px;" href="/register">REGISTRARME COMO PROFESIONAL</a>
+            </div>
+            <div class="col-4">
+                <img src="img/nuevos.svg" style="margin-top:30px;">
+            </div>
+        </div>
+</div>
+</div>
+
+
+
 
 
     <section id="section-questions" class="home-one style2" style="background-size: cover; height: 100%;background: #fafafa">
@@ -162,33 +228,96 @@ use Carbon\Carbon;
 			</div>
 		</div>
     </section>
-    @php
-    $carbon = Carbon::now('America/Argentina/Buenos_Aires');
-    $day = $carbon->isoFormat('dddd');
-    $hour = $carbon->format('H:i:s');
-    if($day == 'Monday'){
-        $day = 'lunes';
-    }
-    if($day == 'Tuesday'){
-        $day = 'martes';
-    }
-    if($day == 'Wednesday'){
-        $day = 'miercoles';
-    }
-    if($day == 'Thursday'){
-        $day = 'jueves';
-    }
-    if($day == 'Friday'){
-        $day = 'viernes';
-    }
-    if($day == 'Saturday'){
-        $day ='sabado';
-    }
-    if($day == 'Sunday'){
-        $day = 'domingo';
-    }
 
-@endphp
+
+@if(isset($inspirados))
+    @if($inspirados != '')
+<div class="bg-white ml-2 mr-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
+    <div class="container">
+        <div class="row responsive">
+            <div class="col-12" style="padding: 12px;">
+                    <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">Inspirado en lo último que viste</h6>
+                    <p class="text-muted" style="font-size: 12px;">A continuación se mostrarán algunos profesonales relacionados con tu última visita. </p>
+            </div>
+        </div>
+        @foreach($inspirados as $inspirado)
+        @if($inspirado->rol == 'profesional')
+    <div id="list-responsive" class="mt-2">
+        <div class="row bg-white">
+            <div class="col-3">
+                <img style="border-radius: 4px;" class="img-fluid" @if($inspirado->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="images/large/{{$inspirado->img}}" @endif alt="{{$inspirado->name}}">
+            </div>
+            <div class="col-7">
+                @if($inspirado->{'inhourafter'.$day} && $inspirado->{'outhourafter'.$day})
+                    @if($hour >= $inspirado->{'inhour'.$day} && $hour <= $inspirado->{'outhour'.$day})
+                        <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-success">Disponible</p>
+                    @elseif($hour >= $inspirado->{'inhourafter'.$day} && $hour <= $inspirado->{'outhourafter'.$day})
+                        <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-success">Disponible</p>
+                    @elseif($hour > $inspirado->{'outhour'.$day} && $hour < $inspirado->{'inhourafter'.$day})
+                        <span style="margin-bottom: 0px;font-size: 10px;font-weight: bold;color: #eb6c0a">Disponible a las @php echo date('G:i',strtotime($inspirado->{'inhourafter'.$day} ))@endphp hs </span>
+                    @else
+                     <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-danger">No Disponible</p>
+                    @endif
+                 @else
+                    @if($hour >= $inspirado->{'inhour'.$day} && $hour <= $inspirado->{'outhour'.$day})
+                        <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-success">Disponible</p>
+                    @else
+                        <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-danger">No Disponible</p>
+                    @endif
+                @endif
+                <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: 600"> {{ ucfirst($inspirado->job)}}</h4>
+                <p style="font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$inspirado->job}}">@if($inspirado->verify == 2)<img height="13px" src="img-icons/verify.webp"/>@endif {{ ucfirst($inspirado->name) }}</a></p>
+
+                @if($inspirado->destacado)<p style="margin-bottom: -7px;margin-top: -7px"><span class="badge badge-warning" style="font-size: 9px; background: gainsboro;padding: 3px;color: #2f2f2f;">DESTACADO</span></p> @endif
+                @if(!$inspirado->destacado)
+                @if($inspirado->presupuesto)<div class="text-success" style="font-size: 10px;margin-top: -1px;">PRESUPUESTO SIN CARGO </div>@endif
+                @endif
+                <a class="stretched-link" style="text-decoration: none;  color: #2e86fc;font-weight: bold;background: none;border: none;font-size: 11px;font-family: 'roboto', sans-serif;" href="{{Route('User.perfil', ['user_id' => $inspirado->id])}}" >VER / CONTACTAR </a>
+                <hr>
+            </div>
+            <div class="col-2" style="padding: 0px 0px 0px 10px;">
+                @if($inspirado->points < 2)
+                <p style="font-size: 11px;"><span style="color: #d84747;"><i class="fa fa-star"></i></span>
+                <span style="color: #d84747;"><strong>{{round($inspirado->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                @elseif($inspirado->points == 4)
+                <p style="font-size: 10px;"><span style="color: #838383"><i class="fa fa-star"></i></span></p>
+                @elseif($inspirado->points >= 3 && $inspirado->points < 4)
+                <p style="font-size: 11px;"><span style="color: #d66514;"><i class="fa fa-star"></i></span>
+                <span style="color: #d66514;"><strong>{{round($inspirado->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                @elseif($inspirado->points >= 4 && $inspirado->points < 5)
+                <p style="font-size: 11px;"><span style="color: #28af77"><i class="fa fa-star"></i></span>
+                <span style="color: #28af77"><strong>{{round($inspirado->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                @elseif($inspirado->points == 5)
+                <p style="font-size: 11px;"><span style="color: #ffc107"><i class="fa fa-star"></i></span>
+                <span style="color: #ffc107"><strong>{{round($inspirado->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                @endif
+            </div>
+
+        </div>
+        </div>
+    @endif
+    @endforeach
+</div>
+<div class="container responsive" style="padding: 17px; margin-top: -25px;padding-left: 10px;">
+<a style="font-size: 13px;font-weight: bold;color: #1886fc;padding:10px;" <?php foreach($inspirados as $inspirado){$job = $inspirado->job;} ?> href="/busqueda?search={{$job}}">Ver todos <i class="fa fa-arrow-right" style="padding: 10px;float: right;margin-top: -3px;"></i></a>
+</div>
+</div>
+    @endif
+@endif
+
+<div class="bg-white ml-2 mr-2 mt-2 mb-2 responsive" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
+    <div class="container">
+        <div class="row">
+            <div class="col-12" style="padding: 14px;">
+                    <h6 style="margin-top: 10px; margin-bottom: 0px;font-family: 'Lato', sans-serif;font-size: 14px;" class="font-weight-bold">¿Todavía no tenés experiencia laboral?</h6>
+                    <p class="text-muted" style="font-size: 12px;">Pensamos en un espacio para que no te quedes afuera de nuestro sitio. Registrate como "Aspirante" y aparecé en la búsqueda de los empleadores de la ciudad o también como recomendación para las búsquedas de profesionales diarias.</p>
+                    <a style="font-size: 10px;font-weight: bold;color: #1886fc;padding: 5px;" href="/register">REGISTRARME COMO ASPIRANTE</a>
+            </div>
+        </div>
+</div>
+</div>
+
+
 
     <div class="bg-white ml-2 mr-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
 		<div class="container">
@@ -274,7 +403,7 @@ use Carbon\Carbon;
                 </div>
                     @endif
                 @endfor
-                <div class="container no-responsive" style="padding: 17px; padding-left: 0px;">
+                <div class="container no-responsive" style="padding: 17px; padding-left: 10px;">
                     <hr>
                     <a style="font-size: 16px;font-weight: bold;color: #1886fc;padding:10px;" href="/lista">Ver todos los profesionales<i class="fa fa-arrow-right" style="padding: 10px;float: right;margin-top: -3px;"></i></a>
                 </div>
@@ -306,10 +435,13 @@ use Carbon\Carbon;
                                     <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-danger">No Disponible</p>
                                 @endif
                             @endif
-                            <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: 600">@if($last->verify == 2)<img height="13px" src="img-icons/verify.webp"/>@endif {{ ucfirst($last->job)}}</h4>
-                            <p style="font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">{{ ucfirst($last->name) }}</a></p>
+                            <h4 style="font-size: 14px; margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;font-weight: 600">{{ ucfirst($last->job)}}</h4>
+                            <p style="font-size: 12px;margin-bottom: 0px;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;"><a style="color: #7f7f7f" href="/busqueda?search={{$last->job}}">@if($last->verify == 2)<img height="13px" src="img-icons/verify.webp"/>@endif {{ ucfirst($last->name) }}</a></p>
 
-                            @if($last->presupuesto)<div class="text-success" style="font-size: 11px;margin-top: -1px;">PRESUPUESTO SIN CARGO</div>@endif
+                            @if($last->destacado)<p style="margin-bottom: -7px;margin-top: -7px"><span class="badge badge-warning" style="font-size: 9px; background: gainsboro;padding: 3px;color: #2f2f2f;">DESTACADO</span></p> @endif
+                @if(!$last->destacado)
+                @if($last->presupuesto)<div class="text-success" style="font-size: 10px;margin-top: -1px;">PRESUPUESTO SIN CARGO </div>@endif
+                @endif
                             <a class="stretched-link" style="text-decoration: none;  color: #2e86fc;font-weight: bold;background: none;border: none;font-size: 11px;font-family: 'roboto', sans-serif;" href="{{Route('User.perfil', ['user_id' => $last->id])}}" >VER / CONTACTAR </a>
                             <hr>
                         </div>
@@ -317,6 +449,8 @@ use Carbon\Carbon;
                             @if($last->points < 2)
                             <p style="font-size: 11px;"><span style="color: #d84747;"><i class="fa fa-star"></i></span>
                             <span style="color: #d84747;"><strong>{{round($last->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                            @elseif($last->points == 4)
+                            <p style="font-size: 10px;"><span style="color: #838383"><i class="fa fa-star"></i></span></p>
                             @elseif($last->points >= 3 && $last->points < 4)
                             <p style="font-size: 11px;"><span style="color: #d66514;"><i class="fa fa-star"></i></span>
                             <span style="color: #d66514;"><strong>{{round($last->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
@@ -337,7 +471,7 @@ use Carbon\Carbon;
                 @endif
                 @endforeach
             </div>
-            <div class="container responsive" style="padding: 17px; margin-top: -25px;padding-left: 0px;">
+            <div class="container responsive" style="padding: 17px; margin-top: -25px;padding-left: 10px;">
             <a style="font-size: 13px;font-weight: bold;color: #1886fc;padding:10px;" href="/lista">Ver todos los profesionales<i class="fa fa-arrow-right" style="padding: 10px;float: right;margin-top: -3px;"></i></a>
             </div>
 		</div>
@@ -379,7 +513,7 @@ use Carbon\Carbon;
 			<div class="row responsive">
 				<div class="col-12" style="padding: 12px;">
                         <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">Lo nuevo en <strong>cuidado personal</strong></h6>
-                        <div class="container" style="padding: 10px 0px 0px 0px">
+                        <div class="container" style="padding: 10px 0px 5px 0px">
                             <div class="swiper-container3">
                                 <div class="swiper-wrapper">
                                     @foreach($cuidados as $cuidado)
@@ -429,7 +563,7 @@ use Carbon\Carbon;
 			<div class="row responsive">
 				<div class="col-12" style="padding: 12px;">
                         <h6 style="margin-bottom: 0px;font-family: 'Lato', sans-serif;" class="font-weight-bold">Lo nuevo en hogar y construcción</h6>
-                        <div class="container" style="padding: 10px 0px 0px 0px">
+                        <div class="container" style="padding: 10px 0px 5px 0px">
                             <div class="swiper-container3">
                                 <div class="swiper-wrapper">
                                     @foreach($hogares as $hogar)

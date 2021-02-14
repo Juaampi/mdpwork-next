@@ -756,11 +756,13 @@ class UserController extends Controller
         $user_id_ultimo = View::where('ip','=', $ip)->orderBy('id', 'desc')->take(1)->get();
         foreach($user_id_ultimo as $user){
         $ultimosvistos = User::find($user->user_id);
+        $inspirados = User::where('rol', '=', 'profesional')->where('job', '=', $ultimosvistos->job)->orderBy('destacado', 'desc')->take(4)->get();
         }
+
         $coments = Coment::all();
 
 
-        return view('welcome', ['destacados' => $destacados, 'ultimosvistos' => $ultimosvistos, 'cuidados' => $cuidados, 'hogares' => $hogares, 'cantidadesarray' => $cantidades, 'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $ultimos, 'subcategories' => $subcategories, 'coments' => $coments]);
+        return view('welcome', ['inspirados' => $inspirados, 'destacados' => $destacados, 'ultimosvistos' => $ultimosvistos, 'cuidados' => $cuidados, 'hogares' => $hogares, 'cantidadesarray' => $cantidades, 'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $ultimos, 'subcategories' => $subcategories, 'coments' => $coments]);
     }
 
 
@@ -921,8 +923,12 @@ class UserController extends Controller
 }
 
 
-    public function disponible(Request $request){
-        $last = User::find($request['user_id']);
+    /* public function disponibles(array $usuarios){
+
+        $lastest = $usuarios;
+        $disponibles = [];
+        foreach($lastest as $last){
+        $last = User::find($last->id);
         $disponible = false;
         $carbon = Carbon::now('America/Argentina/Buenos_Aires');
         $day = $carbon->isoFormat('dddd');
@@ -949,8 +955,12 @@ class UserController extends Controller
                  $disponible = false;
                 }
         }
-        return $disponible;
+        if($disponible){
+            array_push($disponibles, $last);
+        }
     }
+    return $disponibles;
+    } */
 
     public function ordenarPorPuntaje(Request $request){
 

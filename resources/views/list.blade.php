@@ -520,10 +520,12 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                                         @if($last->points < 2)
                                         <p style="font-size: 11px;"><span style="color: #d84747;"><i class="fa fa-star"></i></span>
                                         <span style="color: #d84747;"><strong>{{round($last->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                                        @elseif($last->points == 4)
+                                        <p style="font-size: 10px;"><span style="color: #838383"><i class="fa fa-star"></i></span></p>
                                         @elseif($last->points >= 3 && $last->points < 4)
                                         <p style="font-size: 11px;"><span style="color: #d66514;"><i class="fa fa-star"></i></span>
                                         <span style="color: #d66514;"><strong>{{round($last->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
-                                        @elseif($last->points >= 4 && $last->points < 5)
+                                        @elseif($last->points > 4 && $last->points < 5)
                                         <p style="font-size: 11px;"><span style="color: #28af77"><i class="fa fa-star"></i></span>
                                         <span style="color: #28af77"><strong>{{round($last->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
                                         @elseif($last->points == 5)
@@ -566,10 +568,12 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                             @if($aspirante->points < 2)
                             <p style="font-size: 11px;"><span style="color: #d84747;"><i class="fa fa-star"></i></span>
                             <span style="color: #d84747;"><strong>{{round($aspirante->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                            @elseif($aspirante->points == 4)
+                            <p style="font-size: 10px;"><span style="color: #838383"><i class="fa fa-star"></i></span></p>
                             @elseif($aspirante->points >= 3 && $aspirante->points < 4)
                             <p style="font-size: 11px;"><span style="color: #d66514;"><i class="fa fa-star"></i></span>
                             <span style="color: #d66514;"><strong>{{round($aspirante->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
-                            @elseif($aspirante->points >= 4 && $aspirante->points < 5)
+                            @elseif($aspirante->points > 4 && $aspirante->points < 5)
                             <p style="font-size: 11px;"><span style="color: #28af77"><i class="fa fa-star"></i></span>
                             <span style="color: #28af77"><strong>{{round($aspirante->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
                             @elseif($aspirante->points == 5)
@@ -635,10 +639,12 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                     @if($masvisto->points < 2)
                     <p style="font-size: 10px;"><span style="color: #d84747;"><i class="fa fa-star"></i></span>
                     <span style="color: #d84747;"><strong>{{round($masvisto->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+                    @elseif($masvisto->points == 4)
+                    <p style="font-size: 10px;"><span style="color: #838383"><i class="fa fa-star"></i></span></p>
                     @elseif($masvisto->points >= 3 && $masvisto->points < 4)
                     <p style="font-size: 10px;"><span style="color: #d66514;"><i class="fa fa-star"></i></span>
                     <span style="color: #d66514;"><strong>{{round($masvisto->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
-                    @elseif($masvisto->points >= 4 && $masvisto->points < 5)
+                    @elseif($masvisto->points > 4 && $masvisto->points < 5)
                     <p style="font-size: 10px;"><span style="color: #28af77"><i class="fa fa-star"></i></span>
                     <span style="color: #28af77"><strong>{{round($masvisto->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
                     @elseif($masvisto->points == 5)
@@ -672,10 +678,12 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
     @if($mascomentado->points < 2)
     <p style="font-size: 10px;"><span style="color: #d84747;"><i class="fa fa-star"></i></span>
     <span style="color: #d84747;"><strong>{{round($mascomentado->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
+    @elseif($mascomentado->points == 4)
+    <p style="font-size: 10px;"><span style="color: #838383"><i class="fa fa-star"></i></span></p>
     @elseif($mascomentado->points >= 3 && $mascomentado->points < 4)
     <p style="font-size: 10px;"><span style="color: #d66514;"><i class="fa fa-star"></i></span>
     <span style="color: #d66514;"><strong>{{round($mascomentado->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
-    @elseif($mascomentado->points >= 4 && $mascomentado->points < 5)
+    @elseif($mascomentado->points > 4 && $mascomentado->points < 5)
     <p style="font-size: 10px;"><span style="color: #28af77"><i class="fa fa-star"></i></span>
     <span style="color: #28af77"><strong>{{round($mascomentado->points, 1, PHP_ROUND_HALF_UP)}}</strong></span></p>
     @elseif($mascomentado->points == 5)

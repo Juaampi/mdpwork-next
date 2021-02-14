@@ -367,6 +367,16 @@ use Carbon\Carbon;
                         <p style="font-size: 14px;"><span style="color: #bbbbbb"></span><strong>Experiencia en:</strong> @if($user->experienciaen){{ucfirst($user->experienciaen)}} @else El aspirante aún no completó sus aspiraciones @endif </p>
                         @endif
                         @if($user->rol == 'profesional')
+                        @if($user->points == 4)
+
+                        <ul style="margin-bottom: 10px;color: white">
+                            <li style="display: inline"><i class="fa fa-star" style="text-shadow: 0 0 2px #000000;"></i></li><li style="display: inline"><i style="text-shadow: 0 0 2px #000000;" class="fa fa-star"></i></li><li style="display: inline"><i style="text-shadow: 0 0 2px #000000;" class="fa fa-star"></i></li><li style="display: inline"><i style="text-shadow: 0 0 2px #000000;" class="fa fa-star"></i></li><li style="display: inline"><i style="text-shadow: 0 0 2px #000000;" class="fa fa-star"></i></li>
+                            <li style="display: inline">
+                            <span style="font-size: 12px; margin-bottom: -5px; margin-top: 10px;margin-left: 5px;" class="text-muted">@if($cantComent == 0) Sin opiniones @elseif($cantComent == 1) 1 opinión @elseif($cantComent > 1) {{$cantComent}} opiniones @endif - {{$user->views()->count()}} visitas</span>
+                            </li>
+                        </ul>
+
+                        @else
                         <ul style="margin-bottom: 10px;color: #17a2b8">
                             <li style="display: inline"><i class="fa fa-star"></i></li><li style="display: inline"><i class="fa fa-star"></i></li><li style="display: inline"><i class="fa fa-star"></i></li><li style="display: inline"><i class="fa fa-star"></i></li><li style="display: inline"><i @if($user->points < 5) class="fa fa-star-half" @else class="fa fa-star" @endif></i></li>
                             <li style="display: inline; color: gray;font-size: 12px;">({{$user->points}})</li>
@@ -374,6 +384,7 @@ use Carbon\Carbon;
                             <span style="font-size: 12px; margin-bottom: -5px; margin-top: 10px;margin-left: 5px;" class="text-muted">@if($cantComent == 0) Sin opiniones @elseif($cantComent == 1) 1 opinión @elseif($cantComent > 1) {{$cantComent}} opiniones @endif - {{$user->views()->count()}} visitas</span>
                             </li>
                         </ul>
+                        @endif
                         @endif
 
                         @if($user->verify == 2)
