@@ -520,7 +520,7 @@ if($day == 'Sunday'){
                                   <div class="swiper-slide">
                                       <div class="card">
                                     <a class="card-block stretched-link text-decoration-none" href="/perfil?user_id={{$cuidado->id}}"></a>
-                                      <img style="height: 70px;width: 70px;margin-left: 25px;@if($cuidado->img != 'logo.png') padding: 5px;border-radius: 111px; @else padding: 10px; @endif" @if($cuidado->img == 'logo.png') src="img-perfil/user-circle.png" @else src="images/large/{{$cuidado->img}}" @endif>
+                                      <img style="height: 70px;width: 70px;margin-left: 20px;@if($cuidado->img != 'logo.png') padding: 5px;border-radius: 111px; @else padding: 10px; @endif" @if($cuidado->img == 'logo.png') src="img-perfil/user-circle.png" @else src="images/large/{{$cuidado->img}}" @endif>
                                       <div class="card-body" style="padding: 10px;margin-top: -10px;">
                                           <p style="color: black;font-size: 10px;font-weight: bold; margin: 0px;;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">@if($cuidado->verify == 2) <img height="13" src="img-icons/verify.webp"> @endif {{$cuidado->name}}</p>
                                         <p style="font-size: 10px; font-weight: bold; margin: 0px;;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{ ucfirst($cuidado->job)}}</p>
