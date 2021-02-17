@@ -756,10 +756,10 @@ class UserController extends Controller
         $user_id_ultimo = View::where('ip','=', $ip)->orderBy('id', 'desc')->take(1)->get();
         foreach($user_id_ultimo as $user){
             $ultimosvistos = User::find($user->user_id);
-            if($ultimosvistos != ""){
+            if($ultimosvistos != "" && $ultimosvistos != null){
                 $inspirados = User::where('rol', '=', 'profesional')->where('job', '=', $ultimosvistos->job)->orderBy('destacado', 'desc')->take(4)->get();
             }else{
-                $inspirados = '';
+                $inspirados = "";
             }
         }
         $coments = Coment::all();
