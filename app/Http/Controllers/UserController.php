@@ -758,12 +758,13 @@ class UserController extends Controller
             $ultimosvistos = User::find($user->user_id);
             if($ultimosvistos != "" && $ultimosvistos != null){
                 $inspirados = User::where('rol', '=', 'profesional')->where('job', '=', $ultimosvistos->job)->orderBy('destacado', 'desc')->take(4)->get();
+                echo 'estoy aca';
             }else{
                 $inspirados = "";
             }
         }
         $coments = Coment::all();
-        return view('welcome', ['inspirados' => $inspirados, 'destacados' => $destacados, 'ultimosvistos' => $ultimosvistos, 'cuidados' => $cuidados, 'hogares' => $hogares, 'cantidadesarray' => $cantidades, 'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $ultimos, 'subcategories' => $subcategories, 'coments' => $coments]);
+        //return view('welcome', ['inspirados' => $inspirados, 'destacados' => $destacados, 'ultimosvistos' => $ultimosvistos, 'cuidados' => $cuidados, 'hogares' => $hogares, 'cantidadesarray' => $cantidades, 'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $ultimos, 'subcategories' => $subcategories, 'coments' => $coments]);
     }
 
 
