@@ -755,13 +755,14 @@ class UserController extends Controller
         $ip = $this->getIp();
         $user_id_ultimo = View::where('ip','=', $ip)->orderBy('id', 'desc')->take(1)->get();
         foreach($user_id_ultimo as $user){
-        $ultimosvistos = User::find($user->user_id);
-        $inspirados = User::where('rol', '=', 'profesional')->where('job', '=', $ultimosvistos->job)->orderBy('destacado', 'desc')->take(4)->get();
+            $ultimosvistos = User::find($user->user_id);
+            if($ultimosvistos != ""){
+                $inspirados = User::where('rol', '=', 'profesional')->where('job', '=', $ultimosvistos->job)->orderBy('destacado', 'desc')->take(4)->get();
+            }else{
+                $inspirados = '';
+            }
         }
-
         $coments = Coment::all();
-
-
         return view('welcome', ['inspirados' => $inspirados, 'destacados' => $destacados, 'ultimosvistos' => $ultimosvistos, 'cuidados' => $cuidados, 'hogares' => $hogares, 'cantidadesarray' => $cantidades, 'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $ultimos, 'subcategories' => $subcategories, 'coments' => $coments]);
     }
 

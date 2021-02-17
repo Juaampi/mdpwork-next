@@ -299,7 +299,7 @@ if($day == 'Sunday'){
     @endforeach
 </div>
 <div class="container responsive" style="padding: 17px; margin-top: -25px;padding-left: 10px;">
-<a style="font-size: 13px;font-weight: bold;color: #1886fc;padding:10px;" <?php if(isset($inspirados)){ foreach($inspirados as $inspirado){$job = $inspirado->job;}} ?> href="/busqueda?search={{$job}}">Ver todos <i class="fa fa-arrow-right" style="padding: 10px;float: right;margin-top: -3px;"></i></a>
+<a style="font-size: 13px;font-weight: bold;color: #1886fc;padding:10px;" <?php if($inspirados != ''){ foreach($inspirados as $inspirado){$job = $inspirado->job;}} ?> href="/busqueda?search={{$job}}">Ver todos <i class="fa fa-arrow-right" style="padding: 10px;float: right;margin-top: -3px;"></i></a>
 </div>
 </div>
     @endif
