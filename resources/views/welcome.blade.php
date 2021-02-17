@@ -86,7 +86,7 @@ if($day == 'Sunday'){
 
     @if(isset($destacados))
     @if($destacados != '')
-<div class="bg-white ml-2 mr-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
+<div class="bg-white ml-2 mr-2 mt-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
     <div class="container">
         <div class="row responsive">
             <div class="col-12" style="padding: 12px;">
@@ -160,7 +160,7 @@ if($day == 'Sunday'){
 
 
 
-<div class="responsive bg-white ml-2 mr-2 mt-2 mb-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
+<div class="responsive bg-white ml-2 mr-2 mt-2" style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
     <div class="container">
         <div class="row">
             <div class="col-8" style="padding: 14px;">
