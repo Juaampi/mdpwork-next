@@ -748,6 +748,7 @@ class UserController extends Controller
 
         $categories = Category::all();
         $ultimosvistos = '';
+        $inspirados = '';
         $ultimos = User::where('rol', '=', 'profesional')->orderBy('created_at', 'desc')->take(6)->get();
         $hogares = User::where('rol', '=', 'profesional')->where('category', '=', 6)->orderBy('created_at', 'desc')->take(20)->get();
         $cuidados = User::where('rol', '=', 'profesional')->where('category', '=', 2)->orderBy('created_at', 'desc')->take(20)->get();
@@ -756,15 +757,10 @@ class UserController extends Controller
         $user_id_ultimo = View::where('ip','=', $ip)->orderBy('id', 'desc')->take(1)->get();
         foreach($user_id_ultimo as $user){
             $ultimosvistos = User::find($user->user_id);
-            if($ultimosvistos != "" && $ultimosvistos != null){
-                $inspirados = User::where('rol', '=', 'profesional')->where('job', '=', $ultimosvistos->job)->orderBy('destacado', 'desc')->take(4)->get();
-            }else{
-                $inspirados = "";
-                echo 'estoy aca';
-            }
+            $inspirados = User::where('rol', '=', 'profesional')->where('job', '=', $ultimosvistos->job)->orderBy('destacado', 'desc')->take(4)->get();
         }
         $coments = Coment::all();
-        //return view('welcome', ['inspirados' => $inspirados, 'destacados' => $destacados, 'ultimosvistos' => $ultimosvistos, 'cuidados' => $cuidados, 'hogares' => $hogares, 'cantidadesarray' => $cantidades, 'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $ultimos, 'subcategories' => $subcategories, 'coments' => $coments]);
+        return view('welcome', ['inspirados' => $inspirados, 'destacados' => $destacados, 'ultimosvistos' => $ultimosvistos, 'cuidados' => $cuidados, 'hogares' => $hogares, 'cantidadesarray' => $cantidades, 'subcategoriesArray' => $array, 'categories' => $categories, 'lastest' => $ultimos, 'subcategories' => $subcategories, 'coments' => $coments]);
     }
 
 
