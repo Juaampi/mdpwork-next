@@ -51,7 +51,7 @@ if($day == 'Sunday'){
                 <div id="list-responsive" class="container">
                     <div class="row bg-white" style="margin-bottom: 10px;">
                         <div class="col-3" style="padding-left: 10px; padding-right: 10px;">
-                            <img style="border-radius: 5px;height: 50px;" class="img-fluid" @if($ultimosvistos->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="images/large/{{$ultimosvistos->img}}" @endif alt="{{$ultimosvistos->name}}">
+                            <img style="border-radius: 5px;height: 50px;" class="img-fluid" @if($ultimosvistos->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="images/small/{{$ultimosvistos->img}}" @endif alt="{{$ultimosvistos->name}}">
                         </div>
                     <div class="col-7">
                     <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;white-space: nowrap;overflow: hidden;text-overflow: ellipsis" class="text-info">{{$ultimosvistos->job}}</p>
@@ -98,7 +98,7 @@ if($day == 'Sunday'){
     <div id="list-responsive" class="mt-2">
         <div class="row bg-white">
             <div class="col-3">
-                <img style="border-radius: 4px;" class="img-fluid" @if($destacado->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="images/large/{{$destacado->img}}" @endif alt="{{$destacado->name}}">
+                <img style="border-radius: 4px;" class="img-fluid" @if($destacado->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="images/small/{{$destacado->img}}" @endif alt="{{$destacado->name}}">
             </div>
             <div class="col-7">
                 @if($destacado->{'inhourafter'.$day} && $destacado->{'outhourafter'.$day})
@@ -245,7 +245,7 @@ if($day == 'Sunday'){
     <div id="list-responsive" class="mt-2">
         <div class="row bg-white">
             <div class="col-3">
-                <img style="border-radius: 4px;" class="img-fluid" @if($inspirado->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="images/large/{{$inspirado->img}}" @endif alt="{{$inspirado->name}}">
+                <img style="border-radius: 4px;" class="img-fluid" @if($inspirado->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="images/small/{{$inspirado->img}}" @endif alt="{{$inspirado->name}}">
             </div>
             <div class="col-7">
                 @if($inspirado->{'inhourafter'.$day} && $inspirado->{'outhourafter'.$day})
@@ -339,7 +339,7 @@ if($day == 'Sunday'){
 				<div class="col-lg-4 mt-3" id="list-no-responsive">
 					<div class="card"  style="border-radius: 6px; box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);">
 						<!-- ACA FINALIZA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
-                            <img class="img-fluid" style="height: 200px" src="images/large/{{$lastest[$i]->img}}">
+                            <img class="img-fluid" style="height: 200px" src="images/small/{{$lastest[$i]->img}}">
                             <div class="card-body">
                                     <!-- OPTIMIZACION DE CODIGO ESTO VA EN LA CONTROLADORA -->
                             @if($lastest[$i]->{'inhourafter'.$day} && $lastest[$i]->{'outhourafter'.$day})
@@ -415,7 +415,7 @@ if($day == 'Sunday'){
                 <div id="list-responsive" class="mt-2">
                     <div class="row bg-white">
                         <div class="col-3">
-                            <img style="border-radius: 4px;" class="img-fluid" @if($last->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="images/large/{{$last->img}}" @endif alt="{{$last->name}}">
+                            <img style="border-radius: 4px;" class="img-fluid" @if($last->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="images/small/{{$last->img}}" @endif alt="{{$last->name}}">
                         </div>
                         <div class="col-7">
                             @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
@@ -520,7 +520,7 @@ if($day == 'Sunday'){
                                   <div class="swiper-slide">
                                       <div class="card">
                                     <a class="card-block stretched-link text-decoration-none" href="/perfil?user_id={{$cuidado->id}}"></a>
-                                      <img style="height: 70px;width: 70px;margin-left: 20px;@if($cuidado->img != 'logo.png') padding: 5px;border-radius: 111px; @else padding: 10px; @endif" @if($cuidado->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="images/large/{{$cuidado->img}}" @endif>
+                                      <img style="height: 70px;width: 70px;margin-left: 20px;@if($cuidado->img != 'logo.png') padding: 5px;border-radius: 111px; @else padding: 10px; @endif" @if($cuidado->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="images/small/{{$cuidado->img}}" @endif>
                                       <div class="card-body" style="padding: 10px;margin-top: -10px;">
                                           <p style="color: black;font-size: 10px;font-weight: bold; margin: 0px;;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">@if($cuidado->verify == 2) <img height="13" src="img-icons/verify.webp"> @endif {{$cuidado->name}}</p>
                                         <p style="font-size: 10px; font-weight: bold; margin: 0px;;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{ ucfirst($cuidado->job)}}</p>
@@ -570,7 +570,7 @@ if($day == 'Sunday'){
                                   <div class="swiper-slide">
                                       <div class="card">
                                         <a class="card-block stretched-link text-decoration-none" href="/perfil?user_id={{$hogar->id}}"></a>
-                                        <img style="height: 70px;width: 70px;margin-left: 20px;@if($hogar->img != 'logo.png') padding: 5px;border-radius: 111px; @else padding: 10px; @endif" @if($hogar->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="images/large/{{$hogar->img}}" @endif >
+                                        <img style="height: 70px;width: 70px;margin-left: 20px;@if($hogar->img != 'logo.png') padding: 5px;border-radius: 111px; @else padding: 10px; @endif" @if($hogar->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="images/small/{{$hogar->img}}" @endif >
                                       <div class="card-body" style="padding: 10px;margin-top: -10px;">
                                           <p style="color: black;font-size: 10px;font-weight: bold; margin: 0px;;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">@if($hogar->verify == 2) <img height="13" src="img-icons/verify.webp"> @endif {{$hogar->name}}</p>
 

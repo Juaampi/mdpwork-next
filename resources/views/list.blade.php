@@ -367,7 +367,7 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                             <div id="list-responsive" class="container">
                                 <div class="row bg-white" style="padding: 5px;">
                                     <div class="col-3" style="padding-left: 5px; padding-right: 5px;">
-                                        <img style="border-radius: 10px;" class="img-fluid" src="images/large/{{$destacado->img}}" alt="1.jpg">
+                                        <img style="border-radius: 10px;" class="img-fluid" src="images/small/{{$destacado->img}}" alt="1.jpg">
                                     </div>
                                     <div class="col-8" style="padding-left: 10px; padding: right: 10px;">
                                         <div class="badge badge-warning" style="font-size: 8px;">DESTACADO</div>
@@ -427,7 +427,7 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                                     <!-- ACA FINALIZA ESTA CADA DÍA EL HORARIO DISPONIBLE -->
 
                                     <div class="thumb fn-smd">
-                                        <img class="img-fluid" style="height: 120px; width: 140px;" @if($last->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="images/large/{{$last->img}}" @endif alt="{{$last->name}}">
+                                        <img class="img-fluid" style="height: 120px; width: 140px;" @if($last->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="images/small/{{$last->img}}" @endif alt="{{$last->name}}">
                                         @php $cantComent = 0;$cantPoints = 0;$points = 0;@endphp
                                             @foreach($coments as $coment) @if($coment->user_id == $last->id) @php $cantComent ++; $cantPoints += $coment->point; @endphp @endif @endforeach
                                         @php if($cantPoints != 0){ $points = $cantPoints / $cantComent; }else{ $points = 4; } @endphp
@@ -485,7 +485,7 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                             <div id="list-responsive" class="container">
                                 <div class="row bg-white" style="padding: 5px;">
                                     <div class="col-3" style="padding: 5px;">
-                                        <img style="border-radius: 10px;" class="img-fluid" @if($last->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="images/large/{{$last->img}}" @endif alt="{{$last->name}}">
+                                        <img style="border-radius: 10px;" class="img-fluid" @if($last->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="images/small/{{$last->img}}" @endif alt="{{$last->name}}">
                                     </div>
                                     <div class="col-8" style="padding-left: 10px; padding: right: 10px;">
                                 @if($last->{'inhourafter'.$day} && $last->{'outhourafter'.$day})
@@ -555,7 +555,7 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                 <div id="list-responsive" class="container">
                     <div class="row bg-white" style="padding: 5px;">
                         <div class="col-3" style="padding-left: 5px; padding-right: 5px;">
-                            <img style="border-radius: 10px;" class="img-fluid" src="images/large/{{$aspirante->img}}" alt="1.jpg">
+                            <img style="border-radius: 10px;" class="img-fluid" src="images/small/{{$aspirante->img}}" alt="1.jpg">
                         </div>
                         <div class="col-8" style="padding-left: 10px; padding: right: 10px;">
                         <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-info">Aspirante</p>
@@ -602,7 +602,7 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
                                 @if($relacionado->destacado == 1)
                                     <span class="badge badge-warning" style="position: absolute;font-size: 8px; background: gainsboro;padding: 3px;color: #2f2f2f;">DESTACADO</span>
                                 @endif
-                                <img style="height: 70px;width: 70px;margin-left: 15px;@if($relacionado->img != 'logo.png') padding: 5px;border-radius: 111px; @else padding: 10px; @endif" @if($relacionado->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="images/large/{{$relacionado->img}}" @endif >
+                                <img style="height: 70px;width: 70px;margin-left: 15px;@if($relacionado->img != 'logo.png') padding: 5px;border-radius: 111px; @else padding: 10px; @endif" @if($relacionado->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="images/small/{{$relacionado->img}}" @endif >
                               <div class="card-body" style="padding: 10px;">
                                   <p style="color: black;font-size: 10px;font-weight: bold; margin: 0px;;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">@if($relacionado->verify == 2) <img height="13" src="img-icons/verify.webp"> @endif {{$relacionado->name}}</p>
 
@@ -625,7 +625,7 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
        <div id="list-responsive" class="container">
            <div class="row bg-white">
                 <div class="col-3" style="padding-left: 5px; padding-right: 5px;">
-                   <img style="border-radius: 10px;" class="img-fluid" src="images/large/{{$masvisto->img}}" alt="1.jpg">
+                   <img style="border-radius: 10px;" class="img-fluid" src="images/small/{{$masvisto->img}}" alt="1.jpg">
                </div>
                <div class="col-8">
                <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-info">Más visitado</p>
@@ -664,7 +664,7 @@ $countries = ["9 de Julio","Aeropuerto","Aeroparque","Alfar","Ameghino","Antárt
 <div id="list-responsive" class="container">
 <div class="row bg-white">
     <div class="col-3" style="padding-left: 5px; padding-right: 5px;">
-        <img style="border-radius: 10px;" class="img-fluid" @if($mascomentado->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="images/large/{{$mascomentado->img}}" @endif alt="1.jpg">
+        <img style="border-radius: 10px;" class="img-fluid" @if($mascomentado->img == 'logo.png') src="img-perfil/user-circle-list.png" @else src="images/small/{{$mascomentado->img}}" @endif alt="1.jpg">
     </div>
 <div class="col-8">
 <p style="margin-bottom: 0px;font-size: 10px;font-weight: bold;" class="text-info">Mejor puntuado</p>
